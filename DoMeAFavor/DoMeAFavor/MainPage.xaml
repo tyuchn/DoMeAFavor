@@ -9,6 +9,15 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-<NavigationView></NavigationView>
+<NavigationView  SelectionChanged="NavigationView_OnSelectionChanged">
+    <NavigationView.MenuItems>
+        <NavigationViewItem Icon="home" Content="Home" Tag="HomePage"  />
+        <NavigationViewItemSeparator/>
+        <NavigationViewItem Icon="find" Content="Search" Tag="SearchPage" />
+        <NavigationViewItem Icon="Refresh" Content="Refresh" Tag="RefreshPage" />
+            </NavigationView.MenuItems>
+    <Frame>
+    </Frame>
+        </NavigationView>
     </Grid>
 </Page>

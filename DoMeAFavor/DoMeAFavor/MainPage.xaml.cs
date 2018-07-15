@@ -26,5 +26,27 @@ namespace DoMeAFavor
         {
             this.InitializeComponent();
         }
+
+        private void NavigationView_OnSelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            NavigationViewItem item =
+                args.SelectedItem as NavigationViewItem;
+
+            switch (item.Tag)
+            {
+                case "HomePage":
+                    
+                    Frame.Navigate(typeof(HomePage));
+                    break;
+
+                case "SearchPage":
+                    
+                    Frame.Navigate(typeof(SearchPage));
+                    break;
+
+                
+
+            }
+        }
     }
 }
