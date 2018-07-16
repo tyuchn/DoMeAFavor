@@ -9,6 +9,61 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <StackPanel>
+            <Hub Header="News">
+                <HubSection Header="Latest">
+                    <DataTemplate>
+                        <!-- Content -->
+                    </DataTemplate>
+                </HubSection>
+                <HubSection Header="Tech" IsHeaderInteractive="True" Background="#222222" MinWidth="250" RequestedTheme="Dark" MinHeight="250">
+                    <DataTemplate>
+                        <!-- Content -->
+                    </DataTemplate>
+                </HubSection>
+                <HubSection Header="Tech" IsHeaderInteractive="True" Background="#222222" MinWidth="250" RequestedTheme="Dark">
+                    <DataTemplate>
+                        <!-- Content -->
+                    </DataTemplate>
+                </HubSection>
+                <HubSection Header="Tech" IsHeaderInteractive="True" Background="#222222" MinWidth="250" RequestedTheme="Dark">
+                    <DataTemplate>
+                        <!-- Content -->
+                    </DataTemplate>
+                </HubSection>
+                <HubSection Header="Tech" IsHeaderInteractive="True" Background="#222222" MinWidth="250" RequestedTheme="Dark">
+                    <DataTemplate>
+                        <!-- Content -->
+                    </DataTemplate>
+                </HubSection>
+                <HubSection Header="Tech" IsHeaderInteractive="True" Background="#222222" MinWidth="250" RequestedTheme="Dark">
+                    <DataTemplate>
+                        <!-- Content -->
+                    </DataTemplate>
+                </HubSection>
+                <HubSection Header="Tech" IsHeaderInteractive="True" Background="#222222" MinWidth="250" RequestedTheme="Dark">
+                    <DataTemplate>
+                        <!-- Content -->
+                    </DataTemplate>
+                </HubSection>
+                <HubSection Header="Tech" IsHeaderInteractive="True" Background="#222222" MinWidth="250" RequestedTheme="Dark">
+                    <DataTemplate>
+                        <!-- Content -->
+                    </DataTemplate>
+                </HubSection>
+                <HubSection Header="Tech" IsHeaderInteractive="True" Background="#222222" MinWidth="250" RequestedTheme="Dark">
+                    <DataTemplate>
+                        <!-- Content -->
+                    </DataTemplate>
+                </HubSection>
+                <HubSection Header="Tech" IsHeaderInteractive="True" Background="#222222" MinWidth="250" RequestedTheme="Dark">
+                    <DataTemplate>
+                        <!-- Content -->
+                    </DataTemplate>
+                </HubSection>
+            </Hub>
+           
+        </StackPanel>
 
     </Grid>
 </Page>
