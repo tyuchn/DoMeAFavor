@@ -12,9 +12,11 @@
 
 
     <Grid>
-        <NavigationView  SelectionChanged="NavigationView_OnSelectionChanged" IsBackEnabled="True" IsBackButtonVisible="Auto">
+        <NavigationView x:Name="NavView" SelectionChanged="NavigationView_OnSelectionChanged" IsBackEnabled="True" IsBackButtonVisible="Auto" BackRequested="NavView_BackRequested">
             <NavigationView.MenuItems>
+                <NavigationViewItem Icon="contact" Content="User" Tag="UserPage"  />
                 <NavigationViewItem Icon="home" Content="Home" Tag="HomePage"  />
+                
                 <NavigationViewItemSeparator/>
                 <NavigationViewItem Icon="find" Content="Search" Tag="SearchPage" />
                 <NavigationViewItem Icon="Refresh" Content="Refresh" Tag="RefreshPage" />
