@@ -71,6 +71,8 @@ namespace DoMeAFavor.DataService
                     ClientName = "MVC Client",
                     AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
 
+                    RequireConsent = false,
+
                     ClientSecrets =
                     {
                         new Secret("secret".Sha256())
