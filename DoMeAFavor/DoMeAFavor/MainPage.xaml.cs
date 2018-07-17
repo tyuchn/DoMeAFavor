@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +26,10 @@ namespace DoMeAFavor
         public MainPage()
         {
             this.InitializeComponent();
+            
+
+            
+
         }
 
         private void NavigationView_OnSelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -34,10 +39,15 @@ namespace DoMeAFavor
 
             switch (item.Tag)
             {
-                case "HomePage":
+                case "UserPage":
                     
+                    HomeFrame.Navigate(typeof(UserPage));
+                    break;
+                case "HomePage":
+
                     HomeFrame.Navigate(typeof(HomePage));
                     break;
+
 
                 case "SearchPage":
                     
@@ -48,5 +58,36 @@ namespace DoMeAFavor
 
             }
         }
+        private void NavView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        {
+            On_BackRequested();
+        }
+
+        private void BackInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            On_BackRequested();
+            args.Handled = true;
+        }
+
+        private bool On_BackRequested()
+        {
+            bool navigated = false;
+
+            // don't go back if the nav pane is overlayed
+            if (NavView.IsPaneOpen && (NavView.DisplayMode == NavigationViewDisplayMode.Compact || NavView.DisplayMode == NavigationViewDisplayMode.Minimal))
+            {
+                return false;
+            }
+            else
+            {
+                if (HomeFrame.CanGoBack)
+                {
+                    HomeFrame.GoBack();
+                    navigated = true;
+                }
+            }
+            return navigated;
+        }
+
     }
 }

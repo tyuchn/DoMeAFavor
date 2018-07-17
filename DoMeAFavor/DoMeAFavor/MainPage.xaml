@@ -5,19 +5,24 @@
     xmlns:local="using:DoMeAFavor"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
+    <Page.Background>
+        <ImageBrush ImageSource="Assets/12.jpg" Stretch="UniformToFill"/>
+    </Page.Background>
+
 
     <Grid>
-<NavigationView  SelectionChanged="NavigationView_OnSelectionChanged" IsBackEnabled="True" IsBackButtonVisible="Auto">
-    <NavigationView.MenuItems>
-        <NavigationViewItem Icon="home" Content="Home" Tag="HomePage"  />
-        <NavigationViewItemSeparator/>
-        <NavigationViewItem Icon="find" Content="Search" Tag="SearchPage" />
-        <NavigationViewItem Icon="Refresh" Content="Refresh" Tag="RefreshPage" />
+        <NavigationView x:Name="NavView" SelectionChanged="NavigationView_OnSelectionChanged" IsBackEnabled="True" IsBackButtonVisible="Auto" BackRequested="NavView_BackRequested">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Icon="contact" Content="User" Tag="UserPage"  />
+                <NavigationViewItem Icon="home" Content="Home" Tag="HomePage"  />
+                
+                <NavigationViewItemSeparator/>
+                <NavigationViewItem Icon="find" Content="Search" Tag="SearchPage" />
+                <NavigationViewItem Icon="Refresh" Content="Refresh" Tag="RefreshPage" />
             </NavigationView.MenuItems>
-    <Frame Name="HomeFrame">
-    </Frame>
+            <Frame Name="HomeFrame">
+            </Frame>
         </NavigationView>
     </Grid>
 </Page>
