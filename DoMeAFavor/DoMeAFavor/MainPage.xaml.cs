@@ -36,7 +36,7 @@ namespace DoMeAFavor
             {
                 case "HomePage":
                     
-                    HomeFrame.Navigate(typeof(HomePage));
+                    HomeFrame.Navigate(typeof(LoginPage));
                     break;
 
                 case "SearchPage":
