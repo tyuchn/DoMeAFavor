@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoMeAFavor.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,34 @@ namespace DoMeAFavor
         public SignUpPage()
         {
             this.InitializeComponent();
+        }
+
+        private void SureSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MissionHallPage));
+        }
+        private void Init()
+        {
+            List<Major> majors = new List<Major>();
+            /*for (int i = 0; i < 5; i++)
+            {
+                Major major = new Major();
+                major.Name = "专业" + i;
+              
+                majors.Add(major);
+            }*/
+            Major major = new Major();
+            major.Name = "zhuanye";
+            majors.Add(major);
+            MajorComboBox.ItemsSource = majors;
+            MajorComboBox.DisplayMemberPath = "Name";//显示字段
+            MajorComboBox.SelectedIndex = 0;
+        }
+
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

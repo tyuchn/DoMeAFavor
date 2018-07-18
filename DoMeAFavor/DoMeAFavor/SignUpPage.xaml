@@ -9,7 +9,115 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <StackPanel Margin="20,0,0,0"
+                    Width="auto">
+            <TextBlock Text="欢迎注册DoMeAFavor"
+                       
+                       Margin="50,20,0,0"
+                       FontSize="50"
+                       IsColorFontEnabled="True"
+                       FontStyle="Oblique"
+                       >
+            </TextBlock>
+            <TextBlock Text="请同学按要求注册"
+                       
+                       Margin="70,10,0,0"
+                       FontSize="25"
+                       IsColorFontEnabled="True"
+                       FontStyle="Oblique"
+                       >
+            </TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="I D:学号"
+                           Margin="30,20,0,0"
+                           FontSize="25"></TextBlock>
+                <TextBox Margin="50,20,0,0"
+                         Width="450"
+                         PlaceholderText="请输入学号注册"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="密       码"
+                           Margin="30,20,0,0"
+                           FontSize="25"></TextBlock>
+                <PasswordBox Margin="40,20,0,0"
+                         Width="450"
+                             PasswordChar="*"
+                         PlaceholderText="请设置密码小于18位"></PasswordBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="确认密码"
+                           Margin="30,20,0,0"
+                           FontSize="25"></TextBlock>
+                <PasswordBox Margin="40,20,0,0"
+                         Width="450"
+                         PlaceholderText="请再次输入您的密码"
+                             PasswordChar="*"></PasswordBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="姓       名"
+                           Margin="30,20,0,0"
+                           FontSize="25"></TextBlock>
+                <TextBox Margin="40,20,0,0"
+                         Width="450"
+                         PlaceholderText="请输入真实姓名"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="手  机  号"
+                           Margin="30,20,0,0"
+                           FontSize="25"></TextBlock>
+                <TextBox Margin="40,20,0,0"
+                         Width="450"
+                         PlaceholderText="请输入真实手机号"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="昵        称"
+                           Margin="30,20,0,0"
+                           FontSize="25"></TextBlock>
+                <TextBox Margin="40,20,0,0"
+                         Width="450"
+                         PlaceholderText="请设置您的DoMeAFovor昵称"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="专        业"
+                           Margin="30,20,0,0"
+                           FontSize="25"></TextBlock>
+                <ComboBox Margin="40,20,0,0"
+                          Width="450"
+                          SelectionChanged="ComboBox_SelectionChanged"
+                          x:Name="MajorComboBox">
+                    <ComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ComboBox.ItemsPanel>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="班        级"
+                           Margin="30,20,0,0"
+                           FontSize="25"></TextBlock>
+                <TextBox Margin="40,20,0,0"
+                         Width="450"
+                         PlaceholderText="请输入您的班级"></TextBox>
+            </StackPanel>
+            <Button Content="注册"
+                    Margin="40,40,0,0" RequestedTheme="Light" Visibility="Visible">
+                <Button.Flyout  >
+                    <Flyout>
+                        <StackPanel>
+                            <TextBlock Style="{ThemeResource BaseTextBlockStyle}" 
+                                       Text="请确认您的信息" 
+                                       Margin="0,0,0,12" />
+                            <Button Click="SureSignUp_Click"
+                                    Content="Yes" 
+                                    Name="SureSignUp"/>
+                        
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+            </Button>
+          
+        </StackPanel>
         
-
     </Grid>
 </Page>
