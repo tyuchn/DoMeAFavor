@@ -26,10 +26,7 @@ namespace DoMeAFavor
         public MainPage()
         {
             this.InitializeComponent();
-            
-
-            
-
+           
         }
 
         private void NavigationView_OnSelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -39,13 +36,13 @@ namespace DoMeAFavor
 
             switch (item.Tag)
             {
-                case "UserPage":
+                case "MyPage":
                     
-                    HomeFrame.Navigate(typeof(UserPage));
+                    HomeFrame.Navigate(typeof(MyPage));
                     break;
-                case "HomePage":
+                case "MissionHall":
 
-                    HomeFrame.Navigate(typeof(HomePage));
+                    HomeFrame.Navigate(typeof(MissionHallPage));
                     break;
 
 
@@ -53,7 +50,9 @@ namespace DoMeAFavor
                     
                     HomeFrame.Navigate(typeof(SearchPage));
                     break;
-
+                case  "head":
+                    HomeFrame.Navigate(typeof(LoginPage));
+                    break;
                 
 
             }

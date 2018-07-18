@@ -20,16 +20,18 @@ namespace DoMeAFavor
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class UserPage : Page
-    {
-        public UserPage()
+    public sealed partial class MyPage : Page
+    {   /// <summary>
+        ///个人主页 
+        /// </summary>
+        public MyPage()
         {
             this.InitializeComponent();
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(LoginPage));
+
         }
     }
 }
