@@ -70,7 +70,7 @@
                          PlaceholderText="请输入真实手机号"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="昵        称"
+                <TextBlock Text="用  户  名"
                            Margin="30,20,0,0"
                            FontSize="25"></TextBlock>
                 <TextBox Margin="40,20,0,0"
@@ -84,12 +84,33 @@
                 <ComboBox Margin="40,20,0,0"
                           Width="450"
                           SelectionChanged="ComboBox_SelectionChanged"
-                          x:Name="MajorComboBox">
+                          PlaceholderText="请选择你的专业"
+                          
+                          x:Name="MajorComboBox" >
+                    <ComboBoxItem>
+                       计算机
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        马克思主义专业
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        自动化专业
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        软件
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        中荷医学
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        冶金
+                    </ComboBoxItem>
                     <ComboBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Vertical"/>
                         </ItemsPanelTemplate>
                     </ComboBox.ItemsPanel>
+                    
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">

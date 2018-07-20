@@ -1,5 +1,4 @@
-﻿using DoMeAFavor.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,24 +20,11 @@ namespace DoMeAFavor
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class SignUpPage : Page
+    public sealed partial class SettingPage : Page
     {
-        public SignUpPage()
+        public SettingPage()
         {
             this.InitializeComponent();
-        }
-
-        private void SureSignUp_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(MissionHallPage));
-        }
-
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-           
-
         }
     }
 }

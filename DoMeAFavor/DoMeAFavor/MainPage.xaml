@@ -12,21 +12,45 @@
 
 
     <Grid>
-        
-        <NavigationView x:Name="NavView" SelectionChanged="NavigationView_OnSelectionChanged" IsBackEnabled="True" IsBackButtonVisible="Auto" BackRequested="NavView_BackRequested">
+
+        <NavigationView x:Name="DoMeAFavor" SelectionChanged="NavigationView_OnSelectionChanged" IsBackEnabled="True" 
+                        IsBackButtonVisible="Auto"  BackRequested="NavView_BackRequested"
+                        ItemInvoked="DoMeAFavor_ItemInvoked"
+                        IsTabStop="False"
+                        IsSettingsVisible="true">
            
             <NavigationView.MenuItems>
-        <PersonPicture ProfilePicture="https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/images/shoulder-tap-static-payload.png" 
-                       Margin="0,-5"/>
                 
-                <NavigationViewItem Icon="contact" Content="头像" Tag="head"  />
+        <PersonPicture ProfilePicture="https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/images/shoulder-tap-static-payload.png" 
+                       Margin="0,-6"/>
+                
+                <NavigationViewItem Icon="phone" Content="头像" Tag="head"  />
                 <NavigationViewItemSeparator/>
+                <NavigationViewItem Content="Main"
+                                    FontSize="30"/>
+                
                 <NavigationViewItem Icon="contact" Content="我的主页" Tag="MyPage"  />
                 <NavigationViewItem Icon="home" Content="任务大厅" Tag="MissionHall"  />
-                <NavigationViewItem Icon="Refresh" Content="Refresh" Tag="RefreshPage" />
+                <NavigationViewItem Icon="play" Content="校园广场" Tag="RefreshPage" />
+                <NavigationViewItem Icon="people" Content="我的好友" Tag="MyFriend" />
             </NavigationView.MenuItems>
             <Frame Name="HomeFrame">
+                <StackPanel Margin="150,150,50,50"
+                            Width="auto">
+                    <TextBlock Text="欢迎使用DoMeAFavor " FontFamily="Arial"
+                               Margin="50,50,10,50"
+                        FontSize="50" FontStyle="Italic" TextWrapping="WrapWholeWords"
+                           CharacterSpacing="200" Foreground="CornflowerBlue" />
+                    <TextBlock Text="希望您使用愉快 " FontFamily="Arial"
+                               Margin="50,50,50,50"
+                        FontSize="50" FontStyle="Italic" TextWrapping="WrapWholeWords"
+                           CharacterSpacing="200" Foreground="CornflowerBlue" />
+                </StackPanel>
             </Frame>
         </NavigationView>
+        <StackPanel>
+           
+            
+        </StackPanel>
     </Grid>
 </Page>

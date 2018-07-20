@@ -53,9 +53,10 @@ namespace DoMeAFavor
                 case  "head":
                     HomeFrame.Navigate(typeof(LoginPage));
                     break;
-                
+
 
             }
+           
         }
         private void NavView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
         {
@@ -73,7 +74,7 @@ namespace DoMeAFavor
             bool navigated = false;
 
             // don't go back if the nav pane is overlayed
-            if (NavView.IsPaneOpen && (NavView.DisplayMode == NavigationViewDisplayMode.Compact || NavView.DisplayMode == NavigationViewDisplayMode.Minimal))
+            if (DoMeAFavor.IsPaneOpen && (DoMeAFavor.DisplayMode == NavigationViewDisplayMode.Compact || DoMeAFavor.DisplayMode == NavigationViewDisplayMode.Minimal))
             {
                 return false;
             }
@@ -88,5 +89,12 @@ namespace DoMeAFavor
             return navigated;
         }
 
+        private void DoMeAFavor_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+            if (args.IsSettingsInvoked)
+            {
+                HomeFrame.Navigate(typeof(SettingPage));
+            }
+        }
     }
 }
