@@ -53,6 +53,9 @@ namespace DoMeAFavor
                 case  "head":
                     HomeFrame.Navigate(typeof(LoginPage));
                     break;
+                case "MyMoney":
+                    HomeFrame.Navigate(typeof(MyMoneyPage));
+                    break;
 
 
             }
