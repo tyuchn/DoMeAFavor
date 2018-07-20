@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using DoMeAFavor.Models;
 using Newtonsoft.Json;
 
@@ -16,11 +17,13 @@ namespace DoMeAFavor.Services
     {
         /******** 私有变量 ********/
 
-        /// <summary>
-        /// 服务端点。
-        /// </summary>
-        private const string ServiceEndpoint =
-            "";
+        private List<Mission> missions = new List<Mission>
+        {
+            new Mission{MissionId = 1,MissionName = "Delivery", Message = "KFC",Date = DateTime.Now},
+            new Mission{MissionId = 2,MissionName = "TakeOverClass", Message = "Hurry", Date = DateTime.Parse("2018-07-24 11:45")},
+            new Mission{MissionId = 3,MissionName = "Homework", Message = "Math",Date = DateTime.Now}
+        };
+
 
         /******** 公开属性 ********/
 
@@ -32,12 +35,8 @@ namespace DoMeAFavor.Services
         /// <returns>所有任务。</returns>
         public async Task<IEnumerable<Mission>> ListAsync()
         {
-            using (var client = new HttpClient())
-            {
-                var json = await client.GetStringAsync(ServiceEndpoint);
-                var missions = JsonConvert.DeserializeObject<Mission[]>(json);
-                return missions;
-            }
+            
+            return missions;
         }
 
         /// <summary>
@@ -46,16 +45,49 @@ namespace DoMeAFavor.Services
         /// <param name="mission">要更新的任务。</param>
         public async Task UpdateAsync(Mission mission)
         {
-            using (var client = new HttpClient())
+            missions.Add(mission);
+        }
+
+        /// <summary>
+        /// 增加任务
+        /// </summary>
+        /// <returns></returns>
+        public async Task AddAsync(string missionname, string message, DateTime datetime)
+        {
+            int id = 0;
+            foreach (var mission in missions)
             {
-                var json = JsonConvert.SerializeObject(mission);
-                await client.PutAsync(ServiceEndpoint + "/" + mission.MissionId,
-                    new StringContent(json, Encoding.UTF8,
-                        "application/json")); // 如为 new StringContent(json) 则不工作。
+                if (mission.MissionId > id)
+                {
+                    id += mission.MissionId;
+                }
+            }
+
+            Mission newmission = new Mission
+            {
+                MissionId = id,
+                MissionName = missionname,
+                Message = message,
+                Date = datetime
+            };
+            missions.Add(newmission);
+        }
+
+
+
+
+        public async Task DeleteAsync(Mission mission)
+        {
+            foreach (var Mission in missions)
+            {
+                if (Mission.MissionId == mission.MissionId)
+                {
+                    missions.Remove(Mission);
+                }
             }
         }
 
-        
+
 
 
         /******** 公开方法 ********/

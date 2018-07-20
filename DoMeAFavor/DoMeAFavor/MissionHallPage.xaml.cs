@@ -12,7 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using DoMeAFavor.Models;
+using DoMeAFavor.ViewModels;
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
 namespace DoMeAFavor
@@ -40,6 +41,11 @@ namespace DoMeAFavor
         private void SearchText_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
         {
 
+        }
+
+        private void HallGridView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

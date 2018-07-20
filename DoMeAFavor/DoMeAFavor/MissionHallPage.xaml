@@ -5,10 +5,27 @@
     xmlns:local="using:DoMeAFavor"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:DoMeAFavor.ViewModels"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:models="using:DoMeAFavor.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Page.Resources>
+        <DataTemplate x:DataType="models:Mission" x:Key="MissionDataTemplate">
+            <StackPanel HorizontalAlignment="Center">
+                
+                <TextBlock FontSize="16" Text="{x:Bind MissionName}" HorizontalAlignment="Center" FontFamily="Comic Sans MS" />
+                <TextBlock FontSize="10" Text="{x:Bind Date}" HorizontalAlignment="Center" />
+                <TextBlock FontSize="10" Text="{x:Bind Message}" HorizontalAlignment="Center" />
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Page.DataContext>
+        <Binding Source="{StaticResource HallPageViewModel}" />
+    </Page.DataContext>
     <Grid>
+
         <StackPanel Width="auto"
             Margin="0,0,0,0">
             <AutoSuggestBox PlaceholderText="Type a search name"
@@ -20,17 +37,44 @@
                QuerySubmitted="SearchText_QuerySubmitted"
                 SuggestionChosen="SearchText_SuggestionChosen"
                             Width="500"/>
+            
         </StackPanel>
         <StackPanel Margin="0,40,0,0">
             <FlipView Width="Auto" 
                       Height="200">
                 <Image Source="ms-appx:///Assets/1.jpg"/>
-                <Image Source="ms-appx:///Assets/2.jpg.jpg"/>
+                <Image Source="ms-appx:///Assets/2.jpg"/>
                 <Image Source="ms-appx:///Assets/3.jpg"/>
                 <Image Source="ms-appx:///Assets/5.jpg"/>
                 <Image Source="ms-appx:///Assets/12.jpg"/>
             </FlipView>
-
+            <RefreshContainer Name="RefreshContainer">
+                <i:Interaction.Behaviors>
+                    <ic:EventTriggerBehavior EventName="RefreshRequested">
+                        <ic:InvokeCommandAction Command="{Binding ListCommand, Mode=OneWay}" />
+                    </ic:EventTriggerBehavior>
+                </i:Interaction.Behaviors>
+                
+                <GridView Name="GridView"
+                          IsItemClickEnabled="True"
+                          ItemTemplate="{StaticResource MissionDataTemplate}"
+                          ItemsSource="{Binding MissionCollection}"
+                          ItemClick="HallGridView_OnItemClick" />
+            </RefreshContainer>
+            
+            <CommandBar Grid.Row="1"
+                        OverflowButtonVisibility="Collapsed"
+                        DefaultLabelPosition="Right">
+                <AppBarButton Icon="Refresh"
+                              Label="Refresh">
+                    <i:Interaction.Behaviors>
+                        <ic:EventTriggerBehavior EventName="Click">
+                            <ic:CallMethodAction TargetObject="{Binding ElementName=RefreshContainer}"
+                                                 MethodName="RequestRefresh" />
+                        </ic:EventTriggerBehavior>
+                    </i:Interaction.Behaviors>
+                </AppBarButton>
+            </CommandBar>
         </StackPanel>
         
     </Grid>
