@@ -35,8 +35,8 @@ namespace DoMeAFavor.Services
         /// <returns>所有任务。</returns>
         public async Task<IEnumerable<Mission>> ListAsync()
         {
-            
-            return missions;
+            var Missions = this.missions;
+            return Missions;
         }
 
         /// <summary>
@@ -45,32 +45,17 @@ namespace DoMeAFavor.Services
         /// <param name="mission">要更新的任务。</param>
         public async Task UpdateAsync(Mission mission)
         {
-            missions.Add(mission);
+            missions.Add(mission);//redo
         }
 
         /// <summary>
         /// 增加任务
         /// </summary>
         /// <returns></returns>
-        public async Task AddAsync(string missionname, string message, DateTime datetime)
+        public async Task AddAsync(Mission mission)
         {
-            int id = 0;
-            foreach (var mission in missions)
-            {
-                if (mission.MissionId > id)
-                {
-                    id += mission.MissionId;
-                }
-            }
-
-            Mission newmission = new Mission
-            {
-                MissionId = id,
-                MissionName = missionname,
-                Message = message,
-                Date = datetime
-            };
-            missions.Add(newmission);
+            
+            missions.Add(mission);
         }
 
 
@@ -80,9 +65,11 @@ namespace DoMeAFavor.Services
         {
             foreach (var Mission in missions)
             {
-                if (Mission.MissionId == mission.MissionId)
+                if (Mission.MissionId.Equals(mission.MissionId))
                 {
                     missions.Remove(Mission);
+                    return;
+                    
                 }
             }
         }

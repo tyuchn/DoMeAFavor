@@ -24,7 +24,7 @@ namespace DoMeAFavor.Services
         /// <summary>
         /// 添加任务。
         /// </summary>
-        Task AddAsync(string missionname, string message, DateTime datetime);
+        Task AddAsync(Mission mission);
         /// <summary>
         /// 删除任务
         /// </summary>

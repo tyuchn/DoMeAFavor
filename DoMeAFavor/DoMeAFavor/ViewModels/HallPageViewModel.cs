@@ -39,7 +39,7 @@ namespace DoMeAFavor.ViewModels
         /// <summary>
         /// 保存命令。
         /// </summary>
-        private RelayCommand<Mission> _updateCommand;
+        //private RelayCommand<Mission> _updateCommand;
 
         /// <summary>
         /// 详细信息命令。
@@ -71,17 +71,17 @@ namespace DoMeAFavor.ViewModels
         /// </summary>
         public RelayCommand ListCommand =>
             _listCommand ?? (_listCommand =
-                new RelayCommand(async () => { await List(); }));//?? a为空则返回b，否则返回a
+                new RelayCommand(async () => { await List(); }));  //?? a为空则返回b，否则返回a
 
         /// <summary>
         /// 更新命令。
         /// </summary>
-        public RelayCommand<Mission> UpdateCommand =>
+        /*public RelayCommand<Mission> UpdateCommand =>
             _updateCommand ?? (_updateCommand = new RelayCommand<Mission>(
                 async mission => {
                     var service = _missionService;
                     await service.UpdateAsync(mission);
-                }));
+                }));*/
 
         /******** 继承方法 ********/
 
