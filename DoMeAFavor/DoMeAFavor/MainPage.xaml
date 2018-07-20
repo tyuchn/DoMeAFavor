@@ -30,7 +30,7 @@
                 <NavigationViewItem Icon="contact" Content="我的主页" Tag="MyPage"  />
                 <NavigationViewItem Icon="home" Content="任务大厅" Tag="MissionHall"  />
                 <NavigationViewItem Icon="play" Content="校园广场" Tag="RefreshPage" />
-                <NavigationViewItem Icon="people" Content="我的好友" Tag="MyFriend" />
+                <NavigationViewItem Icon="add" Content="积分通道" Tag="MyMoney" />
             </NavigationView.MenuItems>
             <Frame Name="HomeFrame">
                 <StackPanel Margin="150,150,50,50"
