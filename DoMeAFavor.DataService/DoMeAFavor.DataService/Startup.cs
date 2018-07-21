@@ -30,7 +30,7 @@ namespace DoMeAFavor.DataService
             //添加AddDbContext方法将其注册为服务。
             var connection = @"Server=(localdb)\mssqllocaldb;Database=EFGetStarted.AspNetCore.NewDb;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<DataContext>(options => options.UseSqlServer(connection));
-
+             
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

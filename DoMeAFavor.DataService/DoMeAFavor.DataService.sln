@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoMeAFavor.DataService", "DoMeAFavor.DataService\DoMeAFavor.DataService.csproj", "{44BF8339-AB51-44D7-A62F-A967FC6F8FA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoMeAFavor.DataService", "DoMeAFavor.DataService\DoMeAFavor.DataService.csproj", "{44BF8339-AB51-44D7-A62F-A967FC6F8FA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
