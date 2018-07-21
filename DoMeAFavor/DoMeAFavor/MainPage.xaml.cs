@@ -26,7 +26,8 @@ namespace DoMeAFavor
         public MainPage()
         {
             this.InitializeComponent();
-           
+            HomeFrame.Navigate(typeof(MissionHallPage));
+
         }
 
         private void NavigationView_OnSelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
