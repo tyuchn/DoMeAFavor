@@ -14,43 +14,43 @@ namespace DoMeAFavor.DataService.Models
         /// <summary>
         /// 主键（编号）。
         /// </summary>
-        [JsonProperty("missionid")]
+        ///[JsonProperty("missionid")]
         public int MissionId { get; set; }
 
         /// <summary>
         /// 类型。
         /// </summary>
-        [JsonProperty("avatar")]
-        public string Type { get; set; }
+        ///[JsonProperty("missionname")]
+        public string MissionName { get; set; }
 
         /// <summary>
         /// 发布时间。
         /// </summary>
-        [JsonProperty("releasetime")]
-        public DateTime ReleaseTime { get; set; }
+        ///[JsonProperty("date")]
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// 截止时间。
         /// </summary>
-        [JsonProperty("deadline")]
+        ///[JsonProperty("deadline")]
         public DateTime Deadline { get; set; }
 
         /// <summary>
         /// 内容。
         /// </summary>
-        [JsonProperty("content")]
-        public string Content { get; set; }
+        ///[JsonProperty("message")]
+        public string Message { get; set; }
 
         /// <summary>
         /// 发布人Id。
         /// </summary>
-        [JsonProperty("publisherid")]
+        ///[JsonProperty("publisherid")]
         public int PublisherId { get; set; }
 
         /// <summary>
         /// 积分数。
         /// </summary>
-        [JsonProperty("points")]
+        ///[JsonProperty("points")]
         public int Points { get; set; }
 
     }

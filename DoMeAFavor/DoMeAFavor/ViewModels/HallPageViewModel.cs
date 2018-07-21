@@ -39,7 +39,11 @@ namespace DoMeAFavor.ViewModels
         /// <summary>
         /// 保存命令。
         /// </summary>
-        //private RelayCommand<Mission> _updateCommand;
+        private RelayCommand<Mission> _updateCommand;
+        /// <summary>
+        /// 删除命令
+        /// </summary>
+        private RelayCommand<Mission> _deleteCommand;
 
         /// <summary>
         /// 详细信息命令。
@@ -76,12 +80,19 @@ namespace DoMeAFavor.ViewModels
         /// <summary>
         /// 更新命令。
         /// </summary>
-        /*public RelayCommand<Mission> UpdateCommand =>
+        public RelayCommand<Mission> UpdateCommand =>
             _updateCommand ?? (_updateCommand = new RelayCommand<Mission>(
                 async mission => {
                     var service = _missionService;
                     await service.UpdateAsync(mission);
-                }));*/
+                }));
+
+        public RelayCommand<Mission> DeleteCommand =>
+            _deleteCommand ?? (_deleteCommand = new RelayCommand<Mission>(async mission =>
+            {
+                var service = _missionService;
+                await service.DeleteAsync(mission);
+            }));
 
         /******** 继承方法 ********/
 
@@ -93,7 +104,7 @@ namespace DoMeAFavor.ViewModels
         }
         public HallPageViewModel()
         {
-            
+            _missionService= new MissionService();
             MissionCollection = new ObservableCollection<Mission>();
         }
 

@@ -74,6 +74,12 @@
                         </ic:EventTriggerBehavior>
                     </i:Interaction.Behaviors>
                 </AppBarButton>
+                <AppBarButton Icon="Delete"
+                              Label="Delete"
+                              Command="{Binding DeleteCommand}"
+                              CommandParameter="{Binding SelectedMission}">
+                    
+                </AppBarButton>
             </CommandBar>
         </StackPanel>
         
