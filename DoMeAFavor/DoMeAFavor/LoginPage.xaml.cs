@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -36,9 +37,14 @@ namespace DoMeAFavor
             Frame.Navigate(typeof(SignUpPage));
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
+        private async void Login_Click(object sender, RoutedEventArgs e)
         {
-
+            string userTextBox = UserTextBox.Text;
+            string passwords = PassWords.Password;
+            if ((userTextBox == "20154416")&&(passwords=="20154416"))
+                Frame.Navigate(typeof(MissionHallPage));
+            else
+                await new MessageDialog(" 密码或者用户名错误").ShowAsync();
         }
     }
 }

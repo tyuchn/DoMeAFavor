@@ -40,8 +40,7 @@
                     Click="Login_Click"
                     Margin="160,10,0,0" 
                     />
-                <Button Content="SignUp" 
-                    
+                <Button Content="SignUp"     
                     Name="SingUp"
                     Click="SingUp_Click" 
                     Margin="160,10,0,0"/>

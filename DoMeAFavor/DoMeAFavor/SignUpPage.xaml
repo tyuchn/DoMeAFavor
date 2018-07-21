@@ -33,25 +33,30 @@
                            FontSize="25"></TextBlock>
                 <TextBox Margin="50,20,0,0"
                          Width="450"
-                         PlaceholderText="请输入学号注册"></TextBox>
+                         PlaceholderText="请输入学号注册"
+                         Name="UserId"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="密       码"
                            Margin="30,20,0,0"
-                           FontSize="25"></TextBlock>
+                           FontSize="25"
+                           ></TextBlock>
                 <PasswordBox Margin="40,20,0,0"
                          Width="450"
                              PasswordChar="*"
-                         PlaceholderText="请设置密码小于18位"></PasswordBox>
+                         PlaceholderText="请设置密码小于16位"
+                             Name="Password"></PasswordBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="确认密码"
                            Margin="30,20,0,0"
-                           FontSize="25"></TextBlock>
+                           FontSize="25"
+                          ></TextBlock>
                 <PasswordBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请再次输入您的密码"
-                             PasswordChar="*"></PasswordBox>
+                             PasswordChar="*"
+                              Name="SurePassword"></PasswordBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="姓       名"
@@ -59,7 +64,8 @@
                            FontSize="25"></TextBlock>
                 <TextBox Margin="40,20,0,0"
                          Width="450"
-                         PlaceholderText="请输入真实姓名"></TextBox>
+                         PlaceholderText="请输入真实姓名"
+                         Name="ReallyName"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="手  机  号"
@@ -67,12 +73,14 @@
                            FontSize="25"></TextBlock>
                 <TextBox Margin="40,20,0,0"
                          Width="450"
-                         PlaceholderText="请输入真实手机号"></TextBox>
+                         PlaceholderText="请输入真实手机号"
+                         Name="PhoneNumber"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="用  户  名"
                            Margin="30,20,0,0"
-                           FontSize="25"></TextBlock>
+                           FontSize="25"
+                           Name="NetName"></TextBlock>
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请设置您的DoMeAFovor昵称"></TextBox>
@@ -119,7 +127,8 @@
                            FontSize="25"></TextBlock>
                 <TextBox Margin="40,20,0,0"
                          Width="450"
-                         PlaceholderText="请输入您的班级"></TextBox>
+                         PlaceholderText="请输入您的班级"
+                         Name="Class"></TextBox>
             </StackPanel>
             <Button Content="注册"
                     Margin="40,40,0,0" RequestedTheme="Light" Visibility="Visible">

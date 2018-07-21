@@ -34,6 +34,7 @@ namespace DoMeAFavor
             NavigationViewItem item =
                 args.SelectedItem as NavigationViewItem;
 
+            HomeFrame.Navigate(typeof(MissionHallPage));
             switch (item.Tag)
             {
                 case "MyPage":
