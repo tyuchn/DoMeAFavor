@@ -12,8 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using DoMeAFavor.Models;
-using DoMeAFavor.ViewModels;
+
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
 namespace DoMeAFavor
@@ -21,31 +20,11 @@ namespace DoMeAFavor
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class MissionHallPage : Page
+    public sealed partial class MyMoneyPage : Page
     {
-        public MissionHallPage()
+        public MyMoneyPage()
         {
             this.InitializeComponent();
-        }
-
-        private void SearchText_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
-        {
-
-        }
-
-        private void SearchText_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
-        {
-
-        }
-
-        private void SearchText_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
-        {
-
-        }
-
-        private void HallGridView_OnItemClick(object sender, ItemClickEventArgs e)
-        {
-            throw new NotImplementedException();
         }
     }
 }

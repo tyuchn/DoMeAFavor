@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoMeAFavor.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,19 @@ namespace DoMeAFavor
         public SignUpPage()
         {
             this.InitializeComponent();
+        }
+
+        private void SureSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MissionHallPage));
+        }
+
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+           
+
         }
     }
 }

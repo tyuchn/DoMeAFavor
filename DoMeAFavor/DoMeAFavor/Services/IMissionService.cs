@@ -20,10 +20,16 @@ namespace DoMeAFavor.Services
         /// </summary>
         /// <param name="mission">要更新的任务。</param>
         Task UpdateAsync(Mission mission);
-        
+
         /// <summary>
         /// 添加任务。
         /// </summary>
-        //Task AddAsync();
+        Task AddAsync(Mission mission);
+        /// <summary>
+        /// 删除任务
+        /// </summary>
+        /// <param name="mission"></param>
+        /// <returns></returns>
+        Task DeleteAsync(Mission mission);
     }
 }
