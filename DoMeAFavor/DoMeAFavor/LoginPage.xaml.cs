@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoMeAFavor.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace DoMeAFavor
     /// </summary>
     public sealed partial class LoginPage : Page
     {
+   
         public LoginPage()
         {
             this.InitializeComponent();
@@ -41,8 +43,11 @@ namespace DoMeAFavor
         {
             string userTextBox = UserTextBox.Text;
             string passwords = PassWords.Password;
-            if ((userTextBox == "20154416")&&(passwords=="20154416"))
+            if ((userTextBox == "20154416") && (passwords == "20154416"))
+            {
                 Frame.Navigate(typeof(MissionHallPage));
+               // UserState = 1;
+            }
             else
                 await new MessageDialog(" 密码或者用户名错误").ShowAsync();
         }

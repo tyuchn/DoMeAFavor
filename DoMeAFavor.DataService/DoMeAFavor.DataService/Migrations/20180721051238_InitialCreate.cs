@@ -1,6 +1,7 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using System;
+using System.Collections.Generic;
 
 namespace DoMeAFavor.DataService.Migrations
 {
@@ -12,10 +13,10 @@ namespace DoMeAFavor.DataService.Migrations
                 name: "CompletedMissions",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(nullable: false),
                     MissioinId = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: false),
                     CompleteTime = table.Column<DateTime>(nullable: false),
-                    Evaluation = table.Column<int>(nullable: false)
+                    Evaluation = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -28,12 +29,12 @@ namespace DoMeAFavor.DataService.Migrations
                 {
                     MissionId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Type = table.Column<string>(nullable: true),
-                    ReleaseTime = table.Column<DateTime>(nullable: false),
+                    Date = table.Column<DateTime>(nullable: false),
                     Deadline = table.Column<DateTime>(nullable: false),
-                    Content = table.Column<string>(nullable: true),
-                    PublisherId = table.Column<int>(nullable: false),
-                    Points = table.Column<int>(nullable: false)
+                    Message = table.Column<string>(nullable: true),
+                    MissionName = table.Column<string>(nullable: true),
+                    Points = table.Column<int>(nullable: false),
+                    PublisherId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,14 +47,14 @@ namespace DoMeAFavor.DataService.Migrations
                 {
                     UserId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Username = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true),
-                    RealName = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<int>(nullable: false),
-                    Major = table.Column<string>(nullable: true),
+                    Avatar = table.Column<string>(nullable: true),
                     Class = table.Column<int>(nullable: false),
+                    Major = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<int>(nullable: false),
                     Points = table.Column<int>(nullable: false),
-                    Avatar = table.Column<string>(nullable: true)
+                    RealName = table.Column<string>(nullable: true),
+                    Username = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
