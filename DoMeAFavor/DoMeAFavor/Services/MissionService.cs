@@ -17,12 +17,18 @@ namespace DoMeAFavor.Services
     {
         /******** 私有变量 ********/
 
-        private List<Mission> missions = new List<Mission>
+       /*private List<Mission> missions = new List<Mission>
         {
             new Mission{MissionId = 1,MissionName = "Delivery", Message = "KFC",Date = DateTime.Now},
             new Mission{MissionId = 2,MissionName = "TakeOverClass", Message = "Hurry", Date = DateTime.Parse("2018-07-24 11:45")},
             new Mission{MissionId = 3,MissionName = "Homework", Message = "Math",Date = DateTime.Now}
-        };
+        };*/
+
+        /// <summary>
+        /// 服务端点。
+        /// </summary>
+        private const string ServiceEndpoint =
+            "http://localhost:13059/api/Missions";
 
 
         /******** 公开属性 ********/
@@ -45,7 +51,12 @@ namespace DoMeAFavor.Services
         /// <param name="mission">要更新的任务。</param>
         public async Task UpdateAsync(Mission mission)
         {
-            missions.Add(mission);//redo
+            using (var client = new HttpClient())
+            {
+                var json = JsonConvert.SerializeObject(contact);
+                await client.PutAsync(ServiceEndpoint + "/" + contact.Id,
+                    new StringContent(json, Encoding.UTF8, "application/json"));
+            }
         }
 
         /// <summary>
