@@ -54,7 +54,7 @@ namespace DoMeAFavor
                 count++;
             else
                 await new MessageDialog(" 请检测密码格式或重新确认密码").ShowAsync();
-            if(phoneNumber.Length<=11)
+            if(phoneNumber.Length==11)
             count++;
             else
                 await new MessageDialog(" 手机号有误").ShowAsync();

@@ -39,7 +39,7 @@ namespace DoMeAFavor
             switch (item.Tag)
             {
                 case "MyPage":
-                    
+                   // if(UserState==1)
                     HomeFrame.Navigate(typeof(MyPage));
                     break;
                 case "MissionHall":
