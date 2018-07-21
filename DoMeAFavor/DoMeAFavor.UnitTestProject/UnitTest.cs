@@ -2,7 +2,7 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace DoMeAFavor.UnitTestProject
+namespace DoMeAFavor.UnitTest
 {
     [TestClass]
     public class UnitTest1
