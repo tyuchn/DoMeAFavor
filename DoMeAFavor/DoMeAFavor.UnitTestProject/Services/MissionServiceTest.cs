@@ -7,55 +7,68 @@ using DoMeAFavor.Models;
 using DoMeAFavor.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace DoMeAFavor.UnitTestProject.Services
+namespace DoMeAFavor.UnitTest.Services
 {
     [TestClass]
     public class MissionServiceTest
     {
+
         [TestMethod]
         public async Task TestListAsync()
         {
             var missionService = new MissionService();
 
-            var missions = (await missionService.ListAsync()).ToArray();
-            Assert.AreEqual(missions.Length, 3);
+            var missions = (await missionService.ListAsync()).ToList();
+            Assert.AreEqual(2, missions.Count);
+            Assert.AreEqual("express", missions[0].MissionName);
+            Assert.AreEqual("kfc", missions[0].Message);
+            Assert.AreEqual(new DateTime(2018, 7, 21), missions[0].Date);
+        }
+
+        [TestMethod]
+        public async Task TestUpdateAsync()
+        {
+            var missionService = new MissionService();
+            var missions = (await missionService.ListAsync()).ToList();
             var firstMission = missions[0];
-            Assert.AreEqual("Delivery", firstMission.MissionName);
-            Assert.AreEqual("KFC", firstMission.Message);
-            //Assert.AreEqual(new DateTime(1984, 1, 5), firstMission.Date);
-        }
-        [TestMethod]
-        public async Task UpdateAsync()
-        {
-            var missionService = new MissionService();
 
-            var firstMission = (await missionService.ListAsync()).First();
-            Assert.AreEqual(firstMission.MissionName, "Delivery");
+            Assert.AreEqual("delivery", firstMission.MissionName);
 
-            firstMission.MissionName = "giao";
+            firstMission.MissionName = "express";
             await missionService.UpdateAsync(firstMission);
-            Assert.AreEqual(
-                (await missionService.ListAsync()).First().MissionName, "giao");
+
+            missions = (await missionService.ListAsync()).ToList();
+            firstMission = missions[0];
+
+            Assert.AreEqual("express", firstMission.MissionName);
+
         }
+
         [TestMethod]
-        public async Task AddAsync()
+        public async Task TestAddAsync()
         {
             var missionService = new MissionService();
-            var ms = new Mission();
-            ms.Message = "111";
-            await missionService.AddAsync(ms);
             
-            Assert.AreEqual(
-                (await missionService.ListAsync()).Last().Message, "111");
+            var ms = new Mission();
+            ms.MissionName = "lunch";
+            await missionService.AddAsync(ms);
+            var missions = (await missionService.ListAsync()).ToList();
+
+            Assert.AreEqual(2, missions.Count);
+            Assert.AreEqual("express", missions[0].MissionName);
+            Assert.AreEqual("lunch", missions[1].MissionName);
+
         }
+
         [TestMethod]
         public async Task DeleteAsync()
         {
             var missionService = new MissionService();
-            var firstMission = (await missionService.ListAsync()).First();
-            await missionService.DeleteAsync(firstMission);
-            Assert.AreNotEqual("KFC",(await missionService.ListAsync()).First());
+            var missions = (await missionService.ListAsync()).ToList();
+            var secondMission = missions[1];
+            await missionService.DeleteAsync(secondMission);
+            Assert.AreNotEqual(1,missions.Count);
         }
-
+        
     }
 }

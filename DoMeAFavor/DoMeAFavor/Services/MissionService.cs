@@ -17,12 +17,18 @@ namespace DoMeAFavor.Services
     {
         /******** 私有变量 ********/
 
-        private List<Mission> missions = new List<Mission>
+        /// <summary>
+        /// 服务端点。
+        /// </summary>
+        private const string ServiceEndpoint =
+            "http://localhost:13059/api/Missions";
+
+        /*private List<Mission> missions = new List<Mission>
         {
             new Mission{MissionId = 1,MissionName = "Delivery", Message = "KFC",Date = DateTime.Now},
             new Mission{MissionId = 2,MissionName = "TakeOverClass", Message = "Hurry", Date = DateTime.Parse("2018-07-24 11:45")},
             new Mission{MissionId = 3,MissionName = "Homework", Message = "Math",Date = DateTime.Now}
-        };
+        };*/
 
 
         /******** 公开属性 ********/
@@ -35,8 +41,11 @@ namespace DoMeAFavor.Services
         /// <returns>所有任务。</returns>
         public async Task<IEnumerable<Mission>> ListAsync()
         {
-            var Missions = this.missions;
-            return Missions;
+            using (var client = new HttpClient())
+            {
+                var json = await client.GetStringAsync(ServiceEndpoint);
+                return JsonConvert.DeserializeObject<Mission[]>(json);
+            }
         }
 
         /// <summary>
@@ -45,17 +54,27 @@ namespace DoMeAFavor.Services
         /// <param name="mission">要更新的任务。</param>
         public async Task UpdateAsync(Mission mission)
         {
-            missions.Add(mission);//redo
+            using (var client = new HttpClient())
+            {
+                var json = JsonConvert.SerializeObject(mission);
+                await client.PutAsync(ServiceEndpoint + "/" + mission.MissionId,
+                    new StringContent(json, Encoding.UTF8, "application/json"));
+            }
         }
 
         /// <summary>
-        /// 增加任务
+        /// 添加任务
         /// </summary>
         /// <returns></returns>
         public async Task AddAsync(Mission mission)
         {
-            
-            missions.Add(mission);
+
+            using (var client = new HttpClient())
+            {
+                var json = JsonConvert.SerializeObject(mission);
+                await client.PostAsync(ServiceEndpoint + "/" + mission.MissionId,
+                    new StringContent(json, Encoding.UTF8, "application/json"));
+            }
         }
 
 
@@ -63,14 +82,10 @@ namespace DoMeAFavor.Services
 
         public async Task DeleteAsync(Mission mission)
         {
-            foreach (var Mission in missions)
+            using (var client = new HttpClient())
             {
-                if (Mission.MissionId.Equals(mission.MissionId))
-                {
-                    missions.Remove(Mission);
-                    return;
-                    
-                }
+                var json = JsonConvert.SerializeObject(mission);
+                await client.DeleteAsync(ServiceEndpoint + "/" + mission.MissionId);
             }
         }
 

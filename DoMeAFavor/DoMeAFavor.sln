@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoMeAFavor", "DoMeAFavor\DoMeAFavor.csproj", "{C73CF4B7-4DA4-4AEB-AAFA-8E241C1AB013}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoMeAFavor.UnitTestProject", "DoMeAFavor.UnitTestProject\DoMeAFavor.UnitTestProject.csproj", "{8075696E-8251-44B1-B4E0-151536AF1CAF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoMeAFavor.UnitTest", "DoMeAFavor.UnitTestProject\DoMeAFavor.UnitTest.csproj", "{8075696E-8251-44B1-B4E0-151536AF1CAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

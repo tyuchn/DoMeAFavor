@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DoMeAFavor.UnitTestProject.Services
+namespace DoMeAFavor.UnitTest.Services
 {
     class UserServiceTest
     {
