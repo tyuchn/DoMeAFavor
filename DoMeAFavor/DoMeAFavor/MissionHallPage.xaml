@@ -74,10 +74,10 @@
                         </ic:EventTriggerBehavior>
                     </i:Interaction.Behaviors>
                 </AppBarButton>
-                <AppBarButton Icon="Delete"
+                <AppBarButton Icon="Delete" 
                               Label="Delete"
                               Command="{Binding DeleteCommand}"
-                              CommandParameter="{Binding SelectedMission}">
+                              CommandParameter="{Binding SelectedMission}" >
                     
                 </AppBarButton>
             </CommandBar>
