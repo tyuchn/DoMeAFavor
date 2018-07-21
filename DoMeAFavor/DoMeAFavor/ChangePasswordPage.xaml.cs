@@ -20,19 +20,23 @@ namespace DoMeAFavor
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class SettingPage : Page
+    public sealed partial class ChangePasswordPage : Page
     {
-        public SettingPage()
+        public ChangePasswordPage()
         {
             this.InitializeComponent();
+        }
 
+        private void yes_Click(object sender, RoutedEventArgs e)
+        {
+           
+                Frame.Navigate(typeof(SettingPage));
+           
         }
 
         private void ChangePassWord_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(ChangePasswordPage));
         }
-
-        
     }
 }

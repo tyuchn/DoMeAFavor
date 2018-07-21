@@ -70,7 +70,18 @@
                          Width="430" 
                          Margin="34,0,0,0"/>
             </StackPanel>
-            
+            <Button Content="查看任务记录"
+                    Background="White"
+                   Margin="54,0,0,0">
+                <Button.Flyout>
+                    <MenuFlyout>
+                        
+                        <ToggleMenuFlyoutItem Text="发布的任务"/>
+                        <MenuFlyoutSeparator/>
+                        <ToggleMenuFlyoutItem Text="完成的任务"/>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

@@ -38,6 +38,7 @@ namespace DoMeAFavor
         private async void SureSignUp_Click(object sender, RoutedEventArgs e)
         {
             int count=0;
+            
             string userId = UserId.Text;
             string password = Password.Password;
             string surePassword = SurePassword.Password;
@@ -70,7 +71,6 @@ namespace DoMeAFavor
                 Frame.Navigate(typeof(MissionHallPage));
         }
 
-
-       
+        
     }
 }
