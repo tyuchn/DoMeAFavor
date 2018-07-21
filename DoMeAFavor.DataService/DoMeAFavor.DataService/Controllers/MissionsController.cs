@@ -10,57 +10,57 @@ using DoMeAFavor.DataService.Models;
 namespace DoMeAFavor.DataService.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Users")]
-    public class UsersController : Controller
+    [Route("api/Missions")]
+    public class MissionsController : Controller
     {
         private readonly DataContext _context;
 
-        public UsersController(DataContext context)
+        public MissionsController(DataContext context)
         {
             _context = context;
         }
 
-        // GET: api/Users
+        // GET: api/Missions
         [HttpGet]
-        public IEnumerable<User> GetUsers()
+        public IEnumerable<Mission> GetMissions()
         {
-            return _context.Users;
+            return _context.Missions;
         }
 
-        // GET: api/Users/5
+        // GET: api/Missions/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUser([FromRoute] int id)
+        public async Task<IActionResult> GetMission([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.Users.SingleOrDefaultAsync(m => m.UserId == id);
+            var mission = await _context.Missions.SingleOrDefaultAsync(m => m.MissionId == id);
 
-            if (user == null)
+            if (mission == null)
             {
                 return NotFound();
             }
 
-            return Ok(user);
+            return Ok(mission);
         }
 
-        // PUT: api/Users/5
+        // PUT: api/Missions/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser([FromRoute] int id, [FromBody] User user)
+        public async Task<IActionResult> PutMission([FromRoute] int id, [FromBody] Mission mission)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != user.UserId)
+            if (id != mission.MissionId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(user).State = EntityState.Modified;
+            _context.Entry(mission).State = EntityState.Modified;
 
             try
             {
@@ -68,7 +68,7 @@ namespace DoMeAFavor.DataService.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(id))
+                if (!MissionExists(id))
                 {
                     return NotFound();
                 }
@@ -81,45 +81,45 @@ namespace DoMeAFavor.DataService.Controllers
             return NoContent();
         }
 
-        // POST: api/Users
+        // POST: api/Missions
         [HttpPost]
-        public async Task<IActionResult> PostUser([FromBody] User user)
+        public async Task<IActionResult> PostMission([FromBody] Mission mission)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.Users.Add(user);
+            _context.Missions.Add(mission);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.UserId }, user);
+            return CreatedAtAction("GetMission", new { id = mission.MissionId }, mission);
         }
 
-        // DELETE: api/Users/5
+        // DELETE: api/Missions/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser([FromRoute] int id)
+        public async Task<IActionResult> DeleteMission([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.Users.SingleOrDefaultAsync(m => m.UserId == id);
-            if (user == null)
+            var mission = await _context.Missions.SingleOrDefaultAsync(m => m.MissionId == id);
+            if (mission == null)
             {
                 return NotFound();
             }
 
-            _context.Users.Remove(user);
+            _context.Missions.Remove(mission);
             await _context.SaveChangesAsync();
 
-            return Ok(user);
+            return Ok(mission);
         }
 
-        private bool UserExists(int id)
+        private bool MissionExists(int id)
         {
-            return _context.Users.Any(e => e.UserId == id);
+            return _context.Missions.Any(e => e.MissionId == id);
         }
     }
 }
