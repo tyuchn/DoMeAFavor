@@ -45,7 +45,8 @@ namespace DoMeAFavor
 
         private void HallGridView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            throw new NotImplementedException();
+            var viewModel = (HallPageViewModel) DataContext;
+            viewModel.SelectedMission = (Mission) e.ClickedItem;
         }
     }
 }

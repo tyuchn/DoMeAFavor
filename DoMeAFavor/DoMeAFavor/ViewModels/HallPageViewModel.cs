@@ -93,7 +93,7 @@ namespace DoMeAFavor.ViewModels
         }
         public HallPageViewModel()
         {
-            
+            _missionService= new MissionService();
             MissionCollection = new ObservableCollection<Mission>();
         }
 
