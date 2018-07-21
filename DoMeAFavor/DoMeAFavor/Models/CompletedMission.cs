@@ -1,15 +1,13 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using GalaSoft.MvvmLight;
 
-namespace DoMeAFavor.DataService.Models
+namespace DoMeAFavor.Models
 {
-    /// <summary>
-    /// 完成的任务类。
-    /// </summary>
-    public class CompletedMission
+    public class CompletedMission : ObservableObject
     {
         /// <summary>
         /// 主键（学号）。
@@ -29,11 +27,16 @@ namespace DoMeAFavor.DataService.Models
         ///[JsonProperty("completetime")]
         public DateTime CompleteTime { get; set; }
 
+        public string _evaluation;
+
         /// <summary>
         /// 评价。
         /// </summary>
         ///[JsonProperty("evaluation")]
-        public string Evaluation { get; set; }
-
+        public string Evaluation
+        {
+            get => _evaluation;
+            set => Set(nameof(Evaluation), ref _evaluation, value);
+        }
     }
 }
