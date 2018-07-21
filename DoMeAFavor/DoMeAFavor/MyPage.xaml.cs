@@ -31,7 +31,7 @@ namespace DoMeAFavor
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            await ct.ShowAsync();
+            await SaveContentButton.ShowAsync();
         }
     }
 }
