@@ -13,7 +13,7 @@ namespace DoMeAFavor.Services
         /// 更新用户信息。
         /// </summary>
         /// <param name="user">要更新的用户。</param>
-        Task UpdateAsync(User user);
+        Task UpdateAsync(User user);  //更新到数据库中
         
         //添加用户
         //Task AddAsync();
