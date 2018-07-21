@@ -48,5 +48,10 @@ namespace DoMeAFavor
             var viewModel = (HallPageViewModel) DataContext;
             viewModel.SelectedMission = (Mission) e.ClickedItem;
         }
+
+        private async void AddButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            await AddMissionContent.ShowAsync();
+        }
     }
 }

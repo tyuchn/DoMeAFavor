@@ -80,7 +80,33 @@
                               CommandParameter="{Binding SelectedMission}">
                     
                 </AppBarButton>
+                <AppBarButton Icon="Add"
+                              Label="AddMission"
+                              Command="{Binding AddCommand}"
+                              x:Name="AddButton"
+                              CommandParameter="{Binding SelectedMission}"
+                              Click="AddButton_Click_1"  >
+
+                </AppBarButton>
             </CommandBar>
+            <ContentDialog
+Title="Save your work?"
+PrimaryButtonText="Save"
+SecondaryButtonText="Don't Save"
+CloseButtonText="Cancel"
+DefaultButton="Primary"
+                x:Name="AddMissionContent">
+
+                <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <TextBox PlaceholderText="请输入任务标题"
+TextWrapping="Wrap" />
+                    <TextBox PlaceholderText="请输入任务内容"
+TextWrapping="Wrap" />
+                    <TextBox PlaceholderText="请输入任务时间"
+TextWrapping="Wrap" />
+                </StackPanel>
+
+            </ContentDialog>
         </StackPanel>
         
     </Grid>

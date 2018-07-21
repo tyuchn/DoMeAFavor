@@ -29,9 +29,9 @@ namespace DoMeAFavor
             this.InitializeComponent();
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-
+            await ct.ShowAsync();
         }
     }
 }
