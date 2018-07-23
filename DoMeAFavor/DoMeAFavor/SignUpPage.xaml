@@ -34,7 +34,8 @@
                 <TextBox Margin="50,20,0,0"
                          Width="450"
                          PlaceholderText="请输入学号注册"
-                         Name="UserId"></TextBox>
+                         Name="UserId"
+                         ></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="密       码"

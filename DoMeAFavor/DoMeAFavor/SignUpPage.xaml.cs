@@ -1,11 +1,13 @@
 ﻿using DoMeAFavor.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -24,6 +26,7 @@ namespace DoMeAFavor
     /// </summary>
     public sealed partial class SignUpPage : Page
     {
+       
         private string _comboBox;
         public SignUpPage()
         {
@@ -48,13 +51,19 @@ namespace DoMeAFavor
             string _class = Class.Text;
             if (userId.Length == 8)
                 count++;
-            
+
             else
-                await new MessageDialog(" 学号位数不对").ShowAsync();
-            if ((password == surePassword)&&(password.Length<17))
+            {
+                 await new MessageDialog(" 学号位数不对").ShowAsync();
+            }
+
+            if ((password == surePassword) && (password.Length < 17))
                 count++;
             else
+            {  
+               
                 await new MessageDialog(" 请检测密码格式或重新确认密码").ShowAsync();
+            }
             if(phoneNumber.Length==11)
             count++;
             else
@@ -71,6 +80,6 @@ namespace DoMeAFavor
                 Frame.Navigate(typeof(MissionHallPage));
         }
 
-        
+       
     }
 }
