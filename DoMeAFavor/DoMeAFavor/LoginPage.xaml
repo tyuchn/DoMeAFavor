@@ -5,7 +5,7 @@
     xmlns:local="using:DoMeAFavor"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"  Opacity="0.4"
+    mc:Ignorable="d"  Opacity="0.6"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
@@ -34,7 +34,6 @@
              HorizontalAlignment="Left"
                      VerticalAlignment="Top" Height="40"/>
             <StackPanel Orientation="Horizontal">
-               
                 <Button Content="Login" 
                     x:Name="Login"
                     Click="Login_Click"

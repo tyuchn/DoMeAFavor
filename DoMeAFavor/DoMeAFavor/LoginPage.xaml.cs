@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
@@ -45,7 +46,7 @@ namespace DoMeAFavor
             string passwords = PassWords.Password;
             if ((userTextBox == "20154416") && (passwords == "20154416"))
             {
-                Frame.Navigate(typeof(MissionHallPage));
+                Frame.Navigate(typeof(MissionHallPage), null, new SuppressNavigationTransitionInfo());
                // UserState = 1;
             }
             else
