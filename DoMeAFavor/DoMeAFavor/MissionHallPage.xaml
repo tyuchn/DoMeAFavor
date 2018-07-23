@@ -82,7 +82,7 @@
                 </AppBarButton>
                 <AppBarButton Icon="Add"
                               Label="AddMission"
-                              Command="{Binding AddCommand}"
+                              
                               x:Name="AddButton"
                               CommandParameter="{Binding SelectedMission}"
                               Click="AddButton_Click_1"  >
@@ -91,23 +91,26 @@
             </CommandBar>
             <ContentDialog
                 Title="请输入你的任务"
-                PrimaryButtonText="Save"
+                PrimaryButtonText="Confirm"
+                PrimaryButtonClick="AddMissionContent_OnPrimaryButtonClick"
+                SecondaryButtonText="Save"
+                SecondaryButtonCommand="{Binding AddCommand}"
                 CloseButtonText="Cancel"
-                DefaultButton="Primary"
+                DefaultButton="Secondary"
                 x:Name="AddMissionContent">
 
                 <StackPanel VerticalAlignment="Stretch" 
                             HorizontalAlignment="Stretch">
-                    <TextBox PlaceholderText="请输入任务标题"
+                    <TextBox Name="Missionname" PlaceholderText="请输入任务标题"
                     TextWrapping="Wrap" 
                              Margin="10,10,0,0"/>
-                    <TextBox PlaceholderText="请输入任务内容"
+                    <TextBox Name="Message" PlaceholderText="请输入任务内容"
                             TextWrapping="Wrap" 
                              Margin="10,10,0,0"/>
-                    <CalendarDatePicker PlaceholderText="截止时间" 
+                    <CalendarDatePicker Name="Date1"  PlaceholderText="截止时间" 
                                         Margin="10,10,0,0"
                                         Width="auto"/>
-                    <TimePicker  MinuteIncrement="15" 
+                    <TimePicker Name="Date2" MinuteIncrement="15" 
                                 Margin="10,10,0,0"
                                  />
                 </StackPanel>
