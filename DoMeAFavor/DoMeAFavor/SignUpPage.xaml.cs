@@ -27,7 +27,8 @@ namespace DoMeAFavor
     public sealed partial class SignUpPage : Page
     {
        
-        private string _comboBox;
+        private string _comboBox;  //下拉框
+
         public SignUpPage()
         {
             this.InitializeComponent();
@@ -77,9 +78,9 @@ namespace DoMeAFavor
             else
                 await new MessageDialog(" 请选择专业").ShowAsync();
             if(count==5)
-                Frame.Navigate(typeof(MissionHallPage));
+                Frame.Navigate(typeof(MissionHallPage));  //跳转到任务大厅
         }
 
-       
     }
 }
+ 
