@@ -49,6 +49,7 @@ namespace DoMeAFavor.Models
         /// 创建日期
         /// </summary>
         private DateTime _creationDate;
+
         /// <summary>
         /// 创建日期
         /// </summary>
@@ -62,6 +63,7 @@ namespace DoMeAFavor.Models
         /// 截止日期
         /// </summary>
         private DateTime _deadline;
+
         /// <summary>
         /// 截止日期
         /// </summary>
@@ -70,10 +72,12 @@ namespace DoMeAFavor.Models
             get => _deadline;
             set => Set(nameof(Deadline), ref _deadline, value);
         }
+
         /// <summary>
         /// 任务类型
         /// </summary>
         public MissionType Type { get; set; }
+
         /// <summary>
         /// 任务类型
         /// </summary>
@@ -85,7 +89,6 @@ namespace DoMeAFavor.Models
         };
 
         public IList<UserMission> UserMissions { get; set; }
-
 
 
         /// <summary>

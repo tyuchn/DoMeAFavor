@@ -9,13 +9,30 @@ namespace DoMeAFavor.Services
 {
     public  interface IUserService
     {
+
+        /// <summary>
+        /// 列出所有用户。
+        /// </summary>
+        /// <returns>所有任务。</returns>
+        Task<IEnumerable<User>> ListAsync();
+
         /// <summary>
         /// 更新用户信息。
         /// </summary>
         /// <param name="user">要更新的用户。</param>
         Task UpdateAsync(User user);  //更新到数据库中
         
-        //添加用户
-        //Task AddAsync();
+        /// <summary>
+        /// 添加用户。
+        /// </summary>
+        /// <returns></returns>
+        Task AddAsync(User user);
+
+        /// <summary>
+        /// 删除用户。
+        /// </summary>
+        /// <param name="mission"></param>
+        /// <returns></returns>
+        Task DeleteAsync(User user);
     }
 }

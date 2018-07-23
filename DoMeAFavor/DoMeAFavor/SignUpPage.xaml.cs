@@ -27,8 +27,7 @@ namespace DoMeAFavor
     /// </summary>
     public sealed partial class SignUpPage : Page
     {
-       
-        private string _comboBox;  //下拉框
+        private string _comboBox; //下拉框
 
         public SignUpPage()
         {
@@ -38,12 +37,12 @@ namespace DoMeAFavor
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _comboBox = MajorComboBox.SelectedItem.ToString();
-
         }
+
         private async void SureSignUp_Click(object sender, RoutedEventArgs e)
         {
-            int count=5;
-            
+            int count = 5;
+
             string userId = UserId.Text;
             string password = Password.Password;
             string surePassword = SurePassword.Password;
@@ -57,21 +56,21 @@ namespace DoMeAFavor
             else
             {
                 //UserId.Background ="red";
-                    await new MessageDialog(" 学号位数不对").ShowAsync();
+                await new MessageDialog(" 学号位数不对").ShowAsync();
             }
 
             if ((password == surePassword) && (password.Length < 17))
                 count++;
             else
-            {  
-               
+            {
                 await new MessageDialog(" 请检测密码格式或重新确认密码").ShowAsync();
             }
-            if(phoneNumber.Length==11)
-            count++;
+
+            if (phoneNumber.Length == 11)
+                count++;
             else
                 await new MessageDialog(" 手机号有误").ShowAsync();
-            if(reallyName!=null)
+            if (reallyName != null)
                 count++;
             else
                 await new MessageDialog(" 请填写真实姓名").ShowAsync();
@@ -79,10 +78,8 @@ namespace DoMeAFavor
                 count++;
             else
                 await new MessageDialog(" 请选择专业").ShowAsync();
-            if(count==5)
-                Frame.Navigate(typeof(MissionHallPage),null,new DrillInNavigationTransitionInfo());
+            if (count == 5)
+                Frame.Navigate(typeof(MissionHallPage), null, new DrillInNavigationTransitionInfo());
         }
-
     }
 }
- 
