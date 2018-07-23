@@ -120,7 +120,7 @@ namespace DoMeAFavor.Models
             set => Set(nameof(Avatar), ref _avatar, value);
         }
 
-        private IList<UserMission> UserMissions { get; set; }
+        public IList<UserMission> UserMissions { get; set; }
 
 
     }
