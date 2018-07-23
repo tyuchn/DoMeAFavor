@@ -44,6 +44,10 @@ namespace DoMeAFavor.ViewModels
         /// 删除命令
         /// </summary>
         private RelayCommand<Mission> _deleteCommand;
+        /// <summary>
+        /// 添加命令
+        /// </summary>
+        private RelayCommand<Mission> _addCommand;
 
         /// <summary>
         /// 详细信息命令。
@@ -86,13 +90,25 @@ namespace DoMeAFavor.ViewModels
                     var service = _missionService;
                     await service.UpdateAsync(mission);
                 }));
-
+        /// <summary>
+        /// 删除命令
+        /// </summary>
         public RelayCommand<Mission> DeleteCommand =>
             _deleteCommand ?? (_deleteCommand = new RelayCommand<Mission>(async mission =>
             {
                 var service = _missionService;
                 await service.DeleteAsync(mission);
             }));
+        /// <summary>
+        /// 添加命令
+        /// </summary>
+        public RelayCommand<Mission> AddCommand =>
+            _addCommand ?? (_addCommand = new RelayCommand<Mission>(async mission =>
+            {
+                var service = _missionService;
+                await service.AddAsync(mission);
+            }));
+
 
         /******** 继承方法 ********/
 

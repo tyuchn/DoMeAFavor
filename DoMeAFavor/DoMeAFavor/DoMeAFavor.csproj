@@ -107,9 +107,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\CompletedMission.cs" />
     <Compile Include="Models\Mission.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserMission.cs" />
     <Compile Include="MyMoneyPage.xaml.cs">
       <DependentUpon>MyMoneyPage.xaml</DependentUpon>
     </Compile>
@@ -130,6 +130,9 @@
     <Compile Include="MyPage.xaml.cs">
       <DependentUpon>MyPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StartCartoonPage.xaml.cs">
+      <DependentUpon>StartCartoonPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\HallPageViewModel.cs" />
     <Compile Include="ViewModels\SignupPageViewModel.cs" />
   </ItemGroup>
@@ -146,6 +149,7 @@
     <Content Include="Assets\3.jpg" />
     <Content Include="Assets\5.jpg" />
     <Content Include="Assets\money1.PNG" />
+    <Content Include="Assets\Starting.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -193,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartCartoonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

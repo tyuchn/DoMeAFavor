@@ -22,7 +22,7 @@ namespace DoMeAFavor.UnitTest.Services
             Assert.AreEqual(1, missions.Count);
             Assert.AreEqual("express", missions[0].MissionName);
             Assert.AreEqual("kfc", missions[0].Message);
-            Assert.AreEqual(new DateTime(2018, 7, 21), missions[0].Date);
+            Assert.AreEqual(new DateTime(2018, 7, 21), missions[0].CreationDate);
         }
 
         [TestMethod]

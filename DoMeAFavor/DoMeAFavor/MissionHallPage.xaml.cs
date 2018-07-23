@@ -53,5 +53,19 @@ namespace DoMeAFavor
         {
             await AddMissionContent.ShowAsync();
         }
+
+        private void AddMissionContent_OnPrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            var mn = Missionname.ToString();
+            var ms = Message.ToString();
+            var dt = Date1.Date;
+            var mission = new Mission();
+            mission.MissionName = mn;
+            mission.Message = ms;
+            
+
+
+
+        }
     }
 }
