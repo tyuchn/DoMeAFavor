@@ -15,7 +15,6 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
@@ -28,7 +27,8 @@ namespace DoMeAFavor
     public sealed partial class SignUpPage : Page
     {
        
-        private string _comboBox;
+        private string _comboBox;  //下拉框
+
         public SignUpPage()
         {
             this.InitializeComponent();
@@ -41,7 +41,7 @@ namespace DoMeAFavor
         }
         private async void SureSignUp_Click(object sender, RoutedEventArgs e)
         {
-            int count=5;
+            int count=0;
             
             string userId = UserId.Text;
             string password = Password.Password;
@@ -50,13 +50,12 @@ namespace DoMeAFavor
             string reallyName = ReallyName.Text;
             string netName = NetName.Text;
             string _class = Class.Text;
-           /* if (userId.Length == 8)
+            if (userId.Length == 8)
                 count++;
 
             else
             {
-                //UserId.Background ="red";
-                    await new MessageDialog(" 学号位数不对").ShowAsync();
+                 await new MessageDialog(" 学号位数不对").ShowAsync();
             }
 
             if ((password == surePassword) && (password.Length < 17))
@@ -77,13 +76,11 @@ namespace DoMeAFavor
             if (_comboBox != null)
                 count++;
             else
-                await new MessageDialog(" 请选择专业").ShowAsync();*/
+                await new MessageDialog(" 请选择专业").ShowAsync();
             if(count==5)
-                Frame.Navigate(typeof(MissionHallPage),null,new DrillInNavigationTransitionInfo());
-            else
-                await new MessageDialog(" 请修改红色区域").ShowAsync();
+                Frame.Navigate(typeof(MissionHallPage));  //跳转到任务大厅
         }
 
-       
     }
 }
+ 

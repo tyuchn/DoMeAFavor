@@ -132,7 +132,10 @@
                          Name="Class"></TextBox>
             </StackPanel>
             <Button Content="注册"
-                    Margin="40,40,0,0" RequestedTheme="Light" Visibility="Visible">
+                    Margin="40,40,0,0" 
+                    RequestedTheme="Light"
+                    Visibility="Visible"
+                    >
                 <Button.Flyout  >
                     <Flyout>
                         <StackPanel>
@@ -141,7 +144,8 @@
                                        Margin="0,0,0,12" />
                             <Button Click="SureSignUp_Click"
                                     Content="Yes" 
-                                    Name="SureSignUp"/>
+                                    Name="SureSignUp"
+                                    Command="{Binding SignupCommand}"/>
                         
                         </StackPanel>
                     </Flyout>

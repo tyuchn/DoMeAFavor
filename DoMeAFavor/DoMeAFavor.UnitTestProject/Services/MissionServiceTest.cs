@@ -19,7 +19,7 @@ namespace DoMeAFavor.UnitTest.Services
             var missionService = new MissionService();
 
             var missions = (await missionService.ListAsync()).ToList();
-            Assert.AreEqual(2, missions.Count);
+            Assert.AreEqual(1, missions.Count);
             Assert.AreEqual("express", missions[0].MissionName);
             Assert.AreEqual("kfc", missions[0].Message);
             Assert.AreEqual(new DateTime(2018, 7, 21), missions[0].Date);
