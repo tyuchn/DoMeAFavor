@@ -84,7 +84,7 @@ namespace DoMeAFavor.Models
             Express,
         };
 
-        private IList<UserMission> UserMissions { get; set; }
+        public IList<UserMission> UserMissions { get; set; }
 
 
 
