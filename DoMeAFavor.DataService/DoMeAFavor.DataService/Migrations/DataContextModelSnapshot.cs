@@ -20,27 +20,12 @@ namespace DoMeAFavor.DataService.Migrations
                 .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("DoMeAFavor.DataService.Models.CompletedMission", b =>
-                {
-                    b.Property<int>("MissioinId");
-
-                    b.Property<int>("UserId");
-
-                    b.Property<DateTime>("CompleteTime");
-
-                    b.Property<string>("Evaluation");
-
-                    b.HasKey("MissioinId", "UserId");
-
-                    b.ToTable("CompletedMissions");
-                });
-
             modelBuilder.Entity("DoMeAFavor.DataService.Models.Mission", b =>
                 {
                     b.Property<int>("MissionId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Date");
+                    b.Property<DateTime>("CreationDate");
 
                     b.Property<DateTime>("Deadline");
 
@@ -50,7 +35,7 @@ namespace DoMeAFavor.DataService.Migrations
 
                     b.Property<int>("Points");
 
-                    b.Property<int>("PublisherId");
+                    b.Property<int>("Type");
 
                     b.HasKey("MissionId");
 
@@ -59,7 +44,7 @@ namespace DoMeAFavor.DataService.Migrations
 
             modelBuilder.Entity("DoMeAFavor.DataService.Models.User", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Avatar");
@@ -76,11 +61,42 @@ namespace DoMeAFavor.DataService.Migrations
 
                     b.Property<string>("RealName");
 
+                    b.Property<int>("UserId");
+
                     b.Property<string>("Username");
 
-                    b.HasKey("UserId");
+                    b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("DoMeAFavor.DataService.Models.UserMission", b =>
+                {
+                    b.Property<int>("MissioinId");
+
+                    b.Property<int>("UserId");
+
+                    b.Property<int?>("MissionId");
+
+                    b.HasKey("MissioinId", "UserId");
+
+                    b.HasIndex("MissionId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserMissions");
+                });
+
+            modelBuilder.Entity("DoMeAFavor.DataService.Models.UserMission", b =>
+                {
+                    b.HasOne("DoMeAFavor.DataService.Models.Mission", "Mission")
+                        .WithMany("UserMissions")
+                        .HasForeignKey("MissionId");
+
+                    b.HasOne("DoMeAFavor.DataService.Models.User", "User")
+                        .WithMany("UserMissions")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

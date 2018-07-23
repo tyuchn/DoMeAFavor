@@ -18,7 +18,7 @@ namespace DoMeAFavor.DataService.Models
         public int MissionId { get; set; }
 
         /// <summary>
-        /// 类型。
+        /// 任务名称。
         /// </summary>
         [JsonProperty("missionname")]
         public string MissionName { get; set; }
@@ -26,8 +26,8 @@ namespace DoMeAFavor.DataService.Models
         /// <summary>
         /// 发布时间。
         /// </summary>
-        [JsonProperty("date")]
-        public DateTime Date { get; set; }
+        [JsonProperty("creationdate")]
+        public DateTime CreationDate { get; set; }
 
         /// <summary>
         /// 截止时间。
@@ -42,16 +42,31 @@ namespace DoMeAFavor.DataService.Models
         public string Message { get; set; }
 
         /// <summary>
-        /// 发布人Id。
+        /// 任务类型。
         /// </summary>
-        [JsonProperty("publisherid")]
-        public int PublisherId { get; set; }
+        public enum MissionType
+        {
+            TakeOver,
+            Delivery,
+            Express
+        }
+
+        /// <summary>
+        /// 任务类型。
+        /// </summary>
+        [JsonProperty("type")]
+        public MissionType Type { get; set; }
 
         /// <summary>
         /// 积分数。
         /// </summary>
         [JsonProperty("points")]
         public int Points { get; set; }
+
+        /// <summary>
+        /// 用户任务表。
+        /// </summary>
+        public IList<UserMission> UserMissions { get; set; }
 
     }
 }

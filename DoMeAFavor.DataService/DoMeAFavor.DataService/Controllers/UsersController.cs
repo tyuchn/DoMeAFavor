@@ -36,7 +36,7 @@ namespace DoMeAFavor.DataService.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.Users.SingleOrDefaultAsync(m => m.UserId == id);
+            var user = await _context.Users.SingleOrDefaultAsync(m => m.Id == id);
 
             if (user == null)
             {
@@ -55,7 +55,7 @@ namespace DoMeAFavor.DataService.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != user.UserId)
+            if (id != user.Id)
             {
                 return BadRequest();
             }
@@ -93,7 +93,7 @@ namespace DoMeAFavor.DataService.Controllers
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.UserId }, user);
+            return CreatedAtAction("GetUser", new { id = user.Id }, user);
         }
 
         // DELETE: api/Users/5
@@ -105,7 +105,7 @@ namespace DoMeAFavor.DataService.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.Users.SingleOrDefaultAsync(m => m.UserId == id);
+            var user = await _context.Users.SingleOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
                 return NotFound();
@@ -119,7 +119,7 @@ namespace DoMeAFavor.DataService.Controllers
 
         private bool UserExists(int id)
         {
-            return _context.Users.Any(e => e.UserId == id);
+            return _context.Users.Any(e => e.Id == id);
         }
     }
 }

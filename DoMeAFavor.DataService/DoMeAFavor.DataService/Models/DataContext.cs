@@ -24,7 +24,7 @@ namespace DoMeAFavor.DataService.Models
         /// <summary>
         /// 完成的任务表。
         /// </summary>
-        public DbSet<CompletedMission> CompletedMissions { get; set; }
+        public DbSet<UserMission> UserMissions { get; set; }
 
         /// <summary>
         /// 数据上下文类构造函数。
@@ -39,7 +39,7 @@ namespace DoMeAFavor.DataService.Models
             base.OnModelCreating(builder);
 
             // Define composite key.定义联合主键。
-            builder.Entity<CompletedMission>()
+            builder.Entity<UserMission>()
                 .HasKey(lc => new { lc.MissioinId, lc.UserId });
         }
     }

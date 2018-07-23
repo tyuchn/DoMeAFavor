@@ -9,7 +9,7 @@ namespace DoMeAFavor.DataService.Models
     /// <summary>
     /// 完成的任务类。
     /// </summary>
-    public class CompletedMission
+    public class UserMission
     {
         /// <summary>
         /// 主键（学号）。
@@ -26,14 +26,14 @@ namespace DoMeAFavor.DataService.Models
         /// <summary>
         /// 完成时间。
         /// </summary>
-        ///[JsonProperty("completetime")]
-        public DateTime CompleteTime { get; set; }
+        [JsonProperty("user")]
+        public User User { get; set; }
 
         /// <summary>
         /// 评价。
         /// </summary>
-        ///[JsonProperty("evaluation")]
-        public string Evaluation { get; set; }
+        [JsonProperty("misssion")]
+        public Mission Mission { get; set; }
 
     }
 }

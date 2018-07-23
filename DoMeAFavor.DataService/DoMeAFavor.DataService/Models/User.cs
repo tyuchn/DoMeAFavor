@@ -11,8 +11,15 @@ namespace DoMeAFavor.DataService.Models
     /// </summary>
     public class User
     {
+
         /// <summary>
-        /// 主键（学号）。
+        /// 主键。
+        /// </summary>
+        [JsonProperty("id")]
+        public int Id { get; set; }
+
+        /// <summary>
+        /// 学号。
         /// </summary>
         [JsonProperty("userid")]
         public int UserId { get; set; }
@@ -65,7 +72,10 @@ namespace DoMeAFavor.DataService.Models
         [JsonProperty("avatar")]
         public string Avatar { get; set; }
 
-
+        /// <summary>
+        /// 用户任务表。
+        /// </summary>
+        public IList<UserMission> UserMissions { get; set; }
 
     }
 }

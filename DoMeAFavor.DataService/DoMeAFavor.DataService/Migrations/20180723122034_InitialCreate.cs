@@ -10,31 +10,17 @@ namespace DoMeAFavor.DataService.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "CompletedMissions",
-                columns: table => new
-                {
-                    MissioinId = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: false),
-                    CompleteTime = table.Column<DateTime>(nullable: false),
-                    Evaluation = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CompletedMissions", x => new { x.MissioinId, x.UserId });
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Missions",
                 columns: table => new
                 {
                     MissionId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Date = table.Column<DateTime>(nullable: false),
+                    CreationDate = table.Column<DateTime>(nullable: false),
                     Deadline = table.Column<DateTime>(nullable: false),
                     Message = table.Column<string>(nullable: true),
                     MissionName = table.Column<string>(nullable: true),
                     Points = table.Column<int>(nullable: false),
-                    PublisherId = table.Column<int>(nullable: false)
+                    Type = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,7 +31,7 @@ namespace DoMeAFavor.DataService.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Avatar = table.Column<string>(nullable: true),
                     Class = table.Column<int>(nullable: false),
@@ -54,18 +40,54 @@ namespace DoMeAFavor.DataService.Migrations
                     PhoneNumber = table.Column<int>(nullable: false),
                     Points = table.Column<int>(nullable: false),
                     RealName = table.Column<string>(nullable: true),
+                    UserId = table.Column<int>(nullable: false),
                     Username = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "UserMissions",
+                columns: table => new
+                {
+                    MissioinId = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: false),
+                    MissionId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserMissions", x => new { x.MissioinId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK_UserMissions_Missions_MissionId",
+                        column: x => x.MissionId,
+                        principalTable: "Missions",
+                        principalColumn: "MissionId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_UserMissions_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserMissions_MissionId",
+                table: "UserMissions",
+                column: "MissionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserMissions_UserId",
+                table: "UserMissions",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CompletedMissions");
+                name: "UserMissions");
 
             migrationBuilder.DropTable(
                 name: "Missions");
