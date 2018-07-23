@@ -62,10 +62,7 @@ namespace DoMeAFavor
             var mission = new Mission();
             mission.MissionName = mn;
             mission.Message = ms;
-            
-
-
-
+           
         }
     }
 }
