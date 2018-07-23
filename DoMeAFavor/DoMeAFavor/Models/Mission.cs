@@ -81,7 +81,7 @@ namespace DoMeAFavor.Models
         {
             TakeOver,
             Delivery,
-            Express,
+            Express
         };
 
         public IList<UserMission> UserMissions { get; set; }
