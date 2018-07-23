@@ -32,15 +32,15 @@ namespace DoMeAFavor.UnitTest.Services
             var missions = (await missionService.ListAsync()).ToList();
             var firstMission = missions[0];
 
-            Assert.AreEqual("delivery", firstMission.MissionName);
+            Assert.AreEqual("express", firstMission.MissionName);
 
-            firstMission.MissionName = "express";
+            firstMission.MissionName = "ccc";
             await missionService.UpdateAsync(firstMission);
 
             missions = (await missionService.ListAsync()).ToList();
             firstMission = missions[0];
 
-            Assert.AreEqual("express", firstMission.MissionName);
+            Assert.AreEqual("ccc", firstMission.MissionName);
 
         }
 
@@ -50,24 +50,34 @@ namespace DoMeAFavor.UnitTest.Services
             var missionService = new MissionService();
             
             var ms = new Mission();
+            ms.MissionId = 10;
+            ms.Date = DateTime.Today;
+            ms.Deadline = DateTime.Today;
+            ms.Message = "ddd";
+            ms.Points = 3;
+            ms.PublisherId = 20154464;
             ms.MissionName = "lunch";
+            var qq = new Mission();
+            qq.MissionName = "made";
             await missionService.AddAsync(ms);
+            await missionService.AddAsync(qq);
+
             var missions = (await missionService.ListAsync()).ToList();
 
-            Assert.AreEqual(2, missions.Count);
-            Assert.AreEqual("express", missions[0].MissionName);
-            Assert.AreEqual("lunch", missions[1].MissionName);
+            Assert.AreEqual(3, missions.Count);
+            //Assert.AreEqual("express", missions[0].MissionName);
+            //Assert.AreEqual("lunch", missions[1].MissionName);
 
         }
 
         [TestMethod]
-        public async Task DeleteAsync()
+        public async Task TestDeleteAsync()
         {
             var missionService = new MissionService();
             var missions = (await missionService.ListAsync()).ToList();
-            var secondMission = missions[1];
+            var secondMission = missions[2];
             await missionService.DeleteAsync(secondMission);
-            Assert.AreNotEqual(1,missions.Count);
+            Assert.AreEqual(2,missions.Count);
         }
         
     }

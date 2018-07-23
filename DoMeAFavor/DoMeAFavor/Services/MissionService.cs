@@ -63,23 +63,25 @@ namespace DoMeAFavor.Services
         }
 
         /// <summary>
-        /// 添加任务
+        /// 添加任务。
         /// </summary>
-        /// <returns></returns>
         public async Task AddAsync(Mission mission)
         {
-
             using (var client = new HttpClient())
             {
                 var json = JsonConvert.SerializeObject(mission);
-                await client.PostAsync(ServiceEndpoint + "/" + mission.MissionId,
-                    new StringContent(json, Encoding.UTF8, "application/json"));
+                 await client.PostAsync(ServiceEndpoint + "/" + mission.MissionId,
+                    new StringContent(json, Encoding.UTF8, "application/json"));                
             }
         }
 
 
 
-
+        /// <summary>
+        /// 删除任务。
+        /// </summary>
+        /// <param name="mission"></param>
+        /// <returns></returns>
         public async Task DeleteAsync(Mission mission)
         {
             using (var client = new HttpClient())

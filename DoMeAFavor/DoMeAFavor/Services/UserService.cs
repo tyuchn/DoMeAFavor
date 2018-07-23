@@ -27,7 +27,18 @@ namespace DoMeAFavor.Services
 
         /******** 继承方法 ********/
 
-        
+        /// <summary>
+        /// 列出所有用户。
+        /// </summary>
+        /// <returns>所有任务。</returns>
+        public async Task<IEnumerable<User>> ListAsync()
+        {
+            using (var client = new HttpClient())
+            {
+                var json = await client.GetStringAsync(ServiceEndpoint);
+                return JsonConvert.DeserializeObject<User[]>(json);
+            }
+        }
 
         /// <summary>
         /// 更新用户。
@@ -40,7 +51,34 @@ namespace DoMeAFavor.Services
                 var json = JsonConvert.SerializeObject(user);
                 await client.PutAsync(ServiceEndpoint + "/" + user.UserId,
                     new StringContent(json, Encoding.UTF8,
-                        "application/json")); // 如为 new StringContent(json) 则不工作。
+                        "application/json")); 
+            }
+        }
+
+        /// <summary>
+        /// 添加用户。
+        /// </summary>
+        public async Task AddAsync(User user)
+        {
+            using (var client = new HttpClient())
+            {
+                var json = JsonConvert.SerializeObject(user);
+                await client.PostAsync(ServiceEndpoint + "/" + user.UserId,
+                    new StringContent(json, Encoding.UTF8, "application/json"));
+            }
+        }
+
+        /// <summary>
+        /// 删除用户。
+        /// </summary>
+        /// <param name="mission"></param>
+        /// <returns></returns>
+        public async Task DeleteAsync(User user)
+        {
+            using (var client = new HttpClient())
+            {
+                var json = JsonConvert.SerializeObject(user);
+                await client.DeleteAsync(ServiceEndpoint + "/" + user.UserId);
             }
         }
 
