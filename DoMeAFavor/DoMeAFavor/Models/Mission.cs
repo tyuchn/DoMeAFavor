@@ -15,7 +15,7 @@ namespace DoMeAFavor.Models
         /// <summary>
         /// 主键
         /// </summary>
-        public int MissionId;
+        public int MissionId { get; set; }
 
         /// <summary>
         /// 任务名称
@@ -46,16 +46,16 @@ namespace DoMeAFavor.Models
         }
 
         /// <summary>
-        /// 日期
+        /// 创建日期
         /// </summary>
-        private DateTime _date;
+        private DateTime _creationDate;
         /// <summary>
-        /// 日期
+        /// 创建日期
         /// </summary>
-        public DateTime Date
+        public DateTime CreationDate
         {
-            get => _date;
-            set => Set(nameof(Date), ref _date, value);
+            get => _creationDate;
+            set => Set(nameof(CreationDate), ref _creationDate, value);
         }
 
         /// <summary>
@@ -67,14 +67,26 @@ namespace DoMeAFavor.Models
         /// </summary>
         public DateTime Deadline
         {
-            get => _date;
-            set => Set(nameof(Date), ref _date, value);
+            get => _deadline;
+            set => Set(nameof(Deadline), ref _deadline, value);
         }
-
         /// <summary>
-        /// 发布人Id。
+        /// 任务类型
         /// </summary>
-        public int PublisherId { get; set; }
+        public MissionType Type { get; set; }
+        /// <summary>
+        /// 任务类型
+        /// </summary>
+        public enum MissionType
+        {
+            TakeOver,
+            Delivery,
+            Express,
+        };
+
+        private IList<UserMission> UserMissions { get; set; }
+
+
 
         /// <summary>
         /// 积分数。

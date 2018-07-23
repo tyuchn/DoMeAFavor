@@ -12,19 +12,23 @@ namespace DoMeAFavor.Models
     public class User: ObservableObject
     {
         /// <summary>
-        /// 主键
+        /// 主键。
         /// </summary>
-        public int _userId;
+        public int ID { get; set; }
+        /// <summary>
+        /// 学号
+        /// </summary>
+        private int _userId;
 
         /// <summary>
-        /// 主键
+        /// 学号
         /// </summary>
         public int UserId
         {
             get => _userId;
             set => Set(nameof(UserId), ref _userId, value);
         }
-
+        
         /// <summary>
         /// 用户名
         /// </summary>
@@ -42,7 +46,7 @@ namespace DoMeAFavor.Models
         /// <summary>
         /// 密码。
         /// </summary>
-        public string _password;
+        private string _password;
 
         /// <summary>
         /// 密码。
@@ -56,7 +60,7 @@ namespace DoMeAFavor.Models
         /// <summary>
         /// 真实姓名。
         /// </summary>
-        public string _realName;
+        private string _realName;
 
         /// <summary>
         /// 真实姓名。
@@ -66,7 +70,7 @@ namespace DoMeAFavor.Models
             set => Set(nameof(RealName), ref _realName, value);
         }
 
-        public int _phoneNumber;
+        private int _phoneNumber;
 
         /// <summary>
         /// 手机号。
@@ -76,7 +80,7 @@ namespace DoMeAFavor.Models
             set => Set(nameof(PhoneNumber), ref _phoneNumber, value);
         }
 
-        public string _major;
+        private string _major;
 
         /// <summary>
         /// 专业。
@@ -86,7 +90,7 @@ namespace DoMeAFavor.Models
             set => Set(nameof(Major), ref _major, value);
         }
 
-        public int _class;
+        private int _class;
 
         /// <summary>
         /// 班级。
@@ -96,7 +100,7 @@ namespace DoMeAFavor.Models
             set => Set(nameof(Class), ref _class, value);
         }
 
-        public int _points;
+        private int _points;
 
         /// <summary>
         /// 积分。
@@ -106,7 +110,7 @@ namespace DoMeAFavor.Models
             set => Set(nameof(Points), ref _points, value);
         }
 
-        public string _avatar;
+        private string _avatar;
 
         /// <summary>
         /// 头像。
@@ -115,6 +119,8 @@ namespace DoMeAFavor.Models
             get => _avatar;
             set => Set(nameof(Avatar), ref _avatar, value);
         }
+
+        private IList<UserMission> UserMissions { get; set; }
 
 
     }

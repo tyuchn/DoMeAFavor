@@ -16,7 +16,7 @@
             <StackPanel HorizontalAlignment="Center">
                 
                 <TextBlock FontSize="16" Text="{x:Bind MissionName}" HorizontalAlignment="Center" FontFamily="Comic Sans MS" />
-                <TextBlock FontSize="10" Text="{x:Bind Date}" HorizontalAlignment="Center" />
+                <TextBlock FontSize="10" Text="{x:Bind CreationDate}" HorizontalAlignment="Center" />
                 <TextBlock FontSize="10" Text="{x:Bind Message}" HorizontalAlignment="Center" />
             </StackPanel>
         </DataTemplate>
