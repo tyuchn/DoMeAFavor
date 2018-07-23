@@ -46,7 +46,7 @@ namespace DoMeAFavor
             string passwords = PassWords.Password;
             if ((userTextBox == "20154416") && (passwords == "20154416"))
             {
-                Frame.Navigate(typeof(MissionHallPage), null, new SuppressNavigationTransitionInfo());
+                Frame.Navigate(typeof(MissionHallPage), null, new DrillInNavigationTransitionInfo());
                // UserState = 1;
             }
             else

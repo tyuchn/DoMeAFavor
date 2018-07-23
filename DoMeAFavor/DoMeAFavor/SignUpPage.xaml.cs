@@ -51,7 +51,7 @@ namespace DoMeAFavor
             string reallyName = ReallyName.Text;
             string netName = NetName.Text;
             string _class = Class.Text;
-           /* if (userId.Length == 8)
+            if (userId.Length == 8)
                 count++;
 
             else
@@ -78,9 +78,9 @@ namespace DoMeAFavor
             if (_comboBox != null)
                 count++;
             else
-                await new MessageDialog(" 请选择专业").ShowAsync();*/
+                await new MessageDialog(" 请选择专业").ShowAsync();
             if(count==5)
-                Frame.Navigate(typeof(MissionHallPage));
+                Frame.Navigate(typeof(MissionHallPage),null,new DrillInNavigationTransitionInfo());
         }
 
     }
