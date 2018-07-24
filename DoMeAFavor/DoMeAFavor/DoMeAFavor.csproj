@@ -98,6 +98,9 @@
     <Compile Include="ChangePasswordPage.xaml.cs">
       <DependentUpon>ChangePasswordPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MissionDetail.xaml.cs">
+      <DependentUpon>MissionDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MissionHallPage.xaml.cs">
       <DependentUpon>MissionHallPage.xaml</DependentUpon>
     </Compile>
@@ -165,6 +168,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="ChangePasswordPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MissionDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -21,11 +21,8 @@
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
-    <Page.DataContext>
-        <Binding Source="{StaticResource HallPageViewModel}" />
-    </Page.DataContext>
+    
     <Grid>
-
         <StackPanel Width="auto"
             Margin="0,0,0,0">
             <AutoSuggestBox PlaceholderText="Type a search name"
@@ -54,14 +51,14 @@
                         <ic:InvokeCommandAction Command="{Binding ListCommand, Mode=OneWay}" />
                     </ic:EventTriggerBehavior>
                 </i:Interaction.Behaviors>
-                
+
                 <GridView Name="GridView"
                           IsItemClickEnabled="True"
                           ItemTemplate="{StaticResource MissionDataTemplate}"
                           ItemsSource="{Binding MissionCollection}"
                           ItemClick="HallGridView_OnItemClick" />
             </RefreshContainer>
-            
+
             <CommandBar Grid.Row="1"
                         OverflowButtonVisibility="Collapsed"
                         DefaultLabelPosition="Right">
@@ -78,7 +75,7 @@
                               Label="Delete"
                               Command="{Binding DeleteCommand}"
                               CommandParameter="{Binding SelectedMission}" >
-                    
+
                 </AppBarButton>
                 <AppBarButton Icon="Add"
                               Label="AddMission"
@@ -116,6 +113,6 @@
                 </StackPanel>
             </ContentDialog>
         </StackPanel>
-        
     </Grid>
+    
 </Page>
