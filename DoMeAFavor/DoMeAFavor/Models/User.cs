@@ -70,12 +70,12 @@ namespace DoMeAFavor.Models
             set => Set(nameof(RealName), ref _realName, value);
         }
 
-        private int _phoneNumber;
+        private long _phoneNumber;
 
         /// <summary>
         /// 手机号。
         /// </summary>
-        public int PhoneNumber {
+        public long PhoneNumber {
             get => _phoneNumber;
             set => Set(nameof(PhoneNumber), ref _phoneNumber, value);
         }

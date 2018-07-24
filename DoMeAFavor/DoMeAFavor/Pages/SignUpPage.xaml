@@ -55,7 +55,8 @@
                              Width="450"
                              PlaceholderText="请再次输入您的密码"
                              PasswordChar="*"
-                             Name="SurePassword" />
+                             Name="SurePassword" 
+                             />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="姓       名"
@@ -136,22 +137,23 @@
             <Button Content="注册"
                     Margin="40,40,0,0"
                     RequestedTheme="Light"
-                    Visibility="Visible">
-                <Button.Flyout>
-                    <Flyout>
-                        <StackPanel>
-                            <TextBlock Style="{ThemeResource BaseTextBlockStyle}"
-                                       Text="请确认您的信息"
-                                       Margin="0,0,0,12" />
-                            <Button 
-                                    Content="Yes"
-                                    Name="SureSignUp"
-                                    Command="{Binding SignupCommand}" />
-
-                        </StackPanel>
-                    </Flyout>
-                </Button.Flyout>
+                    Visibility="Visible"
+                    Name="SignUpButton"
+                    Click="SignUpButton_Click">
+                  
             </Button>
+            <ContentDialog
+                Title="确认您的信息无误"
+                PrimaryButtonText="Confirm"
+                PrimaryButtonCommand="{Binding SignupCommand}"
+                CloseButtonText="Cancel"
+                DefaultButton="Close"
+                x:Name="SureInformation" 
+                
+                >
+
+
+            </ContentDialog>
 
         </StackPanel>
 
