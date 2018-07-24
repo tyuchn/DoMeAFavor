@@ -8,11 +8,15 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.DataContext>
+        <Binding Source="{StaticResource SignupPageViewModel}"/>
+    </Page.DataContext>
+
     <Grid>
         <StackPanel Margin="20,0,0,0"
-                    Width="auto">
-            <TextBlock Text="欢迎注册DoMeAFavor"
-                       
+                    Width="auto"
+                    >
+            <TextBlock Text="欢迎注册DoMeAFavor"                      
                        Margin="50,20,0,0"
                        FontSize="50"
                        IsColorFontEnabled="True"
@@ -27,61 +31,63 @@
                        FontStyle="Oblique"
                        >
             </TextBlock>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="I D:学号"
+            <StackPanel Orientation="Horizontal"
+                        >
+                <TextBlock Text="学      号"
                            Margin="30,20,0,0"
-                           FontSize="25"></TextBlock>
+                           FontSize="25"/>
                 <TextBox Margin="50,20,0,0"
                          Width="450"
-                         PlaceholderText="请输入学号注册"
-                         Name="UserId"
-                         ></TextBox>
+                         PlaceholderText="请输入学号"
+                         Name="UserId"                     
+                         Text="{Binding UserId}" 
+                         />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="密       码"
                            Margin="30,20,0,0"
                            FontSize="25"
-                           ></TextBlock>
+                           />
                 <PasswordBox Margin="40,20,0,0"
                          Width="450"
                              PasswordChar="*"
                          PlaceholderText="请设置密码小于16位"
-                             Name="Password"></PasswordBox>
+                             Name="Password"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="确认密码"
                            Margin="30,20,0,0"
                            FontSize="25"
-                          ></TextBlock>
+                          />
                 <PasswordBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请再次输入您的密码"
                              PasswordChar="*"
-                              Name="SurePassword"></PasswordBox>
+                              Name="SurePassword"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="姓       名"
                            Margin="30,20,0,0"
-                           FontSize="25"></TextBlock>
+                           FontSize="25"/>
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请输入真实姓名"
-                         Name="ReallyName"></TextBox>
+                         Name="ReallyName"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="手  机  号"
                            Margin="30,20,0,0"
-                           FontSize="25"></TextBlock>
+                           FontSize="25"/>
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请输入真实手机号"
-                         Name="PhoneNumber"></TextBox>
+                         Name="PhoneNumber"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="用  户  名"
                            Margin="30,20,0,0"
                            FontSize="25"
-                           Name="NetName"></TextBlock>
+                           Name="NetName"/>
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请设置您的DoMeAFovor昵称"></TextBox>
@@ -89,7 +95,7 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="专        业"
                            Margin="30,20,0,0"
-                           FontSize="25"></TextBlock>
+                           FontSize="25"/>
                 <ComboBox Margin="40,20,0,0"
                           Width="450"
                           SelectionChanged="ComboBox_SelectionChanged"
@@ -125,11 +131,11 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="班        级"
                            Margin="30,20,0,0"
-                           FontSize="25"></TextBlock>
+                           FontSize="25"/>
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请输入您的班级"
-                         Name="Class"></TextBox>
+                         Name="Class"/>
             </StackPanel>
             <Button Content="注册"
                     Margin="40,40,0,0" 
