@@ -35,22 +35,19 @@ namespace DoMeAFavor
             //ReadOnlyTB.Text = MyPWBox1.Password;
         }
 
-        private void SingUp_Click(object sender, RoutedEventArgs e)
+        private  async void ToLogin_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(SignUpPage));
+            await LoginContent.ShowAsync();
         }
 
-        private async void Login_Click(object sender, RoutedEventArgs e)
+        private void LoginContent_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            string userTextBox = UserTextBox.Text;
-            string passwords = PassWords.Password;
-            if ((userTextBox == "20154416") && (passwords == "20154416"))
-            {
-                Frame.Navigate(typeof(MissionHallPage), null, new DrillInNavigationTransitionInfo());
-               // UserState = 1;
-            }
-            else
-                await new MessageDialog(" 密码或者用户名错误").ShowAsync();
+            Frame.Navigate(typeof(MissionHallPage), null, new DrillInNavigationTransitionInfo());
+        }
+
+        private void ToSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SignUpPage), null, new DrillInNavigationTransitionInfo());
         }
     }
 }

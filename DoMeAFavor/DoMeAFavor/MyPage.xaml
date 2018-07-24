@@ -7,25 +7,22 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+
 
     <Grid >
-        
-        <StackPanel Margin="50,10,0,0"
+        <StackPanel Margin="30,10,0,0"
                     Width="AuTo">
             <CommandBar Background="Transparent"
                         OverflowButtonVisibility="Collapsed"
                         DefaultLabelPosition="Right"
                         HorizontalAlignment="Left"
-                        Margin="50,30">
+                        Margin="50,30,0,0">
 
                 <AppBarButton Name="SaveButton"
                               Icon="Save"
-                              
                               ToolTipService.ToolTip="保存信息"
                               Click="SaveButton_Click"
                               />
-                
             </CommandBar>
             <ContentDialog
             Title="Save your change?"
@@ -35,7 +32,7 @@
                 x:Name="SaveContentButton">
             </ContentDialog>
             <StackPanel Orientation="Horizontal"
-                  Margin="0,10,0,20" >
+                  Margin="0,10,0,10" >
             <TextBlock Text="昵称"  
                        Margin="50,0,0,0" 
                        Height="30"/>
@@ -44,7 +41,7 @@
                      Margin="49,0,0,0"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal"
-                    Margin="0,10,0,20" >
+                    Margin="0,10,0,10" >
             <TextBlock Text="学号"  
                        Margin="50,0,0,0" 
                        Height="30"/>
@@ -53,7 +50,7 @@
                      Margin="49,0,0,0"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal"
-                    Margin="0,10,0,20" >
+                    Margin="0,10,0,10" >
             <TextBlock Text="姓名"  
                        Margin="50,0,0,10" 
                        Height="30"/>
@@ -70,18 +67,40 @@
                          Width="430" 
                          Margin="34,0,0,0"/>
             </StackPanel>
-            <Button Content="查看任务记录"
-                    Background="White"
-                   Margin="54,0,0,0">
-                <Button.Flyout>
-                    <MenuFlyout>
-                        
-                        <ToggleMenuFlyoutItem Text="发布的任务"/>
-                        <MenuFlyoutSeparator/>
-                        <ToggleMenuFlyoutItem Text="完成的任务"/>
-                    </MenuFlyout>
-                </Button.Flyout>
-            </Button>
+            <Pivot Title="任务记录" 
+                   Width="auto"
+                   FontSize="20">
+                <PivotItem Header="完成的任务">
+                    <ListView Name="Express"
+                          IsItemClickEnabled="True"
+                          Margin="10,10,0,0"
+                                  Height="100"
+                                  Width="auto">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="123"
+                                           Style="{StaticResource BaseTextBlockStyle}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </PivotItem>
+                <PivotItem Header="发布的任务">
+                    <ListView Name="Shopping"
+                          IsItemClickEnabled="True"
+                          Margin="10,10,0,0"
+                                  Height="100"
+                                  Width="auto">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="123"
+                                           Style="{StaticResource BaseTextBlockStyle}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </PivotItem>
+              
+            </Pivot>
         </StackPanel>
     </Grid>
 </Page>

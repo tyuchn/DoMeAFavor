@@ -5,46 +5,60 @@
     xmlns:local="using:DoMeAFavor"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"  Opacity="0.6"
+    mc:Ignorable="d" 
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="Assets/1.jpg" Stretch="UniformToFill"/>
-        </Grid.Background>
         <StackPanel>
-            <TextBlock Text="欢迎登陆DoMeAFavor" 
-                   FontSize="25"
-                   Margin="150,150,0,0"  FontStyle="Italic" FontWeight="Normal"/>
-            <TextBlock Text="Your User ID" FontSize="20"
+            <Button Content="登录"
+                Margin="10,10,0,0"
+                Name="ToLogin"
+                Click="ToLogin_Click"
+                FontSize="20" 
+                HorizontalAlignment="Left"></Button>
+            <Button Content="注册"
+                Margin="10,10,0,0"
+                Name="ToSignUp"
+                Click="ToSignUp_Click"
+                FontSize="20" 
+                HorizontalAlignment="Left"></Button>
+        </StackPanel>
+        
+        <ContentDialog
+                Title="欢迎登录DoMeAFavor"
+                x:Name="LoginContent"
+            PrimaryButtonText="登录"
+                PrimaryButtonClick="LoginContent_PrimaryButtonClick"
+                
+                CloseButtonText="Cancel">
+
+            <StackPanel >
+
+                <TextBlock Text="Your User ID" FontSize="20"
                        Style="{StaticResource CaptionTextBlockStyle}"
-                       Margin="110,97,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35" Width="301" RenderTransformOrigin="0.493,0.509"></TextBlock>
-            <TextBox Name="UserTextBox"
+                       Margin="10,20,0,0" HorizontalAlignment="Left"
+                           VerticalAlignment="Top" Height="35" Width="301" RenderTransformOrigin="0.493,0.509"></TextBlock>
+                <TextBox Name="UserTextBox"
                     PlaceholderText="please your user ID"
                      
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
                  Height="40" 
-                 Margin="110,0,0,0"
-                 Width="500"/>
-            <TextBlock Text="Your PassWords" FontSize="20"
+                 Margin="10,0,0,0"
+                 Width="250"/>
+                <TextBlock Text="Your PassWords" FontSize="20"
                        Style="{StaticResource CaptionTextBlockStyle}"
-                       Margin="110,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35" Width="301" RenderTransformOrigin="0.493,0.509"></TextBlock>
-            <PasswordBox Name="PassWords" Margin="110,15,0,0" Width="500" 
+                       Margin="10,10,0,0" HorizontalAlignment="Left" 
+                           VerticalAlignment="Top" Height="35"
+                           Width="301" 
+                           RenderTransformOrigin="0.493,0.509"></TextBlock>
+                <PasswordBox Name="PassWords" Margin="10,15,0,0" Width="250" 
              PlaceholderText="please enter your password"
              HorizontalAlignment="Left"
                      VerticalAlignment="Top" Height="40"/>
-            <StackPanel Orientation="Horizontal">
-                <Button Content="Login" 
-                    x:Name="Login"
-                    Click="Login_Click"
-                    Margin="160,10,0,0" 
-                    />
-                <Button Content="SignUp"     
-                    Name="SingUp"
-                    Click="SingUp_Click" 
-                    Margin="160,10,0,0"/>
+                
             </StackPanel>
-        </StackPanel>
+        </ContentDialog>
+        
 
     </Grid>
 </Page>

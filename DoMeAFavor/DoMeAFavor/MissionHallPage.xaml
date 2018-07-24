@@ -52,16 +52,76 @@
                     </ic:EventTriggerBehavior>
                 </i:Interaction.Behaviors>
 
-                <GridView Name="GridView"
+                <Pivot Title="任务" 
+                   Width="auto"
+                   FontSize="20">
+                    <PivotItem Header="快递">
+                        <ListView Name="Express"
                           IsItemClickEnabled="True"
-                          ItemTemplate="{StaticResource MissionDataTemplate}"
-                          ItemsSource="{Binding MissionCollection}"
-                          ItemClick="HallGridView_OnItemClick" />
-            </RefreshContainer>
+                          Margin="10,10,0,0"
+                                  Height="100"
+                                  Width="auto">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="123"
+                                           Style="{StaticResource BaseTextBlockStyle}"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
 
+                    </PivotItem>
+                    <PivotItem Header="超市跑腿">
+                        <ListView Name="Shopping"
+                          IsItemClickEnabled="True"
+                          Margin="10,10,0,0"
+                                  Height="100"
+                                  Width="auto">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="123"
+                                           Style="{StaticResource BaseTextBlockStyle}"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </PivotItem>
+                    <PivotItem Header="外卖">
+                        <ListView Name="OutMice"
+                          IsItemClickEnabled="True"
+                          Margin="10,10,0,0"
+                                  Height="100"
+                                  Width="auto">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="123"
+                                           Style="{StaticResource BaseTextBlockStyle}"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </PivotItem>
+                    <PivotItem Header="代课">
+                        <ListView Name="HelpClass"
+                          IsItemClickEnabled="True"
+                          Margin="10,10,0,0"
+                                  Height="100"
+                                  Width="auto">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="123"
+                                           Style="{StaticResource BaseTextBlockStyle}"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </PivotItem>
+                </Pivot>
+
+            </RefreshContainer>
+          
             <CommandBar Grid.Row="1"
                         OverflowButtonVisibility="Collapsed"
-                        DefaultLabelPosition="Right">
+                        DefaultLabelPosition="Right"
+                       
+                        HorizontalAlignment="Stretch"
+                        >
                 <AppBarButton Icon="Refresh"
                               Label="Refresh">
                     <i:Interaction.Behaviors>
@@ -86,6 +146,7 @@
 
                 </AppBarButton>
             </CommandBar>
+           
             <ContentDialog
                 Title="请输入你的任务"
                 PrimaryButtonText="Confirm"

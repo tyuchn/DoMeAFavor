@@ -64,5 +64,10 @@ namespace DoMeAFavor
             mission.Message = ms;
            
         }
+
+        private void GridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

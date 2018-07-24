@@ -52,7 +52,7 @@ namespace DoMeAFavor
                     
                     HomeFrame.Navigate(typeof(SearchPage));
                     break;
-                case  "head":
+                case "NoLoginMyPage":
                     HomeFrame.Navigate(typeof(LoginPage));
                     break;
                 case "MyMoney":

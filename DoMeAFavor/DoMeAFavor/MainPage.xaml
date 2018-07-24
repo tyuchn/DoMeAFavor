@@ -14,17 +14,13 @@
                         ItemInvoked="DoMeAFavor_ItemInvoked"
                         IsTabStop="False"
                         IsSettingsVisible="true">
-           
+
             <NavigationView.MenuItems>
-                
-        <PersonPicture ProfilePicture="https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/images/shoulder-tap-static-payload.png" 
-                       Margin="0,-6"/>
-                
-                <NavigationViewItem Icon="phone" Content="积分" Tag="head"  />
+                <PersonPicture ProfilePicture="https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/images/shoulder-tap-static-payload.png" 
+                       Margin="0,-6"
+                               Height="50" Tag="photo"/>
+                <NavigationViewItem Icon="phone" Content="积分" Tag="NoLoginMyPage" />
                 <NavigationViewItemSeparator/>
-                <NavigationViewItem Content="Main"
-                                    FontSize="30"/>
-                
                 <NavigationViewItem Icon="contact" Content="我的主页" Tag="MyPage"  />
                 <NavigationViewItem Icon="home" Content="任务大厅" Tag="MissionHall"  />
                 <NavigationViewItem Icon="play" Content="校园广场" Tag="RefreshPage" />
