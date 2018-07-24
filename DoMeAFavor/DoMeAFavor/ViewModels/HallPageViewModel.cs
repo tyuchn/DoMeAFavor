@@ -31,6 +31,8 @@ namespace DoMeAFavor.ViewModels
         /// </summary>
         private Mission _selectedMission;
 
+        private Mission _toaddMission;
+
         /// <summary>
         /// 刷新命令。
         /// </summary>
@@ -72,6 +74,12 @@ namespace DoMeAFavor.ViewModels
         {
             get => _selectedMission;
             set => Set(nameof(SelectedMission), ref _selectedMission, value);
+        }
+
+        public Mission ToAddMission
+        {
+            get => _toaddMission;
+            set => Set(nameof(ToAddMission), ref _toaddMission, value);
         }
 
         /// <summary>
