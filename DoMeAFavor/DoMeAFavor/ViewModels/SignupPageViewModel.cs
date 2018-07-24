@@ -41,6 +41,7 @@ namespace DoMeAFavor.ViewModels
         public RelayCommand SignupCommand =>
             _signupCommand ?? (_signupCommand = new RelayCommand(async () =>
             {
+
                 await _userService.AddAsync(user);
             }));
 

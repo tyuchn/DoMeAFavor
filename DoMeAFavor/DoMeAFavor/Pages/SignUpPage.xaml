@@ -98,7 +98,7 @@
                           x:Name="MajorComboBox"
                           SelectedItem="{Binding user.Major,Mode=TwoWay}">
                     <ComboBoxItem>
-                        计算机
+                        计算机科学与技术
                     </ComboBoxItem>
                     <ComboBoxItem>
                         马克思主义专业

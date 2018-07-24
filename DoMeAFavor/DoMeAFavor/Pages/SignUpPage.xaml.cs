@@ -38,6 +38,46 @@ namespace DoMeAFavor
         {
             _comboBox = MajorComboBox.SelectedItem.ToString();
         }
+
+            /*int count = 5;
+
+            string userId = UserId.Text;
+            string password = Password.Password;
+            string surePassword = SurePassword.Password;
+            string phoneNumber = PhoneNumber.Text;
+            string reallyName = ReallyName.Text;
+            string netName = NetName.Text;
+            string _class = Class.Text;
+            if (userId.Length == 8)
+                count++;
+
+            else
+            {
+                //UserId.Background ="red";
+                await new MessageDialog(" 学号位数不对").ShowAsync();
+            }
+
+            if ((password == surePassword) && (password.Length < 17))
+                count++;
+            else
+            {
+                await new MessageDialog(" 请检测密码格式或重新确认密码").ShowAsync();
+            }
+
+            if (phoneNumber.Length == 11)
+                count++;
+            else
+                await new MessageDialog(" 手机号有误").ShowAsync();
+            if (reallyName != null)
+                count++;
+            else
+                await new MessageDialog(" 请填写真实姓名").ShowAsync();
+            if (_comboBox != null)
+                count++;
+            else
+                await new MessageDialog(" 请选择专业").ShowAsync();
+            if (count == 5)
+                Frame.Navigate(typeof(MissionHallPage), null, new DrillInNavigationTransitionInfo());*/
       
     }
 }
