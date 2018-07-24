@@ -60,16 +60,9 @@ namespace DoMeAFavor
         {
 
         }
-
-
-        /*private void AddMissionContent_OnLoaded(object sender, RoutedEventArgs e)
+        private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var viewModel = (HallPageViewModel)DataContext;
-            viewModel.SelectedMission = new Mission
-            {
-                
-
-            };
-        }*/
+            
+        }
     }
 }
