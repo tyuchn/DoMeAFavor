@@ -16,13 +16,18 @@
             <StackPanel HorizontalAlignment="Center">
                 
                 <TextBlock FontSize="16" Text="{x:Bind MissionName}" HorizontalAlignment="Center" FontFamily="Comic Sans MS" />
-                <TextBlock FontSize="10" Text="{x:Bind CreationDate}" HorizontalAlignment="Center" />
-                <TextBlock FontSize="10" Text="{x:Bind Message}" HorizontalAlignment="Center" />
+                <TextBlock FontSize="10" Text="{x:Bind Deadline}" HorizontalAlignment="Center" />
+                <TextBlock FontSize="10" Text="{x:Bind Points}" HorizontalAlignment="Center" />
             </StackPanel>
         </DataTemplate>
+        
     </Page.Resources>
-    
-    <Grid>
+    <Page.DataContext>
+        <Binding Source="{StaticResource HallPageViewModel}" />
+    </Page.DataContext>
+
+
+<Grid>
         <StackPanel Width="auto"
             Margin="0,0,0,0">
             <AutoSuggestBox PlaceholderText="Type a search name"
@@ -52,68 +57,11 @@
                     </ic:EventTriggerBehavior>
                 </i:Interaction.Behaviors>
 
-                <Pivot Title="任务" 
-                   Width="auto"
-                   FontSize="20">
-                    <PivotItem Header="快递">
-                        <ListView Name="Express"
+                <GridView Name="GridView"
                           IsItemClickEnabled="True"
-                          Margin="10,10,0,0"
-                                  Height="100"
-                                  Width="auto">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="123"
-                                           Style="{StaticResource BaseTextBlockStyle}"/>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-
-                    </PivotItem>
-                    <PivotItem Header="超市跑腿">
-                        <ListView Name="Shopping"
-                          IsItemClickEnabled="True"
-                          Margin="10,10,0,0"
-                                  Height="100"
-                                  Width="auto">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="123"
-                                           Style="{StaticResource BaseTextBlockStyle}"/>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </PivotItem>
-                    <PivotItem Header="外卖">
-                        <ListView Name="OutMice"
-                          IsItemClickEnabled="True"
-                          Margin="10,10,0,0"
-                                  Height="100"
-                                  Width="auto">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="123"
-                                           Style="{StaticResource BaseTextBlockStyle}"/>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </PivotItem>
-                    <PivotItem Header="代课">
-                        <ListView Name="HelpClass"
-                          IsItemClickEnabled="True"
-                          Margin="10,10,0,0"
-                                  Height="100"
-                                  Width="auto">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="123"
-                                           Style="{StaticResource BaseTextBlockStyle}"/>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </PivotItem>
-                </Pivot>
-
+                          ItemTemplate="{StaticResource MissionDataTemplate}"
+                          ItemsSource="{Binding MissionCollection}"
+                          ItemClick="HallGridView_OnItemClick" SelectionChanged="GridView_SelectionChanged" />
             </RefreshContainer>
           
             <CommandBar Grid.Row="1"
@@ -146,32 +94,38 @@
 
                 </AppBarButton>
             </CommandBar>
-           
+
             <ContentDialog
                 Title="请输入你的任务"
                 PrimaryButtonText="Confirm"
-                PrimaryButtonClick="AddMissionContent_OnPrimaryButtonClick"
-                SecondaryButtonText="Save"
-                SecondaryButtonCommand="{Binding AddCommand}"
+                
+                PrimaryButtonCommand="{Binding AddCommand}"
                 CloseButtonText="Cancel"
-                DefaultButton="Secondary"
-                x:Name="AddMissionContent">
+                DefaultButton="Close"
+                x:Name="AddMissionContent" 
+                
+                >
+                
+                    <StackPanel VerticalAlignment="Stretch" 
+                                HorizontalAlignment="Stretch">
+                        <TextBox Name="Missionname" PlaceholderText="请输入任务标题" Text="{Binding SelectedMission.MissionName }"
+                                 TextWrapping="Wrap" 
+                                 Margin="10,10,0,0"/>
+                        <TextBox Name="Message" PlaceholderText="请输入任务内容" Text="{Binding SelectedMission.Message}"
+                                 TextWrapping="Wrap" 
+                                 Margin="10,10,0,0"/>
+                        <CalendarDatePicker Name="Date1"  PlaceholderText="截止时间" Date="{Binding SelectedMission.Deadline}"
+                                            Margin="10,10,0,0"
+                                            Width="auto"/>
+                    <TextBox Name="Points" PlaceholderText="积分" Text="{Binding SelectedMission.Points}" TextWrapping="Wrap" 
+                             Margin="10,10,0,0"></TextBox>
+                    <ComboBox ItemsSource="{Binding SelectedMission.Type}" Margin="10,10,0,0" DisplayMemberPath="Item1" SelectedValuePath="Item2"
+                                  Header="Select ur Type" Width="200" />
+                        
 
-                <StackPanel VerticalAlignment="Stretch" 
-                            HorizontalAlignment="Stretch">
-                    <TextBox Name="Missionname" PlaceholderText="请输入任务标题"
-                    TextWrapping="Wrap" 
-                             Margin="10,10,0,0"/>
-                    <TextBox Name="Message" PlaceholderText="请输入任务内容"
-                            TextWrapping="Wrap" 
-                             Margin="10,10,0,0"/>
-                    <CalendarDatePicker Name="Date1"  PlaceholderText="截止时间" 
-                                        Margin="10,10,0,0"
-                                        Width="auto"/>
-                    <TimePicker Name="Date2" MinuteIncrement="15" 
-                                Margin="10,10,0,0"
-                                 />
                 </StackPanel>
+                
+
             </ContentDialog>
         </StackPanel>
     </Grid>

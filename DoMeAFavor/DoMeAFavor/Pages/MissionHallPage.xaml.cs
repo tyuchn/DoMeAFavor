@@ -54,20 +54,22 @@ namespace DoMeAFavor
             await AddMissionContent.ShowAsync();
         }
 
-        private void AddMissionContent_OnPrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
-            var mn = Missionname.ToString();
-            var ms = Message.ToString();
-            var dt = Date1.Date;
-            var mission = new Mission();
-            mission.MissionName = mn;
-            mission.Message = ms;
-           
-        }
+        
 
         private void GridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+
+
+        /*private void AddMissionContent_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            var viewModel = (HallPageViewModel)DataContext;
+            viewModel.SelectedMission = new Mission
+            {
+                
+
+            };
+        }*/
     }
 }
