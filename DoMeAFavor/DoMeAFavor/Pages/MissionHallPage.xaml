@@ -115,12 +115,12 @@
                     <TextBox Name="Message" PlaceholderText="请输入任务内容" Text="{Binding ToAddMission.Message, Mode=TwoWay}"
                                  TextWrapping="Wrap" 
                                  Margin="10,10,0,0"/>
-                    <CalendarDatePicker Name="Date1"  PlaceholderText="截止时间" Date="{Binding ToAddMission.Deadline ,Mode=TwoWay}"
+                    <CalendarDatePicker Name="Date1"  PlaceholderText="截止时间" Date="{Binding ToAddMission.Deadline }"
                                             Margin="10,10,0,0"
                                             Width="auto"/>
                     <TextBox Name="Points" PlaceholderText="积分" Text="{Binding ToAddMission.Points ,Mode=TwoWay}" TextWrapping="Wrap" 
                              Margin="10,10,0,0"></TextBox>
-                    <ComboBox ItemsSource="{Binding SelectedMission.Type,Mode=TwoWay}" Margin="10,10,0,0" DisplayMemberPath="Item1" SelectedValuePath="Item2"
+                    <ComboBox ItemsSource="{Binding ToAddMission.Type,Mode=TwoWay}" Margin="10,10,0,0" DisplayMemberPath="Item1" SelectedValuePath="Item2"
                                   Header="Select ur Type" Width="200" />
                         
 
