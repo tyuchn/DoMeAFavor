@@ -124,11 +124,13 @@ namespace DoMeAFavor.ViewModels
         {
             _missionService = missionService;
             MissionCollection = new ObservableCollection<Mission>();
+            ToAddMission = new Mission();
         }
         public HallPageViewModel()
         {
             _missionService= new MissionService();
             MissionCollection = new ObservableCollection<Mission>();
+            ToAddMission = new Mission();
         }
 
         /******** 私有方法 ********/
