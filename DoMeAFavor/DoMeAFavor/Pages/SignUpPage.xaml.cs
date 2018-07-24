@@ -1,4 +1,5 @@
 ﻿using DoMeAFavor.Models;
+using DoMeAFavor.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -43,10 +44,17 @@ namespace DoMeAFavor
         {
 
         }
-
+        /// <summary>
+        /// 点击时给下拉框的值赋予给user.Major
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-            await SureInformation.ShowAsync();
+            
+            var viewModel = (SignupPageViewModel)DataContext;
+            viewModel.user.Major = _comboBox;
+            //await SureInformation.ShowAsync();
         }
 
         private void SureInformation_OnPrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
