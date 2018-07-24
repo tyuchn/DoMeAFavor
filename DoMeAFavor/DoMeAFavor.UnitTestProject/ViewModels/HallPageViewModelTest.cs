@@ -31,5 +31,20 @@ namespace DoMeAFavor.UnitTestProject.ViewModels
                 Assert.AreSame(missions[i],viewModel.MissionCollection[i]);
             }
         }
+
+        [TestMethod]
+        public void TestAddCommand()
+        {
+            Mission amission = null;
+            var mission = new  Mission{MissionName = "aaa", MissionId = 1};
+            var stubIMissionService = new StubIMissionService().AddAsync(async (c) => amission = c);
+
+            var viewModel = new HallPageViewModel(stubIMissionService);
+            
+            
+            viewModel.AddCommand.Execute(mission);
+            
+            Assert.AreSame(amission,mission);
+        }
     }
 }
