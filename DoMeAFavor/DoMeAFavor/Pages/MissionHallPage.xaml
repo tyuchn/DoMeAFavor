@@ -56,12 +56,30 @@
                         <ic:InvokeCommandAction Command="{Binding ListCommand, Mode=OneWay}" />
                     </ic:EventTriggerBehavior>
                 </i:Interaction.Behaviors>
-
-                <GridView Name="GridView"
+            <StackPanel>
+                <TextBlock>代课</TextBlock>
+                
+                        <GridView Name="TakeOverGridView"
                           IsItemClickEnabled="True"
                           ItemTemplate="{StaticResource MissionDataTemplate}"
-                          ItemsSource="{Binding MissionCollection}"
-                          ItemClick="HallGridView_OnItemClick" SelectionChanged="GridView_SelectionChanged" />
+                          ItemsSource="{Binding TakeOverMissionCollection}"
+                          ItemClick="HallGridView_OnItemClick"  />
+                    <TextBlock>外卖</TextBlock>
+                    
+                    <GridView Name="DeliveryGridView"
+                          IsItemClickEnabled="True"
+                          ItemTemplate="{StaticResource MissionDataTemplate}"
+                          ItemsSource="{Binding DeliveryMissionCollection}"
+                          ItemClick="HallGridView_OnItemClick"  />
+                    <TextBlock>快递</TextBlock>
+                
+                    <GridView Name="ExpressGridView"
+                          IsItemClickEnabled="True"
+                          ItemTemplate="{StaticResource MissionDataTemplate}"
+                          ItemsSource="{Binding ExpressMissionCollection}"
+                          ItemClick="HallGridView_OnItemClick"  />
+
+    </StackPanel>
             </RefreshContainer>
           
             <CommandBar Grid.Row="1"

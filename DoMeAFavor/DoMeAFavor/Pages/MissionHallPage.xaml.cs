@@ -56,10 +56,7 @@ namespace DoMeAFavor
 
         
 
-        private void GridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var viewModel = (HallPageViewModel)DataContext;

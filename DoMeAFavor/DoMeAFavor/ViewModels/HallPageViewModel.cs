@@ -66,6 +66,30 @@ namespace DoMeAFavor.ViewModels
             get;
             private set;
         }
+        /// <summary>
+        /// 代课任务集合
+        /// </summary>
+        public ObservableCollection<Mission> TakeOverMissionCollection
+        {
+            get;
+            private set;
+        }
+        /// <summary>
+        /// 快递任务集合
+        /// </summary>
+        public ObservableCollection<Mission> ExpressMissionCollection
+        {
+            get;
+            private set;
+        }
+        /// <summary>
+        /// 外卖任务集合
+        /// </summary>
+        public ObservableCollection<Mission> DeliveryMissionCollection
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// 选中的联系人。
@@ -124,6 +148,9 @@ namespace DoMeAFavor.ViewModels
         {
             _missionService = missionService;
             MissionCollection = new ObservableCollection<Mission>();
+            TakeOverMissionCollection = new ObservableCollection<Mission>();
+            DeliveryMissionCollection = new ObservableCollection<Mission>();
+            ExpressMissionCollection = new ObservableCollection<Mission>();
             ToAddMission = new Mission();
             SelectedMission = new Mission();
         }
@@ -131,6 +158,9 @@ namespace DoMeAFavor.ViewModels
         {
             _missionService= new MissionService();
             MissionCollection = new ObservableCollection<Mission>();
+            TakeOverMissionCollection = new ObservableCollection<Mission>();
+            DeliveryMissionCollection = new ObservableCollection<Mission>();
+            ExpressMissionCollection = new ObservableCollection<Mission>();
             ToAddMission = new Mission();
             SelectedMission = new Mission();
         }
@@ -143,11 +173,26 @@ namespace DoMeAFavor.ViewModels
         private async Task List()
         {
             MissionCollection.Clear();
+            TakeOverMissionCollection.Clear();
+            DeliveryMissionCollection.Clear();
+            ExpressMissionCollection.Clear();
 
             var missions = await _missionService.ListAsync();
             foreach (var mission in missions)
             {
-                MissionCollection.Add(mission);
+                if (mission.Type== Mission.MissionType.Express )
+                {
+                    ExpressMissionCollection.Add(mission);
+                }
+                else if (mission.Type == Mission.MissionType.TakeOver)
+                {
+                    TakeOverMissionCollection.Add(mission);
+                }
+                else if (mission.Type == Mission.MissionType.Delivery)
+                {
+                    DeliveryMissionCollection.Add(mission);
+                }
+
             }
         }
     }
