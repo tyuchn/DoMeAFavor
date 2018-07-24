@@ -9,6 +9,7 @@ using DoMeAFavor.Models;
 using DoMeAFavor.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Windows.UI.Popups;
 
 namespace DoMeAFavor.ViewModels
 {
@@ -20,7 +21,6 @@ namespace DoMeAFavor.ViewModels
         /// <summary>
         /// 用户类。
         /// </summary>
-        ///
 
         private User _user;
 
