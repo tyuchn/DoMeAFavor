@@ -95,46 +95,43 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChangePasswordPage.xaml.cs">
+    <Compile Include="Pages\ChangePasswordPage.xaml.cs">
       <DependentUpon>ChangePasswordPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MissionDetail.xaml.cs">
+    <Compile Include="Pages\MissionDetail.xaml.cs">
       <DependentUpon>MissionDetail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MissionHallPage.xaml.cs">
+    <Compile Include="Pages\MissionHallPage.xaml.cs">
       <DependentUpon>MissionHallPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoginPage.xaml.cs">
+    <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Mission.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserMission.cs" />
-    <Compile Include="MyMoneyPage.xaml.cs">
+    <Compile Include="Pages\MyMoneyPage.xaml.cs">
       <DependentUpon>MyMoneyPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchPage.xaml.cs">
+    <Compile Include="Pages\SearchPage.xaml.cs">
       <DependentUpon>SearchPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\IMissionService.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\MissionService.cs" />
     <Compile Include="Services\UserService.cs" />
-    <Compile Include="SettingPage.xaml.cs">
+    <Compile Include="Pages\SettingPage.xaml.cs">
       <DependentUpon>SettingPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SignUpPage.xaml.cs">
+    <Compile Include="Pages\SignUpPage.xaml.cs">
       <DependentUpon>SignUpPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MyPage.xaml.cs">
+    <Compile Include="Pages\MyPage.xaml.cs">
       <DependentUpon>MyPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="StartCartoonPage.xaml.cs">
-      <DependentUpon>StartCartoonPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\HallPageViewModel.cs" />
     <Compile Include="ViewModels\SignupPageViewModel.cs" />
@@ -167,47 +164,43 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="ChangePasswordPage.xaml">
+    <Page Include="Pages\ChangePasswordPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MissionDetail.xaml">
+    <Page Include="Pages\MissionDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MissionHallPage.xaml">
+    <Page Include="Pages\MissionHallPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LoginPage.xaml">
+    <Page Include="Pages\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="Pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MyMoneyPage.xaml">
+    <Page Include="Pages\MyMoneyPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SearchPage.xaml">
+    <Page Include="Pages\SearchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SettingPage.xaml">
+    <Page Include="Pages\SettingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SignUpPage.xaml">
+    <Page Include="Pages\SignUpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MyPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="StartCartoonPage.xaml">
+    <Page Include="Pages\MyPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
