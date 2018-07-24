@@ -120,8 +120,8 @@
                                             Width="auto"/>
                     <TextBox Name="Points" PlaceholderText="积分" Text="{Binding ToAddMission.Points ,Mode=TwoWay}" TextWrapping="Wrap" 
                              Margin="10,10,0,0"></TextBox>
-                    <ComboBox ItemsSource="{Binding ToAddMission.Type,Mode=TwoWay}" Margin="10,10,0,0" DisplayMemberPath="Item1" SelectedValuePath="Item2"
-                                  Header="Select ur Type" Width="200" SelectionChanged="Selector_OnSelectionChanged">
+                    <ComboBox Name="ComboBox" PlaceholderText="请选择任务类别"  ItemsSource="{Binding ToAddMission.Type,Mode=TwoWay}" Margin="10,10,0,0" DisplayMemberPath="Item1" SelectedValuePath="Item2"
+                                  Header="Select ur Type" Width="200" SelectionChanged="Selector_OnSelectionChanged" >
                         <ComboBoxItem Name="TakeOver" >TakeOver</ComboBoxItem>
                         <ComboBoxItem Name="Delivery">Delivery</ComboBoxItem>
                         <ComboBoxItem Name="Express">Express</ComboBoxItem>

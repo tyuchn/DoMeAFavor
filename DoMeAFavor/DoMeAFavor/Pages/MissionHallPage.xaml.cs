@@ -62,7 +62,19 @@ namespace DoMeAFavor
         }
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            var viewModel = (HallPageViewModel)DataContext;
+            if (TakeOver.IsSelected)
+            {            
+                viewModel.ToAddMission.Type = Mission.MissionType.TakeOver;
+            }
+            else if (Delivery.IsSelected)
+            {
+                viewModel.ToAddMission.Type = Mission.MissionType.Delivery;
+            }
+            else if (Express.IsSelected)
+            {
+                viewModel.ToAddMission.Type = Mission.MissionType.Express;
+            }
         }
     }
 }
