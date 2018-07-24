@@ -18,6 +18,7 @@
                 <TextBlock FontSize="16" Text="{x:Bind MissionName}" HorizontalAlignment="Center" FontFamily="Comic Sans MS" />
                 <TextBlock FontSize="10" Text="{x:Bind Deadline}" HorizontalAlignment="Center" />
                 <TextBlock FontSize="10" Text="{x:Bind Points}" HorizontalAlignment="Center" />
+                <TextBlock FontSize="10" Text="{x:Bind Type}" HorizontalAlignment="Center" />
             </StackPanel>
         </DataTemplate>
         

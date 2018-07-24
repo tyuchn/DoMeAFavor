@@ -146,6 +146,7 @@
                 Title="确认您的信息无误"
                 PrimaryButtonText="Confirm"
                 PrimaryButtonCommand="{Binding SignupCommand}"
+                PrimaryButtonClick="SureInformation_OnPrimaryButtonClick"
                 CloseButtonText="Cancel"
                 DefaultButton="Close"
                 x:Name="SureInformation" 

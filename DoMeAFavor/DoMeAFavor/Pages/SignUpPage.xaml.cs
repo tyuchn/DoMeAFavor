@@ -48,5 +48,10 @@ namespace DoMeAFavor
         {
             await SureInformation.ShowAsync();
         }
+
+        private void SureInformation_OnPrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            Frame.Navigate(typeof(MyPage));
+        }
     }
 }
