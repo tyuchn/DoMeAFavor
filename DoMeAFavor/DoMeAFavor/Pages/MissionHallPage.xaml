@@ -52,67 +52,11 @@
                     </ic:EventTriggerBehavior>
                 </i:Interaction.Behaviors>
 
-                <Pivot Title="任务" 
-                   Width="auto"
-                   FontSize="20">
-                    <PivotItem Header="快递">
-                        <ListView Name="Express"
+                <GridView Name="GridView"
                           IsItemClickEnabled="True"
-                          Margin="10,10,0,0"
-                                  Height="100"
-                                  Width="auto">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="123"
-                                           Style="{StaticResource BaseTextBlockStyle}"/>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-
-                    </PivotItem>
-                    <PivotItem Header="超市跑腿">
-                        <ListView Name="Shopping"
-                          IsItemClickEnabled="True"
-                          Margin="10,10,0,0"
-                                  Height="100"
-                                  Width="auto">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="123"
-                                           Style="{StaticResource BaseTextBlockStyle}"/>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </PivotItem>
-                    <PivotItem Header="外卖">
-                        <ListView Name="OutMice"
-                          IsItemClickEnabled="True"
-                          Margin="10,10,0,0"
-                                  Height="100"
-                                  Width="auto">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="123"
-                                           Style="{StaticResource BaseTextBlockStyle}"/>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </PivotItem>
-                    <PivotItem Header="代课">
-                        <ListView Name="HelpClass"
-                          IsItemClickEnabled="True"
-                          Margin="10,10,0,0"
-                                  Height="100"
-                                  Width="auto">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="123"
-                                           Style="{StaticResource BaseTextBlockStyle}"/>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </PivotItem>
-                </Pivot>
+                          ItemTemplate="{StaticResource MissionDataTemplate}"
+                          ItemsSource="{Binding MissionCollection}"
+                          ItemClick="HallGridView_OnItemClick" SelectionChanged="GridView_SelectionChanged" />
 
             </RefreshContainer>
           
