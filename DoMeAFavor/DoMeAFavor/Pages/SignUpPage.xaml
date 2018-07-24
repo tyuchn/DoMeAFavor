@@ -9,101 +9,96 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.DataContext>
-        <Binding Source="{StaticResource SignupPageViewModel}"/>
+        <Binding Source="{StaticResource SignupPageViewModel}" />
     </Page.DataContext>
 
     <Grid>
         <StackPanel Margin="20,0,0,0"
-                    Width="auto"
-                    >
-            <TextBlock Text="欢迎注册DoMeAFavor"                      
+                    Width="auto">
+            <TextBlock Text="欢迎注册DoMeAFavor"
                        Margin="50,20,0,0"
                        FontSize="50"
                        IsColorFontEnabled="True"
-                       FontStyle="Oblique"
-                       >
-            </TextBlock>
+                       FontStyle="Oblique" />
             <TextBlock Text="请同学按要求注册"
-                       
+
                        Margin="70,10,0,0"
                        FontSize="25"
                        IsColorFontEnabled="True"
-                       FontStyle="Oblique"
-                       >
-            </TextBlock>
-            <StackPanel Orientation="Horizontal"
-                        >
+                       FontStyle="Oblique" />
+            <StackPanel Orientation="Horizontal">
                 <TextBlock Text="学      号"
                            Margin="30,20,0,0"
-                           FontSize="25"/>
+                           FontSize="25" />
                 <TextBox Margin="50,20,0,0"
                          Width="450"
                          PlaceholderText="请输入学号"
-                         Name="UserId"                     
-                         Text="{Binding UserId}" 
-                         />
+                         Name="UserId"
+                         Text="{Binding user.UserId,Mode=TwoWay}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="密       码"
                            Margin="30,20,0,0"
-                           FontSize="25"
-                           />
+                           FontSize="25" />
                 <PasswordBox Margin="40,20,0,0"
-                         Width="450"
+                             Width="450"
                              PasswordChar="*"
-                         PlaceholderText="请设置密码小于16位"
-                             Name="Password"/>
+                             PlaceholderText="请设置密码小于16位"
+                             Name="Password"
+                             Password="{Binding user.PassWord,Mode=TwoWay}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="确认密码"
                            Margin="30,20,0,0"
-                           FontSize="25"
-                          />
+                           FontSize="25" />
                 <PasswordBox Margin="40,20,0,0"
-                         Width="450"
-                         PlaceholderText="请再次输入您的密码"
+                             Width="450"
+                             PlaceholderText="请再次输入您的密码"
                              PasswordChar="*"
-                              Name="SurePassword"/>
+                             Name="SurePassword" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="姓       名"
                            Margin="30,20,0,0"
-                           FontSize="25"/>
+                           FontSize="25" />
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请输入真实姓名"
-                         Name="ReallyName"/>
+                         Name="ReallyName" 
+                         Text="{Binding user.RealName,Mode=TwoWay}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="手  机  号"
                            Margin="30,20,0,0"
-                           FontSize="25"/>
+                           FontSize="25" />
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请输入真实手机号"
-                         Name="PhoneNumber"/>
+                         Name="PhoneNumber"
+                         Text="{Binding user.PhoneNumber,Mode=TwoWay}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="用  户  名"
                            Margin="30,20,0,0"
                            FontSize="25"
-                           Name="NetName"/>
+                           Name="NetName" />
                 <TextBox Margin="40,20,0,0"
                          Width="450"
-                         PlaceholderText="请设置您的DoMeAFovor昵称"></TextBox>
+                         PlaceholderText="请设置您的DoMeAFovor昵称" 
+                         Text="{Binding user.UserName,Mode=TwoWay}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="专        业"
                            Margin="30,20,0,0"
-                           FontSize="25"/>
+                           FontSize="25" />
                 <ComboBox Margin="40,20,0,0"
                           Width="450"
                           SelectionChanged="ComboBox_SelectionChanged"
                           PlaceholderText="请选择你的专业"
-                          
-                          x:Name="MajorComboBox" >
+                          x:Name="MajorComboBox"
+                          SelectedItem="{Binding user.Major,Mode=TwoWay}">
                     <ComboBoxItem>
-                       计算机
+                        计算机
                     </ComboBoxItem>
                     <ComboBoxItem>
                         马克思主义专业
@@ -122,43 +117,58 @@
                     </ComboBoxItem>
                     <ComboBox.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <StackPanel Orientation="Vertical"/>
+                            <StackPanel Orientation="Vertical" />
                         </ItemsPanelTemplate>
                     </ComboBox.ItemsPanel>
-                    
+                     
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="班        级"
                            Margin="30,20,0,0"
-                           FontSize="25"/>
+                           FontSize="25" />
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请输入您的班级"
-                         Name="Class"/>
+                         Name="Class" 
+                         Text="{Binding user.Class,Mode=TwoWay}"/>
             </StackPanel>
             <Button Content="注册"
-                    Margin="40,40,0,0" 
+                    Margin="40,40,0,0"
                     RequestedTheme="Light"
-                    Visibility="Visible"
-                    >
-                <Button.Flyout  >
+                    Visibility="Visible">
+                <Button.Flyout>
                     <Flyout>
                         <StackPanel>
-                            <TextBlock Style="{ThemeResource BaseTextBlockStyle}" 
-                                       Text="请确认您的信息" 
+                            <TextBlock Style="{ThemeResource BaseTextBlockStyle}"
+                                       Text="请确认您的信息"
                                        Margin="0,0,0,12" />
-                            <Button Click="SureSignUp_Click"
-                                    Content="Yes" 
+                            <Button 
+                                    Content="Yes"
                                     Name="SureSignUp"
-                                    Command="{Binding SignupCommand}"/>
-                        
+                                    Command="{Binding SignupCommand}" />
+
                         </StackPanel>
                     </Flyout>
                 </Button.Flyout>
             </Button>
-          
+
         </StackPanel>
-        
+
     </Grid>
 </Page>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

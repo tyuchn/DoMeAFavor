@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Networking.NetworkOperators;
 using DoMeAFavor.Models;
 using DoMeAFavor.Services;
 using GalaSoft.MvvmLight;
@@ -17,12 +18,16 @@ namespace DoMeAFavor.ViewModels
         private IUserService _userService;
 
         /// <summary>
-        /// 用户集合。
+        /// 用户类。
         /// </summary>
-        public ObservableCollection<User> UsersCollection
+        ///
+
+        private User _user;
+
+        public User user
         {
-            get;
-            private set;
+            get => _user;
+            set => Set(nameof(user),ref _user,value);
         }
 
         /// <summary>
@@ -33,24 +38,23 @@ namespace DoMeAFavor.ViewModels
         /// <summary>
         /// 注册命令
         /// </summary>
-        // public RelayCommand SignupCommand =>
-
+        public RelayCommand SignupCommand =>
+            _signupCommand ?? (_signupCommand = new RelayCommand(async () =>
+            {
+                await _userService.AddAsync(user);
+            }));
 
         //构造函数
         public SignupPageViewModel(IUserService userService)
         {
             _userService = userService;
-            UsersCollection = new ObservableCollection<User>();
+            user = new User();
         }
         public SignupPageViewModel()
         {
             _userService = new UserService();
-            UsersCollection = new ObservableCollection<User>();
+            user = new User();
         }
-
-
-
-
 
     }
 }

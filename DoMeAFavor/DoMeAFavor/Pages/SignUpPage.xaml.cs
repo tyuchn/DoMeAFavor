@@ -39,9 +39,13 @@ namespace DoMeAFavor
             _comboBox = MajorComboBox.SelectedItem.ToString();
         }
 
-        private async void SureSignUp_Click(object sender, RoutedEventArgs e)
-        {
-            int count = 5;
+       
+
+
+
+
+
+            /*int count = 5;
 
             string userId = UserId.Text;
             string password = Password.Password;
@@ -79,7 +83,7 @@ namespace DoMeAFavor
             else
                 await new MessageDialog(" 请选择专业").ShowAsync();
             if (count == 5)
-                Frame.Navigate(typeof(MissionHallPage), null, new DrillInNavigationTransitionInfo());
-        }
+                Frame.Navigate(typeof(MissionHallPage), null, new DrillInNavigationTransitionInfo());*/
+      
     }
 }
