@@ -42,7 +42,7 @@ namespace DoMeAFavor.ViewModels
         public RelayCommand SignupCommand =>
             _signupCommand ?? (_signupCommand = new RelayCommand(async () =>
             {
-                
+                //jkk
                 if(user.UserId.ToString().Length==8)
                 {
                     if (user.PassWord.Length<16)
