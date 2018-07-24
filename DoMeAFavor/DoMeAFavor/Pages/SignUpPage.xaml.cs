@@ -54,7 +54,13 @@ namespace DoMeAFavor
             
             var viewModel = (SignupPageViewModel)DataContext;
             viewModel.user.Major = _comboBox;
-            //await SureInformation.ShowAsync();
+            await SureInformation.ShowAsync();
+        }
+
+        //确认注册信息的点击事件
+        private void SureInformation_OnPrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            Frame.Navigate(typeof(MyPage));
         }
     }
 }
