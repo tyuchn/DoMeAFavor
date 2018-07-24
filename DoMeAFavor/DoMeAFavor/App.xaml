@@ -6,4 +6,13 @@
     
     xmlns:viewModels1="using:DoMeAFavor.ViewModels">
 
+    <Application.Resources>
+        <!--单元测试前需要删除下述内容。-->
+        <ResourceDictionary>
+            <viewModels1:HallPageViewModel x:Key="HallPageViewModel" />
+            <viewModels1:SignupPageViewModel x:Key="SignupPageViewModel" />
+        </ResourceDictionary>
+    </Application.Resources>
+
+
 </Application>

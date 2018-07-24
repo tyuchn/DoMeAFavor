@@ -13,6 +13,9 @@ namespace DoMeAFavor.ViewModels
 {
     public class SignupPageViewModel : ViewModelBase
     {
+
+        private IUserService _userService;
+
         /// <summary>
         /// 用户集合。
         /// </summary>
@@ -30,12 +33,19 @@ namespace DoMeAFavor.ViewModels
         /// <summary>
         /// 注册命令
         /// </summary>
-       // public RelayCommand SignupCommand =>
+        // public RelayCommand SignupCommand =>
 
 
+        //构造函数
         public SignupPageViewModel(IUserService userService)
         {
-
+            _userService = userService;
+            UsersCollection = new ObservableCollection<User>();
+        }
+        public SignupPageViewModel()
+        {
+            _userService = new UserService();
+            UsersCollection = new ObservableCollection<User>();
         }
 
 

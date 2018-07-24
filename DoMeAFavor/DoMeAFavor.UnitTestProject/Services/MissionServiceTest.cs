@@ -56,7 +56,7 @@ namespace DoMeAFavor.UnitTest.Services
             await missionService.AddAsync(ms);
             var missions = (await missionService.ListAsync()).ToList();
 
-            Assert.AreEqual(2, missions.Count);
+            Assert.AreEqual(4, missions.Count);
             //Assert.AreEqual("express", missions[0].MissionName);
             //Assert.AreEqual("lunch", missions[1].MissionName);
         }

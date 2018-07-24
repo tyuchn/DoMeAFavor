@@ -70,7 +70,7 @@ namespace DoMeAFavor.Services
             using (var client = new HttpClient())
             {
                 var json = JsonConvert.SerializeObject(mission);
-                 await client.PostAsync(ServiceEndpoint + "/" + mission.MissionId,
+                 await client.PostAsync(ServiceEndpoint,
                     new StringContent(json, Encoding.UTF8, "application/json"));                
             }
         }
