@@ -49,7 +49,7 @@ namespace DoMeAFavor.ViewModels
         /// <summary>
         /// 添加命令
         /// </summary>
-        private RelayCommand<Mission> _addCommand;
+        private RelayCommand _addCommand;
 
         /// <summary>
         /// 详细信息命令。
@@ -110,11 +110,10 @@ namespace DoMeAFavor.ViewModels
         /// <summary>
         /// 添加命令
         /// </summary>
-        public RelayCommand<Mission> AddCommand =>
-            _addCommand ?? (_addCommand = new RelayCommand<Mission>(async mission =>
+        public RelayCommand AddCommand =>
+            _addCommand ?? (_addCommand = new RelayCommand(async () =>
             {
-                var service = _missionService;
-                await service.AddAsync(mission);
+                await _missionService.AddAsync(ToAddMission);
             }));
 
 

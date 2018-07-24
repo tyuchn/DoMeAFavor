@@ -39,12 +39,6 @@ namespace DoMeAFavor
             _comboBox = MajorComboBox.SelectedItem.ToString();
         }
 
-       
-
-
-
-
-
             /*int count = 5;
 
             string userId = UserId.Text;
