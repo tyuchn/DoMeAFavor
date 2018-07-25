@@ -40,7 +40,10 @@ namespace DoMeAFavor
             _comboBox = MajorComboBox.SelectedItem.ToString();
         }
 
-        
+        private void SureInformation_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+
+        }
         /// <summary>
         /// 点击时给下拉框的值赋予给user.Major
         /// </summary>
@@ -50,9 +53,35 @@ namespace DoMeAFavor
         {
             
             var viewModel = (SignupPageViewModel)DataContext;
-            viewModel.user.Major = _comboBox;
+            // viewModel.user.Major = _comboBox;
+            if (ComputerMajor.IsSelected)
+                viewModel.user.Major = "计算机专业";
+            else
+                if (MarxismMajor.IsSelected)
+                viewModel.user.Major = "马克思主义专业";
+            else
+                if (AutomationMajor.IsSelected)
+                viewModel.user.Major = "自动化专业";
+            else
+                if (SoftwareMajor.IsSelected)
+                viewModel.user.Major = "软件专业";
+            else
+                if (MedicalMajor.IsSelected)
+                viewModel.user.Major = "中荷医学专业";
+            else
+                if (MetallurgicalMajor.IsSelected)
+                viewModel.user.Major = "冶金专业";
+            else
+                viewModel.user.Major = null;
+
+
             await SureInformation.ShowAsync();
         }
 
+        //确认注册信息的点击事件
+        private void SureInformation_OnPrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            Frame.Navigate(typeof(MyPage));
+        }
     }
 }
