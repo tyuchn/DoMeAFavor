@@ -1,22 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+
 using DoMeAFavor.Models;
 using DoMeAFavor.ViewModels;
-using System.Diagnostics;
-using System.Threading;
-using System.Timers;
+
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
 namespace DoMeAFavor
@@ -28,7 +17,7 @@ namespace DoMeAFavor
     {
         public MissionHallPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             DispatcherTimer time = new DispatcherTimer();
             time.Interval = new TimeSpan(0, 0,3);

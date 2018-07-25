@@ -1,25 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.Networking.NetworkOperators;
+
 using DoMeAFavor.Models;
 using DoMeAFavor.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Windows.UI.Popups;
-using Windows.UI.WebUI;
-using Windows.UI.Xaml.Controls;
 
 namespace DoMeAFavor.ViewModels
 {
     public class SignupPageViewModel : ViewModelBase
     {
 
-        private IUserService _userService;
+        private  readonly IUserService _userService;
 
         private INavigationService _navigationService;
 

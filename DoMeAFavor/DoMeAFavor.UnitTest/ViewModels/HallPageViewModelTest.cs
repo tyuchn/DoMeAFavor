@@ -1,9 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using DoMeAFavor.Models;
 using DoMeAFavor.ViewModels;
 
@@ -15,7 +11,7 @@ namespace DoMeAFavor.UnitTest.ViewModels
         [TestMethod]
         public void TestListCommand()
         {
-            var missions = new Mission[]
+            var missions = new[]
             {
                 new Mission {MissionId = 1, MissionName = "aaa"},
                 new Mission {MissionId = 2, MissionName = "bbb"},
