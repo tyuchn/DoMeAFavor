@@ -40,6 +40,34 @@ namespace DoMeAFavor.Services
             }
         }
 
+        public async  Task<string> LoginAsync(User user)
+        {
+            string valid = "";
+            using (var client = new HttpClient())
+            {
+                var json = await client.GetStringAsync(ServiceEndpoint);
+                var allUsers = JsonConvert.DeserializeObject<User[]>(json);
+                var selectedUser = allUsers.Where(c => c.UserId == user.UserId).ToArray();
+                var loginUser = selectedUser.First();
+                if (loginUser == null)
+                {
+                    valid = "用户不存在";
+                }
+                else
+                {
+                    if (user.PassWord == loginUser.PassWord)
+                    {
+                        valid = "登陆成功";
+                    }
+                    else
+                    {
+                        valid = "密码错误";
+                    }
+                }
+                return valid;
+            }
+        }
+
         /// <summary>
         /// 更新用户。
         /// </summary>
@@ -68,19 +96,7 @@ namespace DoMeAFavor.Services
             }
         }
 
-        /// <summary>
-        /// 删除用户。
-        /// </summary>
-        /// <param name="mission"></param>
-        /// <returns></returns>
-        public async Task DeleteAsync(User user)
-        {
-            using (var client = new HttpClient())
-            {
-                var json = JsonConvert.SerializeObject(user);
-                await client.DeleteAsync(ServiceEndpoint + "/" + user.UserId);
-            }
-        }
+        
 
         /******** 公开方法 ********/
 
