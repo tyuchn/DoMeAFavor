@@ -139,22 +139,9 @@
                     RequestedTheme="Light"
                     Visibility="Visible"
                     Name="SignUpButton"
-                    Click="SignUpButton_Click">
-                  
+                    Command="{Binding SignupCommand}">
+
             </Button>
-            <ContentDialog
-                Title="确认您的信息无误"
-                PrimaryButtonText="Confirm"
-                PrimaryButtonCommand="{Binding SignupCommand}"
-                PrimaryButtonClick="SureInformation_OnPrimaryButtonClick"
-                CloseButtonText="Cancel"
-                DefaultButton="Close"
-                x:Name="SureInformation" 
-                
-                >
-
-
-            </ContentDialog>
 
         </StackPanel>
 

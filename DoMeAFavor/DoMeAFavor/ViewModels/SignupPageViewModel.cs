@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using DoMeAFavor.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Windows.UI.Popups;
+using Windows.UI.WebUI;
 using Windows.UI.Xaml.Controls;
 
 namespace DoMeAFavor.ViewModels
@@ -18,6 +20,8 @@ namespace DoMeAFavor.ViewModels
     {
 
         private IUserService _userService;
+
+        private INavigationService _navigationService;
 
         /// <summary>
         /// 用户类。
@@ -31,6 +35,17 @@ namespace DoMeAFavor.ViewModels
             set => Set(nameof(user),ref _user,value);
         }
 
+        /*public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }*/
+
         /// <summary>
         /// 注册命令
         /// </summary>
@@ -42,8 +57,7 @@ namespace DoMeAFavor.ViewModels
         public RelayCommand SignupCommand =>
             _signupCommand ?? (_signupCommand = new RelayCommand(async () =>
             {
-
-               if(user.UserId.ToString().Length==8)
+               if(user.UserId.Length==8)
                 {
                     if (user.PassWord.Length<16)
                     {
@@ -51,17 +65,24 @@ namespace DoMeAFavor.ViewModels
                         {
                             if (user.RealName != null)
                             {
-                                if (user.PhoneNumber.ToString().Length == 11)
+                                if (user.PhoneNumber.Length == 11)
                                 {
                                     if (user.UserName != null)
                                     {
-                                        if (user.Major != null)
+
+                                        if (user.Major == null)
                                         {
-                                            if (user.Class.ToString().Length==4)
+                                            if (user.Class.Length==4)
                                             { 
                                                 await _userService.AddAsync(user);
-                                                await new MessageDialog("注册成功").ShowAsync(); 
-                                                //Frame.
+                                                //var cd = new ContentDialog();
+                                                var messageDialog = new MessageDialog("注册成功");                                               
+                                                messageDialog.Commands.Add(new UICommand("确定", cmd =>
+                                                {
+
+                                                   // _navigationService.Navigate(typeof(MyPage));
+                                                }));
+                                                await messageDialog.ShowAsync();
                                             }
                                             else
                                                 await new MessageDialog("请输入正确班级号如：1505").ShowAsync();
@@ -100,6 +121,10 @@ namespace DoMeAFavor.ViewModels
         {
             _userService = new UserService();
             user = new User();
+        }
+        public SignupPageViewModel(INavigationService navigationService)
+        {
+            _navigationService = navigationService;
         }
 
     }

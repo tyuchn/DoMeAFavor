@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using DoMeAFavor.Services;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -32,7 +33,9 @@ namespace DoMeAFavor
 
         public SignUpPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
+            /*var vm = new SignupPageViewModel(new NavigationService());
+            DataContext = vm;*/
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -40,20 +43,15 @@ namespace DoMeAFavor
             _comboBox = MajorComboBox.SelectedItem.ToString();
         }
 
-        private void SureInformation_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
-
-        }
         /// <summary>
         /// 点击时给下拉框的值赋予给user.Major
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private async void SignUpButton_Click(object sender, RoutedEventArgs e)
-        {
-            
-            var viewModel = (SignupPageViewModel)DataContext;
-            // viewModel.user.Major = _comboBox;
+        {           
+            var viewModel = (SignupPageViewModel)DataContext;            
+
             if (ComputerMajor.IsSelected)
                 viewModel.user.Major = "计算机专业";
             else
@@ -73,15 +71,8 @@ namespace DoMeAFavor
                 viewModel.user.Major = "冶金专业";
             else
                 viewModel.user.Major = null;
-
-
-            await SureInformation.ShowAsync();
+        
         }
 
-        //确认注册信息的点击事件
-        private void SureInformation_OnPrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
-            Frame.Navigate(typeof(MyPage));
-        }
     }
 }
