@@ -1,11 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using DoMeAFavor.Services;
 using DoMeAFavor.Models;
+using DoMeAFavor.Services;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DoMeAFavor.UnitTest.Services
 {
@@ -17,7 +14,7 @@ namespace DoMeAFavor.UnitTest.Services
         {
             var userService = new UserService();
 
-            var users = (await userService.ListAsync()).ToList();
+            var  users = (await userService.ListAsync()).ToList();
             //Assert.AreEqual(3, users.Count);
             //Assert.AreEqual("food", users[0].UserName);
             //Assert.AreEqual("mac", users[1].PassWord);

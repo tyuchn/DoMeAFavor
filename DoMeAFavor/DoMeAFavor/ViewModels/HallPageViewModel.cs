@@ -71,7 +71,7 @@ namespace DoMeAFavor.ViewModels
             SelectedMission = new Mission();
         }
 
-
+        
         //private RelayCommand<Mission> _showDetailsCommand;
 
         /******** 公开属性 ********/

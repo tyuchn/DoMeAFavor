@@ -11,9 +11,9 @@
     xmlns:models="using:DoMeAFavor.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    
     <Page.Resources>
-
+        
         <DataTemplate x:DataType="models:Mission" 
                       x:Key="MissionDataTemplate" >
             <StackPanel HorizontalAlignment="Center" Width="auto"
@@ -27,16 +27,16 @@
             </StackPanel>
 
         </DataTemplate>
-
+        
     </Page.Resources>
-
+    
     <Page.DataContext>
         <Binding Source="{StaticResource HallPageViewModel}" />
     </Page.DataContext>
 
 
-    <Grid>
-
+<Grid>
+        
         <StackPanel Margin="5,0,0,0">
             <FlipView Width="Auto" 
                       Height="200"
@@ -46,7 +46,7 @@
                 <Image Source="ms-appx:///Assets/2.jpg" Stretch="UniformToFill"/>
                 <Image Source="ms-appx:///Assets/3.jpg" Stretch="UniformToFill"/>
                 <Image Source="ms-appx:///Assets/4.jpg" Stretch="UniformToFill"/>
-
+                
                 <FlipView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel Orientation="Horizontal"/>
@@ -108,7 +108,7 @@
                         <ic:InvokeCommandAction Command="{Binding ListCommand, Mode=OneWay}" />
                     </ic:EventTriggerBehavior>
                 </i:Interaction.Behaviors>
-                <StackPanel Margin="10,0,10,0">
+            <StackPanel Margin="10,0,10,0">
                     <Border Background="LightGray">
                         <TextBlock Width="AUTO" 
                                    >代课</TextBlock>
@@ -131,18 +131,18 @@
                               Height="130"/>
                     <Border Background="LightGray">
                         <TextBlock Width="AUTO" >快递</TextBlock>
-                    </Border>
+                        </Border>
 
-                    <GridView Name="ExpressGridView"
+                        <GridView Name="ExpressGridView"
                           IsItemClickEnabled="True"
                           ItemTemplate="{StaticResource MissionDataTemplate}"
                           ItemsSource="{Binding ExpressMissionCollection}"
                           ItemClick="HallGridView_OnItemClick"  
                               Height="130"/>
 
-                </StackPanel>
+    </StackPanel>
             </RefreshContainer>
-
+          
             <ContentDialog
                 Title="请输入你的任务"
                 PrimaryButtonText="Confirm"
@@ -188,9 +188,9 @@
                     </ComboBox>
                 </StackPanel>
             </ContentDialog>
-
-
-
+            
+            
+            
             <ContentDialog
                 Title="任务详情"
                 PrimaryButtonText="接受"
@@ -238,5 +238,5 @@
             </ContentDialog>
         </StackPanel>
     </Grid>
-
+    
 </Page>

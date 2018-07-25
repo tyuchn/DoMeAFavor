@@ -20,7 +20,7 @@ namespace DoMeAFavor
             InitializeComponent();
 
             DispatcherTimer time = new DispatcherTimer();
-            time.Interval = new TimeSpan(0, 0, 3);
+            time.Interval = new TimeSpan(0, 0,3);
             time.Tick += Time_Tick;
             time.Start();
 
@@ -43,8 +43,8 @@ namespace DoMeAFavor
 
         private async void HallGridView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            var viewModel = (HallPageViewModel)DataContext;
-            viewModel.SelectedMission = (Mission)e.ClickedItem;
+            var viewModel = (HallPageViewModel) DataContext;
+            viewModel.SelectedMission = (Mission) e.ClickedItem;
 
             //把这个selecteditem传到datacontext里面的某一个字段
 
@@ -56,12 +56,12 @@ namespace DoMeAFavor
         {
             await AddMissionContent.ShowAsync();
         }
-
+        
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var viewModel = (HallPageViewModel)DataContext;
             if (TakeOver.IsSelected)
-            {
+            {            
                 viewModel.ToAddMission.Type = Mission.MissionType.TakeOver;
             }
             else if (Delivery.IsSelected)
@@ -74,8 +74,8 @@ namespace DoMeAFavor
             }
         }
 
-
-        private void Time_Tick(object sender, object e)
+        
+             private void Time_Tick(object sender, object e)
         {
             int i = MissionHallFlip.SelectedIndex;
             i++;

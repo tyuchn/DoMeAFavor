@@ -1,4 +1,5 @@
-﻿using DoMeAFavor.ViewModels;
+﻿
+using DoMeAFavor.ViewModels;
 
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -33,7 +34,7 @@ namespace DoMeAFavor
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private async void SignUpButton_Click(object sender, RoutedEventArgs e)
-        {
+        {           
             var viewModel = (SignupPageViewModel)DataContext;
             if (SurePassword.Password == Password.Password)
             {
