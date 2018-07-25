@@ -32,7 +32,6 @@ namespace DoMeAFavor
         {
             Frame.Navigate(typeof(ChangePasswordPage));
         }
-
-        
+ 
     }
 }

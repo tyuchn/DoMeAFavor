@@ -12,7 +12,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
            x:Name="PivotLayoutElement">
         <StackPanel Orientation="Vertical"
-                    Margin="50,10,10,10" RequestedTheme="Light">
+                    Margin="50,10,10,10" >
             <TextBlock Text="更改颜色"
                        Margin="50,10,10,0"
                        FontSize="15" 
@@ -85,12 +85,13 @@
             </ComboBox>
             <Button Content="修改密码"
                     FontSize="20"
-                    Margin="50,10,10,1" Visibility="Visible" RequestedTheme="Default"
+                    Margin="50,10,10,1" Visibility="Visible"
                     Name="ChangePassWord"
                     Click="ChangePassWord_Click"
                     Background="White">
-                
+
             </Button>
+
             <controls:TreeView></controls:TreeView>
             
         </StackPanel>

@@ -18,12 +18,12 @@ namespace DoMeAFavor.Models
         /// <summary>
         /// 学号
         /// </summary>
-        private int _userId;
+        private string _userId;
 
         /// <summary>
         /// 学号
         /// </summary>
-        public int UserId
+        public string UserId
         {
             get => _userId;
             set => Set(nameof(UserId), ref _userId, value);
@@ -70,12 +70,12 @@ namespace DoMeAFavor.Models
             set => Set(nameof(RealName), ref _realName, value);
         }
 
-        private long _phoneNumber;
+        private string _phoneNumber;
 
         /// <summary>
         /// 手机号。
         /// </summary>
-        public long PhoneNumber {
+        public string PhoneNumber {
             get => _phoneNumber;
             set => Set(nameof(PhoneNumber), ref _phoneNumber, value);
         }
@@ -90,12 +90,12 @@ namespace DoMeAFavor.Models
             set => Set(nameof(Major), ref _major, value);
         }
 
-        private int _class;
+        private string _class;
 
         /// <summary>
         /// 班级。
         /// </summary>
-        public int Class {
+        public string Class {
             get => _class;
             set => Set(nameof(Class), ref _class, value);
         }

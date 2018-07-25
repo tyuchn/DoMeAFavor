@@ -14,6 +14,9 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using DoMeAFavor.Models;
 using DoMeAFavor.ViewModels;
+using System.Diagnostics;
+using System.Threading;
+using System.Timers;
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
 namespace DoMeAFavor
@@ -26,6 +29,12 @@ namespace DoMeAFavor
         public MissionHallPage()
         {
             this.InitializeComponent();
+
+            DispatcherTimer time = new DispatcherTimer();
+            time.Interval = new TimeSpan(0, 0,3);
+            time.Tick += Time_Tick;
+            time.Start();
+
         }
 
         private void SearchText_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
@@ -43,19 +52,17 @@ namespace DoMeAFavor
 
         }
 
-        private void HallGridView_OnItemClick(object sender, ItemClickEventArgs e)
+        private async void HallGridView_OnItemClick(object sender, ItemClickEventArgs e)
         {
             var viewModel = (HallPageViewModel) DataContext;
             viewModel.SelectedMission = (Mission) e.ClickedItem;
+            await MissionDetailContent.ShowAsync();
         }
 
         private async void AddButton_Click_1(object sender, RoutedEventArgs e)
         {
             await AddMissionContent.ShowAsync();
         }
-
-        
-
         
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -72,6 +79,18 @@ namespace DoMeAFavor
             {
                 viewModel.ToAddMission.Type = Mission.MissionType.Express;
             }
+        }
+
+        
+             private void Time_Tick(object sender, object e)
+        {
+            int i = MissionHallFlip.SelectedIndex;
+            i++;
+            if (i >= MissionHallFlip.Items.Count)
+            {
+                i = 0;
+            }
+            MissionHallFlip.SelectedIndex = i;
         }
     }
 }

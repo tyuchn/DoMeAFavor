@@ -98,22 +98,22 @@
                           PlaceholderText="请选择你的专业"
                           x:Name="MajorComboBox"
                           SelectedItem="{Binding user.Major,Mode=TwoWay}">
-                    <ComboBoxItem>
+                    <ComboBoxItem x:Name="ComputerMajor">
                         计算机科学与技术
                     </ComboBoxItem>
-                    <ComboBoxItem>
+                    <ComboBoxItem x:Name="MarxismMajor">
                         马克思主义专业
                     </ComboBoxItem>
-                    <ComboBoxItem>
+                    <ComboBoxItem x:Name="AutomationMajor">
                         自动化专业
                     </ComboBoxItem>
-                    <ComboBoxItem>
+                    <ComboBoxItem x:Name="SoftwareMajor">
                         软件
                     </ComboBoxItem>
-                    <ComboBoxItem>
+                    <ComboBoxItem x:Name="MedicalMajor">
                         中荷医学
                     </ComboBoxItem>
-                    <ComboBoxItem>
+                    <ComboBoxItem x:Name="MetallurgicalMajor">
                         冶金
                     </ComboBoxItem>
                     <ComboBox.ItemsPanel>
@@ -139,20 +139,9 @@
                     RequestedTheme="Light"
                     Visibility="Visible"
                     Name="SignUpButton"
-                    Click="SignUpButton_Click">
-                  
-            </Button>
-            <ContentDialog
-                Title="确认您的信息无误"
-                PrimaryButtonText="Confirm"
-                PrimaryButtonCommand="{Binding SignupCommand}"             
-                CloseButtonText="Cancel"
-                DefaultButton="Close"
-                x:Name="SureInformation"                 
-                >
-            </ContentDialog>
+                    Command="{Binding SignupCommand}">
 
-            
+            </Button>
 
         </StackPanel>
 

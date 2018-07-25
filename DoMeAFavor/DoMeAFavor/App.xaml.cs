@@ -21,7 +21,7 @@ namespace DoMeAFavor
     /// <summary>
     /// 提供特定于应用程序的行为，以补充默认的应用程序类。
     /// </summary>
-    sealed partial class App : Application
+    public sealed partial class App : Application
     {
       
         /// <summary>
