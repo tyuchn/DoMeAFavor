@@ -12,13 +12,15 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
-        <DataTemplate x:DataType="models:Mission" x:Key="MissionDataTemplate">
-            <StackPanel HorizontalAlignment="Center">
-                
-                <TextBlock FontSize="16" Text="{x:Bind MissionName}" HorizontalAlignment="Center" FontFamily="Comic Sans MS" />
-                <TextBlock FontSize="10" Text="{x:Bind Deadline}" HorizontalAlignment="Center" />
+        <DataTemplate x:DataType="models:Mission" x:Key="MissionDataTemplate" >
+            <StackPanel HorizontalAlignment="Center" Width="auto"
+                        Margin="5,5,10,0">
+                <TextBlock FontSize="20" Text="{x:Bind MissionName}" IsColorFontEnabled="False" 
+                           HorizontalAlignment="Center" 
+                           FontFamily="Comic Sans MS" Foreground="Blue" />
+                <TextBlock FontSize="10" Text="{x:Bind Message}" HorizontalAlignment="Center"  />
                 <TextBlock FontSize="10" Text="{x:Bind Points}" HorizontalAlignment="Center" />
-                <TextBlock FontSize="10" Text="{x:Bind Type}" HorizontalAlignment="Center" />
+                <TextBlock FontSize="10" Text="{x:Bind Deadline}" HorizontalAlignment="Center"  />
             </StackPanel>
         </DataTemplate>
         
@@ -94,7 +96,8 @@
                             Width="450"/>
             </StackPanel>
             <RefreshContainer Name="RefreshContainer"
-                              Margin="10,10,10,0">
+                              Margin="10,10,10,0"
+                              Height="auto">
                 <i:Interaction.Behaviors>
                     <ic:EventTriggerBehavior EventName="RefreshRequested">
                         <ic:InvokeCommandAction Command="{Binding ListCommand, Mode=OneWay}" />
@@ -110,7 +113,7 @@
                           ItemTemplate="{StaticResource MissionDataTemplate}"
                           ItemsSource="{Binding TakeOverMissionCollection}"
                           ItemClick="HallGridView_OnItemClick"  
-                                  Height="100"/>
+                                  Height="130"/>
                     <Border Background="LightGray">
                         <TextBlock Width="AUTO" >外卖</TextBlock>
                     </Border>
@@ -120,7 +123,7 @@
                           ItemTemplate="{StaticResource MissionDataTemplate}"
                           ItemsSource="{Binding DeliveryMissionCollection}"
                           ItemClick="HallGridView_OnItemClick" 
-                              Height="100"/>
+                              Height="130"/>
                     <Border Background="LightGray">
                         <TextBlock Width="AUTO" >快递</TextBlock>
                         </Border>
@@ -130,7 +133,7 @@
                           ItemTemplate="{StaticResource MissionDataTemplate}"
                           ItemsSource="{Binding ExpressMissionCollection}"
                           ItemClick="HallGridView_OnItemClick"  
-                              Height="100"/>
+                              Height="130"/>
 
     </StackPanel>
             </RefreshContainer>
@@ -148,10 +151,10 @@
                 x:Name="AddMissionContent" 
                 
                 >
-                
-                    <StackPanel VerticalAlignment="Stretch" 
+
+                <StackPanel VerticalAlignment="Stretch" 
                                 HorizontalAlignment="Stretch">
-                        <TextBox Name="Missionname" PlaceholderText="请输入任务标题" Text="{Binding ToAddMission.MissionName ,Mode=TwoWay }"
+                    <TextBox Name="Missionname" PlaceholderText="请输入任务标题" Text="{Binding ToAddMission.MissionName ,Mode=TwoWay }"
                                  TextWrapping="Wrap" 
                                  Margin="10,10,0,0"/>
                     <TextBox Name="Message" PlaceholderText="请输入任务内容" Text="{Binding ToAddMission.Message, Mode=TwoWay}"
@@ -168,10 +171,40 @@
                         <ComboBoxItem Name="Delivery">Delivery</ComboBoxItem>
                         <ComboBoxItem Name="Express">Express</ComboBoxItem>
                     </ComboBox>
-
-
                 </StackPanel>
-                
+            </ContentDialog>
+            <ContentDialog
+                Title="请输入你的任务"
+                PrimaryButtonText="接受"
+                PrimaryButtonCommand="{Binding AddCommand}"
+                CloseButtonText="Cancel"
+                DefaultButton="Close"
+                x:Name="MissionDetailContent" 
+                >
+
+                <StackPanel Margin="10,10,0,0"
+                >
+                    <TextBlock Text="任务主题"
+                   FontSize="20"
+                   Margin="20,10,0,0"></TextBlock>
+                    <TextBox PlaceholderText="显示任务主题"
+                 Width="500"
+                 HorizontalAlignment="Left"
+                 Margin="20,10,0,0"></TextBox>
+                    <TextBlock Text="详细信息"
+                   FontSize="20"
+                   Margin="20,10,0,0"></TextBlock>
+                    <TextBlock Text="{x:Bind Message}"
+                 Height="200"
+                 Width="auto"
+                 HorizontalAlignment="Left"
+                 Margin="20,10,0,0"></TextBlock>
+                    <StackPanel Orientation="Horizontal"
+                    Margin="20,10,0,0"
+                    >
+                    </StackPanel>
+                </StackPanel>
+
 
             </ContentDialog>
         </StackPanel>
