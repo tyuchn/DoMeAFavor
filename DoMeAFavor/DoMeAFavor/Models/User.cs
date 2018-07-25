@@ -75,7 +75,7 @@ namespace DoMeAFavor.Models
         /// <summary>
         /// 手机号。
         /// </summary>
-        public long PhoneNumber {
+        public string PhoneNumber {
             get => _phoneNumber;
             set => Set(nameof(PhoneNumber), ref _phoneNumber, value);
         }
