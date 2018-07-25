@@ -40,10 +40,7 @@ namespace DoMeAFavor
             _comboBox = MajorComboBox.SelectedItem.ToString();
         }
 
-        private void SureInformation_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
-
-        }
+        
         /// <summary>
         /// 点击时给下拉框的值赋予给user.Major
         /// </summary>
@@ -57,10 +54,5 @@ namespace DoMeAFavor
             await SureInformation.ShowAsync();
         }
 
-        //确认注册信息的点击事件
-        private void SureInformation_OnPrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
-            Frame.Navigate(typeof(MyPage));
-        }
     }
 }

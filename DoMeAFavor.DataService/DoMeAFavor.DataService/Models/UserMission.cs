@@ -14,14 +14,20 @@ namespace DoMeAFavor.DataService.Models
         /// <summary>
         /// 主键（学号）。
         /// </summary>
-        ///[JsonProperty("userid")]
+        [JsonProperty("userid")]
         public int UserId { get; set; }
 
         /// <summary>
         /// 主键（编号）。
         /// </summary>
-        ///[JsonProperty("missionid")]
+        [JsonProperty("missionid")]
         public int MissioinId { get; set; }
+
+        /// <summary>
+        /// 接收者学号。
+        /// </summary>
+        [JsonProperty("receiverid")]
+        public int ReceiverId { get; set; }
 
         /// <summary>
         /// 完成时间。

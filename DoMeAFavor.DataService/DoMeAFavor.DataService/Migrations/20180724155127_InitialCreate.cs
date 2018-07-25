@@ -37,7 +37,7 @@ namespace DoMeAFavor.DataService.Migrations
                     Class = table.Column<int>(nullable: false),
                     Major = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<int>(nullable: false),
+                    PhoneNumber = table.Column<long>(nullable: false),
                     Points = table.Column<int>(nullable: false),
                     RealName = table.Column<string>(nullable: true),
                     UserId = table.Column<int>(nullable: false),
@@ -54,7 +54,8 @@ namespace DoMeAFavor.DataService.Migrations
                 {
                     MissioinId = table.Column<int>(nullable: false),
                     UserId = table.Column<int>(nullable: false),
-                    MissionId = table.Column<int>(nullable: true)
+                    MissionId = table.Column<int>(nullable: true),
+                    ReceiverId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

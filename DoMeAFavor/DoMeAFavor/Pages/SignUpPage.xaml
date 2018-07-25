@@ -145,16 +145,14 @@
             <ContentDialog
                 Title="确认您的信息无误"
                 PrimaryButtonText="Confirm"
-                PrimaryButtonCommand="{Binding SignupCommand}"
-                PrimaryButtonClick="SureInformation_OnPrimaryButtonClick"
+                PrimaryButtonCommand="{Binding SignupCommand}"             
                 CloseButtonText="Cancel"
                 DefaultButton="Close"
-                x:Name="SureInformation" 
-                
+                x:Name="SureInformation"                 
                 >
-
-
             </ContentDialog>
+
+            
 
         </StackPanel>
 

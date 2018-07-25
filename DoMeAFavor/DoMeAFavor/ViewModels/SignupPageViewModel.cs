@@ -42,8 +42,8 @@ namespace DoMeAFavor.ViewModels
         public RelayCommand SignupCommand =>
             _signupCommand ?? (_signupCommand = new RelayCommand(async () =>
             {
-                //jkk
-                if(user.UserId.ToString().Length==8)
+
+               if(user.UserId.ToString().Length==8)
                 {
                     if (user.PassWord.Length<16)
                     {
@@ -60,7 +60,8 @@ namespace DoMeAFavor.ViewModels
                                             if (user.Class.ToString().Length==4)
                                             { 
                                                 await _userService.AddAsync(user);
-                                                await new MessageDialog("注册成功").ShowAsync();
+                                                await new MessageDialog("注册成功").ShowAsync(); 
+                                                //Frame.
                                             }
                                             else
                                                 await new MessageDialog("请输入正确班级号如：1505").ShowAsync();

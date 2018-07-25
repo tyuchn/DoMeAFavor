@@ -46,7 +46,7 @@ namespace DoMeAFavor.DataService.Models
         /// 手机号。
         /// </summary>
         [JsonProperty("phonenumber")]
-        public int PhoneNumber { get; set; }
+        public long PhoneNumber { get; set; }
 
         /// <summary>
         /// 专业。
