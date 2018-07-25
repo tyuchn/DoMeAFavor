@@ -44,12 +44,19 @@
         </StackPanel>
         <StackPanel Margin="0,40,0,0">
             <FlipView Width="Auto" 
-                      Height="200">
-                <Image Source="ms-appx:///Assets/1.jpg"/>
-                <Image Source="ms-appx:///Assets/2.jpg"/>
-                <Image Source="ms-appx:///Assets/3.jpg"/>
-                <Image Source="ms-appx:///Assets/5.jpg"/>
-                <Image Source="ms-appx:///Assets/12.jpg"/>
+                      Height="200"
+                      Name="MissionHallFlip"
+                      >
+                <Image Source="ms-appx:///Assets/1.jpg" Stretch="UniformToFill"/>
+                <Image Source="ms-appx:///Assets/2.jpg" Stretch="UniformToFill"/>
+                <Image Source="ms-appx:///Assets/3.jpg" Stretch="UniformToFill"/>
+                <Image Source="ms-appx:///Assets/4.jpg" Stretch="UniformToFill"/>
+                
+                <FlipView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </FlipView.ItemsPanel>
             </FlipView>
             <RefreshContainer Name="RefreshContainer">
                 <i:Interaction.Behaviors>
