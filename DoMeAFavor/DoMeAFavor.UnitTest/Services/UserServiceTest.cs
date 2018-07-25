@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DoMeAFavor.Models;
 using DoMeAFavor.Services;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using DoMeAFavor.Models;
 
 namespace DoMeAFavor.UnitTest.Services
 {
@@ -30,15 +30,15 @@ namespace DoMeAFavor.UnitTest.Services
             var users = (await userService.ListAsync()).ToList();
             var firstMission = users[0];
 
-           /* Assert.AreEqual("food", firstMission.MissionName);
+            /* Assert.AreEqual("food", firstMission.MissionName);
 
-            firstMission.MissionName = "cloth";
-            await missionService.UpdateAsync(firstMission);
+             firstMission.MissionName = "cloth";
+             await missionService.UpdateAsync(firstMission);
 
-            missions = (await missionService.ListAsync()).ToList();
-            firstMission = missions[0];
+             missions = (await missionService.ListAsync()).ToList();
+             firstMission = missions[0];
 
-            Assert.AreEqual("cloth", firstMission.MissionName);*/
+             Assert.AreEqual("cloth", firstMission.MissionName);*/
         }
 
         [TestMethod]
