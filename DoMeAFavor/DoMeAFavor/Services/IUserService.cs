@@ -28,11 +28,6 @@ namespace DoMeAFavor.Services
         /// <returns></returns>
         Task AddAsync(User user);
 
-        /// <summary>
-        /// 删除用户。
-        /// </summary>
-        /// <param name="mission"></param>
-        /// <returns></returns>
-        Task DeleteAsync(User user);
+        Task<string> LoginAsync(User user);
     }
 }

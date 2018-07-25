@@ -24,6 +24,10 @@ namespace DoMeAFavor.Models
         /// 任务
         /// </summary>
         public Mission Mission { get; set; }
+        /// <summary>
+        /// 接收者
+        /// </summary>
+        public int ReceiverId { get; set; }
 
     }
 }
