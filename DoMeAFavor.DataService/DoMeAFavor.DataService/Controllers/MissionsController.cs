@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+using DoMeAFavor.DataService.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using DoMeAFavor.DataService.Models;
 
 namespace DoMeAFavor.DataService.Controllers
 {
@@ -31,17 +29,11 @@ namespace DoMeAFavor.DataService.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetMission([FromRoute] int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var mission = await _context.Missions.SingleOrDefaultAsync(m => m.MissionId == id);
 
-            if (mission == null)
-            {
-                return NotFound();
-            }
+            if (mission == null) return NotFound();
 
             return Ok(mission);
         }
@@ -50,15 +42,9 @@ namespace DoMeAFavor.DataService.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMission([FromRoute] int id, [FromBody] Mission mission)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            if (id != mission.MissionId)
-            {
-                return BadRequest();
-            }
+            if (id != mission.MissionId) return BadRequest();
 
             _context.Entry(mission).State = EntityState.Modified;
 
@@ -69,13 +55,8 @@ namespace DoMeAFavor.DataService.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!MissionExists(id))
-                {
                     return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return NoContent();
@@ -85,31 +66,22 @@ namespace DoMeAFavor.DataService.Controllers
         [HttpPost]
         public async Task<IActionResult> PostMission([FromBody] Mission mission)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             _context.Missions.Add(mission);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetMission", new { id = mission.MissionId }, mission);
+            return CreatedAtAction("GetMission", new {id = mission.MissionId}, mission);
         }
 
         // DELETE: api/Missions/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMission([FromRoute] int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var mission = await _context.Missions.SingleOrDefaultAsync(m => m.MissionId == id);
-            if (mission == null)
-            {
-                return NotFound();
-            }
+            if (mission == null) return NotFound();
 
             _context.Missions.Remove(mission);
             await _context.SaveChangesAsync();
