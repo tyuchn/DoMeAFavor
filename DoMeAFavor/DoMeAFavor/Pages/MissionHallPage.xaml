@@ -18,12 +18,59 @@
                 <TextBlock FontSize="20" Text="{x:Bind MissionName}" IsColorFontEnabled="False" 
                            HorizontalAlignment="Center" 
                            FontFamily="Comic Sans MS" Foreground="Blue" />
-                <TextBlock FontSize="10" Text="{x:Bind Message}" HorizontalAlignment="Center"  />
+                
                 <TextBlock FontSize="10" Text="{x:Bind Points}" HorizontalAlignment="Center" />
                 <TextBlock FontSize="10" Text="{x:Bind Deadline}" HorizontalAlignment="Center"  />
+                <ContentDialog
+                Title="请输入你的任务"
+                PrimaryButtonText="接受"
+                PrimaryButtonCommand="{Binding AddCommand}"
+                CloseButtonText="Cancel"
+                DefaultButton="Close"
+                x:Name="MissionDetailContent" 
+                >
+                    <StackPanel Margin="10,10,0,0"
+                >
+                        <TextBlock Text="任务主题"
+                   FontSize="20"
+                   Margin="20,10,0,0"></TextBlock>
+                        <TextBlock
+                 Width="auto"
+                 HorizontalAlignment="Left"
+                    Text="{x:Bind MissionName}"
+                 Margin="20,10,0,0"></TextBlock>
+                        <StackPanel Orientation="Horizontal"
+                    Margin="20,10,0,0">
+                            <TextBlock Text="积分"
+                                   FontSize="20"
+                                   ></TextBlock>
+                            <TextBlock Margin="15,0,0,0"
+                                       Text="{x:Bind Points}"></TextBlock>
+                        </StackPanel>
+                        <TextBlock Text="截止时间"
+                               FontSize="20"
+                               Margin="20,10,0,0"></TextBlock>
+                        <TextBlock Width="auto"
+                               Margin="20,10,0,0"
+                                   Text="{x:Bind Deadline}"></TextBlock>
+                        <TextBlock Text="详细信息"
+                   FontSize="20"
+                   Margin="20,10,0,0"></TextBlock>
+                        <TextBlock Text="{x:Bind Message}"
+                 Height="200"
+                 Width="auto" MaxWidth="300"
+                 HorizontalAlignment="Left"
+                 Margin="20,10,0,0"></TextBlock>
+                       
+
+                    </StackPanel>
+
+
+                </ContentDialog>
             </StackPanel>
+            
         </DataTemplate>
-        
+      
     </Page.Resources>
     <Page.DataContext>
         <Binding Source="{StaticResource HallPageViewModel}" />
@@ -138,8 +185,6 @@
     </StackPanel>
             </RefreshContainer>
           
-           
-
             <ContentDialog
                 Title="请输入你的任务"
                 PrimaryButtonText="Confirm"
@@ -173,40 +218,7 @@
                     </ComboBox>
                 </StackPanel>
             </ContentDialog>
-            <ContentDialog
-                Title="请输入你的任务"
-                PrimaryButtonText="接受"
-                PrimaryButtonCommand="{Binding AddCommand}"
-                CloseButtonText="Cancel"
-                DefaultButton="Close"
-                x:Name="MissionDetailContent" 
-                >
-
-                <StackPanel Margin="10,10,0,0"
-                >
-                    <TextBlock Text="任务主题"
-                   FontSize="20"
-                   Margin="20,10,0,0"></TextBlock>
-                    <TextBox PlaceholderText="显示任务主题"
-                 Width="500"
-                 HorizontalAlignment="Left"
-                 Margin="20,10,0,0"></TextBox>
-                    <TextBlock Text="详细信息"
-                   FontSize="20"
-                   Margin="20,10,0,0"></TextBlock>
-                    <TextBlock Text="{x:Bind Message}"
-                 Height="200"
-                 Width="auto"
-                 HorizontalAlignment="Left"
-                 Margin="20,10,0,0"></TextBlock>
-                    <StackPanel Orientation="Horizontal"
-                    Margin="20,10,0,0"
-                    >
-                    </StackPanel>
-                </StackPanel>
-
-
-            </ContentDialog>
+           
         </StackPanel>
     </Grid>
     

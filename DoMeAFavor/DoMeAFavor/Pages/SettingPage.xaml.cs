@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
@@ -25,13 +26,32 @@ namespace DoMeAFavor
         public SettingPage()
         {
             this.InitializeComponent();
-
+            
         }
 
         private void ChangePassWord_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(ChangePasswordPage));
         }
- 
+
+        private void ColorComBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ImageBrush imageBrush = new ImageBrush();
+            if (RedBack.IsSelected)
+            {
+                imageBrush.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/2.jpg", UriKind.Absolute));
+                PivotLayoutElement.Background = imageBrush;
+            }
+            if (YellowBack.IsSelected)
+            {
+                imageBrush.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/12.jpg", UriKind.Absolute));
+                PivotLayoutElement.Background = imageBrush;
+            }
+            if (WhiteBack.IsSelected)
+            {
+                imageBrush.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/4.jpg", UriKind.Absolute));
+                PivotLayoutElement.Background = imageBrush;
+            }
+        }
     }
 }
