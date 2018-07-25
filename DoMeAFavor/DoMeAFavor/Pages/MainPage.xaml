@@ -26,8 +26,10 @@
                 <NavigationViewItem Icon="play" Content="校园广场" Tag="RefreshPage" />
                 <NavigationViewItem Icon="add" Content="积分通道" Tag="MyMoney" />
             </NavigationView.MenuItems>
-            <Frame Name="HomeFrame">
-                <StackPanel Margin="150,150,50,50"
+            <Frame Name="HomeFrame"
+                   Margin="0,-50,0,0"
+                   >
+                <StackPanel Margin="50,10,50,50"
                             Width="auto">
                     <TextBlock Text="欢迎使用DoMeAFavor " FontFamily="Arial"
                                Margin="50,50,10,50"

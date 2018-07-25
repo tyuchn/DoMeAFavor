@@ -12,13 +12,15 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
-        <DataTemplate x:DataType="models:Mission" x:Key="MissionDataTemplate">
-            <StackPanel HorizontalAlignment="Center">
-                
-                <TextBlock FontSize="16" Text="{x:Bind MissionName}" HorizontalAlignment="Center" FontFamily="Comic Sans MS" />
-                <TextBlock FontSize="10" Text="{x:Bind Deadline}" HorizontalAlignment="Center" />
+        <DataTemplate x:DataType="models:Mission" x:Key="MissionDataTemplate" >
+            <StackPanel HorizontalAlignment="Center" Width="auto"
+                        Margin="5,5,10,0">
+                <TextBlock FontSize="20" Text="{x:Bind MissionName}" IsColorFontEnabled="False" 
+                           HorizontalAlignment="Center" 
+                           FontFamily="Comic Sans MS" Foreground="Blue" />
+                <TextBlock FontSize="10" Text="{x:Bind Message}" HorizontalAlignment="Center"  />
                 <TextBlock FontSize="10" Text="{x:Bind Points}" HorizontalAlignment="Center" />
-                <TextBlock FontSize="10" Text="{x:Bind Type}" HorizontalAlignment="Center" />
+                <TextBlock FontSize="10" Text="{x:Bind Deadline}" HorizontalAlignment="Center"  />
             </StackPanel>
         </DataTemplate>
         
@@ -29,20 +31,8 @@
 
 
 <Grid>
-        <StackPanel Width="auto"
-            Margin="0,0,0,0">
-            <AutoSuggestBox PlaceholderText="Type a search name"
-                            Name="SearchText"
-                           HorizontalAlignment="Right"
-                            TextChanged="SearchText_TextChanged"
-                            Margin="0,0,20,10"
-                 QueryIcon="Find"
-               QuerySubmitted="SearchText_QuerySubmitted"
-                SuggestionChosen="SearchText_SuggestionChosen"
-                            Width="500"/>
-            
-        </StackPanel>
-        <StackPanel Margin="0,40,0,0">
+        
+        <StackPanel Margin="5,0,0,0">
             <FlipView Width="Auto" 
                       Height="200"
                       Name="MissionHallFlip"
@@ -58,68 +48,97 @@
                     </ItemsPanelTemplate>
                 </FlipView.ItemsPanel>
             </FlipView>
-            <RefreshContainer Name="RefreshContainer">
+            <StackPanel Orientation="Horizontal" Width="auto">
+                <CommandBar Grid.Row="1"
+                        OverflowButtonVisibility="Collapsed"
+                        DefaultLabelPosition="Right"
+                       VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        Background="White"
+                        Margin="0,10,0,0"
+                        >
+                    <AppBarButton Icon="Refresh"
+                              Label="刷新"
+                              Margin="5,0,5,0">
+                        <i:Interaction.Behaviors>
+                            <ic:EventTriggerBehavior EventName="Click">
+                                <ic:CallMethodAction TargetObject="{Binding ElementName=RefreshContainer}"
+                                                 MethodName="RequestRefresh" />
+                            </ic:EventTriggerBehavior>
+                        </i:Interaction.Behaviors>
+                    </AppBarButton>
+                    <AppBarButton Icon="HangUp" 
+                              Label="接受任务"
+                              Command="{Binding DeleteCommand}"
+                              CommandParameter="{Binding SelectedMission}"
+                              Margin="5,0,5,0">
+
+                    </AppBarButton>
+                    <AppBarButton Icon="Add"
+                              Label="添加任务"
+                              Width="auto"
+                              x:Name="AddButton"
+                              CommandParameter="{Binding SelectedMission}"
+                              Click="AddButton_Click_1" 
+                              Margin="5,0,5,0">
+
+                    </AppBarButton>
+                </CommandBar>
+                <AutoSuggestBox PlaceholderText="Type a search name"
+                            Name="SearchText"
+                           HorizontalAlignment="Right"
+                                    Height="35"
+                            TextChanged="SearchText_TextChanged"
+                            Margin="100,10,10,0"
+                 QueryIcon="Find"
+               QuerySubmitted="SearchText_QuerySubmitted"
+                SuggestionChosen="SearchText_SuggestionChosen"
+                            Width="450"/>
+            </StackPanel>
+            <RefreshContainer Name="RefreshContainer"
+                              Margin="10,10,10,0"
+                              Height="auto">
                 <i:Interaction.Behaviors>
                     <ic:EventTriggerBehavior EventName="RefreshRequested">
                         <ic:InvokeCommandAction Command="{Binding ListCommand, Mode=OneWay}" />
                     </ic:EventTriggerBehavior>
                 </i:Interaction.Behaviors>
-            <StackPanel>
-                <TextBlock>代课</TextBlock>
-                
-                        <GridView Name="TakeOverGridView"
+            <StackPanel Margin="10,0,10,0">
+                    <Border Background="LightGray">
+                        <TextBlock Width="AUTO" 
+                                   >代课</TextBlock>
+                    </Border>
+                    <GridView Name="TakeOverGridView"
                           IsItemClickEnabled="True"
                           ItemTemplate="{StaticResource MissionDataTemplate}"
                           ItemsSource="{Binding TakeOverMissionCollection}"
-                          ItemClick="HallGridView_OnItemClick"  />
-                    <TextBlock>外卖</TextBlock>
-                    
+                          ItemClick="HallGridView_OnItemClick"  
+                                  Height="130"/>
+                    <Border Background="LightGray">
+                        <TextBlock Width="AUTO" >外卖</TextBlock>
+                    </Border>
+
                     <GridView Name="DeliveryGridView"
                           IsItemClickEnabled="True"
                           ItemTemplate="{StaticResource MissionDataTemplate}"
                           ItemsSource="{Binding DeliveryMissionCollection}"
-                          ItemClick="HallGridView_OnItemClick"  />
-                    <TextBlock>快递</TextBlock>
-                
-                    <GridView Name="ExpressGridView"
+                          ItemClick="HallGridView_OnItemClick" 
+                              Height="130"/>
+                    <Border Background="LightGray">
+                        <TextBlock Width="AUTO" >快递</TextBlock>
+                        </Border>
+
+                        <GridView Name="ExpressGridView"
                           IsItemClickEnabled="True"
                           ItemTemplate="{StaticResource MissionDataTemplate}"
                           ItemsSource="{Binding ExpressMissionCollection}"
-                          ItemClick="HallGridView_OnItemClick"  />
+                          ItemClick="HallGridView_OnItemClick"  
+                              Height="130"/>
 
     </StackPanel>
             </RefreshContainer>
           
-            <CommandBar Grid.Row="1"
-                        OverflowButtonVisibility="Collapsed"
-                        DefaultLabelPosition="Right"
-                       
-                        HorizontalAlignment="Stretch"
-                        >
-                <AppBarButton Icon="Refresh"
-                              Label="Refresh">
-                    <i:Interaction.Behaviors>
-                        <ic:EventTriggerBehavior EventName="Click">
-                            <ic:CallMethodAction TargetObject="{Binding ElementName=RefreshContainer}"
-                                                 MethodName="RequestRefresh" />
-                        </ic:EventTriggerBehavior>
-                    </i:Interaction.Behaviors>
-                </AppBarButton>
-                <AppBarButton Icon="Delete" 
-                              Label="Delete"
-                              Command="{Binding DeleteCommand}"
-                              CommandParameter="{Binding SelectedMission}" >
-
-                </AppBarButton>
-                <AppBarButton Icon="Add"
-                              Label="AddMission"
-                              
-                              x:Name="AddButton"
-                              CommandParameter="{Binding SelectedMission}"
-                              Click="AddButton_Click_1"  >
-
-                </AppBarButton>
-            </CommandBar>
+           
 
             <ContentDialog
                 Title="请输入你的任务"
@@ -132,10 +151,10 @@
                 x:Name="AddMissionContent" 
                 
                 >
-                
-                    <StackPanel VerticalAlignment="Stretch" 
+
+                <StackPanel VerticalAlignment="Stretch" 
                                 HorizontalAlignment="Stretch">
-                        <TextBox Name="Missionname" PlaceholderText="请输入任务标题" Text="{Binding ToAddMission.MissionName ,Mode=TwoWay }"
+                    <TextBox Name="Missionname" PlaceholderText="请输入任务标题" Text="{Binding ToAddMission.MissionName ,Mode=TwoWay }"
                                  TextWrapping="Wrap" 
                                  Margin="10,10,0,0"/>
                     <TextBox Name="Message" PlaceholderText="请输入任务内容" Text="{Binding ToAddMission.Message, Mode=TwoWay}"
@@ -152,10 +171,40 @@
                         <ComboBoxItem Name="Delivery">Delivery</ComboBoxItem>
                         <ComboBoxItem Name="Express">Express</ComboBoxItem>
                     </ComboBox>
-
-
                 </StackPanel>
-                
+            </ContentDialog>
+            <ContentDialog
+                Title="请输入你的任务"
+                PrimaryButtonText="接受"
+                PrimaryButtonCommand="{Binding AddCommand}"
+                CloseButtonText="Cancel"
+                DefaultButton="Close"
+                x:Name="MissionDetailContent" 
+                >
+
+                <StackPanel Margin="10,10,0,0"
+                >
+                    <TextBlock Text="任务主题"
+                   FontSize="20"
+                   Margin="20,10,0,0"></TextBlock>
+                    <TextBox PlaceholderText="显示任务主题"
+                 Width="500"
+                 HorizontalAlignment="Left"
+                 Margin="20,10,0,0"></TextBox>
+                    <TextBlock Text="详细信息"
+                   FontSize="20"
+                   Margin="20,10,0,0"></TextBlock>
+                    <TextBlock Text="{x:Bind Message}"
+                 Height="200"
+                 Width="auto"
+                 HorizontalAlignment="Left"
+                 Margin="20,10,0,0"></TextBlock>
+                    <StackPanel Orientation="Horizontal"
+                    Margin="20,10,0,0"
+                    >
+                    </StackPanel>
+                </StackPanel>
+
 
             </ContentDialog>
         </StackPanel>

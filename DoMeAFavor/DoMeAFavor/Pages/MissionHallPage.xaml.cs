@@ -52,10 +52,11 @@ namespace DoMeAFavor
 
         }
 
-        private void HallGridView_OnItemClick(object sender, ItemClickEventArgs e)
+        private async void HallGridView_OnItemClick(object sender, ItemClickEventArgs e)
         {
             var viewModel = (HallPageViewModel) DataContext;
             viewModel.SelectedMission = (Mission) e.ClickedItem;
+            await MissionDetailContent.ShowAsync();
         }
 
         private async void AddButton_Click_1(object sender, RoutedEventArgs e)
