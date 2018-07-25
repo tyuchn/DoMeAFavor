@@ -1,22 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+
 using DoMeAFavor.Models;
 using DoMeAFavor.ViewModels;
-using System.Diagnostics;
-using System.Threading;
-using System.Timers;
+
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
 namespace DoMeAFavor
@@ -28,10 +17,10 @@ namespace DoMeAFavor
     {
         public MissionHallPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             DispatcherTimer time = new DispatcherTimer();
-            time.Interval = new TimeSpan(0, 0,3);
+            time.Interval = new TimeSpan(0, 0, 3);
             time.Tick += Time_Tick;
             time.Start();
 
@@ -54,8 +43,12 @@ namespace DoMeAFavor
 
         private async void HallGridView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            var viewModel = (HallPageViewModel) DataContext;
-            viewModel.SelectedMission = (Mission) e.ClickedItem;
+            var viewModel = (HallPageViewModel)DataContext;
+            viewModel.SelectedMission = (Mission)e.ClickedItem;
+
+            //把这个selecteditem传到datacontext里面的某一个字段
+
+
             await MissionDetailContent.ShowAsync();
         }
 
@@ -63,12 +56,12 @@ namespace DoMeAFavor
         {
             await AddMissionContent.ShowAsync();
         }
-        
+
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var viewModel = (HallPageViewModel)DataContext;
             if (TakeOver.IsSelected)
-            {            
+            {
                 viewModel.ToAddMission.Type = Mission.MissionType.TakeOver;
             }
             else if (Delivery.IsSelected)
@@ -81,8 +74,8 @@ namespace DoMeAFavor
             }
         }
 
-        
-             private void Time_Tick(object sender, object e)
+
+        private void Time_Tick(object sender, object e)
         {
             int i = MissionHallFlip.SelectedIndex;
             i++;
