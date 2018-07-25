@@ -192,9 +192,9 @@
             
             
             <ContentDialog
-                Title="请输入你的任务"
+                Title="任务详情"
                 PrimaryButtonText="接受"
-                CloseButtonText="Cancel"
+                CloseButtonText="返回"
                 DefaultButton="Close"
                 x:Name="MissionDetailContent" 
                 >
