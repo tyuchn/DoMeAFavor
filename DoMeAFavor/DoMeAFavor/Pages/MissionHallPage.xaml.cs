@@ -56,6 +56,10 @@ namespace DoMeAFavor
         {
             var viewModel = (HallPageViewModel) DataContext;
             viewModel.SelectedMission = (Mission) e.ClickedItem;
+
+            //把这个selecteditem传到datacontext里面的某一个字段
+
+
             await MissionDetailContent.ShowAsync();
         }
 

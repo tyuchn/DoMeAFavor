@@ -50,28 +50,31 @@ namespace DoMeAFavor
         /// <param name="e"></param>
         private async void SignUpButton_Click(object sender, RoutedEventArgs e)
         {           
-            var viewModel = (SignupPageViewModel)DataContext;            
-
-            if (ComputerMajor.IsSelected)
-                viewModel.user.Major = "计算机专业";
+            var viewModel = (SignupPageViewModel)DataContext;
+            if (SurePassword.Password == Password.Password)
+            {
+                if (ComputerMajor.IsSelected)
+                    viewModel.user.Major = "计算机专业";
+                else
+                    if (MarxismMajor.IsSelected)
+                    viewModel.user.Major = "马克思主义专业";
+                else
+                    if (AutomationMajor.IsSelected)
+                    viewModel.user.Major = "自动化专业";
+                else
+                    if (SoftwareMajor.IsSelected)
+                    viewModel.user.Major = "软件专业";
+                else
+                    if (MedicalMajor.IsSelected)
+                    viewModel.user.Major = "中荷医学专业";
+                else
+                    if (MetallurgicalMajor.IsSelected)
+                    viewModel.user.Major = "冶金专业";
+                else
+                    viewModel.user.Major = null;
+            }
             else
-                if (MarxismMajor.IsSelected)
-                viewModel.user.Major = "马克思主义专业";
-            else
-                if (AutomationMajor.IsSelected)
-                viewModel.user.Major = "自动化专业";
-            else
-                if (SoftwareMajor.IsSelected)
-                viewModel.user.Major = "软件专业";
-            else
-                if (MedicalMajor.IsSelected)
-                viewModel.user.Major = "中荷医学专业";
-            else
-                if (MetallurgicalMajor.IsSelected)
-                viewModel.user.Major = "冶金专业";
-            else
-                viewModel.user.Major = null;
-        
+                await new MessageDialog("两次输入密码不同").ShowAsync();
         }
 
     }

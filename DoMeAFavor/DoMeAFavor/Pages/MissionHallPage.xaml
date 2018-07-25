@@ -11,67 +11,25 @@
     xmlns:models="using:DoMeAFavor.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
     <Page.Resources>
-        <DataTemplate x:DataType="models:Mission" x:Key="MissionDataTemplate" >
+        
+        <DataTemplate x:DataType="models:Mission" 
+                      x:Key="MissionDataTemplate" >
             <StackPanel HorizontalAlignment="Center" Width="auto"
                         Margin="5,5,10,0">
-                <TextBlock FontSize="20" Text="{x:Bind MissionName}" IsColorFontEnabled="False" 
+                <TextBlock FontSize="20" Text="{x:Bind MissionName, Mode=OneWay}" IsColorFontEnabled="False" 
                            HorizontalAlignment="Center" 
                            FontFamily="Comic Sans MS" Foreground="Blue" />
-                
-                <TextBlock FontSize="10" Text="{x:Bind Points}" HorizontalAlignment="Center" />
-                <TextBlock FontSize="10" Text="{x:Bind Deadline}" HorizontalAlignment="Center"  />
-                <ContentDialog
-                Title="请输入你的任务"
-                PrimaryButtonText="接受"
-                PrimaryButtonCommand="{Binding AddCommand}"
-                CloseButtonText="Cancel"
-                DefaultButton="Close"
-                x:Name="MissionDetailContent" 
-                >
-                    <StackPanel Margin="10,10,0,0"
-                >
-                        <TextBlock Text="任务主题"
-                   FontSize="20"
-                   Margin="20,10,0,0"></TextBlock>
-                        <TextBlock
-                 Width="auto"
-                 HorizontalAlignment="Left"
-                    Text="{x:Bind MissionName}"
-                 Margin="20,10,0,0"></TextBlock>
-                        <StackPanel Orientation="Horizontal"
-                    Margin="20,10,0,0">
-                            <TextBlock Text="积分"
-                                   FontSize="20"
-                                   ></TextBlock>
-                            <TextBlock Margin="15,0,0,0"
-                                       Text="{x:Bind Points}"></TextBlock>
-                        </StackPanel>
-                        <TextBlock Text="截止时间"
-                               FontSize="20"
-                               Margin="20,10,0,0"></TextBlock>
-                        <TextBlock Width="auto"
-                               Margin="20,10,0,0"
-                                   Text="{x:Bind Deadline}"></TextBlock>
-                        <TextBlock Text="详细信息"
-                   FontSize="20"
-                   Margin="20,10,0,0"></TextBlock>
-                        <TextBlock Text="{x:Bind Message}"
-                 Height="200"
-                 Width="auto" MaxWidth="300"
-                 HorizontalAlignment="Left"
-                 Margin="20,10,0,0"></TextBlock>
-                       
 
-                    </StackPanel>
-
-
-                </ContentDialog>
+                <TextBlock FontSize="10" Text="{x:Bind Points,Mode=OneWay}" HorizontalAlignment="Center" />
+                <TextBlock FontSize="10" Text="{x:Bind Deadline,Mode=OneWay}" HorizontalAlignment="Center"  />
             </StackPanel>
-            
+
         </DataTemplate>
-      
+        
     </Page.Resources>
+    
     <Page.DataContext>
         <Binding Source="{StaticResource HallPageViewModel}" />
     </Page.DataContext>
@@ -198,8 +156,10 @@
                 >
 
                 <StackPanel VerticalAlignment="Stretch" 
-                                HorizontalAlignment="Stretch">
-                    <TextBox Name="Missionname" PlaceholderText="请输入任务标题" Text="{Binding ToAddMission.MissionName ,Mode=TwoWay }"
+                            HorizontalAlignment="Stretch">
+                    <TextBox Name="Missionname" 
+                             PlaceholderText="请输入任务标题" 
+                             Text="{Binding ToAddMission.MissionName ,Mode=TwoWay }"
                                  TextWrapping="Wrap" 
                                  Margin="10,10,0,0"/>
                     <TextBox Name="Message" PlaceholderText="请输入任务内容" Text="{Binding ToAddMission.Message, Mode=TwoWay}"
@@ -208,17 +168,74 @@
                     <CalendarDatePicker Name="Date1"  PlaceholderText="截止时间" Date="{Binding ToAddMission.Deadline }"
                                             Margin="10,10,0,0"
                                             Width="auto"/>
-                    <TextBox Name="Points" PlaceholderText="积分" Text="{Binding ToAddMission.Points ,Mode=TwoWay}" TextWrapping="Wrap" 
+                    <TextBox Name="Points" 
+                             PlaceholderText="积分" 
+                             Text="{Binding ToAddMission.Points ,Mode=TwoWay}" 
+                             TextWrapping="Wrap" 
                              Margin="10,10,0,0"></TextBox>
-                    <ComboBox Name="ComboBox" PlaceholderText="请选择任务类别"  ItemsSource="{Binding ToAddMission.Type,Mode=TwoWay}" Margin="10,10,0,0" DisplayMemberPath="Item1" SelectedValuePath="Item2"
-                                  Header="Select ur Type" Width="200" SelectionChanged="Selector_OnSelectionChanged" >
+                    <ComboBox Name="ComboBox" 
+                              PlaceholderText="请选择任务类别"  
+                              ItemsSource="{Binding ToAddMission.Type,Mode=TwoWay}" 
+                              Margin="10,10,0,0" 
+                              DisplayMemberPath="Item1" 
+                              SelectedValuePath="Item2"
+                              Header="Select ur Type"
+                              Width="200" 
+                              SelectionChanged="Selector_OnSelectionChanged" >
                         <ComboBoxItem Name="TakeOver" >TakeOver</ComboBoxItem>
                         <ComboBoxItem Name="Delivery">Delivery</ComboBoxItem>
                         <ComboBoxItem Name="Express">Express</ComboBoxItem>
                     </ComboBox>
                 </StackPanel>
             </ContentDialog>
-           
+            
+            
+            
+            <ContentDialog
+                Title="请输入你的任务"
+                PrimaryButtonText="接受"
+                CloseButtonText="Cancel"
+                DefaultButton="Close"
+                x:Name="MissionDetailContent" 
+                >
+                <StackPanel Margin="10,10,0,0"
+                >
+                    <TextBlock Text="任务主题"
+                   FontSize="20"
+                   Margin="20,10,0,0"></TextBlock>
+                    <TextBlock
+                 Width="auto"
+                 HorizontalAlignment="Left"
+                    Text="{Binding SelectedMission.MissionName,Mode=OneWay}"
+                 Margin="20,10,0,0"></TextBlock>
+                    <StackPanel Orientation="Horizontal"
+                    Margin="20,10,0,0">
+                        <TextBlock Text="积分"
+                                   FontSize="20"
+                                   ></TextBlock>
+                        <TextBlock Margin="15,0,0,0"
+                                       Text="{Binding SelectedMission.Points,Mode=OneWay}"></TextBlock>
+                    </StackPanel>
+                    <TextBlock Text="截止时间"
+                               FontSize="20"
+                               Margin="20,10,0,0"></TextBlock>
+                    <TextBlock Width="auto"
+                               Margin="20,10,0,0"
+                                   Text="{Binding SelectedMission.Deadline,Mode=OneWay}"></TextBlock>
+                    <TextBlock Text="详细信息"
+                   FontSize="20"
+                   Margin="20,10,0,0"></TextBlock>
+                    <TextBlock Text="{Binding SelectedMission.Message,Mode=OneWay}"
+                 Height="200"
+                 Width="auto" MaxWidth="300"
+                 HorizontalAlignment="Left"
+                 Margin="20,10,0,0"></TextBlock>
+
+
+                </StackPanel>
+
+
+            </ContentDialog>
         </StackPanel>
     </Grid>
     

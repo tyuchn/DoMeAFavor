@@ -26,9 +26,13 @@ namespace DoMeAFavor.ViewModels
         /// <summary>
         /// 用户类。
         /// </summary>
+        private string _password;
+        public string SurePassword { get=>_password;
+            set=> Set(nameof(SurePassword), ref _password, value);
+        }
 
         private User _user;
-
+        
         public User user
         {
             get => _user;
@@ -61,7 +65,7 @@ namespace DoMeAFavor.ViewModels
                 {
                     if (user.PassWord.Length<16)
                     {
-                        if(user.PassWord=="22222")
+                        if(user.PassWord==SurePassword)
                         {
                             if (user.RealName != null)
                             {
@@ -110,6 +114,8 @@ namespace DoMeAFavor.ViewModels
                 
                 
             }));
+
+      
 
         //构造函数
         public SignupPageViewModel(IUserService userService)
