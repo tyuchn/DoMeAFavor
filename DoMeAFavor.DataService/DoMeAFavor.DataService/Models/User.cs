@@ -22,7 +22,7 @@ namespace DoMeAFavor.DataService.Models
         /// 学号。
         /// </summary>
         [JsonProperty("userid")]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         /// <summary>
         /// 用户名。
@@ -46,7 +46,7 @@ namespace DoMeAFavor.DataService.Models
         /// 手机号。
         /// </summary>
         [JsonProperty("phonenumber")]
-        public long PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// 专业。
@@ -58,7 +58,7 @@ namespace DoMeAFavor.DataService.Models
         /// 班级。
         /// </summary>
         [JsonProperty("class")]
-        public int Class { get; set; }
+        public string Class { get; set; }
 
         /// <summary>
         /// 积分。
