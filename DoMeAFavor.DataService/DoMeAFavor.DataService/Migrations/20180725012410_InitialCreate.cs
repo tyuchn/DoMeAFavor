@@ -34,13 +34,13 @@ namespace DoMeAFavor.DataService.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Avatar = table.Column<string>(nullable: true),
-                    Class = table.Column<int>(nullable: false),
+                    Class = table.Column<string>(nullable: true),
                     Major = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<long>(nullable: false),
+                    PhoneNumber = table.Column<string>(nullable: true),
                     Points = table.Column<int>(nullable: false),
                     RealName = table.Column<string>(nullable: true),
-                    UserId = table.Column<int>(nullable: false),
+                    UserId = table.Column<string>(nullable: true),
                     Username = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

@@ -11,7 +11,7 @@ using System;
 namespace DoMeAFavor.DataService.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20180724155127_InitialCreate")]
+    [Migration("20180725012410_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,19 +50,19 @@ namespace DoMeAFavor.DataService.Migrations
 
                     b.Property<string>("Avatar");
 
-                    b.Property<int>("Class");
+                    b.Property<string>("Class");
 
                     b.Property<string>("Major");
 
                     b.Property<string>("Password");
 
-                    b.Property<long>("PhoneNumber");
+                    b.Property<string>("PhoneNumber");
 
                     b.Property<int>("Points");
 
                     b.Property<string>("RealName");
 
-                    b.Property<int>("UserId");
+                    b.Property<string>("UserId");
 
                     b.Property<string>("Username");
 
