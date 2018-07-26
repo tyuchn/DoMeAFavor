@@ -30,5 +30,9 @@ namespace DoMeAFavor
             await new MessageDialog("退出成功").ShowAsync();
             Frame.Navigate(typeof(LoginPage));
         }
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿<Page
     x:Class="DoMeAFavor.LoginPage"
+    
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 
@@ -12,13 +13,13 @@
         <StackPanel>
             <Button Content="登录"
                 Margin="10,10,0,0"
-                Name="ToLogin"
+               
                 Click="ToLogin_Click"
                 FontSize="20" 
                 HorizontalAlignment="Left"></Button>
             <Button Content="注册"
                 Margin="10,10,0,0"
-                Name="ToSignUp"
+               
                 Click="ToSignUp_Click"
                 FontSize="20" 
                 HorizontalAlignment="Left"></Button>
@@ -38,7 +39,7 @@
                        Style="{StaticResource CaptionTextBlockStyle}"
                        Margin="10,20,0,0" HorizontalAlignment="Left"
                            VerticalAlignment="Top" Height="35" Width="301" RenderTransformOrigin="0.493,0.509"></TextBlock>
-                <TextBox Name="UserTextBox"
+                <TextBox 
                     PlaceholderText="please your user ID"
                      
                  HorizontalAlignment="Left" VerticalAlignment="Top" 
@@ -51,7 +52,7 @@
                            VerticalAlignment="Top" Height="35"
                            Width="301" 
                            RenderTransformOrigin="0.493,0.509"></TextBlock>
-                <PasswordBox Name="PassWords" Margin="10,15,0,0" Width="250" 
+                <PasswordBox  Margin="10,15,0,0" Width="250" 
              PlaceholderText="please enter your password"
              HorizontalAlignment="Left"
                      VerticalAlignment="Top" Height="40"/>

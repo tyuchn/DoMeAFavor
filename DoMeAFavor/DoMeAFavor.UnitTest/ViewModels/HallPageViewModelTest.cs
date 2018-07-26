@@ -1,7 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using DoMeAFavor.Models;
-using DoMeAFavor.ViewModels;
 
 namespace DoMeAFavor.UnitTest.ViewModels
 {
@@ -30,7 +28,6 @@ namespace DoMeAFavor.UnitTest.ViewModels
         [TestMethod]
         public void TestAddCommand()
         {
-            Mission amission = null;
             var mission = new Mission { MissionName = "aaa", MissionId = 1 };
          /*   var stubIMissionService = new StubIMissionService().AddAsync(async (c) => amission = c);
 

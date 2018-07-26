@@ -36,12 +36,6 @@ namespace DoMeAFavor
 
                     HomeFrame.Navigate(typeof(MissionHallPage));
                     break;
-
-
-                case "SearchPage":
-                    
-                    HomeFrame.Navigate(typeof(SearchPage));
-                    break;
                 case "NoLoginMyPage":
                     HomeFrame.Navigate(typeof(LoginPage));
                     break;
