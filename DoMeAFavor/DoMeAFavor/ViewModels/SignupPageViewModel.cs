@@ -31,17 +31,6 @@ namespace DoMeAFavor.ViewModels
             set => Set(nameof(user),ref _user,value);
         }
 
-        /*public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(string propertyName)
-        {
-            var handler = PropertyChanged;
-            if (handler != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }*/
-
         /// <summary>
         /// 注册命令
         /// </summary>
