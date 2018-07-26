@@ -194,7 +194,7 @@
                 DefaultButton="Close"
                 x:Name="MissionDetailContent" 
                 >
-                <StackPanel Margin="10,10,0,0"
+                <StackPanel Margin="10,1,0,0"
                 >
                     <TextBlock Text="任务主题"
                    FontSize="20"
@@ -203,29 +203,29 @@
                  Width="auto"
                  HorizontalAlignment="Left"
                     Text="{Binding SelectedMission.MissionName,Mode=OneWay}"
-                 Margin="20,10,0,0"></TextBlock>
-                    <StackPanel Orientation="Horizontal"
-                    Margin="20,10,0,0">
+                 Margin="20,5,0,0"></TextBlock>
+                    
                         <TextBlock Text="积分"
                                    FontSize="20"
+                                   Margin="20,10,0,0"
                                    ></TextBlock>
-                        <TextBlock Margin="15,0,0,0"
+                        <TextBlock Margin="20,5,0,0"
                                        Text="{Binding SelectedMission.Points,Mode=OneWay}"></TextBlock>
-                    </StackPanel>
+                    
                     <TextBlock Text="截止时间"
                                FontSize="20"
                                Margin="20,10,0,0"></TextBlock>
                     <TextBlock Width="auto"
-                               Margin="20,10,0,0"
+                               Margin="20,5,0,0"
                                    Text="{Binding SelectedMission.Deadline,Mode=OneWay}"></TextBlock>
                     <TextBlock Text="详细信息"
                    FontSize="20"
                    Margin="20,10,0,0"></TextBlock>
                     <TextBlock Text="{Binding SelectedMission.Message,Mode=OneWay}"
-                 Height="200"
-                 Width="auto" MaxWidth="300"
+                 Height="auto"
+                 Width="auto" 
                  HorizontalAlignment="Left"
-                 Margin="20,10,0,0"></TextBlock>
+                 Margin="20,5,0,0"></TextBlock>
 
 
                 </StackPanel>
