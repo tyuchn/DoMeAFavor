@@ -25,10 +25,10 @@ namespace DoMeAFavor.ViewModels
 
         private User _user;
         
-        public User user
+        public User User
         {
             get => _user;
-            set => Set(nameof(user),ref _user,value);
+            set => Set(nameof(User),ref _user,value);
         }
 
         /// <summary>
@@ -42,24 +42,24 @@ namespace DoMeAFavor.ViewModels
         public RelayCommand SignupCommand =>
             _signupCommand ?? (_signupCommand = new RelayCommand(async () =>
             {
-               if(user.UserId.Length==8)
+               if(User.UserId.Length==8)
                 {
-                    if (user.PassWord.Length<16)
+                    if (User.PassWord.Length<16)
                     {
-                        if(user.PassWord==SurePassword)
+                        if(User.PassWord==SurePassword)
                         {
-                            if (user.RealName != null)
+                            if (User.RealName != null)
                             {
-                                if (user.PhoneNumber.Length == 11)
+                                if (User.PhoneNumber.Length == 11)
                                 {
-                                    if (user.UserName != null)
+                                    if (User.UserName != null)
                                     {
 
-                                        if (user.Major != null)
+                                        if (User.Major != null)
                                         {
-                                            if (user.Class.Length==4)
+                                            if (User.Class.Length==4)
                                             { 
-                                                await _userService.AddAsync(user);
+                                                await _userService.AddAsync(User);
                                                 //var cd = new ContentDialog();
                                                 var messageDialog = new MessageDialog("注册成功");                                               
                                                 messageDialog.Commands.Add(new UICommand("确定", cmd =>
@@ -102,12 +102,12 @@ namespace DoMeAFavor.ViewModels
         public SignupPageViewModel(IUserService userService)
         {
             _userService = userService;
-            user = new User();
+            User = new User();
         }
         public SignupPageViewModel()
         {
             _userService = new UserService();
-            user = new User();
+            User = new User();
         }
         public SignupPageViewModel(INavigationService navigationService)
         {

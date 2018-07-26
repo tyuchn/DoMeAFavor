@@ -4,6 +4,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 using Windows.UI.Xaml.Media.Animation;
+using DoMeAFavor.Services;
+using DoMeAFavor.ViewModels;
 
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
@@ -19,6 +21,7 @@ namespace DoMeAFavor
         public LoginPage()
         {
             InitializeComponent();
+            
         }
         private void MyPWBox1_PasswordChanged(object sender, RoutedEventArgs e)
         {

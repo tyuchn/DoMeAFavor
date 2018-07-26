@@ -54,7 +54,8 @@
                     VerticalAlignment="Top"
                     Height="40"
                     Margin="10,0,0,0"
-                    Width="250" />
+                    Width="250"
+                    Text="{Binding User.UserId,Mode=TwoWay}"/>
 
                 <TextBlock Text="密码" FontSize="20"
                            Style="{StaticResource CaptionTextBlockStyle}"
@@ -68,7 +69,8 @@
                              Width="250"
                              PlaceholderText="输入您的密码"
                              HorizontalAlignment="Left"
-                             VerticalAlignment="Top" Height="40" />
+                             VerticalAlignment="Top" Height="40" 
+                             Password="{Binding User.PassWord,Mode=TwoWay}"/>
 
             </StackPanel>
         </ContentDialog>
