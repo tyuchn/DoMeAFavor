@@ -21,7 +21,7 @@ namespace DoMeAFavor.Services
         /// 服务端点。
         /// </summary>
         private const string ServiceEndpoint =
-            "http://localhost:13059/api/Missions";
+            "http://192.168.3.228:13059/api/Missions";
 
         /*private List<Mission> missions = new List<Mission>
         {

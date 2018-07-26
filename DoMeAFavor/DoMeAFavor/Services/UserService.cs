@@ -19,7 +19,7 @@ namespace DoMeAFavor.Services
         ///     服务端点。
         /// </summary>
         private const string ServiceEndpoint =
-            "http://localhost:13059/api/Users";
+            "http://192.168.3.228:13059/api/Users";
 
         /******** 公开属性 ********/
 
