@@ -27,15 +27,15 @@ namespace DoMeAFavor.UnitTest.Services
             var users = (await userService.ListAsync()).ToList();
             var firstUser = users[0];
 
-             Assert.AreEqual("20154464", firstUser.UserId);
+             Assert.AreEqual("20158888", firstUser.UserId);
 
-             firstUser.UserId = "20150000";
+             firstUser.UserId = "20157777";
              await userService.UpdateAsync(firstUser);
 
              users = (await userService.ListAsync()).ToList();
              firstUser = users[0];
 
-             Assert.AreEqual("20150000", firstUser.UserId);
+             Assert.AreEqual("20157777", firstUser.UserId);
         }
 
         [TestMethod]

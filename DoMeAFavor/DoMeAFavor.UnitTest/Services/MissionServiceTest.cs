@@ -18,7 +18,7 @@ namespace DoMeAFavor.UnitTest.Services
             var missionService = new MissionService();
 
             var missions = (await missionService.ListAsync()).ToList();
-            Assert.AreEqual(5, missions.Count);
+            Assert.AreEqual(8, missions.Count);
             //Assert.AreEqual("food", missions[0].MissionName);
             //Assert.AreEqual("mac", missions[1].Message);
         }
@@ -30,15 +30,15 @@ namespace DoMeAFavor.UnitTest.Services
             var missions = (await missionService.ListAsync()).ToList();
             var firstMission = missions[0];
 
-            Assert.AreEqual("超市卖货的", firstMission.MissionName);
+            Assert.AreEqual("cloth", firstMission.MissionName);
 
-            firstMission.MissionName = "cloth";
+            firstMission.MissionName = "zzcloth";
             await missionService.UpdateAsync(firstMission);
 
             missions = (await missionService.ListAsync()).ToList();
             firstMission = missions[0];
 
-            Assert.AreEqual("cloth", firstMission.MissionName);
+            Assert.AreEqual("zzcloth", firstMission.MissionName);
         }
 
         [TestMethod]
@@ -56,7 +56,7 @@ namespace DoMeAFavor.UnitTest.Services
             await missionService.AddAsync(ms);
             var missions = (await missionService.ListAsync()).ToList();
 
-            Assert.AreEqual(6, missions.Count);
+            Assert.AreEqual(9, missions.Count);
             //Assert.AreEqual("express", missions[0].MissionName);
             //Assert.AreEqual("lunch", missions[1].MissionName);
         }
@@ -69,7 +69,7 @@ namespace DoMeAFavor.UnitTest.Services
             var secondMission = missions[1];
             await missionService.DeleteAsync(secondMission);
             var newMissions = (await missionService.ListAsync()).ToList();
-            Assert.AreEqual(5, newMissions.Count);
+            Assert.AreEqual(8, newMissions.Count);
         }
     }
 }

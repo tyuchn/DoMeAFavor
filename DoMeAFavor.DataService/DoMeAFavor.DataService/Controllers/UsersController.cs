@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DoMeAFavor.DataService.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using DoMeAFavor.DataService.Models;
 
 namespace DoMeAFavor.DataService.Controllers
 {
@@ -27,31 +29,36 @@ namespace DoMeAFavor.DataService.Controllers
 
         // GET: api/Users/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUser( string userid, string password)
+        public async Task<IActionResult> GetUser([FromRoute] int id)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
-            var user = await _context.Users.SingleOrDefaultAsync(m => m.UserId == userid);
-
-            if (user == null) return NotFound();
-            if (user.Password == password)
+            if (!ModelState.IsValid)
             {
-                return Ok(user);
+                return BadRequest(ModelState);
             }
-            else
+
+            var user = await _context.Users.SingleOrDefaultAsync(m => m.Id == id);
+
+            if (user == null)
             {
-                return BadRequest();
+                return NotFound();
             }
-            
+
+            return Ok(user);
         }
 
         // PUT: api/Users/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser([FromRoute] int id, [FromBody] User user)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-            if (id != user.Id) return BadRequest();
+            if (id != user.Id)
+            {
+                return BadRequest();
+            }
 
             _context.Entry(user).State = EntityState.Modified;
 
@@ -62,8 +69,13 @@ namespace DoMeAFavor.DataService.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!UserExists(id))
+                {
                     return NotFound();
-                throw;
+                }
+                else
+                {
+                    throw;
+                }
             }
 
             return NoContent();
@@ -73,22 +85,31 @@ namespace DoMeAFavor.DataService.Controllers
         [HttpPost]
         public async Task<IActionResult> PostUser([FromBody] User user)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new {id = user.Id}, user);
+            return CreatedAtAction("GetUser", new { id = user.Id }, user);
         }
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser([FromRoute] int id)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
             var user = await _context.Users.SingleOrDefaultAsync(m => m.Id == id);
-            if (user == null) return NotFound();
+            if (user == null)
+            {
+                return NotFound();
+            }
 
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
