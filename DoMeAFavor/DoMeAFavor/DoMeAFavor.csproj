@@ -131,6 +131,7 @@
     </Compile>
     <Compile Include="ViewModels\HallPageViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
+    <Compile Include="ViewModels\MyPageViewModel.cs" />
     <Compile Include="ViewModels\SignupPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

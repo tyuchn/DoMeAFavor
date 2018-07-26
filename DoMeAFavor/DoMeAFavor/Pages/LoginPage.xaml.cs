@@ -35,7 +35,7 @@ namespace DoMeAFavor
 
         private void LoginContent_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            Frame.Navigate(typeof(MissionHallPage), null, new DrillInNavigationTransitionInfo());
+            Frame.Navigate(typeof(MyPage), null, new DrillInNavigationTransitionInfo());
         }
 
         private void ToSignUp_Click(object sender, RoutedEventArgs e)
