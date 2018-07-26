@@ -43,6 +43,12 @@ namespace DoMeAFavor.Services
                 return JsonConvert.DeserializeObject<User[]>(json);
             }
         }
+        /// <summary>
+        /// 获取接受的任务
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<Mission>> GetAcceptedMissionsAsync(string userid, string password)
         {
             using (var client = new HttpClient())
@@ -51,6 +57,12 @@ namespace DoMeAFavor.Services
                 return JsonConvert.DeserializeObject<Mission[]>(json);
             }
         }
+        /// <summary>
+        /// 获取发布的任务
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<Mission>> GetPublishedMissionsAsync(string userid, string password)
         {
             using (var client = new HttpClient())
