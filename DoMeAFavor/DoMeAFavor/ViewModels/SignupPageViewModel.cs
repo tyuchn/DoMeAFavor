@@ -5,7 +5,6 @@ using DoMeAFavor.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Windows.UI.Popups;
-using Windows.UI.Xaml;
 
 namespace DoMeAFavor.ViewModels
 {
@@ -26,10 +25,10 @@ namespace DoMeAFavor.ViewModels
 
         private User _user;
         
-        public User user
+        public User User
         {
             get => _user;
-            set => Set(nameof(user),ref _user,value);
+            set => Set(nameof(User),ref _user,value);
         }
 
         /// <summary>
@@ -43,31 +42,31 @@ namespace DoMeAFavor.ViewModels
         public RelayCommand SignupCommand =>
             _signupCommand ?? (_signupCommand = new RelayCommand(async () =>
             {
-               if(user.UserId.Length==8)
+               if(User.UserId.Length==8)
                 {
-                    if (user.PassWord.Length<16)
+                    if (User.PassWord.Length<16)
                     {
-                        if(user.PassWord==SurePassword)
+                        if(User.PassWord==SurePassword)
                         {
-                            if (user.RealName != null)
+                            if (User.RealName != null)
                             {
-                                if (user.PhoneNumber.Length == 11)
+                                if (User.PhoneNumber.Length == 11)
                                 {
-                                    if (user.UserName != null)
+                                    if (User.UserName != null)
                                     {
 
-                                        if (user.Major != null)
+                                        if (User.Major != null)
                                         {
-                                            if (user.Class.Length == 4)
-                                            {
-                                                await _userService.AddAsync(user);
-                                                GlobalClass.k = 1;
+                                            if (User.Class.Length==4)
+                                            { 
+                                                await _userService.AddAsync(User);
                                                 //var cd = new ContentDialog();
-                                                var messageDialog = new MessageDialog("注册成功");
-                                                 messageDialog.Commands.Add(new UICommand("确定", async cmd =>
-                                                 {
-                                                     //Application.Run(new MyPage());
-                                                 }));
+                                                var messageDialog = new MessageDialog("注册成功");                                               
+                                                messageDialog.Commands.Add(new UICommand("确定", cmd =>
+                                                {
+
+                                                   // _navigationService.Navigate(typeof(MyPage));
+                                                }));
                                                 await messageDialog.ShowAsync();
                                             }
                                             else
@@ -80,10 +79,7 @@ namespace DoMeAFavor.ViewModels
                                         await new MessageDialog("请填写用户昵称").ShowAsync();
                                 }
                                 else
-                                {
                                     await new MessageDialog("手机号有误").ShowAsync();
-                                    GlobalClass.k = 0;
-                                }
                             }
                             else
                                 await new MessageDialog("请填写真实姓名").ShowAsync();
@@ -106,12 +102,12 @@ namespace DoMeAFavor.ViewModels
         public SignupPageViewModel(IUserService userService)
         {
             _userService = userService;
-            user = new User();
+            User = new User();
         }
         public SignupPageViewModel()
         {
             _userService = new UserService();
-            user = new User();
+            User = new User();
         }
         public SignupPageViewModel(INavigationService navigationService)
         {

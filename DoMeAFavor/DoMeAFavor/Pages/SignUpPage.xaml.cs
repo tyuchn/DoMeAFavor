@@ -1,6 +1,5 @@
 ﻿
 using DoMeAFavor.ViewModels;
-using System.Threading;
 using Windows.UI.Xaml.Controls;
 
 
@@ -27,36 +26,27 @@ namespace DoMeAFavor
             var viewModel = (SignupPageViewModel)DataContext;
 
             if (ComputerMajor.IsSelected)
-                viewModel.user.Major = "计算机专业";
+                viewModel.User.Major = "计算机专业";
             else
                 if (MarxismMajor.IsSelected)
-                viewModel.user.Major = "马克思主义专业";
+                viewModel.User.Major = "马克思主义专业";
             else
                 if (AutomationMajor.IsSelected)
-                viewModel.user.Major = "自动化专业";
+                viewModel.User.Major = "自动化专业";
             else
                 if (SoftwareMajor.IsSelected)
-                viewModel.user.Major = "软件专业";
+                viewModel.User.Major = "软件专业";
             else
                 if (MedicalMajor.IsSelected)
-                viewModel.user.Major = "中荷医学专业";
+                viewModel.User.Major = "中荷医学专业";
             else
                 if (MetallurgicalMajor.IsSelected)
-                viewModel.user.Major = "冶金专业";
+                viewModel.User.Major = "冶金专业";
             else
-                viewModel.user.Major = null;
-           
+                viewModel.User.Major = null;
         }
         
+        
 
-       /* private void Button_Click_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            Thread.Sleep(1000);
-            if (GlobalClass.k == 1)
-            {
-                GlobalClass.k = 0;
-                Frame.Navigate(typeof(MyPage));
-            }
-        }*/
     }
 }
