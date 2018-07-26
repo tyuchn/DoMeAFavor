@@ -9,6 +9,10 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.DataContext>
+        <Binding Source="{StaticResource LoginPageViewModel}" />
+    </Page.DataContext>
+
     <Grid>
         <StackPanel>
             <Button Content="登录"
@@ -30,7 +34,7 @@
             x:Name="LoginContent"
             PrimaryButtonText="登录"
             PrimaryButtonClick="LoginContent_PrimaryButtonClick"
-            PrimaryButtonCommand="{Binding}"
+            PrimaryButtonCommand="{Binding LoginCommand}"
             CloseButtonText="Cancel">
 
             <StackPanel>
