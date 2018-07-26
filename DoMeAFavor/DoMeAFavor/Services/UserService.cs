@@ -19,7 +19,7 @@ namespace DoMeAFavor.Services
         ///     服务端点。
         /// </summary>
         private const string ServiceEndpoint =
-            "http://192.168.3.228:13059/api/Users";
+            "http://localhost:13059/api/Users";
 
         /******** 公开属性 ********/
 
@@ -37,6 +37,20 @@ namespace DoMeAFavor.Services
                 return JsonConvert.DeserializeObject<User[]>(json);
             }
         }
+        /// <summary>
+        /// 登陆.
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <param name="password"></param>
+        /// <returns>用户信息</returns>
+        public async Task<User> LoginAsync(string userid,string password)
+        {
+            using (var client = new HttpClient())
+            {
+                var json = await client.GetStringAsync(ServiceEndpoint + "?id=" + userid + "&password=" + password);
+                return JsonConvert.DeserializeObject<User>(json);
+            }
+        }
 
         /// <summary>
         /// 删除用户。
@@ -52,31 +66,7 @@ namespace DoMeAFavor.Services
             }
         }
 
-        public async Task<string> LoginAsync(User user)
-        {
-            
-            using (var client = new HttpClient())
-            {
-                var valid = " ";
-                var json = await client.GetStringAsync(ServiceEndpoint);
-                var allUsers = JsonConvert.DeserializeObject<User[]>(json);
-                var selectedUser = allUsers.Where(c => c.UserId == user.UserId).ToArray();
-                var loginUser = selectedUser.First();
-                if (loginUser == null)
-                {
-                    valid = "用户不存在";
-                }
-                else
-                {
-                    if (user.PassWord == loginUser.PassWord)
-                        valid = "登陆成功";
-                    else
-                        valid = "密码错误";
-                }
-
-                return valid;
-            }
-        }
+        
 
         /// <summary>
         ///     更新用户。

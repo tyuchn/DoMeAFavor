@@ -27,6 +27,6 @@ namespace DoMeAFavor.Services
         /// <returns></returns>
         Task AddAsync(User user);
 
-        Task<string> LoginAsync(User user);
+        Task<User> LoginAsync(string userid, string password);
     }
 }

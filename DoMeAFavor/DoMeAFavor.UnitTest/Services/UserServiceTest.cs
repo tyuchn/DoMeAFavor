@@ -19,6 +19,13 @@ namespace DoMeAFavor.UnitTest.Services
             //Assert.AreEqual("food", users[0].UserName);
             //Assert.AreEqual("mac", users[1].PassWord);
         }
+        [TestMethod]
+        public async Task TestLoginAsync()
+        {
+            var userService = new UserService();
+            var user = await userService.LoginAsync("20158888", "22222");
+            Assert.AreEqual("1504",user.Class);
+        }
 
         [TestMethod]
         public async Task TestUpdateAsync()
