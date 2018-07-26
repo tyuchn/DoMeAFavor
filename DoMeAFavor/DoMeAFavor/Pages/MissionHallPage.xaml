@@ -106,19 +106,32 @@
                     </ic:EventTriggerBehavior>
                 </i:Interaction.Behaviors>
             <StackPanel Margin="10,0,10,0">
-                    <Border Background="LightGray">
-                        <TextBlock Width="AUTO" 
+                    <StackPanel Orientation="Horizontal">
+                        <PersonPicture ProfilePicture="ms-appx:///Assets/14.jpg"
+                                       Height="25"
+                                       Margin="0,0,5,0"/>
+                            <Border Background="White" >
+                        <TextBlock Width="1500" 
+                                   
                                    >代课</TextBlock>
                     </Border>
+                    </StackPanel>
                     <GridView 
                           IsItemClickEnabled="True"
                           ItemTemplate="{StaticResource MissionDataTemplate}"
                           ItemsSource="{Binding TakeOverMissionCollection}"
                           ItemClick="HallGridView_OnItemClick"  
                                   Height="130"/>
-                    <Border Background="LightGray">
-                        <TextBlock Width="AUTO" >外卖</TextBlock>
-                    </Border>
+                    <StackPanel Orientation="Horizontal">
+                        <PersonPicture ProfilePicture="ms-appx:///Assets/15.jpg"
+                                       Height="25"
+                                       Margin="0,0,5,0"/>
+                        <Border Background="White" >
+                            <TextBlock Width="1500" 
+                                   
+                                   >外卖</TextBlock>
+                        </Border>
+                    </StackPanel>
 
                     <GridView 
                           IsItemClickEnabled="True"
@@ -126,11 +139,18 @@
                           ItemsSource="{Binding DeliveryMissionCollection}"
                           ItemClick="HallGridView_OnItemClick" 
                               Height="130"/>
-                    <Border Background="LightGray">
-                        <TextBlock Width="AUTO" >快递</TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <PersonPicture ProfilePicture="ms-appx:///Assets/11.png"
+                                       Height="25"
+                                       Margin="0,0,5,0"/>
+                        <Border Background="White" >
+                            <TextBlock Width="1500" 
+                                   
+                                   >快递</TextBlock>
                         </Border>
+                    </StackPanel>
 
-                        <GridView 
+                    <GridView 
                           IsItemClickEnabled="True"
                           ItemTemplate="{StaticResource MissionDataTemplate}"
                           ItemsSource="{Binding ExpressMissionCollection}"
