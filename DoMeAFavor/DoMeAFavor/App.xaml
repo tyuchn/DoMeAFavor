@@ -4,7 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:viewModels1="using:DoMeAFavor.ViewModels">
 
-    
+    <Application.Resources>
+        
+        <ResourceDictionary>
+            <viewModels1:HallPageViewModel x:Key="HallPageViewModel" />
+            <viewModels1:SignupPageViewModel x:Key="SignupPageViewModel" />
+        </ResourceDictionary>
+    </Application.Resources> 
 
 
 

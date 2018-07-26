@@ -7,10 +7,7 @@ using DoMeAFavor.Models;
 namespace DoMeAFavor.Services
 {
     public  interface IUserService
-    {
-
-       
-
+    {       
         /// <summary>
         /// 更新用户信息。
         /// </summary>
