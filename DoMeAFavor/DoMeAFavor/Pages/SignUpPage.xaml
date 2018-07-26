@@ -56,6 +56,7 @@
                              PlaceholderText="请再次输入您的密码"
                              PasswordChar="*"
                              Name="SurePassword" 
+                             Password="{Binding SurePassword,Mode=TwoWay}"
                              />
             </StackPanel>
             <StackPanel Orientation="Horizontal">

@@ -66,7 +66,7 @@ namespace DoMeAFavor.ViewModels
                                     if (user.UserName != null)
                                     {
 
-                                        if (user.Major == null)
+                                        if (user.Major != null)
                                         {
                                             if (user.Class.Length==4)
                                             { 

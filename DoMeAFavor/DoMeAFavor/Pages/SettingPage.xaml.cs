@@ -22,6 +22,10 @@ namespace DoMeAFavor
         {
             Frame.Navigate(typeof(ChangePasswordPage));
         }
- 
+
+        private void ColorComBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
