@@ -37,7 +37,7 @@ namespace DoMeAFavor.DataService.Models
 
             // Define composite key.定义联合主键。
             builder.Entity<UserMission>()
-                .HasKey(lc => new { lc.MissioinId, lc.UserId });
+                .HasKey(lc => new { lc.MissionId, lc.UserId });
         }
     }
 }

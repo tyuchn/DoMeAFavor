@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
+using System.Collections.Generic;
 
 namespace DoMeAFavor.DataService.Migrations
 {
@@ -51,20 +52,19 @@ namespace DoMeAFavor.DataService.Migrations
                 name: "UserMissions",
                 columns: table => new
                 {
-                    MissioinId = table.Column<int>(nullable: false),
+                    MissionId = table.Column<int>(nullable: false),
                     UserId = table.Column<int>(nullable: false),
-                    MissionId = table.Column<int>(nullable: true),
                     ReceiverId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserMissions", x => new { x.MissioinId, x.UserId });
+                    table.PrimaryKey("PK_UserMissions", x => new { x.MissionId, x.UserId });
                     table.ForeignKey(
                         name: "FK_UserMissions_Missions_MissionId",
                         column: x => x.MissionId,
                         principalTable: "Missions",
                         principalColumn: "MissionId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_UserMissions_Users_UserId",
                         column: x => x.UserId,
@@ -72,11 +72,6 @@ namespace DoMeAFavor.DataService.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserMissions_MissionId",
-                table: "UserMissions",
-                column: "MissionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserMissions_UserId",

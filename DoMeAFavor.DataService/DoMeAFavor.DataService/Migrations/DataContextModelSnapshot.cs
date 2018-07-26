@@ -3,6 +3,9 @@ using DoMeAFavor.DataService.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
 namespace DoMeAFavor.DataService.Migrations
@@ -69,17 +72,13 @@ namespace DoMeAFavor.DataService.Migrations
 
             modelBuilder.Entity("DoMeAFavor.DataService.Models.UserMission", b =>
                 {
-                    b.Property<int>("MissioinId");
+                    b.Property<int>("MissionId");
 
                     b.Property<int>("UserId");
 
-                    b.Property<int?>("MissionId");
-
                     b.Property<int>("ReceiverId");
 
-                    b.HasKey("MissioinId", "UserId");
-
-                    b.HasIndex("MissionId");
+                    b.HasKey("MissionId", "UserId");
 
                     b.HasIndex("UserId");
 
@@ -90,7 +89,8 @@ namespace DoMeAFavor.DataService.Migrations
                 {
                     b.HasOne("DoMeAFavor.DataService.Models.Mission", "Mission")
                         .WithMany("UserMissions")
-                        .HasForeignKey("MissionId");
+                        .HasForeignKey("MissionId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("DoMeAFavor.DataService.Models.User", "User")
                         .WithMany("UserMissions")

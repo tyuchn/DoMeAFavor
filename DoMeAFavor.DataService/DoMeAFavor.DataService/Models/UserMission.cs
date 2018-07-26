@@ -18,7 +18,7 @@ namespace DoMeAFavor.DataService.Models
         /// 主键（编号）。
         /// </summary>
         [JsonProperty("missionid")]
-        public int MissioinId { get; set; }
+        public int MissionId { get; set; }
 
         /// <summary>
         /// 接收者学号。
