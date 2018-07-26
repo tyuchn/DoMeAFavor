@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using DoMeAFavor.Models;
-using DoMeAFavor.ViewModels;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DoMeAFavor.UnitTest.ViewModels

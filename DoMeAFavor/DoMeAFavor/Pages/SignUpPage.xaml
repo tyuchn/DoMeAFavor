@@ -33,7 +33,7 @@
                 <TextBox Margin="50,20,0,0"
                          Width="450"
                          PlaceholderText="请输入学号"
-                         Name="UserId"
+                       
                          Text="{Binding user.UserId,Mode=TwoWay}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -44,7 +44,7 @@
                              Width="450"
                              PasswordChar="*"
                              PlaceholderText="请设置密码小于16位"
-                             Name="Password"
+                            
                              Password="{Binding user.PassWord,Mode=TwoWay}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -55,7 +55,7 @@
                              Width="450"
                              PlaceholderText="请再次输入您的密码"
                              PasswordChar="*"
-                             Name="SurePassword" 
+                            
                              Password="{Binding SurePassword,Mode=TwoWay}"
                              />
             </StackPanel>
@@ -66,7 +66,7 @@
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请输入真实姓名"
-                         Name="ReallyName" 
+                       
                          Text="{Binding user.RealName,Mode=TwoWay}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -76,14 +76,14 @@
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请输入真实手机号"
-                         Name="PhoneNumber"
+                         
                          Text="{Binding user.PhoneNumber,Mode=TwoWay}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="用  户  名"
                            Margin="30,20,0,0"
                            FontSize="25"
-                           Name="NetName" />
+                           />
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请设置您的DoMeAFovor昵称" 
@@ -97,7 +97,7 @@
                           Width="450"
                           SelectionChanged="ComboBox_SelectionChanged"
                           PlaceholderText="请选择你的专业"
-                          x:Name="MajorComboBox"
+                          
                           SelectedItem="{Binding user.Major,Mode=TwoWay}">
                     <ComboBoxItem x:Name="ComputerMajor">
                         计算机科学与技术
@@ -132,14 +132,14 @@
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请输入您的班级"
-                         Name="Class" 
+                       
                          Text="{Binding user.Class,Mode=TwoWay}"/>
             </StackPanel>
             <Button Content="注册"
                     Margin="40,40,0,0"
                     RequestedTheme="Light"
                     Visibility="Visible"
-                    Name="SignUpButton"
+                    
                     Command="{Binding SignupCommand}">
 
             </Button>

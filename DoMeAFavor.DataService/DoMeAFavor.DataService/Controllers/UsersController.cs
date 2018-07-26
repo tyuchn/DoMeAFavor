@@ -27,22 +27,15 @@ namespace DoMeAFavor.DataService.Controllers
 
         // GET: api/Users/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUser([FromRoute] string username, [FromRoute]string password)
+        public async Task<IActionResult> GetUser([FromRoute] int id)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            var user = await _context.Users.SingleOrDefaultAsync(m => m.Username == username);
+            var user = await _context.Users.SingleOrDefaultAsync(m => m.Id == id);
 
             if (user == null) return NotFound();
-            if (user.Password == password)
-            {
-                return Ok(user);
-            }
-            else
-            {
-                return BadRequest();
-            }
-            
+
+            return Ok(user);
         }
 
         // PUT: api/Users/5

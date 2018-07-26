@@ -54,7 +54,7 @@
                 </FlipView.ItemsPanel>
             </FlipView>
             <StackPanel Orientation="Horizontal" Width="auto">
-                <CommandBar Grid.Row="1"
+                <CommandBar 
                         OverflowButtonVisibility="Collapsed"
                         DefaultLabelPosition="Right"
                        VerticalAlignment="Top"
@@ -76,7 +76,7 @@
                     <AppBarButton Icon="Add"
                               Label="添加任务"
                               Width="auto"
-                              x:Name="AddButton"
+                              
                               CommandParameter="{Binding SelectedMission}"
                               Click="AddButton_Click_1" 
                               Margin="5,0,5,0">
@@ -84,7 +84,7 @@
                     </AppBarButton>
                 </CommandBar>
                 <AutoSuggestBox PlaceholderText="Type a search name"
-                            Name="SearchText"
+                            
                            HorizontalAlignment="Right"
                                     Height="35"
                             TextChanged="SearchText_TextChanged"
@@ -108,7 +108,7 @@
                         <TextBlock Width="AUTO" 
                                    >代课</TextBlock>
                     </Border>
-                    <GridView Name="TakeOverGridView"
+                    <GridView 
                           IsItemClickEnabled="True"
                           ItemTemplate="{StaticResource MissionDataTemplate}"
                           ItemsSource="{Binding TakeOverMissionCollection}"
@@ -118,7 +118,7 @@
                         <TextBlock Width="AUTO" >外卖</TextBlock>
                     </Border>
 
-                    <GridView Name="DeliveryGridView"
+                    <GridView 
                           IsItemClickEnabled="True"
                           ItemTemplate="{StaticResource MissionDataTemplate}"
                           ItemsSource="{Binding DeliveryMissionCollection}"
@@ -128,7 +128,7 @@
                         <TextBlock Width="AUTO" >快递</TextBlock>
                         </Border>
 
-                        <GridView Name="ExpressGridView"
+                        <GridView 
                           IsItemClickEnabled="True"
                           ItemTemplate="{StaticResource MissionDataTemplate}"
                           ItemsSource="{Binding ExpressMissionCollection}"
@@ -152,23 +152,23 @@
 
                 <StackPanel VerticalAlignment="Stretch" 
                             HorizontalAlignment="Stretch">
-                    <TextBox Name="Missionname" 
+                    <TextBox  
                              PlaceholderText="请输入任务标题" 
                              Text="{Binding ToAddMission.MissionName ,Mode=TwoWay }"
                                  TextWrapping="Wrap" 
                                  Margin="10,10,0,0"/>
-                    <TextBox Name="Message" PlaceholderText="请输入任务内容" Text="{Binding ToAddMission.Message, Mode=TwoWay}"
+                    <TextBox  PlaceholderText="请输入任务内容" Text="{Binding ToAddMission.Message, Mode=TwoWay}"
                                  TextWrapping="Wrap" 
                                  Margin="10,10,0,0"/>
-                    <CalendarDatePicker Name="Date1"  PlaceholderText="截止时间" Date="{Binding ToAddMission.Deadline }"
+                    <CalendarDatePicker   PlaceholderText="截止时间" Date="{Binding ToAddMission.Deadline }"
                                             Margin="10,10,0,0"
                                             Width="auto"/>
-                    <TextBox Name="Points" 
+                    <TextBox  
                              PlaceholderText="积分" 
                              Text="{Binding ToAddMission.Points ,Mode=TwoWay}" 
                              TextWrapping="Wrap" 
                              Margin="10,10,0,0"></TextBox>
-                    <ComboBox Name="ComboBox" 
+                    <ComboBox  
                               PlaceholderText="请选择任务类别"  
                               ItemsSource="{Binding ToAddMission.Type,Mode=TwoWay}" 
                               Margin="10,10,0,0" 

@@ -12,7 +12,7 @@ namespace DoMeAFavor
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class ChangePasswordPage : Page
+    public sealed partial class ChangePasswordPage 
     {
         public ChangePasswordPage()
         {

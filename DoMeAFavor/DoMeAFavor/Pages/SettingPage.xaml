@@ -10,7 +10,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-           x:Name="PivotLayoutElement"
+           
          >
         <StackPanel Orientation="Vertical"
                     Margin="50,10,10,10" 
@@ -18,21 +18,21 @@
             <TextBlock Text="更改背景图片"
                        Margin="50,10,10,0"
                        FontSize="15" 
-                       Name="ChangeBackPicture"
+                       
                        FocusVisualPrimaryBrush="#FFA24A4A"/>
             <ComboBox Margin="50,10,10,0"
                       Width="200"
                       MaxWidth="400"
                       Height="30"
-                      x:Name="ColorComBox"
+                      
                       SelectionChanged="ColorComBox_SelectionChanged">
-                <ComboBoxItem Name="RedBack">
+                <ComboBoxItem >
                     红色
                 </ComboBoxItem>
-                <ComboBoxItem Name="YellowBack">
+                <ComboBoxItem >
                     黄色
                 </ComboBoxItem>
-                <ComboBoxItem Name="WhiteBack">
+                <ComboBoxItem >
                     白色
                 </ComboBoxItem>
                 <ComboBoxItem>
@@ -50,7 +50,7 @@
                       Width="200"
                       MaxWidth="400"
                       Height="30"
-                         x:Name="FontFamilyComboBox">
+                         >
                 <ComboBoxItem>
                     宋体
                 </ComboBoxItem>
@@ -69,7 +69,7 @@
                       Width="200"
                       MaxWidth="400"
                       Height="30"
-                         x:Name="FontSizeComboBox">
+                         >
                 <ComboBoxItem>
                     小四
                 </ComboBoxItem>
@@ -89,7 +89,7 @@
             <Button Content="修改密码"
                     FontSize="20"
                     Margin="50,10,10,1" Visibility="Visible"
-                    Name="ChangePassWord"
+                    
                     Click="ChangePassWord_Click"
                     Background="White">
 
