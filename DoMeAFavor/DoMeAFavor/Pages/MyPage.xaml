@@ -23,6 +23,12 @@
                               ToolTipService.ToolTip="保存信息"
                               Click="SaveButton_Click"
                               />
+                <AppBarButton Name="ExitButton"
+                              Icon="play"
+                              ToolTipService.ToolTip="退出登录"
+                              Click="ExitButton_Click"
+                              Margin="50,0,0,0"
+                              />
             </CommandBar>
             <ContentDialog
             Title="Save your change?"

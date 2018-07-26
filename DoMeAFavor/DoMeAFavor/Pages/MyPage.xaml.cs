@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -23,6 +23,12 @@ namespace DoMeAFavor
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             await SaveContentButton.ShowAsync();
+        }
+
+        private async void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            await new MessageDialog("退出成功").ShowAsync();
+            Frame.Navigate(typeof(LoginPage));
         }
     }
 }
