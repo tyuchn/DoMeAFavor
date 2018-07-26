@@ -20,7 +20,7 @@ namespace DoMeAFavor.DataService.Controllers
             _context = context;
         }
 
-
+        // GET: api/Users?userid= , password=
         [HttpGet]
         public async Task<IActionResult> GetPublishedMission(string userid, string password)
         {
