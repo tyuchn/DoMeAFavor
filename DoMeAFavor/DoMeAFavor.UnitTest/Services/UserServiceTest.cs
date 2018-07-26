@@ -23,10 +23,23 @@ namespace DoMeAFavor.UnitTest.Services
         public async Task TestLoginAsync()
         {
             var userService = new UserService();
-            var user = await userService.LoginAsync("20158888", "22222");
+            var user = await userService.LoginAsync("20151111", "000000");
             Assert.AreEqual("1504",user.Class);
         }
-
+        [TestMethod]
+        public async Task TestACMAsync()
+        {
+            var userService = new UserService();
+            var missions = await userService.GetAcceptedMissionsAsync("20151111", "000000");
+            Assert.AreEqual(5, missions.First().MissionId);
+        }
+        [TestMethod]
+        public async Task TestPBMAsync()
+        {
+            var userService = new UserService();
+            var missions = await userService.GetPublishedMissionsAsync("20150000", "000000");
+            Assert.AreEqual(8, missions.Last().MissionId);
+        }
         [TestMethod]
         public async Task TestUpdateAsync()
         {
