@@ -13,11 +13,12 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     
     <Page.Resources>
-        
-        
+
+
         <DataTemplate x:DataType="models:Mission" 
                       x:Key="MissionDataTemplate" >
-            <StackPanel HorizontalAlignment="Center" Width="auto"
+            
+            <StackPanel HorizontalAlignment="Center" Width="100"
                         Margin="5,5,10,0">
                 <TextBlock FontSize="20" Text="{x:Bind MissionName, Mode=OneWay}" IsColorFontEnabled="False" 
                            HorizontalAlignment="Center" 
