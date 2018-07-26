@@ -11,6 +11,10 @@ using Windows.UI.Xaml.Navigation;
 
 namespace DoMeAFavor
 {
+    static class GlobalClass
+    {
+        public static int k = 0;
+    }
     /// <summary>
     /// 提供特定于应用程序的行为，以补充默认的应用程序类。
     /// </summary>
@@ -25,9 +29,10 @@ namespace DoMeAFavor
         {
             InitializeComponent();
             Suspending += OnSuspending;
+            
            
         }
-
+        
         /// <summary>
         /// 在应用程序由最终用户正常启动时进行调用。
         /// 将在启动应用程序以打开特定文件等情况下使用。

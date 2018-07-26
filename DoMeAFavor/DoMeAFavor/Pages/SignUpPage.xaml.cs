@@ -1,5 +1,6 @@
 ﻿
 using DoMeAFavor.ViewModels;
+using System.Threading;
 using Windows.UI.Xaml.Controls;
 
 
@@ -44,9 +45,18 @@ namespace DoMeAFavor
                 viewModel.user.Major = "冶金专业";
             else
                 viewModel.user.Major = null;
+           
         }
         
-        
 
+       /* private void Button_Click_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Thread.Sleep(1000);
+            if (GlobalClass.k == 1)
+            {
+                GlobalClass.k = 0;
+                Frame.Navigate(typeof(MyPage));
+            }
+        }*/
     }
 }

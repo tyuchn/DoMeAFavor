@@ -5,6 +5,7 @@ using DoMeAFavor.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Windows.UI.Popups;
+using Windows.UI.Xaml;
 
 namespace DoMeAFavor.ViewModels
 {
@@ -57,16 +58,16 @@ namespace DoMeAFavor.ViewModels
 
                                         if (user.Major != null)
                                         {
-                                            if (user.Class.Length==4)
-                                            { 
+                                            if (user.Class.Length == 4)
+                                            {
                                                 await _userService.AddAsync(user);
+                                                GlobalClass.k = 1;
                                                 //var cd = new ContentDialog();
-                                                var messageDialog = new MessageDialog("注册成功");                                               
-                                                messageDialog.Commands.Add(new UICommand("确定", cmd =>
-                                                {
-
-                                                   // _navigationService.Navigate(typeof(MyPage));
-                                                }));
+                                                var messageDialog = new MessageDialog("注册成功");
+                                                 messageDialog.Commands.Add(new UICommand("确定", async cmd =>
+                                                 {
+                                                     //Application.Run(new MyPage());
+                                                 }));
                                                 await messageDialog.ShowAsync();
                                             }
                                             else
@@ -79,7 +80,10 @@ namespace DoMeAFavor.ViewModels
                                         await new MessageDialog("请填写用户昵称").ShowAsync();
                                 }
                                 else
+                                {
                                     await new MessageDialog("手机号有误").ShowAsync();
+                                    GlobalClass.k = 0;
+                                }
                             }
                             else
                                 await new MessageDialog("请填写真实姓名").ShowAsync();
