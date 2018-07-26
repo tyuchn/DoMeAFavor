@@ -19,11 +19,11 @@ namespace DoMeAFavor.DataService.Controllers
         }
 
         // GET: api/Users
-       /* [HttpGet]
+        [HttpGet]
         public IEnumerable<User> GetUsers()
         {
             return _context.Users;
-        }*/
+        }
 
         // GET: api/Users/5
         [HttpGet("{id}")]
