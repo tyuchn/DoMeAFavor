@@ -21,7 +21,7 @@ namespace DoMeAFavor.DataService.Controllers
         }
 
 
-        // GET: api/Users?userid= , password=
+        
         [HttpGet]
         public async Task <IActionResult> GetAcceptedMission(string userid, string password)
         {
@@ -39,7 +39,7 @@ namespace DoMeAFavor.DataService.Controllers
 
             var missions = from a in _context.Missions
                 from b in _context.UserMissions
-                where a.MissionId == b.MissionId && b.UserId == user.Id
+                where a.MissionId == b.MissionId && b.ReceiverId == user.Id
                 select a;
             return Ok(missions);
 

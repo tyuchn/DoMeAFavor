@@ -21,9 +21,8 @@ namespace DoMeAFavor.DataService.Controllers
         }
 
 
-        // GET: api/Users?userid= , password=
         [HttpGet]
-        public async Task<IActionResult> GetUser(string userid, string password)
+        public async Task<IActionResult> GetPublishedMission(string userid, string password)
         {
             if (!ModelState.IsValid)
             {
@@ -37,7 +36,12 @@ namespace DoMeAFavor.DataService.Controllers
                 return NotFound();
             }
 
-            return Ok(user);
+            var missions = from a in _context.Missions
+                from b in _context.UserMissions
+                where a.MissionId == b.MissionId && b.UserId == user.Id
+                select a;
+            return Ok(missions);
+
         }
     }
 }
