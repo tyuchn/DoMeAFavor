@@ -2,7 +2,7 @@
     x:Class="DoMeAFavor.SettingPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:DoMeAFavor"
+
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -10,26 +10,29 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-           x:Name="PivotLayoutElement">
+           x:Name="PivotLayoutElement"
+         >
         <StackPanel Orientation="Vertical"
-                    Margin="50,10,10,10" >
-            <TextBlock Text="更改颜色"
+                    Margin="50,10,10,10" 
+                     >
+            <TextBlock Text="更改背景图片"
                        Margin="50,10,10,0"
                        FontSize="15" 
-                       
+                       Name="ChangeBackPicture"
                        FocusVisualPrimaryBrush="#FFA24A4A"/>
             <ComboBox Margin="50,10,10,0"
                       Width="200"
                       MaxWidth="400"
                       Height="30"
-                      x:Name="ColorComBox">
-                <ComboBoxItem>
+                      x:Name="ColorComBox"
+                      SelectionChanged="ColorComBox_SelectionChanged">
+                <ComboBoxItem Name="RedBack">
                     红色
                 </ComboBoxItem>
-                <ComboBoxItem>
+                <ComboBoxItem Name="YellowBack">
                     黄色
                 </ComboBoxItem>
-                <ComboBoxItem>
+                <ComboBoxItem Name="WhiteBack">
                     白色
                 </ComboBoxItem>
                 <ComboBoxItem>
