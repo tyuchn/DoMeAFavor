@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     >
-    <Grid Name="MainPageGrid">
+    <Grid >
 
         <NavigationView x:Name="DoMeAFavor" SelectionChanged="NavigationView_OnSelectionChanged" IsBackEnabled="True" 
                         IsBackButtonVisible="Auto"  BackRequested="NavView_BackRequested"

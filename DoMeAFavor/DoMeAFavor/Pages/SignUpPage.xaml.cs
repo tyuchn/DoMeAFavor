@@ -1,7 +1,5 @@
 ﻿
 using DoMeAFavor.ViewModels;
-
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 

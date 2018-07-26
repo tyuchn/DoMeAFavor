@@ -16,7 +16,7 @@
                        FontStyle="Italic" 
                        Margin="20,10,0,0"
                        />
-            <TextBox Name="Money"
+            <TextBox 
                      Margin="2,10,0,0"
                      Width="300"></TextBox>
             <TextBlock Text="扫码获得积分"
