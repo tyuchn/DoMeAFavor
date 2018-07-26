@@ -23,12 +23,7 @@ namespace DoMeAFavor.Services
         private const string ServiceEndpoint =
             "http://localhost:13059/api/Missions";
 
-        /*private List<Mission> missions = new List<Mission>
-        {
-            new Mission{MissionId = 1,MissionName = "Delivery", Message = "KFC",CreationDate = DateTime.Now},
-            new Mission{MissionId = 2,MissionName = "TakeOverClass", Message = "Hurry", CreationDate = DateTime.Parse("2018-07-24 11:45")},
-            new Mission{MissionId = 3,MissionName = "Homework", Message = "Math",CreationDate = DateTime.Now}
-        };*/
+       
 
 
         /******** 公开属性 ********/

@@ -20,13 +20,14 @@ namespace DoMeAFavor.Services
         /// </summary>
         private const string ServiceEndpoint =
             "http://localhost:13059/api/Users";
+        private const string LoginServiceEndpoint =
+            "http://localhost:13059/api/Login";
 
         /******** 公开属性 ********/
 
         /******** 继承方法 ********/
-
         /// <summary>
-        ///     列出所有用户。
+        /// 列出所有任务。
         /// </summary>
         /// <returns>所有任务。</returns>
         public async Task<IEnumerable<User>> ListAsync()
@@ -37,6 +38,7 @@ namespace DoMeAFavor.Services
                 return JsonConvert.DeserializeObject<User[]>(json);
             }
         }
+
         /// <summary>
         /// 登陆.
         /// </summary>
@@ -47,7 +49,7 @@ namespace DoMeAFavor.Services
         {
             using (var client = new HttpClient())
             {
-                var json = await client.GetStringAsync(ServiceEndpoint + "?id=" + userid + "&password=" + password);
+                var json = await client.GetStringAsync(LoginServiceEndpoint + "?userid=" + userid + "&password=" + password);
                 return JsonConvert.DeserializeObject<User>(json);
             }
         }
