@@ -94,7 +94,7 @@
                QuerySubmitted="SearchText_QuerySubmitted"
                 SuggestionChosen="SearchText_SuggestionChosen"
                             Width="450"/>
-                <TextBlock x:Name="SearchBlock" HorizontalAlignment="Center" Margin="10"/>
+                
             </StackPanel>
             <RefreshContainer Name="RefreshContainer"
                               Margin="10,10,10,0"
