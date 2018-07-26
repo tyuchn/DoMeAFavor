@@ -20,14 +20,14 @@ namespace DoMeAFavor.DataService.Controllers
             _context = context;
         }
 
-        // GET: api/Users
+
+        // GET: api/Login
         [HttpGet]
         public IEnumerable<User> GetUsers()
         {
             return _context.Users;
         }
-
-        // GET: api/Users/5
+        // GET: api/Login/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUser([FromRoute] int id)
         {
