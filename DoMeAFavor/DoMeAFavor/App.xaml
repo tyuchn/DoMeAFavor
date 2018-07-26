@@ -8,7 +8,7 @@
             <viewModels1:HallPageViewModel x:Key="HallPageViewModel"/>
             <viewModels1:SignupPageViewModel x:Key="SignupPageViewModel"/>
             <viewModels1:LoginPageViewModel x:Key="LoginPageViewModel"/>
-            <viewModels1:LoginPageViewModel x:Key="MyPageViewModel"/>
+            <viewModels1:MyPageViewModel x:Key="MyPageViewModel"/>
         </ResourceDictionary>
     </Application.Resources>
     

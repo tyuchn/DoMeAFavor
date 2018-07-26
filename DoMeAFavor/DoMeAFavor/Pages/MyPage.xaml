@@ -6,6 +6,8 @@
 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -30,8 +32,9 @@
                 <AppBarButton Label="刷新"
                               Icon="Refresh"
                               ToolTipService.ToolTip="刷新信息"
+                              Command="{Binding }"/>
                              
-                              />
+                              
                 <AppBarButton  Label="注销"
                               Icon="play"
                               ToolTipService.ToolTip="退出登录"
@@ -86,7 +89,7 @@
                           Width="430"
                           SelectionChanged="ComboBox_SelectionChanged"
                          
-                          SelectedItem="{Binding user.Major,Mode=TwoWay}">
+                          SelectedItem="{Binding User.Major,Mode=TwoWay}">
                 <ComboBoxItem x:Name="ComputerMajor">
                     计算机科学与技术
                 </ComboBoxItem>
@@ -157,3 +160,4 @@
         </StackPanel>
     </Grid>
 </Page>
+
