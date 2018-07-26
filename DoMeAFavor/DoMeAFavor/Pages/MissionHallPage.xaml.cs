@@ -40,10 +40,10 @@ namespace DoMeAFavor
 
         private void SearchText_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
-            if (args.ChosenSuggestion != null)
+           /* if (args.ChosenSuggestion != null)
                 SearchBlock.Text = args.ChosenSuggestion.ToString();
             else
-                SearchBlock.Text = sender.Text;
+                SearchBlock.Text = sender.Text;*/
         }
 
         private async void SearchText_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)

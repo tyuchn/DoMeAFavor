@@ -17,14 +17,14 @@
                         OverflowButtonVisibility="Collapsed"
                         DefaultLabelPosition="Right"
                         HorizontalAlignment="Right"
-                        Margin="50,30,50,0">
+                        Margin="50,30,350,0">
 
-                <AppBarButton Content="保存"
+                <AppBarButton Label="保存"
                               Icon="Save"
                               ToolTipService.ToolTip="保存信息"
                               Click="SaveButton_Click"
                               />
-                <AppBarButton  Content="退出"
+                <AppBarButton  Label="退出"
                               Icon="play"
                               ToolTipService.ToolTip="退出登录"
                               Click="ExitButton_Click"

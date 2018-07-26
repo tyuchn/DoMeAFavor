@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     >
     <Grid >
-
+        <Rectangle Fill="{ThemeResource SystemControlAcrylicElementBrush }" />
         <NavigationView x:Name="DoMeAFavor" SelectionChanged="NavigationView_OnSelectionChanged" IsBackEnabled="True" 
                         IsBackButtonVisible="Auto"  BackRequested="NavView_BackRequested"
                         ItemInvoked="DoMeAFavor_ItemInvoked"
@@ -17,14 +17,12 @@
                         IsSettingsVisible="true">
 
             <NavigationView.MenuItems>
-                <Rectangle Fill="{ThemeResource SystemControlAcrylicElementBrush }" />
-
-               
+                
                 <NavigationViewItem Icon="phone" Content="积分" Tag="NoLoginMyPage" />
                 <NavigationViewItemSeparator/>
                 <NavigationViewItem Icon="contact" Content="我的主页" Tag="MyPage"  />
                 <NavigationViewItem Icon="home" Content="任务大厅" Tag="MissionHall"  />
-                <NavigationViewItem Icon="play" Content="校园广场" Tag="RefreshPage" />
+                
                 <NavigationViewItem Icon="add" Content="积分通道" Tag="MyMoney" />
             </NavigationView.MenuItems>
             <Frame Name="HomeFrame"
