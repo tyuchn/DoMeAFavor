@@ -9,6 +9,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.DataContext>
+        <Binding Source="{StaticResource MyPageViewModel}" />
+    </Page.DataContext>
 
     <Grid >
         <StackPanel Margin="30,10,0,0"
