@@ -22,6 +22,11 @@ namespace DoMeAFavor.Services
             "http://localhost:13059/api/Users";
         private const string LoginServiceEndpoint =
             "http://localhost:13059/api/Login";
+        private const string AcceptedMissionsServiceEndpoint =
+            "http://localhost:13059/api/AcceptedMissions";
+        private const string PublishedMissionsServiceEndpoint =
+            "http://localhost:13059/api/PublishedMissions";
+
 
         /******** 公开属性 ********/
 
@@ -38,7 +43,22 @@ namespace DoMeAFavor.Services
                 return JsonConvert.DeserializeObject<User[]>(json);
             }
         }
-
+        public async Task<IEnumerable<Mission>> GetAcceptedMissionsAsync(string userid, string password)
+        {
+            using (var client = new HttpClient())
+            {
+                var json = await client.GetStringAsync(AcceptedMissionsServiceEndpoint + "?userid=" + userid + "&password=" + password);
+                return JsonConvert.DeserializeObject<Mission[]>(json);
+            }
+        }
+        public async Task<IEnumerable<Mission>> GetPublishedMissionsAsync(string userid, string password)
+        {
+            using (var client = new HttpClient())
+            {
+                var json = await client.GetStringAsync(PublishedMissionsServiceEndpoint + "?userid=" + userid + "&password=" + password);
+                return JsonConvert.DeserializeObject<Mission[]>(json);
+            }
+        }
         /// <summary>
         /// 登陆.
         /// </summary>
