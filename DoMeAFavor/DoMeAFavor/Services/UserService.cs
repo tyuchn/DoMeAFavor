@@ -19,13 +19,13 @@ namespace DoMeAFavor.Services
         ///     服务端点。
         /// </summary>
         private const string ServiceEndpoint =
-            "http://localhost:13059/api/Users";
+            "http://172.20.10.5:13059/api/Users";
         private const string LoginServiceEndpoint =
-            "http://localhost:13059/api/Login";
+            "http://172.20.10.5:13059/api/Login";
         private const string AcceptedMissionsServiceEndpoint =
-            "http://localhost:13059/api/AcceptedMissions";
+            "http://172.20.10.5:13059/api/AcceptedMissions";
         private const string PublishedMissionsServiceEndpoint =
-            "http://localhost:13059/api/PublishedMissions";
+            "http://172.20.10.5:13059/api/PublishedMissions";
 
 
         /******** 公开属性 ********/
