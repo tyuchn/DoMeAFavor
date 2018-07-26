@@ -72,13 +72,7 @@
                             </ic:EventTriggerBehavior>
                         </i:Interaction.Behaviors>
                     </AppBarButton>
-                    <AppBarButton Icon="HangUp" 
-                              Label="接受任务"
-                              Command="{Binding DeleteCommand}"
-                              CommandParameter="{Binding SelectedMission}"
-                              Margin="5,0,5,0">
-
-                    </AppBarButton>
+                   
                     <AppBarButton Icon="Add"
                               Label="添加任务"
                               Width="auto"
@@ -99,6 +93,7 @@
                QuerySubmitted="SearchText_QuerySubmitted"
                 SuggestionChosen="SearchText_SuggestionChosen"
                             Width="450"/>
+                <TextBlock x:Name="SearchBlock" HorizontalAlignment="Center" Margin="10"/>
             </StackPanel>
             <RefreshContainer Name="RefreshContainer"
                               Margin="10,10,10,0"
@@ -194,6 +189,7 @@
             <ContentDialog
                 Title="任务详情"
                 PrimaryButtonText="接受"
+                PrimaryButtonCommand="{Binding DeleteCommand}"
                 CloseButtonText="返回"
                 DefaultButton="Close"
                 x:Name="MissionDetailContent" 
