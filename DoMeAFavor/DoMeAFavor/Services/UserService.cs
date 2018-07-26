@@ -87,7 +87,7 @@ namespace DoMeAFavor.Services
             using (var client = new HttpClient())
             {
                 var json = JsonConvert.SerializeObject(user);
-                await client.PutAsync(ServiceEndpoint + "/" + user.UserId,
+                await client.PutAsync(ServiceEndpoint + "/" + user.Id,
                     new StringContent(json, Encoding.UTF8,
                         "application/json"));
             }

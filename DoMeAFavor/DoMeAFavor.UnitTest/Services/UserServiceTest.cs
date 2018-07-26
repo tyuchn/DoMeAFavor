@@ -15,7 +15,7 @@ namespace DoMeAFavor.UnitTest.Services
             var userService = new UserService();
 
             var  users = (await userService.ListAsync()).ToList();
-            //Assert.AreEqual(3, users.Count);
+            Assert.AreEqual(17, users.Count);
             //Assert.AreEqual("food", users[0].UserName);
             //Assert.AreEqual("mac", users[1].PassWord);
         }
@@ -25,17 +25,17 @@ namespace DoMeAFavor.UnitTest.Services
         {
             var userService = new UserService();
             var users = (await userService.ListAsync()).ToList();
-            var firstMission = users[0];
+            var firstUser = users[0];
 
-            /* Assert.AreEqual("food", firstMission.MissionName);
+             Assert.AreEqual("20154464", firstUser.UserId);
 
-             firstMission.MissionName = "cloth";
-             await missionService.UpdateAsync(firstMission);
+             firstUser.UserId = "20150000";
+             await userService.UpdateAsync(firstUser);
 
-             missions = (await missionService.ListAsync()).ToList();
-             firstMission = missions[0];
+             users = (await userService.ListAsync()).ToList();
+             firstUser = users[0];
 
-             Assert.AreEqual("cloth", firstMission.MissionName);*/
+             Assert.AreEqual("20150000", firstUser.UserId);
         }
 
         [TestMethod]
@@ -43,12 +43,14 @@ namespace DoMeAFavor.UnitTest.Services
         {
             var userService = new UserService();
 
-            var newUser = new User();
-            newUser.UserName = "Jason";
+            var newUser = new User
+            {
+                UserName = "Jason"
+            };
             await userService.AddAsync(newUser);
             var users = (await userService.ListAsync()).ToList();
 
-            Assert.AreEqual(2, users.Count);
+            Assert.AreEqual(18, users.Count);
             //Assert.AreEqual("express", missions[0].MissionName);
             //Assert.AreEqual("lunch", missions[1].MissionName);
         }
@@ -61,7 +63,7 @@ namespace DoMeAFavor.UnitTest.Services
             var secondUser = users[1];
             await userService.DeleteAsync(secondUser);
             var newUsers = (await userService.ListAsync()).ToList();
-            Assert.AreEqual(1, newUsers.Count);
+            Assert.AreEqual(17, newUsers.Count);
         }
     }
 }

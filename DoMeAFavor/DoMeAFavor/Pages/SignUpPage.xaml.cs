@@ -48,16 +48,7 @@ namespace DoMeAFavor
                 viewModel.user.Major = null;
         }
         
-        /// <summary>
-        /// 点击时给下拉框的值赋予给user.Major
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private async void SignUpButton_Click(object sender, RoutedEventArgs e)
-        {           
-            
-            
-        }
+        
 
     }
 }

@@ -103,6 +103,7 @@
     </Compile>
     <Compile Include="UnitTest.cs" />
     <Compile Include="ViewModels\HallPageViewModelTest.cs" />
+    <Compile Include="ViewModels\SignupPageViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="UnitTestApp.xaml">
