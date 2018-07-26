@@ -31,13 +31,11 @@ namespace DoMeAFavor.ViewModels
         /// <summary>
         /// 登录命令
         /// </summary>
-        public RelayCommand SignupCommand =>
+        public RelayCommand LoginCommand =>
             _loginCommand ?? (_loginCommand = new RelayCommand(async () =>
-            {
-                
-
-
-            }));
+                {
+                    await _userService.LoginAsync(user.UserId, user.PassWord);
+                }));
 
 
         public LoginPageViewModel()
