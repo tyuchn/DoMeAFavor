@@ -14,19 +14,24 @@
     </Page.DataContext>
 
     <Grid>
-        <StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="你还未登录，请登录或注册"
+                       FontSize="20"></TextBlock>
+            <StackPanel Orientation="Horizontal"
+                        Margin="20,10,0,0">
             <Button Content="登录"
                     Margin="10,10,0,0"
 
                     Click="ToLogin_Click"
-                    FontSize="20"
+                    FontSize="15"
                     HorizontalAlignment="Left" />
             <Button Content="注册"
-                    Margin="10,10,0,0"
+                    Margin="50,10,0,0"
 
                     Click="ToSignUp_Click"
-                    FontSize="20"
+                    FontSize="15"
                     HorizontalAlignment="Left" />
+            </StackPanel>
         </StackPanel>
 
         <ContentDialog
