@@ -160,7 +160,7 @@
                    FontSize="20">
                 
                 <PivotItem Header="发布的任务">
-                    <ListView 
+                    <GridView 
                           IsItemClickEnabled="True"
                           Margin="10,10,0,0"
                                   Height="100"
@@ -168,11 +168,11 @@
                         ItemTemplate="{StaticResource MissionDataTemplate}"
                         ItemsSource="{Binding PublishedMissionCollection,Mode=TwoWay}">
                         
-                    </ListView>
+                    </GridView>
                 </PivotItem>
 
                 <PivotItem Header="完成的任务">
-                    <ListView 
+                    <GridView 
                         IsItemClickEnabled="True"
                         Margin="10,10,0,0"
                         Height="100"
@@ -180,7 +180,7 @@
                         ItemTemplate="{StaticResource MissionDataTemplate}"
                         ItemsSource="{Binding AcceptedMissionCollection,Mode=TwoWay}">
 
-                    </ListView>
+                    </GridView>
 
                 </PivotItem>
 
