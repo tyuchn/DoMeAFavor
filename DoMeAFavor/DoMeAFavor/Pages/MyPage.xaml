@@ -8,9 +8,28 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:models="using:DoMeAFavor.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
 
+
+        <DataTemplate x:DataType="models:Mission" 
+                      x:Key="MissionDataTemplate" >
+
+            <StackPanel HorizontalAlignment="Center" Width="100"
+                        Margin="5,5,10,0">
+                <TextBlock FontSize="20" Text="{x:Bind MissionName, Mode=OneWay}" IsColorFontEnabled="False" 
+                           HorizontalAlignment="Center" 
+                           FontFamily="Comic Sans MS" Foreground="Blue" />
+
+                <TextBlock FontSize="10" Text="{x:Bind Points,Mode=OneWay}" HorizontalAlignment="Center" />
+                <TextBlock FontSize="10" Text="{x:Bind Deadline,Mode=OneWay}" HorizontalAlignment="Center"  />
+            </StackPanel>
+
+        </DataTemplate>
+
+    </Page.Resources>
     <Page.DataContext>
         <Binding Source="{StaticResource LoginPageViewModel}" />
     </Page.DataContext>
@@ -139,36 +158,32 @@
             <Pivot Title="任务记录" 
                    Width="auto"
                    FontSize="20">
-                <PivotItem Header="完成的任务">
-                    <ListView 
-                          IsItemClickEnabled="True"
-                          Margin="10,10,0,0"
-                                  Height="100"
-                                  Width="auto">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="123"
-                                           Style="{StaticResource BaseTextBlockStyle}"/>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-
-                </PivotItem>
+                
                 <PivotItem Header="发布的任务">
                     <ListView 
                           IsItemClickEnabled="True"
                           Margin="10,10,0,0"
                                   Height="100"
-                                  Width="auto">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="123"
-                                           Style="{StaticResource BaseTextBlockStyle}"/>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
+                                  Width="auto"
+                        ItemTemplate="{StaticResource MissionDataTemplate}"
+                        ItemsSource="{Binding PublishedMissionCollection,Mode=TwoWay}">
+                        
                     </ListView>
                 </PivotItem>
-              
+
+                <PivotItem Header="完成的任务">
+                    <ListView 
+                        IsItemClickEnabled="True"
+                        Margin="10,10,0,0"
+                        Height="100"
+                        Width="auto"
+                        ItemTemplate="{StaticResource MissionDataTemplate}"
+                        ItemsSource="{Binding AcceptedMissionCollection,Mode=TwoWay}">
+
+                    </ListView>
+
+                </PivotItem>
+
             </Pivot>
         </StackPanel>
     </Grid>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,17 @@ namespace DoMeAFavor.ViewModels
         private readonly IUserService _userService;
 
         private readonly INavigationService _navigationService;
+
+
+        /// <summary>
+        ///     接收任务集合。
+        /// </summary>
+        public ObservableCollection<Mission> AcceptedMissionCollection { get; }
+
+        /// <summary>
+        ///     发布任务集合。
+        /// </summary>
+        public ObservableCollection<Mission> PublishedMissionCollection { get; }
 
         private User _user;
 
@@ -41,10 +53,12 @@ namespace DoMeAFavor.ViewModels
                     if (await _userService.LoginAsync(User.UserId, User.PassWord) == null)
                     {
                         await new MessageDialog("学号或密码错误，请重新输入！").ShowAsync();
+
                     }
                     else if (await _userService.LoginAsync(User.UserId, User.PassWord) != null)
                     {
                         await new MessageDialog("登录成功！").ShowAsync();
+                        await List(User.UserId,User.PassWord);
 
                         //_navigationService.Navigate(typeof(MyPage));
                     } 
@@ -58,11 +72,34 @@ namespace DoMeAFavor.ViewModels
         {
             _userService = new UserService();
             User = new User();
+            AcceptedMissionCollection = new ObservableCollection<Mission>();
+            PublishedMissionCollection = new ObservableCollection<Mission>();
+
         }
+
+
 
         public LoginPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
+        }
+        private async Task List(string userid, string password)
+        {
+            
+            AcceptedMissionCollection.Clear();
+            PublishedMissionCollection.Clear();
+            User = await _userService.LoginAsync(userid, password);
+            var acceptedmissions = await _userService.GetAcceptedMissionsAsync(userid,password);
+            var publishedmissions = await _userService.GetPublishedMissionsAsync(userid,password);
+            foreach (var mission in acceptedmissions)
+            {
+                AcceptedMissionCollection.Add(mission);
+            }
+            foreach (var mission in publishedmissions)
+            {
+                PublishedMissionCollection.Add(mission);
+            }
+
         }
     }
 }
