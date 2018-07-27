@@ -12,7 +12,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.DataContext>
-        <Binding Source="{StaticResource MyPageViewModel}" />
+        <Binding Source="{StaticResource LoginPageViewModel}" />
     </Page.DataContext>
 
     <Grid >
@@ -32,7 +32,7 @@
                 <AppBarButton Label="刷新"
                               Icon="Refresh"
                               ToolTipService.ToolTip="刷新信息"
-                              Command="{Binding }"/>
+                              />
                              
                               
                 <AppBarButton  Label="注销"
@@ -60,14 +60,18 @@
                        Height="30"/>
             <TextBox Height="30" 
                      Width="430" 
-                     Margin="49,0,0,0" HorizontalAlignment="Left"/>
+                     Margin="49,0,0,0"
+                     HorizontalAlignment="Left"
+                     Text="{Binding User.UserName,Mode=TwoWay}"/>
 
             <TextBlock Text="学号"  
                        Margin="50,0,0,0" 
                        Height="30"/>
             <TextBox Height="30" 
                      Width="430"  
-                     Margin="49,0,0,0" HorizontalAlignment="Left"/>
+                     Margin="49,0,0,0" 
+                     HorizontalAlignment="Left"
+                     Text="{Binding User.UserId,Mode=TwoWay}"/>
       
        
             <TextBlock Text="姓名"  
@@ -75,17 +79,24 @@
                        Height="30"/>
             <TextBox Height="30"
                      Width="430"  
-                     Margin="49,0,0,0" HorizontalAlignment="Left"/>
+                     Margin="49,0,0,0" 
+                     HorizontalAlignment="Left"
+                     Text="{Binding User.RealName,Mode=TwoWay}"/>
+
             <TextBlock Text="手机号" 
-                           Margin="50,0,0,0" 
-                           Height="30"/>
-                <TextBox Height="30" 
-                         Width="430" 
-                         Margin="50,0,0,0" HorizontalAlignment="Left"/>
-            <TextBlock Text="专业"  
                        Margin="50,0,0,0" 
                        Height="30"/>
-            <ComboBox Margin="50,0,0,0"
+            <TextBox Height="30" 
+                     Width="430" 
+                     Margin="50,0,0,0" 
+                     HorizontalAlignment="Left"
+                     Text="{Binding User.PhoneNumber,Mode=TwoWay}"/>
+            
+                    <TextBlock Text="专业"  
+                       Margin="50,0,0,0" 
+                       Height="30"/>
+            
+                    <ComboBox Margin="50,0,0,0"
                           Width="430"
                           SelectionChanged="ComboBox_SelectionChanged"
                          
@@ -120,7 +131,9 @@
                        Height="30"/>
             <TextBox Height="30" 
                      Width="430" 
-                     Margin="50,0,0,0" HorizontalAlignment="Left"/>
+                     Margin="50,0,0,0"
+                     HorizontalAlignment="Left"
+                     Text="{Binding User.Class,Mode=TwoWay}"/>
                 </StackPanel>
             </StackPanel>
             <Pivot Title="任务记录" 
