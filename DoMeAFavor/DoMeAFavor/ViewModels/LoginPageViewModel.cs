@@ -15,7 +15,7 @@ namespace DoMeAFavor.ViewModels
     {
         private readonly IUserService _userService;
 
-        //private readonly INavigationService _navigationService;
+        private readonly INavigationService _navigationService;
 
         private User _user;
 
@@ -45,10 +45,11 @@ namespace DoMeAFavor.ViewModels
                     else if (await _userService.LoginAsync(User.UserId, User.PassWord) != null)
                     {
                         await new MessageDialog("登录成功！").ShowAsync();
+                        _navigationService.Navigate(typeof(MyPage));
                     } 
                  
                     //await _userService.LoginAsync(User.UserId, User.PassWord);
-                   // _navigationService.Navigate(typeof(MyPage));
+                    
                 }));
 
 
@@ -58,9 +59,9 @@ namespace DoMeAFavor.ViewModels
             User = new User();
         }
 
-       /* public LoginPageViewModel(INavigationService navigationService)
+        public LoginPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
-        }*/
+        }
     }
 }
