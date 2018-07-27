@@ -14,8 +14,6 @@ using Newtonsoft.Json;
 
 namespace DoMeAFavor.Services
 {
-    public class UserMissionService:IUserMissionService
-    {
-
-    }
+    //public class UserMissionService:IUserMissionService
+    
 }
