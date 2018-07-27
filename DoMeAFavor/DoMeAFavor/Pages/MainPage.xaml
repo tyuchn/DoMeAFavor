@@ -18,10 +18,10 @@
 
             <NavigationView.MenuItems>
                 
-                <NavigationViewItem Icon="phone" Content="积分" Tag="NoLoginMyPage" />
+                <NavigationViewItem Icon="contact" Content="账户" Tag="NoLoginMyPage" />
                 <NavigationViewItemSeparator/>
-                <NavigationViewItem Icon="contact" Content="我的主页" Tag="MyPage"  />
-                <NavigationViewItem Icon="home" Content="任务大厅" Tag="MissionHall"  />
+                <NavigationViewItem Icon="home" Content="我的主页" Tag="MyPage"  />
+                <NavigationViewItem Icon="phone"  Content="任务大厅" Tag="MissionHall"  />
                 
                 <NavigationViewItem Icon="add" Content="积分通道" Tag="MyMoney" />
             </NavigationView.MenuItems>
