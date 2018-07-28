@@ -68,6 +68,7 @@ namespace DoMeAFavor.ViewModels
                                                    // _navigationService.Navigate(typeof(MyPage));
                                                 }));
                                                 await messageDialog.ShowAsync();
+                                                
                                             }
                                             else
                                                 await new MessageDialog("请输入正确班级号如：1505").ShowAsync();

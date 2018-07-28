@@ -18,16 +18,6 @@ namespace DoMeAFavor.ViewModels
         private readonly IUserService _userService;
         
 
-        /// <summary>
-        ///     接收任务集合。
-        /// </summary>
-        public ObservableCollection<Mission> AcceptedMissionCollection { get; }
-
-        /// <summary>
-        ///     发布任务集合。
-        /// </summary>
-        public ObservableCollection<Mission> PublishedMissionCollection { get; }
-
         public User User
         {
             get => _user;
@@ -37,12 +27,12 @@ namespace DoMeAFavor.ViewModels
         /// <summary>
         /// 刷新命令。
         /// </summary>
-        private RelayCommand _refreshCommand;
+        private RelayCommand _updateCommand;
 
-        public RelayCommand RefreshCommand =>
-            _refreshCommand ?? (_refreshCommand = new RelayCommand(async () =>
+        public RelayCommand UpdateCommand =>
+            _updateCommand ?? (_updateCommand = new RelayCommand(async () =>
             {
-                await Refresh();
+                
             }));
 
 
@@ -52,13 +42,7 @@ namespace DoMeAFavor.ViewModels
             User = new User();
         }
 
-        /// <summary>
-        ///     执行刷新操作。
-        /// </summary>
-        private async Task Refresh()
-        {
-
-        }
+        
 
     }
 }

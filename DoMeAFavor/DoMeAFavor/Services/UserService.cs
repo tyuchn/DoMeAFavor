@@ -32,9 +32,9 @@ namespace DoMeAFavor.Services
 
         /******** 继承方法 ********/
         /// <summary>
-        /// 列出所有任务。
+        /// 所有用户信息
         /// </summary>
-        /// <returns>所有任务。</returns>
+        /// <returns></returns>
         public async Task<IEnumerable<User>> ListAsync()
         {
             using (var client = new HttpClient())
