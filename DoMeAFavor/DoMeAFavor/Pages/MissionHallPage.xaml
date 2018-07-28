@@ -197,7 +197,7 @@
             <ContentDialog
                 Title="任务详情"
                 PrimaryButtonText="接受"
-                PrimaryButtonCommand="{Binding DeleteCommand}"
+                PrimaryButtonCommand="{Binding AcceptCommand}"
                 CloseButtonText="返回"
                 DefaultButton="Close"
                 x:Name="MissionDetailContent">

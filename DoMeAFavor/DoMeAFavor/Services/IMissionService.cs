@@ -31,5 +31,10 @@ namespace DoMeAFavor.Services
         /// <param name="mission"></param>
         /// <returns></returns>
         Task DeleteAsync(Mission mission);
+        /// <summary>
+        /// 列出未接收的任务
+        /// </summary>
+        /// <returns></returns>
+        Task<IEnumerable<Mission>> ListUnacceptedAsync();
     }
 }
