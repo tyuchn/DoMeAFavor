@@ -26,6 +26,7 @@
                 <NavigationViewItem Icon="add" Content="积分通道" Tag="MyMoney" />
             </NavigationView.MenuItems>
             <Frame Name="HomeFrame"
+                   
                    Margin="0,-50,0,0"
                    >
                 <StackPanel Margin="50,10,50,50"
