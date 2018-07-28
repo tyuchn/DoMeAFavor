@@ -23,7 +23,7 @@ namespace DoMeAFavor.Services
         /// <summary>
         /// 添加任务。
         /// </summary>
-        Task AddAsync(Mission mission);
+        Task AddAsync(Mission mission,User user);
 
         /// <summary>
         /// 删除任务

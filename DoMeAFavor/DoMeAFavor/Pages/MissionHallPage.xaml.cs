@@ -95,5 +95,13 @@ namespace DoMeAFavor
             }
             MissionHallFlip.SelectedIndex = i;
         }
+
+
+
+        private void MissionHallPage_OnLoading(FrameworkElement sender, object args)
+        {
+            var viewmodel = new HallPageViewModel();
+            viewmodel.ListCommand.Execute(null);
+        }
     }
 }

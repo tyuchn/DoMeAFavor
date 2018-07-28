@@ -37,13 +37,19 @@ namespace DoMeAFavor.ViewModels
         ///     选中的任务。
         /// </summary>
         private Mission _selectedMission;
-
+        /// <summary>
+        /// 要添加的任务
+        /// </summary>
         private Mission _toaddMission;
+        /// <summary>
+        /// 登录的用户
+        /// </summary>
+        private User _selectedUser;
 
         /// <summary>
         ///     保存命令。
         /// </summary>
-        private RelayCommand<Mission> _updateCommand;
+        //private RelayCommand<Mission> _updateCommand;
 
 
         /******** 继承方法 ********/
@@ -58,6 +64,7 @@ namespace DoMeAFavor.ViewModels
             ExpressMissionCollection = new ObservableCollection<Mission>();
             ToAddMission = new Mission();
             SelectedMission = new Mission();
+            SelectedUser= new User();
         }
 
         public HallPageViewModel()
@@ -69,6 +76,7 @@ namespace DoMeAFavor.ViewModels
             ExpressMissionCollection = new ObservableCollection<Mission>();
             ToAddMission = new Mission();
             SelectedMission = new Mission();
+            SelectedUser = new User();
         }
 
         
@@ -95,16 +103,25 @@ namespace DoMeAFavor.ViewModels
         ///     外卖任务集合
         /// </summary>
         public ObservableCollection<Mission> DeliveryMissionCollection { get; }
-
         /// <summary>
-        ///     选中的联系人。
+        /// 登陆的用户
+        /// </summary>
+        public User SelectedUser
+        {
+            get => _selectedUser;
+            set => Set(nameof(SelectedUser), ref _selectedUser, value);
+        }
+        /// <summary>
+        ///     选中的任务。
         /// </summary>
         public Mission SelectedMission
         {
             get => _selectedMission;
             set => Set(nameof(SelectedMission), ref _selectedMission, value);
         }
-
+        /// <summary>
+        /// 要添加的任务
+        /// </summary>
         public Mission ToAddMission
         {
             get => _toaddMission;
@@ -116,18 +133,18 @@ namespace DoMeAFavor.ViewModels
         /// </summary>
         public RelayCommand ListCommand =>
             _listCommand ?? (_listCommand =
-                new RelayCommand(async () => { await List(); })); //?? a为空则返回b，否则返回a
+                new RelayCommand(async () => { await List(); })); //?? a为空则返回b，否则返回a*/
 
         /// <summary>
         ///     更新命令。
         /// </summary>
-        public RelayCommand<Mission> UpdateCommand =>
+        /*public RelayCommand<Mission> UpdateCommand =>
             _updateCommand ?? (_updateCommand = new RelayCommand<Mission>(
                 async mission =>
                 {
                     var service = _missionService;
                     await service.UpdateAsync(mission);
-                }));
+                }));*/
 
         /// <summary>
         ///     删除命令
@@ -137,6 +154,7 @@ namespace DoMeAFavor.ViewModels
             {
                 var service = _missionService;
                 await service.DeleteAsync(mission);
+                await List();
             }));
 
         /// <summary>
@@ -144,7 +162,11 @@ namespace DoMeAFavor.ViewModels
         /// </summary>
         public RelayCommand AddCommand =>
             _addCommand ?? (_addCommand =
-                new RelayCommand(async () => { await _missionService.AddAsync(ToAddMission); }));
+                new RelayCommand(async () =>
+                {
+                    await _missionService.AddAsync(ToAddMission,SelectedUser);
+                    await List();
+                }));
 
         /******** 私有方法 ********/
 
