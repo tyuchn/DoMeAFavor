@@ -9,12 +9,9 @@ namespace DoMeAFavor.Services
 {
     public sealed class NavigationService : INavigationService
     {
-        private Frame _frame;
+        //private Frame _frame;
 
-        public void SetFrame(Frame currentFrame)
-        {
-            _frame = currentFrame;
-        }
+       
 
 
 
@@ -23,8 +20,9 @@ namespace DoMeAFavor.Services
             DispatcherHelper.Initialize();
             DispatcherHelper.CheckBeginInvokeOnUI(() => 
             { 
-            //var frame = (Frame)Window.Current.Content;
-            _frame.Navigate(sourcePage);
+            var frame = MainPage.Current.HomeFrame;
+                //SetFrame(_frame);
+            frame.Navigate(sourcePage);
             });
         } 
 

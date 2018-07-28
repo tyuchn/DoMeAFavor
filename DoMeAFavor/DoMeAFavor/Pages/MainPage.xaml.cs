@@ -16,14 +16,13 @@ namespace DoMeAFavor
     public sealed partial class MainPage : Page
     {
 
-        private readonly INavigationService _navigationService;
+        public static MainPage Current;
 
         public MainPage()
         {
             InitializeComponent();
             HomeFrame.Navigate(typeof(MissionHallPage));
-
-            //_navigationService.SetFrame(HomeFrame);
+            Current = this;
         }
 
         private void NavigationView_OnSelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -94,15 +93,8 @@ namespace DoMeAFavor
 
         
 
-        private void MainPage_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            _navigationService.SetFrame(HomeFrame);
-        }
+        
 
-        public MainPage(INavigationService navigationService)
-        {
-            _navigationService = navigationService;
-            //_navigationService.SetFrame(HomeFrame);
-        }
+        
     }
 }
