@@ -36,8 +36,21 @@ namespace DoMeAFavor.ViewModels
             get => _user;
             set => Set(nameof(User), ref _user, value);
         }
-
-
+        /// <summary>
+        /// 验证码数据
+        /// </summary>
+        private string _captchaBox;
+        public string CaptchaBox
+        {
+            get => _captchaBox;
+            set => Set(nameof(CaptchaBox), ref _captchaBox, value);
+        }
+        private string _captchaText;
+        public string CaptchaText
+        {
+            get => _captchaBox;
+            set => Set(nameof(CaptchaText), ref _captchaBox, value);
+        }
         /// <summary>
         /// 登录命令
         /// </summary>
@@ -50,17 +63,22 @@ namespace DoMeAFavor.ViewModels
             _loginCommand ?? (_loginCommand = new RelayCommand(async () =>
                 {
                     //TODO when login fail
-                    if (await _userService.LoginAsync(ViewModelLocator.Instance.User.UserId, ViewModelLocator.Instance.User.PassWord) == null)
+                    if(CaptchaBox==CaptchaText)
+                    { 
+                    if (await _userService.LoginAsync(User.UserId, User.PassWord) == null)
                     {
                         await new MessageDialog("学号或密码错误，请重新输入！").ShowAsync();
+
                     }
-                    else if (await _userService.LoginAsync(ViewModelLocator.Instance.User.UserId, ViewModelLocator.Instance.User.PassWord) != null)
+                    else if (await _userService.LoginAsync(User.UserId, User.PassWord) != null)
                     {
                         await new MessageDialog("登录成功！").ShowAsync();
-                        await List(ViewModelLocator.Instance.User.UserId, ViewModelLocator.Instance.User.PassWord);
+                        await List(User.UserId,User.PassWord);
+                    }
+                    }
+                    else
+                        await new MessageDialog("验证码错误").ShowAsync();
 
-                        //_navigationService.Navigate(typeof(MyPage));
-                    }                   
                 }));
         private RelayCommand _updateCommand;
 
@@ -71,25 +89,20 @@ namespace DoMeAFavor.ViewModels
                 await service.UpdateAsync(User);
             }));
 
-        /*public LoginPageViewModel()
+        public LoginPageViewModel()
         {
             _userService = new UserService();
             User = new User();
             AcceptedMissionCollection = new ObservableCollection<Mission>();
             PublishedMissionCollection = new ObservableCollection<Mission>();
 
-        }*/
+        }
 
 
-        /// <summary>
-        ///     构造函数。
-        /// </summary>
-        /// <param name="userService">用户服务。</param>
-        /// <param name="navigationService">导航服务。</param>
-        public LoginPageViewModel(IUserService userService,INavigationService navigationService,User user)
+
+        public LoginPageViewModel(INavigationService navigationService)
         {
-            _userService = new UserService();
-            _navigationService = navigationService; 
+            _navigationService = navigationService;
             User = new User();
             AcceptedMissionCollection = new ObservableCollection<Mission>();
             PublishedMissionCollection = new ObservableCollection<Mission>();
