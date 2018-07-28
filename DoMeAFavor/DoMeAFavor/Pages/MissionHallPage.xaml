@@ -11,66 +11,67 @@
     xmlns:models="using:DoMeAFavor.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    
+
     Loading="MissionHallPage_OnLoading">
 
     <Page.Resources>
 
 
-        <DataTemplate x:DataType="models:Mission" 
-                      x:Key="MissionDataTemplate" >
+        <DataTemplate x:DataType="models:Mission"
+                      x:Key="MissionDataTemplate">
 
-            <StackPanel HorizontalAlignment="Center" Width="100"
-                        Margin="5,5,10,0">
-                <TextBlock FontSize="20" Text="{x:Bind MissionName, Mode=OneWay}" IsColorFontEnabled="False" 
-                           HorizontalAlignment="Center" 
-                           FontFamily="Comic Sans MS" Foreground="Blue" />
+            <StackPanel Orientation="Horizontal">
+                <PersonPicture
+                    ProfilePicture="https://docs.microsoft.com/en-us/windows/uwp/contacts-and-calendar/images/shoulder-tap-static-payload.png" />
+                <StackPanel HorizontalAlignment="Center" Width="100"
+                            Margin="5,5,10,0">
+                    <TextBlock FontSize="20" Text="{x:Bind MissionName, Mode=OneWay}" IsColorFontEnabled="False"
+                               HorizontalAlignment="Center"
+                               FontFamily="Comic Sans MS" Foreground="Blue" />
 
-                <TextBlock FontSize="10" Text="{x:Bind Points,Mode=OneWay}" HorizontalAlignment="Center" />
-                <TextBlock FontSize="10" Text="{x:Bind Deadline,Mode=OneWay}" HorizontalAlignment="Center"  />
+                    <TextBlock FontSize="10" Text="{x:Bind Points,Mode=OneWay}" HorizontalAlignment="Center" />
+                    <TextBlock FontSize="10" Text="{x:Bind Deadline,Mode=OneWay}" HorizontalAlignment="Center" />
+                </StackPanel>
             </StackPanel>
-
         </DataTemplate>
 
     </Page.Resources>
 
 
     <Grid>
-        
+
         <StackPanel Margin="5,0,0,0">
-            <FlipView Width="Auto" 
+            <FlipView Width="Auto"
                       Height="200"
-                      Name="MissionHallFlip"
-                      >
-                <Image Source="ms-appx:///Assets/1.jpg" Stretch="UniformToFill"/>
-                <Image Source="ms-appx:///Assets/2.jpg" Stretch="UniformToFill"/>
-                <Image Source="ms-appx:///Assets/3.jpg" Stretch="UniformToFill"/>
-                <Image Source="ms-appx:///Assets/4.jpg" Stretch="UniformToFill"/>
-                
+                      Name="MissionHallFlip">
+                <Image Source="ms-appx:///Assets/1.jpg" Stretch="UniformToFill" />
+                <Image Source="ms-appx:///Assets/2.jpg" Stretch="UniformToFill" />
+                <Image Source="ms-appx:///Assets/3.jpg" Stretch="UniformToFill" />
+                <Image Source="ms-appx:///Assets/4.jpg" Stretch="UniformToFill" />
+
                 <FlipView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <VirtualizingStackPanel Orientation="Horizontal"/>
+                        <VirtualizingStackPanel Orientation="Horizontal" />
                     </ItemsPanelTemplate>
                 </FlipView.ItemsPanel>
             </FlipView>
             <StackPanel Orientation="Horizontal" Width="auto">
-                <CommandBar 
-                        OverflowButtonVisibility="Collapsed"
-                        DefaultLabelPosition="Right"
-                       VerticalAlignment="Top"
-                        HorizontalAlignment="Left"
-                        Background="White"
-                        Margin="0,10,0,0"
-                        >
-                    
-                   
+                <CommandBar
+                    OverflowButtonVisibility="Collapsed"
+                    DefaultLabelPosition="Right"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Background="White"
+                    Margin="0,10,0,0">
+
+
                     <AppBarButton Icon="Add"
-                              Label="添加任务"
-                              Width="auto"
-                              
-                              CommandParameter="{Binding SelectedMission}"
-                              Click="AddButton_Click_1" 
-                              Margin="5,0,5,0">
+                                  Label="添加任务"
+                                  Width="auto"
+
+                                  CommandParameter="{Binding SelectedMission}"
+                                  Click="AddButton_Click_1"
+                                  Margin="5,0,5,0">
                         <i:Interaction.Behaviors>
                             <ic:EventTriggerBehavior EventName="Click">
                                 <ic:CallMethodAction TargetObject="{Binding ElementName=RefreshContainer}"
@@ -80,16 +81,16 @@
                     </AppBarButton>
                 </CommandBar>
                 <AutoSuggestBox PlaceholderText="Type a search name"
-                            
-                           HorizontalAlignment="Right"
-                                    Height="35"
-                            TextChanged="SearchText_TextChanged"
-                            Margin="100,10,10,0"
-                 QueryIcon="Find"
-               QuerySubmitted="SearchText_QuerySubmitted"
-                SuggestionChosen="SearchText_SuggestionChosen"
-                            Width="450"/>
-                
+
+                                HorizontalAlignment="Right"
+                                Height="35"
+                                TextChanged="SearchText_TextChanged"
+                                Margin="100,10,10,0"
+                                QueryIcon="Find"
+                                QuerySubmitted="SearchText_QuerySubmitted"
+                                SuggestionChosen="SearchText_SuggestionChosen"
+                                Width="450" />
+
             </StackPanel>
             <RefreshContainer Name="RefreshContainer"
                               Margin="10,10,10,0"
@@ -99,149 +100,137 @@
                         <ic:InvokeCommandAction Command="{Binding ListCommand, Mode=OneWay}" />
                     </ic:EventTriggerBehavior>
                 </i:Interaction.Behaviors>
-            <StackPanel Margin="10,0,10,0">
+                <StackPanel Margin="10,0,10,0">
                     <StackPanel Orientation="Horizontal">
                         <PersonPicture ProfilePicture="ms-appx:///Assets/14.jpg"
                                        Height="25"
-                                       Margin="0,0,5,0"/>
-                            <Border Background="White" >
-                        <TextBlock Width="1500" 
-                                   
-                                   >代课</TextBlock>
-                    </Border>
+                                       Margin="0,0,5,0" />
+                        <Border Background="White">
+                            <TextBlock Width="1500">代课</TextBlock>
+                        </Border>
                     </StackPanel>
-                    <GridView 
-                          IsItemClickEnabled="True"
-                          ItemTemplate="{StaticResource MissionDataTemplate}"
-                          ItemsSource="{Binding TakeOverMissionCollection}"
-                          ItemClick="HallGridView_OnItemClick"  
-                                  Height="130"/>
+                    <GridView
+                        IsItemClickEnabled="True"
+                        ItemTemplate="{StaticResource MissionDataTemplate}"
+                        ItemsSource="{Binding TakeOverMissionCollection}"
+                        ItemClick="HallGridView_OnItemClick"
+                        Height="130" />
                     <StackPanel Orientation="Horizontal">
                         <PersonPicture ProfilePicture="ms-appx:///Assets/15.jpg"
                                        Height="25"
-                                       Margin="0,0,5,0"/>
-                        <Border Background="White" >
-                            <TextBlock Width="1500" 
-                                   
-                                   >外卖</TextBlock>
+                                       Margin="0,0,5,0" />
+                        <Border Background="White">
+                            <TextBlock Width="1500">外卖</TextBlock>
                         </Border>
                     </StackPanel>
 
-                    <GridView 
-                          IsItemClickEnabled="True"
-                          ItemTemplate="{StaticResource MissionDataTemplate}"
-                          ItemsSource="{Binding DeliveryMissionCollection}"
-                          ItemClick="HallGridView_OnItemClick" 
-                              Height="130"/>
+                    <GridView
+                        IsItemClickEnabled="True"
+                        ItemTemplate="{StaticResource MissionDataTemplate}"
+                        ItemsSource="{Binding DeliveryMissionCollection}"
+                        ItemClick="HallGridView_OnItemClick"
+                        Height="130" />
                     <StackPanel Orientation="Horizontal">
                         <PersonPicture ProfilePicture="ms-appx:///Assets/11.png"
                                        Height="25"
-                                       Margin="0,0,5,0"/>
-                        <Border Background="White" >
-                            <TextBlock Width="1500" 
-                                   
-                                   >快递</TextBlock>
+                                       Margin="0,0,5,0" />
+                        <Border Background="White">
+                            <TextBlock Width="1500">快递</TextBlock>
                         </Border>
                     </StackPanel>
 
-                    <GridView 
-                          IsItemClickEnabled="True"
-                          ItemTemplate="{StaticResource MissionDataTemplate}"
-                          ItemsSource="{Binding ExpressMissionCollection}"
-                          ItemClick="HallGridView_OnItemClick"  
-                              Height="130"/>
+                    <GridView
+                        IsItemClickEnabled="True"
+                        ItemTemplate="{StaticResource MissionDataTemplate}"
+                        ItemsSource="{Binding ExpressMissionCollection}"
+                        ItemClick="HallGridView_OnItemClick"
+                        Height="130" />
 
-    </StackPanel>
+                </StackPanel>
             </RefreshContainer>
-          
+
             <ContentDialog
                 Title="请输入你的任务"
                 PrimaryButtonText="Confirm"
-                
+
                 PrimaryButtonCommand="{Binding AddCommand}"
-                
+
                 CloseButtonText="Cancel"
                 DefaultButton="Close"
-                x:Name="AddMissionContent" 
-                
-                >
+                x:Name="AddMissionContent">
 
-                <StackPanel VerticalAlignment="Stretch" 
+                <StackPanel VerticalAlignment="Stretch"
                             HorizontalAlignment="Stretch">
-                    <TextBox  
-                             PlaceholderText="请输入任务标题" 
-                             Text="{Binding ToAddMission.MissionName ,Mode=TwoWay }"
-                                 TextWrapping="Wrap" 
-                                 Margin="10,10,0,0"/>
-                    <TextBox  PlaceholderText="请输入任务内容" Text="{Binding ToAddMission.Message, Mode=TwoWay}"
-                                 TextWrapping="Wrap" 
-                                 Margin="10,10,0,0"/>
-                    <CalendarDatePicker   PlaceholderText="截止时间" Date="{Binding ToAddMission.Deadline }"
-                                            Margin="10,10,0,0"
-                                            Width="auto"/>
-                    <TextBox  
-                             PlaceholderText="积分" 
-                             Text="{Binding ToAddMission.Points ,Mode=TwoWay}" 
-                             TextWrapping="Wrap" 
-                             Margin="10,10,0,0"></TextBox>
-                    <ComboBox  
-                              PlaceholderText="请选择任务类别"  
-                              ItemsSource="{Binding ToAddMission.Type,Mode=TwoWay}" 
-                              Margin="10,10,0,0" 
-                              DisplayMemberPath="Item1" 
-                              SelectedValuePath="Item2"
-                              Header="Select ur Type"
-                              Width="200" 
-                              SelectionChanged="Selector_OnSelectionChanged" >
-                        <ComboBoxItem Name="TakeOver" >TakeOver</ComboBoxItem>
+                    <TextBox
+                        PlaceholderText="请输入任务标题"
+                        Text="{Binding ToAddMission.MissionName ,Mode=TwoWay }"
+                        TextWrapping="Wrap"
+                        Margin="10,10,0,0" />
+                    <TextBox PlaceholderText="请输入任务内容" Text="{Binding ToAddMission.Message, Mode=TwoWay}"
+                             TextWrapping="Wrap"
+                             Margin="10,10,0,0" />
+                    <CalendarDatePicker PlaceholderText="截止时间" Date="{Binding ToAddMission.Deadline }"
+                                        Margin="10,10,0,0"
+                                        Width="auto" />
+                    <TextBox
+                        PlaceholderText="积分"
+                        Text="{Binding ToAddMission.Points ,Mode=TwoWay}"
+                        TextWrapping="Wrap"
+                        Margin="10,10,0,0" />
+                    <ComboBox
+                        PlaceholderText="请选择任务类别"
+                        ItemsSource="{Binding ToAddMission.Type,Mode=TwoWay}"
+                        Margin="10,10,0,0"
+                        DisplayMemberPath="Item1"
+                        SelectedValuePath="Item2"
+                        Header="Select ur Type"
+                        Width="200"
+                        SelectionChanged="Selector_OnSelectionChanged">
+                        <ComboBoxItem Name="TakeOver">TakeOver</ComboBoxItem>
                         <ComboBoxItem Name="Delivery">Delivery</ComboBoxItem>
                         <ComboBoxItem Name="Express">Express</ComboBoxItem>
                     </ComboBox>
                 </StackPanel>
             </ContentDialog>
-            
-            
-            
+
+
             <ContentDialog
                 Title="任务详情"
                 PrimaryButtonText="接受"
                 PrimaryButtonCommand="{Binding DeleteCommand}"
                 CloseButtonText="返回"
                 DefaultButton="Close"
-                x:Name="MissionDetailContent" 
-                >
-                <StackPanel Margin="10,1,0,0"
-                >
+                x:Name="MissionDetailContent">
+                <StackPanel Margin="10,1,0,0">
                     <TextBlock Text="任务主题"
-                   FontSize="20"
-                   Margin="20,10,0,0"></TextBlock>
+                               FontSize="20"
+                               Margin="20,10,0,0" />
                     <TextBlock
-                 Width="auto"
-                 HorizontalAlignment="Left"
-                    Text="{Binding SelectedMission.MissionName,Mode=OneWay}"
-                 Margin="20,5,0,0"></TextBlock>
-                    
-                        <TextBlock Text="积分"
-                                   FontSize="20"
-                                   Margin="20,10,0,0"
-                                   ></TextBlock>
-                        <TextBlock Margin="20,5,0,0"
-                                       Text="{Binding SelectedMission.Points,Mode=OneWay}"></TextBlock>
-                    
+                        Width="auto"
+                        HorizontalAlignment="Left"
+                        Text="{Binding SelectedMission.MissionName,Mode=OneWay}"
+                        Margin="20,5,0,0" />
+
+                    <TextBlock Text="积分"
+                               FontSize="20"
+                               Margin="20,10,0,0" />
+                    <TextBlock Margin="20,5,0,0"
+                               Text="{Binding SelectedMission.Points,Mode=OneWay}" />
+
                     <TextBlock Text="截止时间"
                                FontSize="20"
-                               Margin="20,10,0,0"></TextBlock>
+                               Margin="20,10,0,0" />
                     <TextBlock Width="auto"
                                Margin="20,5,0,0"
-                                   Text="{Binding SelectedMission.Deadline,Mode=OneWay}"></TextBlock>
+                               Text="{Binding SelectedMission.Deadline,Mode=OneWay}" />
                     <TextBlock Text="详细信息"
-                   FontSize="20"
-                   Margin="20,10,0,0"></TextBlock>
+                               FontSize="20"
+                               Margin="20,10,0,0" />
                     <TextBlock Text="{Binding SelectedMission.Message,Mode=OneWay}"
-                 Height="auto"
-                 Width="auto" 
-                 HorizontalAlignment="Left"
-                 Margin="20,5,0,0"></TextBlock>
+                               Height="auto"
+                               Width="auto"
+                               HorizontalAlignment="Left"
+                               Margin="20,5,0,0" />
 
 
                 </StackPanel>
@@ -250,5 +239,516 @@
             </ContentDialog>
         </StackPanel>
     </Grid>
-    
+
 </Page>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
