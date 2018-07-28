@@ -5,6 +5,7 @@ using DoMeAFavor.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Windows.UI.Popups;
+using Windows.UI.Xaml;
 
 namespace DoMeAFavor.ViewModels
 {
@@ -13,7 +14,7 @@ namespace DoMeAFavor.ViewModels
 
         private  readonly IUserService _userService;
 
-        private INavigationService _navigationService;
+        private readonly INavigationService _navigationService;
 
         /// <summary>
         /// 用户类。
@@ -60,7 +61,7 @@ namespace DoMeAFavor.ViewModels
                                                 var messageDialog = new MessageDialog("注册成功");                                               
                                                 messageDialog.Commands.Add(new UICommand("确定", cmd =>
                                                 {
-
+                                                    //_navigationService.SetFrame(MainPage.HomeFrame);
                                                     _navigationService.Navigate(typeof(MyPage));
                                                 }));
                                                 await messageDialog.ShowAsync();

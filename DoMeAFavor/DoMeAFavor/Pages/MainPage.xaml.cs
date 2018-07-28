@@ -1,7 +1,9 @@
 ﻿
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 using Windows.UI.Xaml.Input;
+using DoMeAFavor.Services;
 
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
@@ -13,11 +15,15 @@ namespace DoMeAFavor
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        private readonly INavigationService _navigationService;
+
         public MainPage()
         {
             InitializeComponent();
             HomeFrame.Navigate(typeof(MissionHallPage));
 
+            //_navigationService.SetFrame(HomeFrame);
         }
 
         private void NavigationView_OnSelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -84,6 +90,19 @@ namespace DoMeAFavor
             {
                 HomeFrame.Navigate(typeof(SettingPage));
             }
+        }
+
+        
+
+        private void MainPage_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            _navigationService.SetFrame(HomeFrame);
+        }
+
+        public MainPage(INavigationService navigationService)
+        {
+            _navigationService = navigationService;
+            //_navigationService.SetFrame(HomeFrame);
         }
     }
 }
