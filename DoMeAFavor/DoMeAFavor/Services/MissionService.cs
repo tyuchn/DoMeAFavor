@@ -57,7 +57,8 @@ namespace DoMeAFavor.Services
             using (var client = new HttpClient())
             {
                 
-                var json = await client.GetStringAsync(UMServiceEndpoint + "?userid=" + user.Id + "&missionname=" + mission.MissionName);
+                var json = await client.GetStringAsync(UMServiceEndpoint + "1?userid=" 
+                    + user.UserId + "&missionname=" + mission.MissionName);
                 var usermisson = JsonConvert.DeserializeObject<UserMission>(json);
                 usermisson.ReceiverId = user.Id;
                 await client.PutAsync(UMServiceEndpoint + "/" + usermisson.MissionId,                   //{问题：如何找到id}
@@ -66,8 +67,11 @@ namespace DoMeAFavor.Services
         }
 
         /// <summary>
-        /// 添加任务。
+        /// 添加任务
         /// </summary>
+        /// <param name="mission"></param> 任务
+        /// <param name="user"></param> 发布人
+        /// <returns></returns>
         public async Task AddAsync(Mission mission,User user)
         {
             using (var client = new HttpClient())

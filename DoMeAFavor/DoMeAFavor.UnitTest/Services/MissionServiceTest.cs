@@ -23,42 +23,26 @@ namespace DoMeAFavor.UnitTest.Services
             //Assert.AreEqual("mac", missions[1].Message);
         }
 
-        [TestMethod]
-        public async Task TestUpdateAsync()
-        {
-            var missionService = new MissionService();
-            var missions = (await missionService.ListAsync()).ToList();
-            var firstMission = missions[0];
-
-            Assert.AreEqual("cloth", firstMission.MissionName);
-
-            firstMission.MissionName = "zzcloth";
-            await missionService.UpdateAsync(firstMission);
-
-            missions = (await missionService.ListAsync()).ToList();
-            firstMission = missions[0];
-
-            Assert.AreEqual("zzcloth", firstMission.MissionName);
-        }
 
         [TestMethod]
-        public async Task TestAddAsync()
+        public async Task TestAddMissionAsync()
         {
             var missionService = new MissionService();
+            var mission = new Mission
+            {
+                MissionName = "测试",
+                Type = 0
+            };
+            var user = new User
+            {
+                UserId = "1"
+                
+            };
+            await missionService.AddAsync(mission, user);
+            var newmission = (await missionService.ListAsync()).ToList().Last();
+            Assert.AreEqual("测试",newmission.MissionName);
 
-            var ms = new Mission();
-            ms.Type = Mission.MissionType.Delivery;
-            ms.CreationDate = DateTime.Today;
-            ms.Deadline = DateTime.Today;
-            ms.Message = "ddd";
-            ms.Points = 3;
-            ms.MissionName = "lunch";
-            await missionService.AddAsync(ms);
-            var missions = (await missionService.ListAsync()).ToList();
 
-            Assert.AreEqual(9, missions.Count);
-            //Assert.AreEqual("express", missions[0].MissionName);
-            //Assert.AreEqual("lunch", missions[1].MissionName);
         }
 
         [TestMethod]
