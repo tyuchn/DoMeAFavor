@@ -59,11 +59,7 @@ namespace DoMeAFavor.ViewModels
                     {
                         await new MessageDialog("登录成功！").ShowAsync();
                         await List(User.UserId,User.PassWord);
-
-                        //_navigationService.Navigate(typeof(MyPage));
                     } 
-                 
-                    //await _userService.LoginAsync(User.UserId, User.PassWord);
                     
                 }));
         private RelayCommand _updateCommand;
