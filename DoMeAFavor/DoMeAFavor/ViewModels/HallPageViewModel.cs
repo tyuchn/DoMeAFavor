@@ -67,7 +67,7 @@ namespace DoMeAFavor.ViewModels
             SelectedUser= new User();
         }
 
-        public HallPageViewModel()
+        /*public HallPageViewModel()
         {
             _missionService = new MissionService();
             MissionCollection = new ObservableCollection<Mission>();
@@ -77,7 +77,7 @@ namespace DoMeAFavor.ViewModels
             ToAddMission = new Mission();
             SelectedMission = new Mission();
             SelectedUser = new User();
-        }
+        }*/
 
         
         //private RelayCommand<Mission> _showDetailsCommand;

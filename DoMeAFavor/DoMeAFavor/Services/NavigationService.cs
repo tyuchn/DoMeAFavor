@@ -10,6 +10,7 @@ namespace DoMeAFavor.Services
     {
         public void Navigate(Type sourcePage)
         {
+            DispatcherHelper.Initialize();
             DispatcherHelper.CheckBeginInvokeOnUI(() => 
             { 
             var frame = (Frame)Window.Current.Content;

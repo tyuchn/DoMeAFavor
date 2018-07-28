@@ -36,7 +36,12 @@ namespace DoMeAFavor.ViewModels
             SimpleIoc.Default.Register<LoginPageViewModel>();
             SimpleIoc.Default.Register<HallPageViewModel>();
             SimpleIoc.Default.Register<SignupPageViewModel>();
+
+            SimpleIoc.Default.Register(() => new User());
         }
+
+        public User User =>
+            SimpleIoc.Default.GetInstance<User>();
 
         /// <summary>
         ///     获得登录ViewModel。

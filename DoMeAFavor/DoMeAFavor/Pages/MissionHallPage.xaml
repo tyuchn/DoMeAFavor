@@ -13,13 +13,13 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     
     Loading="MissionHallPage_OnLoading">
-    
+
     <Page.Resources>
 
 
         <DataTemplate x:DataType="models:Mission" 
                       x:Key="MissionDataTemplate" >
-            
+
             <StackPanel HorizontalAlignment="Center" Width="100"
                         Margin="5,5,10,0">
                 <TextBlock FontSize="20" Text="{x:Bind MissionName, Mode=OneWay}" IsColorFontEnabled="False" 
@@ -31,15 +31,11 @@
             </StackPanel>
 
         </DataTemplate>
-        
+
     </Page.Resources>
-    
-    <Page.DataContext>
-        <Binding Source="{StaticResource HallPageViewModel}" />
-    </Page.DataContext>
 
 
-<Grid>
+    <Grid>
         
         <StackPanel Margin="5,0,0,0">
             <FlipView Width="Auto" 

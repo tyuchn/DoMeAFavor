@@ -9,9 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Page.DataContext>
-        <Binding Source="{StaticResource LoginPageViewModel}" />
-    </Page.DataContext>
+    
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -70,14 +68,26 @@
                            Height="35"
                            Width="301"
                            RenderTransformOrigin="0.493,0.509" />
-                <PasswordBox Margin="10,15,0,0"
+                <PasswordBox Margin="10,0,0,0"
                              Width="250"
                              PlaceholderText="输入您的密码"
                              HorizontalAlignment="Left"
                              VerticalAlignment="Top" Height="40" 
                              Password="{Binding User.PassWord,Mode=TwoWay}"/>
-
+                <TextBlock Text="请输入验证码"
+                           Margin="10,10,0,0"></TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Name="CaptchaBox"
+                             Margin=" 10,0,0,0"
+                             Text="{Binding CaptchaBox}"
+                             Width="50"></TextBox>
+                    <TextBlock Name="CaptchaText"
+                               Margin=" 15,0,0,0"
+                               Text="{Binding CaptchaText}"
+                               Width="50"></TextBlock>
+                </StackPanel>
             </StackPanel>
+            
         </ContentDialog>
 
 

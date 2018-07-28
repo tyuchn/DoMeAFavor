@@ -55,26 +55,16 @@ namespace DoMeAFavor.ViewModels
                                     if (User.UserName != null)
                                     {
 
-                                        if (User.Major != null)
-                                        {
-                                            if (User.Class.Length==4)
-                                            { 
                                                 await _userService.AddAsync(User);
                                                 //var cd = new ContentDialog();
                                                 var messageDialog = new MessageDialog("注册成功");                                               
                                                 messageDialog.Commands.Add(new UICommand("确定", cmd =>
                                                 {
 
-                                                   // _navigationService.Navigate(typeof(MyPage));
+                                                    _navigationService.Navigate(typeof(MyPage));
                                                 }));
                                                 await messageDialog.ShowAsync();
-                                                
-                                            }
-                                            else
-                                                await new MessageDialog("请输入正确班级号如：1505").ShowAsync();
-                                        }
-                                        else
-                                            await new MessageDialog("请选择专业").ShowAsync();
+                                           
                                     }
                                     else
                                         await new MessageDialog("请填写用户昵称").ShowAsync();
@@ -100,7 +90,7 @@ namespace DoMeAFavor.ViewModels
       
 
         //构造函数
-        public SignupPageViewModel(IUserService userService)
+        /*public SignupPageViewModel(IUserService userService)
         {
             _userService = userService;
             User = new User();
@@ -109,9 +99,11 @@ namespace DoMeAFavor.ViewModels
         {
             _userService = new UserService();
             User = new User();
-        }
-        public SignupPageViewModel(INavigationService navigationService)
+        }*/
+        public SignupPageViewModel(IUserService userService,INavigationService navigationService)
         {
+            _userService = userService;
+            User = new User();
             _navigationService = navigationService;
         }
 

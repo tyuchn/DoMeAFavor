@@ -9,10 +9,6 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Page.DataContext>
-        <Binding Source="{StaticResource SignupPageViewModel}" />
-    </Page.DataContext>
-
     <Grid>
         <StackPanel Margin="20,0,0,0"
                     Width="auto">
@@ -90,52 +86,7 @@
                          PlaceholderText="请设置您的DoMeAFovor昵称" 
                          Text="{Binding User.UserName,Mode=TwoWay}"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="专        业"
-                           Margin="30,20,0,0"
-                           FontSize="25" />
-                <ComboBox Margin="40,20,0,0"
-                          Width="450"
-                          SelectionChanged="ComboBox_SelectionChanged"
-                          PlaceholderText="请选择你的专业"
-                          
-                          SelectedItem="{Binding User.Major,Mode=TwoWay}">
-                    <ComboBoxItem x:Name="ComputerMajor">
-                        计算机科学与技术
-                    </ComboBoxItem>
-                    <ComboBoxItem x:Name="MarxismMajor">
-                        马克思主义专业
-                    </ComboBoxItem>
-                    <ComboBoxItem x:Name="AutomationMajor">
-                        自动化专业
-                    </ComboBoxItem>
-                    <ComboBoxItem x:Name="SoftwareMajor">
-                        软件
-                    </ComboBoxItem>
-                    <ComboBoxItem x:Name="MedicalMajor">
-                        中荷医学
-                    </ComboBoxItem>
-                    <ComboBoxItem x:Name="MetallurgicalMajor">
-                        冶金
-                    </ComboBoxItem>
-                    <ComboBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Vertical" />
-                        </ItemsPanelTemplate>
-                    </ComboBox.ItemsPanel>
-                     
-                </ComboBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="班        级"
-                           Margin="30,20,0,0"
-                           FontSize="25" />
-                <TextBox Margin="40,20,0,0"
-                         Width="450"
-                         PlaceholderText="请输入您的班级"
-                       
-                         Text="{Binding User.Class,Mode=TwoWay}"/>
-            </StackPanel>
+           
             <Button Content="注册"
                     Margin="40,40,0,0"
                     RequestedTheme="Light"
