@@ -55,17 +55,14 @@ namespace DoMeAFavor.ViewModels
                                 {
                                     if (User.UserName != null)
                                     {
-
                                                 await _userService.AddAsync(User);
                                                 //var cd = new ContentDialog();
                                                 var messageDialog = new MessageDialog("注册成功");                                               
                                                 messageDialog.Commands.Add(new UICommand("确定", cmd =>
                                                 {
-                                                    //_navigationService.SetFrame(MainPage.HomeFrame);
                                                     _navigationService.Navigate(typeof(MyPage));
                                                 }));
-                                                await messageDialog.ShowAsync();
-                                           
+                                                await messageDialog.ShowAsync();                                          
                                     }
                                     else
                                         await new MessageDialog("请填写用户昵称").ShowAsync();
