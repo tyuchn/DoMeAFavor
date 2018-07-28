@@ -100,7 +100,7 @@ namespace DoMeAFavor
 
         private void MissionHallPage_OnLoading(FrameworkElement sender, object args)
         {
-            var viewmodel = new HallPageViewModel();
+            var viewmodel =(HallPageViewModel) DataContext;
             viewmodel.ListCommand.Execute(null);
         }
     }
