@@ -81,10 +81,11 @@
                 <StackPanel Orientation="Horizontal">
                     <TextBox Name="CaptchaBox"
                              Margin=" 10,0,0,0"
+                             Text="{Binding CaptchaBox}"
                              Width="50"></TextBox>
                     <TextBlock Name="CaptchaText"
                                Margin=" 15,0,0,0"
-                               
+                               Text="{Binding CaptchaText}"
                                Width="50"></TextBlock>
                 </StackPanel>
             </StackPanel>

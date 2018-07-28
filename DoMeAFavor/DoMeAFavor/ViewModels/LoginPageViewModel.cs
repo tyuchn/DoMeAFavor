@@ -36,8 +36,21 @@ namespace DoMeAFavor.ViewModels
             get => _user;
             set => Set(nameof(User), ref _user, value);
         }
-
-
+        /// <summary>
+        /// 验证码数据
+        /// </summary>
+        private string _captchaBox;
+        public string CaptchaBox
+        {
+            get => _captchaBox;
+            set => Set(nameof(CaptchaBox), ref _captchaBox, value);
+        }
+        private string _captchaText;
+        public string CaptchaText
+        {
+            get => _captchaBox;
+            set => Set(nameof(CaptchaText), ref _captchaBox, value);
+        }
         /// <summary>
         /// 登录命令
         /// </summary>
@@ -50,6 +63,8 @@ namespace DoMeAFavor.ViewModels
             _loginCommand ?? (_loginCommand = new RelayCommand(async () =>
                 {
                     //TODO when login fail
+                    if(CaptchaBox==CaptchaText)
+                    { 
                     if (await _userService.LoginAsync(User.UserId, User.PassWord) == null)
                     {
                         await new MessageDialog("学号或密码错误，请重新输入！").ShowAsync();
@@ -59,8 +74,11 @@ namespace DoMeAFavor.ViewModels
                     {
                         await new MessageDialog("登录成功！").ShowAsync();
                         await List(User.UserId,User.PassWord);
-                    } 
-                    
+                    }
+                    }
+                    else
+                        await new MessageDialog("验证码错误").ShowAsync();
+
                 }));
         private RelayCommand _updateCommand;
 
