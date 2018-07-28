@@ -22,8 +22,11 @@ namespace DoMeAFavor.Services
         /// </summary>
         private const string ServiceEndpoint =
             "http://172.20.10.5:13059/api/Missions";
+        private const string UMServiceEndpoint =
+            "http://172.20.10.5:13059/api/UserMissions";
 
-       
+
+
 
 
         /******** 公开属性 ********/
@@ -60,13 +63,24 @@ namespace DoMeAFavor.Services
         /// <summary>
         /// 添加任务。
         /// </summary>
-        public async Task AddAsync(Mission mission)
+        public async Task AddAsync(Mission mission,User user)
         {
             using (var client = new HttpClient())
             {
                 var json = JsonConvert.SerializeObject(mission);
+                var usermission = new UserMission
+                {
+                    UserId = user.Id,
+                    MissionId = mission.MissionId
+
+                };
+                var umjson = JsonConvert.SerializeObject(usermission);
                  await client.PostAsync(ServiceEndpoint,
-                    new StringContent(json, Encoding.UTF8, "application/json"));                
+                    new StringContent(json, Encoding.UTF8, "application/json"));
+                await client.PostAsync(UMServiceEndpoint,
+                    new StringContent(umjson, Encoding.UTF8, "application/json"));
+
+
             }
         }
 
