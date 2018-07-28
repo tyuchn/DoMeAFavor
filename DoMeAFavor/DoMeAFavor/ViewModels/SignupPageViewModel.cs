@@ -55,10 +55,6 @@ namespace DoMeAFavor.ViewModels
                                     if (User.UserName != null)
                                     {
 
-                                        if (User.Major != null)
-                                        {
-                                            if (User.Class.Length==4)
-                                            { 
                                                 await _userService.AddAsync(User);
                                                 //var cd = new ContentDialog();
                                                 var messageDialog = new MessageDialog("注册成功");                                               
@@ -68,13 +64,7 @@ namespace DoMeAFavor.ViewModels
                                                    // _navigationService.Navigate(typeof(MyPage));
                                                 }));
                                                 await messageDialog.ShowAsync();
-                                                
-                                            }
-                                            else
-                                                await new MessageDialog("请输入正确班级号如：1505").ShowAsync();
-                                        }
-                                        else
-                                            await new MessageDialog("请选择专业").ShowAsync();
+                                           
                                     }
                                     else
                                         await new MessageDialog("请填写用户昵称").ShowAsync();
