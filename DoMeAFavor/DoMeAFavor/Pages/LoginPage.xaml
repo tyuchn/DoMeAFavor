@@ -79,12 +79,18 @@
                 <StackPanel Orientation="Horizontal">
                     <TextBox Name="CaptchaBox"
                              Margin=" 10,0,0,0"
-                             Text="{Binding CaptchaBox}"
+                             Text="{Binding CaptchaBox,Mode=TwoWay}"
                              Width="50"></TextBox>
-                    <TextBlock Name="CaptchaText"
-                               Margin=" 15,0,0,0"
-                               Text="{Binding CaptchaText}"
+                    <Border Background="#FF1D32CD"
+                            Margin="10,0,0,0"
+                            Name="Captcha">
+                        <TextBlock Name="CaptchaText"
+                               Margin=" 15,7,0,0"
+                               Text="{Binding CaptchaText,Mode=TwoWay}"
+                                   FontSize="15"
                                Width="50"></TextBlock>
+                    </Border>
+                    
                 </StackPanel>
             </StackPanel>
             

@@ -32,6 +32,8 @@ namespace DoMeAFavor
 
         private  async void ToLogin_Click(object sender, RoutedEventArgs e)
         {
+            // Captcha.Background = "red";
+           // CaptchaText.Foreground = Color;
             GetCode();
             await LoginContent.ShowAsync();
            

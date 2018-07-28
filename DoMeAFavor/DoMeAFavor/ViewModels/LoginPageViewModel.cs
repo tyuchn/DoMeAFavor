@@ -45,11 +45,12 @@ namespace DoMeAFavor.ViewModels
             get => _captchaBox;
             set => Set(nameof(CaptchaBox), ref _captchaBox, value);
         }
-        private string _captchaText;
+        private string _captchaText="1258";
         public string CaptchaText
         {
-            get => _captchaBox;
-            set => Set(nameof(CaptchaText), ref _captchaBox, value);
+            get => _captchaText;
+            set => Set(nameof(CaptchaText), ref _captchaText, value);
+            
         }
         /// <summary>
         /// 登录命令
