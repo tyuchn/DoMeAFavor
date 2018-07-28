@@ -66,7 +66,14 @@ namespace DoMeAFavor.ViewModels
                     //await _userService.LoginAsync(User.UserId, User.PassWord);
                     
                 }));
+        private RelayCommand _updateCommand;
 
+        public RelayCommand UpdateCommand =>
+            _updateCommand ?? (_updateCommand = new RelayCommand(async () =>
+            {
+                var service = _userService;
+                await service.UpdateAsync(User);
+            }));
 
         public LoginPageViewModel()
         {
@@ -82,6 +89,9 @@ namespace DoMeAFavor.ViewModels
         public LoginPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
+            User = new User();
+            AcceptedMissionCollection = new ObservableCollection<Mission>();
+            PublishedMissionCollection = new ObservableCollection<Mission>();
         }
         private async Task List(string userid, string password)
         {

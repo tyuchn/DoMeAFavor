@@ -47,11 +47,9 @@
                               Icon="Save"
                               ToolTipService.ToolTip="保存信息"
                               Click="SaveButton_Click"
+                              
                               />
-                <AppBarButton Label="刷新"
-                              Icon="Refresh"
-                              ToolTipService.ToolTip="刷新信息"
-                              />
+                
                              
                               
                 <AppBarButton  Label="注销"
@@ -65,7 +63,8 @@
             Title="Save your change?"
             PrimaryButtonText="Save"
             CloseButtonText="Cancel"
-            DefaultButton="Primary"
+            DefaultButton="Close"
+                PrimaryButtonCommand="{Binding UpdateCommand}"
                 x:Name="SaveContentButton">
             </ContentDialog>
             <StackPanel Orientation="Horizontal">
@@ -111,40 +110,9 @@
                      HorizontalAlignment="Left"
                      Text="{Binding User.PhoneNumber,Mode=TwoWay}"/>
             
-                    <TextBlock Text="专业"  
-                       Margin="50,0,0,0" 
-                       Height="30"/>
+                    
             
-                    <ComboBox Margin="50,0,0,0"
-                          Width="430"
-                          SelectionChanged="ComboBox_SelectionChanged"
-                         
-                          SelectedItem="{Binding User.Major,Mode=TwoWay}">
-                <ComboBoxItem x:Name="ComputerMajor">
-                    计算机科学与技术
-                </ComboBoxItem>
-                <ComboBoxItem x:Name="MarxismMajor">
-                    马克思主义专业
-                </ComboBoxItem>
-                <ComboBoxItem x:Name="AutomationMajor">
-                    自动化专业
-                </ComboBoxItem>
-                <ComboBoxItem x:Name="SoftwareMajor">
-                    软件
-                </ComboBoxItem>
-                <ComboBoxItem x:Name="MedicalMajor">
-                    中荷医学
-                </ComboBoxItem>
-                <ComboBoxItem x:Name="MetallurgicalMajor">
-                    冶金
-                </ComboBoxItem>
-                <ComboBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Vertical" />
-                    </ItemsPanelTemplate>
-                </ComboBox.ItemsPanel>
-
-            </ComboBox>
+            
             <TextBlock Text="班级"  
                        Margin="50,0,0,0" 
                        Height="30"/>
