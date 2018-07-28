@@ -9,19 +9,14 @@ namespace DoMeAFavor.Services
 {
     public sealed class NavigationService : INavigationService
     {
-        //private Frame _frame;
-
-       
-
-
-
+  
         public void Navigate(Type sourcePage)
         {
             DispatcherHelper.Initialize();
             DispatcherHelper.CheckBeginInvokeOnUI(() => 
             { 
+                //设置当前frame为MainPage的HomeFrame
             var frame = MainPage.Current.HomeFrame;
-                //SetFrame(_frame);
             frame.Navigate(sourcePage);
             });
         } 

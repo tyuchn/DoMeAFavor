@@ -91,17 +91,6 @@ namespace DoMeAFavor.ViewModels
                 await service.UpdateAsync(User);
             }));
 
-       /* public LoginPageViewModel()
-        {
-            _userService = new UserService();
-            User = new User();
-            AcceptedMissionCollection = new ObservableCollection<Mission>();
-            PublishedMissionCollection = new ObservableCollection<Mission>();
-
-        }*/
-
-
-
         public LoginPageViewModel(INavigationService navigationService)
         {
             _userService = new UserService();
