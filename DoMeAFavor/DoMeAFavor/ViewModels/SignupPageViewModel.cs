@@ -61,7 +61,7 @@ namespace DoMeAFavor.ViewModels
                                                 messageDialog.Commands.Add(new UICommand("确定", cmd =>
                                                 {
 
-                                                   // _navigationService.Navigate(typeof(MyPage));
+                                                    _navigationService.Navigate(typeof(MyPage));
                                                 }));
                                                 await messageDialog.ShowAsync();
                                            
@@ -90,7 +90,7 @@ namespace DoMeAFavor.ViewModels
       
 
         //构造函数
-        public SignupPageViewModel(IUserService userService)
+        /*public SignupPageViewModel(IUserService userService)
         {
             _userService = userService;
             User = new User();
@@ -99,9 +99,11 @@ namespace DoMeAFavor.ViewModels
         {
             _userService = new UserService();
             User = new User();
-        }
-        public SignupPageViewModel(INavigationService navigationService)
+        }*/
+        public SignupPageViewModel(IUserService userService,INavigationService navigationService)
         {
+            _userService = userService;
+            User = new User();
             _navigationService = navigationService;
         }
 

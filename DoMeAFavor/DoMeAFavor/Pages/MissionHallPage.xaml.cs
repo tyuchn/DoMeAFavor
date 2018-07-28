@@ -18,6 +18,7 @@ namespace DoMeAFavor
         public MissionHallPage()
         {
             InitializeComponent();
+            DataContext = ViewModelLocator.Instance.HallPageViewModel;
             suggestions = new ObservableCollection<string>();
             DispatcherTimer time = new DispatcherTimer();
             time.Interval = new TimeSpan(0, 0,3);

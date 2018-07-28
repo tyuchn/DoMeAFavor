@@ -2,6 +2,7 @@
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using DoMeAFavor.ViewModels;
 
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
@@ -18,6 +19,7 @@ namespace DoMeAFavor
         public MyPage()
         {
             InitializeComponent();
+            DataContext = ViewModelLocator.Instance.LoginPageViewModel;
         }
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)

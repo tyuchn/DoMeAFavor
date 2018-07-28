@@ -15,13 +15,8 @@ namespace DoMeAFavor
         public SignUpPage()
         {
             InitializeComponent();
-            /*var vm = new SignupPageViewModel(new NavigationService());
-            DataContext = vm;*/
+            DataContext = ViewModelLocator.Instance.SignupPageViewModel;
         }
-
-        
-        
-        
 
     }
 }

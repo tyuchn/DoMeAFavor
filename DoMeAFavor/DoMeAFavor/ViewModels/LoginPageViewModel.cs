@@ -50,21 +50,17 @@ namespace DoMeAFavor.ViewModels
             _loginCommand ?? (_loginCommand = new RelayCommand(async () =>
                 {
                     //TODO when login fail
-                    if (await _userService.LoginAsync(User.UserId, User.PassWord) == null)
+                    if (await _userService.LoginAsync(ViewModelLocator.Instance.User.UserId, ViewModelLocator.Instance.User.PassWord) == null)
                     {
                         await new MessageDialog("学号或密码错误，请重新输入！").ShowAsync();
-
                     }
-                    else if (await _userService.LoginAsync(User.UserId, User.PassWord) != null)
+                    else if (await _userService.LoginAsync(ViewModelLocator.Instance.User.UserId, ViewModelLocator.Instance.User.PassWord) != null)
                     {
                         await new MessageDialog("登录成功！").ShowAsync();
-                        await List(User.UserId,User.PassWord);
+                        await List(ViewModelLocator.Instance.User.UserId, ViewModelLocator.Instance.User.PassWord);
 
                         //_navigationService.Navigate(typeof(MyPage));
-                    } 
-                 
-                    //await _userService.LoginAsync(User.UserId, User.PassWord);
-                    
+                    }                   
                 }));
         private RelayCommand _updateCommand;
 
@@ -75,20 +71,25 @@ namespace DoMeAFavor.ViewModels
                 await service.UpdateAsync(User);
             }));
 
-        public LoginPageViewModel()
+        /*public LoginPageViewModel()
         {
             _userService = new UserService();
             User = new User();
             AcceptedMissionCollection = new ObservableCollection<Mission>();
             PublishedMissionCollection = new ObservableCollection<Mission>();
 
-        }
+        }*/
 
 
-
-        public LoginPageViewModel(INavigationService navigationService)
+        /// <summary>
+        ///     构造函数。
+        /// </summary>
+        /// <param name="userService">用户服务。</param>
+        /// <param name="navigationService">导航服务。</param>
+        public LoginPageViewModel(IUserService userService,INavigationService navigationService,User user)
         {
-            _navigationService = navigationService;
+            _userService = new UserService();
+            _navigationService = navigationService; 
             User = new User();
             AcceptedMissionCollection = new ObservableCollection<Mission>();
             PublishedMissionCollection = new ObservableCollection<Mission>();

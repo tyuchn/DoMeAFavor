@@ -21,7 +21,8 @@ namespace DoMeAFavor
         public LoginPage()
         {
             InitializeComponent();
-            
+            DataContext = ViewModelLocator.Instance.LoginPageViewModel;
+
         }
         private void MyPWBox1_PasswordChanged(object sender, RoutedEventArgs e)
         {
