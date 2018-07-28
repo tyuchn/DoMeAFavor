@@ -10,30 +10,37 @@ using DoMeAFavor.DataService.Models;
 namespace DoMeAFavor.DataService.Controllers
 {
     [Produces("application/json")]
-    [Route("api/UserMissions1")]
-    public class UserMissions1Controller : Controller
+    [Route("api/GetMissionsFromName")]
+    public class GetMissionsFromNameController : Controller
     {
         private readonly DataContext _context;
 
-        public UserMissions1Controller(DataContext context)
+        public GetMissionsFromNameController(DataContext context)
         {
             _context = context;
         }
 
+        
+
+        // GET: api/GetMissionsFromName/5
         [HttpGet]
-        public async Task<IActionResult> GetUserMission(string userid, string missionname)
+        public async Task<IActionResult> GetMission(string missionname)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var userMission = from a in _context.Missions
-                from b in _context.UserMissions
-                from c in _context.Users
-                where a.MissionId == b.MissionId && b.UserId == c.Id && a.MissionName == missionname && c.UserId == userid
-                select b;
 
-            return Ok(userMission);
+            var mission = await _context.Missions.SingleOrDefaultAsync(m => m.MissionName == missionname);
+
+            if (mission == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(mission);
         }
+
+        
     }
 }

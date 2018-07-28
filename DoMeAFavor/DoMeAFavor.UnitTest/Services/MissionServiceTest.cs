@@ -30,22 +30,35 @@ namespace DoMeAFavor.UnitTest.Services
             var missionService = new MissionService();
             var mission = new Mission
             {
-                MissionName = "测试",
-                Type = 0
+                MissionName = "测试"
+                
             };
             var user = new User
             {
-                UserId = "1"
+                Id =1
                 
             };
             await missionService.AddAsync(mission, user);
-            var newmission = (await missionService.ListAsync()).ToList().Last();
-            Assert.AreEqual("测试",newmission.MissionName);
+            Assert.AreEqual(1, 1);
 
 
         }
-
         [TestMethod]
+        public async Task TestAcceptMissionAsync()
+        {
+            var missionService = new MissionService();
+            var mission = new Mission{MissionName = "测试"};
+            var acceptuser = new User
+            {
+                Id = 18
+
+            };
+
+            await missionService.AcceptAsync(mission, acceptuser);
+            Assert.AreEqual(1, 1);
+        }
+
+
         public async Task TestDeleteAsync()
         {
             var missionService = new MissionService();

@@ -1,6 +1,6 @@
 ﻿
 using System.Collections.Generic;
-
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +24,10 @@ namespace DoMeAFavor.Services
             "http://172.20.10.5:13059/api/Missions";
         private const string UMServiceEndpoint =
             "http://172.20.10.5:13059/api/UserMissions";
+        private const string PBUMServiceEndpoint =
+            "http://172.20.10.5:13059/api/PublishedUserMissions?";
+
+        private const string MissionServiceEndpoint = "http://172.20.10.5:13059/api/GetMissionsFromName";
 
 
 
@@ -57,12 +61,12 @@ namespace DoMeAFavor.Services
             using (var client = new HttpClient())
             {
                 
-                var json = await client.GetStringAsync(UMServiceEndpoint + "1?userid=" 
-                    + user.UserId + "&missionname=" + mission.MissionName);
-                var usermisson = JsonConvert.DeserializeObject<UserMission>(json);
-                usermisson.ReceiverId = user.Id;
-                await client.PutAsync(UMServiceEndpoint + "/" + usermisson.MissionId,                   //{问题：如何找到id}
+                var json = await client.GetStringAsync(PBUMServiceEndpoint + "missionname=" + mission.MissionName);
+                var usermisson = JsonConvert.DeserializeObject<UserMission[]>(json);
+                usermisson.First().ReceiverId = user.Id;
+                await client.PutAsync(UMServiceEndpoint + "/" + usermisson.First().MissionId,                   //{问题：如何找到id}
                     new StringContent(json, Encoding.UTF8, "application/json"));
+                
             }
         }
 
@@ -77,6 +81,14 @@ namespace DoMeAFavor.Services
             using (var client = new HttpClient())
             {
                 var json = JsonConvert.SerializeObject(mission);
+                await client.PostAsync(ServiceEndpoint,
+                    new StringContent(json, Encoding.UTF8, "application/json"));
+                var latestCreatedMissionJson =
+                    await client.GetStringAsync(MissionServiceEndpoint+"?missionname=" +
+                                                mission.MissionName);
+                var latestCreatedMission = JsonConvert.DeserializeObject<Mission>(latestCreatedMissionJson);
+                mission.MissionId = latestCreatedMission.MissionId;
+
                 var usermission = new UserMission
                 {
                     UserId = user.Id,
@@ -84,14 +96,24 @@ namespace DoMeAFavor.Services
 
                 };
                 var umjson = JsonConvert.SerializeObject(usermission);
-                 await client.PostAsync(ServiceEndpoint,
-                    new StringContent(json, Encoding.UTF8, "application/json"));
+                 
+
                 await client.PostAsync(UMServiceEndpoint,
                     new StringContent(umjson, Encoding.UTF8, "application/json"));
 
 
             }
         }
+
+        /*public async Task addum(UserMission usermission)
+        {
+            using (var client = new HttpClient())
+            {
+                var json = JsonConvert.SerializeObject(usermission);
+                await client.PostAsync(UMServiceEndpoint,
+                    new StringContent(json, Encoding.UTF8, "application/json"));
+            }
+        }*/
 
 
 

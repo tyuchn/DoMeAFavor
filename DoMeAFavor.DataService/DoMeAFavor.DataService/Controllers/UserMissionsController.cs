@@ -47,7 +47,7 @@ namespace DoMeAFavor.DataService.Controllers
         }
 
         // PUT: api/UserMissions/5
-        [HttpPut("{id}")] //id这里指missionid
+        [HttpPut("{id}")]
         public async Task<IActionResult> PutUserMission([FromRoute] int id, [FromBody] UserMission userMission)
         {
             if (!ModelState.IsValid)
