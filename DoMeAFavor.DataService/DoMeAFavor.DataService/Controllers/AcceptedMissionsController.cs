@@ -41,6 +41,7 @@ namespace DoMeAFavor.DataService.Controllers
                 from b in _context.UserMissions
                 where a.MissionId == b.MissionId && b.ReceiverId == user.Id
                 select a;
+            
             return Ok(missions);
 
         }

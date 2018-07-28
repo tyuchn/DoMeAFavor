@@ -28,20 +28,18 @@ namespace DoMeAFavor.DataService.Controllers
         }
 
         // GET: api/UserMissions/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetUserMission([FromRoute] int id)
+        [HttpGet]
+        public async Task<IActionResult> GetUserMission(string userid, string missionname)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            var userMission = await _context.UserMissions.SingleOrDefaultAsync(m => m.MissionId == id);
-
-            if (userMission == null)
-            {
-                return NotFound();
-            }
+            var userMission = from a in _context.Missions
+                from b in _context.UserMissions
+                from c in _context.Users
+                where a.MissionId == b.MissionId && b.UserId == c.Id && a.MissionName == missionname && c.UserId ==userid
+                select b;
 
             return Ok(userMission);
         }
