@@ -47,15 +47,20 @@ namespace DoMeAFavor.Services
         }
 
         /// <summary>
-        /// 更新任务。
+        /// 接收任务
         /// </summary>
-        /// <param name="mission">要更新的任务。</param>
-        public async Task UpdateAsync(Mission mission)
+        /// <param name="mission"></param> 任务
+        /// <param name="user"></param> 接收用户
+        /// <returns></returns>
+        public async Task AcceptAsync(Mission mission,User user)
         {
             using (var client = new HttpClient())
             {
-                var json = JsonConvert.SerializeObject(mission);
-                await client.PutAsync(ServiceEndpoint + "/" + mission.MissionId,
+                
+                var json = await client.GetStringAsync(UMServiceEndpoint + "?userid=" + user.Id + "&missionname=" + mission.MissionName);
+                var usermisson = JsonConvert.DeserializeObject<UserMission>(json);
+                usermisson.ReceiverId = user.Id;
+                await client.PutAsync(UMServiceEndpoint + "/" + usermisson.MissionId,                   //{问题：如何找到id}
                     new StringContent(json, Encoding.UTF8, "application/json"));
             }
         }
