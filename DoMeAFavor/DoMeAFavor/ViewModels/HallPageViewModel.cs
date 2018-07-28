@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using Windows.Web.AtomPub;
 using DoMeAFavor.Models;
 using DoMeAFavor.Services;
 using GalaSoft.MvvmLight;
@@ -26,6 +27,11 @@ namespace DoMeAFavor.ViewModels
         ///     刷新命令。
         /// </summary>
         private RelayCommand _listCommand;
+
+        /// <summary>
+        /// 接收任务命令
+        /// </summary>
+        private RelayCommand _acceptCommand;
         /******** 私有变量 ********/
 
         /// <summary>
@@ -145,7 +151,18 @@ namespace DoMeAFavor.ViewModels
                     var service = _missionService;
                     await service.UpdateAsync(mission);
                 }));*/
+        
+        /// <summary>
+        ///     更新命令。
+        /// </summary>     
+        public RelayCommand AcceptCommand => 
+            _acceptCommand ?? (_acceptCommand = 
+                new RelayCommand(async () =>
+                {
+                    await _missionService.AcceptAsync(SelectedMission, SelectedUser);
+                    await List();
 
+                }));
         /// <summary>
         ///     删除命令
         /// </summary>
@@ -180,7 +197,7 @@ namespace DoMeAFavor.ViewModels
             DeliveryMissionCollection.Clear();
             ExpressMissionCollection.Clear();
 
-            var missions = await _missionService.ListAsync();
+            var missions = await _missionService.ListUnacceptedAsync();
             foreach (var mission in missions)
                 if (mission.Type == Mission.MissionType.Express)
                     ExpressMissionCollection.Add(mission);

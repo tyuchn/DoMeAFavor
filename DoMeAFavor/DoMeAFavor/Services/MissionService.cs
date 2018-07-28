@@ -28,6 +28,7 @@ namespace DoMeAFavor.Services
             "http://172.20.10.5:13059/api/PublishedUserMissions?";
 
         private const string MissionServiceEndpoint = "http://172.20.10.5:13059/api/GetMissionsFromName";
+        private const string UnacceptedServiceEndpoint = "http://172.20.10.5:13059/api/UnacceptedMissions";
 
 
 
@@ -49,6 +50,18 @@ namespace DoMeAFavor.Services
                 return JsonConvert.DeserializeObject<Mission[]>(json);
             }
         }
+        /// <summary>
+        /// 列出所有未被接受的任务
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<Mission>> ListUnacceptedAsync()
+        {
+            using (var client = new HttpClient())
+            {
+                var json = await client.GetStringAsync(UnacceptedServiceEndpoint);
+                return JsonConvert.DeserializeObject<Mission[]>(json);
+            }
+        }
 
         /// <summary>
         /// 接收任务
@@ -65,7 +78,7 @@ namespace DoMeAFavor.Services
                 var usermisson = JsonConvert.DeserializeObject<UserMission[]>(json);
                 usermisson.First().ReceiverId = user.Id;
                 var newjson = JsonConvert.SerializeObject(usermisson.First());
-                await client.PutAsync(UMServiceEndpoint + "/" + usermisson.First().MissionId,                   //{问题：如何找到id}
+                await client.PutAsync(UMServiceEndpoint + "/" + usermisson.First().MissionId,                   
                     new StringContent(newjson, Encoding.UTF8, "application/json"));
                 
             }
