@@ -36,7 +36,6 @@
             Title="欢迎登录DoMeAFavor"
             x:Name="LoginContent"
             PrimaryButtonText="登录"
-            PrimaryButtonClick="LoginContent_PrimaryButtonClick"
             PrimaryButtonCommand="{Binding LoginCommand}"
             CloseButtonText="Cancel">
 

@@ -74,7 +74,8 @@ namespace DoMeAFavor.ViewModels
                     else if (await _userService.LoginAsync(User.UserId, User.PassWord) != null)
                     {
                         await new MessageDialog("登录成功！").ShowAsync();
-                        await List(User.UserId,User.PassWord);
+                        _navigationService.Navigate(typeof(MyPage));
+                            await List(User.UserId,User.PassWord);
                     }
                     }
                     else
