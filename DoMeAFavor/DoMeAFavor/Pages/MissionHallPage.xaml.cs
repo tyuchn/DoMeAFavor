@@ -31,10 +31,12 @@ namespace DoMeAFavor
         private void SearchText_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
             var i = 0;
+            string[] a = { "超市快递","食堂外卖","超市外卖","五舍外卖","数学课代课" } ;
             suggestions.Clear();
             for(i= 0; i < 5; i++)   
             { 
-            suggestions.Add(sender.Text + "1");
+                if(a[i].Contains(sender.Text))
+            suggestions.Add(a[i]);
             }
             sender.ItemsSource = suggestions;
         }

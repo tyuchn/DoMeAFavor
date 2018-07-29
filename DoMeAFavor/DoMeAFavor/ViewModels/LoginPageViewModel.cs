@@ -45,13 +45,33 @@ namespace DoMeAFavor.ViewModels
             get => _captchaBox;
             set => Set(nameof(CaptchaBox), ref _captchaBox, value);
         }
-        private string _captchaText="1258";
+        private string _captchaText;
         public string CaptchaText
         {
             get => _captchaText;
             set => Set(nameof(CaptchaText), ref _captchaText, value);
             
         }
+        /// <summary>
+        /// 新加的内容
+        /// </summary>
+        private RelayCommand _toLoginCommand;
+        public RelayCommand ToLoginCommand =>
+            _loginCommand ?? (_loginCommand = new RelayCommand( () =>
+            {
+                CaptchaText = "";
+                Random r = new Random();
+                int num1 = r.Next(0, 9);
+                int num2 = r.Next(0, 9);
+                int num3 = r.Next(0, 9);
+                int num4 = r.Next(0, 9);
+
+                int[] numbers = new int[4] { num1, num2, num3, num4 };
+                for (int i = 0; i < numbers.Length; i++)
+                {
+                    CaptchaText += numbers[i].ToString();
+                }
+            }));
         /// <summary>
         /// 登录命令
         /// </summary>
