@@ -21,14 +21,14 @@ namespace DoMeAFavor.Services
         /// 服务端点。
         /// </summary>
         private const string ServiceEndpoint =
-            "http://172.20.10.4:13059/api/Missions";
+            "http://172.20.10.5:13059/api/Missions";
         private const string UMServiceEndpoint =
-            "http://172.20.10.4:13059/api/UserMissions";
+            "http://172.20.10.5:13059/api/UserMissions";
         private const string PBUMServiceEndpoint =
-            "http://172.20.10.4:13059/api/PublishedUserMissions?";
+            "http://172.20.10.5:13059/api/PublishedUserMissions?";
 
-        private const string MissionServiceEndpoint = "http://172.20.10.4:13059/api/GetMissionsFromName";
-        private const string UnacceptedServiceEndpoint = "http://172.20.10.4:13059/api/UnacceptedMissions";
+        private const string MissionServiceEndpoint = "http://172.20.10.5:13059/api/GetMissionsFromName";
+        private const string UnacceptedServiceEndpoint = "http://172.20.10.5:13059/api/UnacceptedMissions";
 
 
 
