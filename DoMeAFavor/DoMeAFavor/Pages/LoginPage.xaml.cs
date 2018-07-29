@@ -34,7 +34,7 @@ namespace DoMeAFavor
         {
             // Captcha.Background = "red";
            // CaptchaText.Foreground = Color;
-            GetCode();
+           // GetCode();
             await LoginContent.ShowAsync();
            
         }
@@ -49,7 +49,7 @@ namespace DoMeAFavor
         /// <summary>
         /// 生成随机验证码
         /// </summary>
-        public void GetCode()
+       /* public void GetCode()
         {
             string vc = "";
             Random r = new Random();
@@ -64,6 +64,7 @@ namespace DoMeAFavor
                 vc += numbers[i].ToString();
             }
             CaptchaText.Text = vc;
-        }
+            return;
+        }*/
     }
 }

@@ -19,7 +19,7 @@
                         Margin="20,10,0,0">
             <Button Content="登录"
                     Margin="10,10,0,0"
-
+                    Command="{Binding ToLoginCommand}"
                     Click="ToLogin_Click"
                     FontSize="15"
                     HorizontalAlignment="Left" />
