@@ -44,6 +44,7 @@ namespace DoMeAFavor.ViewModels
         /// 验证码数据
         /// </summary>
         private string _captchaBox;
+
         public string CaptchaBox
         {
             get => _captchaBox;
@@ -60,8 +61,9 @@ namespace DoMeAFavor.ViewModels
         /// 新加的内容
         /// </summary>
         private RelayCommand _toLoginCommand;
+
         public RelayCommand ToLoginCommand =>
-            _loginCommand ?? (_loginCommand = new RelayCommand( () =>
+            _toLoginCommand ?? (_toLoginCommand = new RelayCommand( () =>
             {
                 CaptchaText = "";
                 Random r = new Random();
@@ -89,18 +91,25 @@ namespace DoMeAFavor.ViewModels
                 {
                     //TODO when login fail
                     if(CaptchaBox==CaptchaText)
-                    { 
-                    if (await _userService.LoginAsync(User.UserId, User.PassWord) == null)
                     {
-                        await new MessageDialog("学号或密码错误，请重新输入！").ShowAsync();
+                        /*if (await _userService.LoginAsync(User.UserId, User.PassWord) == null)
+                        {
+                            await new MessageDialog("学号或密码错误，请重新输入！").ShowAsync();
 
-                    }
-                    else if (await _userService.LoginAsync(User.UserId, User.PassWord) != null)
-                    {
+                        }
+                        else if
+                            (await _userService.LoginAsync(User.UserId, User.PassWord) != null)
+                        {
+                                await new MessageDialog("登录成功！").ShowAsync();
+                            _navigationService.Navigate(typeof(MyPage));
+                                await List(User.UserId,User.PassWord);
+                        }*/
+
+                        await _userService.LoginAsync(User.UserId, User.PassWord);
                         await new MessageDialog("登录成功！").ShowAsync();
                         _navigationService.Navigate(typeof(MyPage));
-                            await List(User.UserId,User.PassWord);
-                    }
+                        await List(User.UserId, User.PassWord);
+
                     }
                     else
                         await new MessageDialog("验证码错误").ShowAsync();

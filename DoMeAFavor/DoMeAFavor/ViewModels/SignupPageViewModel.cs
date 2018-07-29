@@ -60,7 +60,7 @@ namespace DoMeAFavor.ViewModels
                                                 var messageDialog = new MessageDialog("注册成功");                                               
                                                 messageDialog.Commands.Add(new UICommand("确定", cmd =>
                                                 {
-                                                    _navigationService.Navigate(typeof(MyPage));
+                                                    _navigationService.Navigate(typeof(LoginPage));
                                                 }));
                                                 await messageDialog.ShowAsync();                                          
                                     }
