@@ -149,7 +149,7 @@
 
                 </PivotItem>
 
-                <PivotItem Header="完成的任务">
+                <PivotItem Header="接收的任务">
 
                     <GridView
                         IsItemClickEnabled="True"
