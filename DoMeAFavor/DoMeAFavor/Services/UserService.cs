@@ -27,8 +27,10 @@ namespace DoMeAFavor.Services
         private const string PublishedMissionsServiceEndpoint =
             "http://172.20.10.5:13059/api/PublishedMissions";
 
-
+        
         /******** 公开属性 ********/
+        private User LoginUser;
+        
 
         /******** 继承方法 ********/
         /// <summary>
@@ -43,6 +45,15 @@ namespace DoMeAFavor.Services
                 return JsonConvert.DeserializeObject<User[]>(json);
             }
         }
+        /// <summary>
+        /// 获取当前用户
+        /// </summary>
+        /// <returns></returns>
+        public User GetCurrentUser()
+        {
+            return LoginUser;
+        }
+
         /// <summary>
         /// 获取接受的任务
         /// </summary>
@@ -72,7 +83,7 @@ namespace DoMeAFavor.Services
             }
         }
         /// <summary>
-        /// 登陆.
+        /// 登录
         /// </summary>
         /// <param name="userid"></param>
         /// <param name="password"></param>
@@ -82,7 +93,9 @@ namespace DoMeAFavor.Services
             using (var client = new HttpClient())
             {
                 var json = await client.GetStringAsync(LoginServiceEndpoint + "?userid=" + userid + "&password=" + password);
-                return JsonConvert.DeserializeObject<User>(json);
+                var loginUser = JsonConvert.DeserializeObject<User>(json);
+                LoginUser = loginUser;
+                return LoginUser;
             }
         }
 

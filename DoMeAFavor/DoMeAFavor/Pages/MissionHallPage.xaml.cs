@@ -5,6 +5,7 @@ using DoMeAFavor.Models;
 using DoMeAFavor.ViewModels;
 using System.Collections.ObjectModel;
 using Windows.UI.Popups;
+using Windows.UI.Xaml.Navigation;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -26,6 +27,9 @@ namespace DoMeAFavor
             time.Start();
 
         }
+
+        
+
         private ObservableCollection<String> suggestions;
 
         private void SearchText_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
@@ -98,11 +102,10 @@ namespace DoMeAFavor
         }
 
 
-
-        private void MissionHallPage_OnLoading(FrameworkElement sender, object args)
+        private void MissionHallPage_OnLoaded(object sender, RoutedEventArgs e)
         {
-            var viewmodel =(HallPageViewModel) DataContext;
-            viewmodel.ListCommand.Execute(null);
+            var viewModel = (HallPageViewModel) DataContext;
+            viewModel.ListCommand.Execute(null);
         }
     }
 }

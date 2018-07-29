@@ -8,6 +8,8 @@ namespace DoMeAFavor.Services
 {
     public interface IUserService
     {
+        
+        User GetCurrentUser();
         /// <summary>
         /// 更新用户信息。
         /// </summary>
@@ -25,7 +27,7 @@ namespace DoMeAFavor.Services
         /// <param name="userid"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        Task<User> LoginAsync(string userid, string password);
+        Task <User> LoginAsync(string userid, string password);
         /// <summary>
         /// 查看所有用户
         /// </summary>

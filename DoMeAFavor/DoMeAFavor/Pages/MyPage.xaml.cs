@@ -37,5 +37,11 @@ namespace DoMeAFavor
         {
 
         }
+
+        private void MyPage_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            var viewModel = (LoginPageViewModel) DataContext;
+            viewModel.RefreshCommand.Execute(null);
+        }
     }
 }

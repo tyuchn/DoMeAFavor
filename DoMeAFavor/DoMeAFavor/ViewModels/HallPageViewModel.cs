@@ -39,6 +39,8 @@ namespace DoMeAFavor.ViewModels
         /// </summary>
         private readonly IMissionService _missionService;
 
+        private readonly IUserService _userService;
+
         /// <summary>
         ///     选中的任务。
         /// </summary>
@@ -61,9 +63,11 @@ namespace DoMeAFavor.ViewModels
         /******** 继承方法 ********/
 
         /******** 公开方法 ********/
-        public HallPageViewModel(IMissionService missionService)
+        public HallPageViewModel(IMissionService missionService,IUserService userService)
         {
             _missionService = missionService;
+            _userService = userService;
+             
             MissionCollection = new ObservableCollection<Mission>();
             TakeOverMissionCollection = new ObservableCollection<Mission>();
             DeliveryMissionCollection = new ObservableCollection<Mission>();
@@ -71,6 +75,7 @@ namespace DoMeAFavor.ViewModels
             ToAddMission = new Mission();
             SelectedMission = new Mission();
             SelectedUser= new User();
+            
         }
 
         /*public HallPageViewModel()
@@ -196,6 +201,8 @@ namespace DoMeAFavor.ViewModels
             TakeOverMissionCollection.Clear();
             DeliveryMissionCollection.Clear();
             ExpressMissionCollection.Clear();
+            SelectedUser = _userService.GetCurrentUser();
+
 
             var missions = await _missionService.ListUnacceptedAsync();
             foreach (var mission in missions)

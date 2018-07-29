@@ -28,9 +28,13 @@ namespace DoMeAFavor.ViewModels
         ///     发布任务集合。
         /// </summary>
         public ObservableCollection<Mission> PublishedMissionCollection { get; }
-
+        /// <summary>
+        /// 用户
+        /// </summary>
         private User _user;
-
+        /// <summary>
+        /// 用户
+        /// </summary>
         public User User
         {
             get => _user;
@@ -82,23 +86,57 @@ namespace DoMeAFavor.ViewModels
                         await new MessageDialog("验证码错误").ShowAsync();
 
                 }));
+        
+        /// <summary>
+        /// 更新指令
+        /// </summary>
         private RelayCommand _updateCommand;
-
+        
+        /// <summary>
+        /// 更新指令
+        /// </summary>
         public RelayCommand UpdateCommand =>
             _updateCommand ?? (_updateCommand = new RelayCommand(async () =>
             {
                 var service = _userService;
                 await service.UpdateAsync(User);
             }));
-
-        public LoginPageViewModel(INavigationService navigationService)
+        
+        /// <summary>
+        /// 刷新指令
+        /// </summary>
+        private RelayCommand _refreshCommand;
+        
+        /// <summary>
+        /// 刷新指令
+        /// </summary>
+        public RelayCommand RefreshCommand => _refreshCommand ?? (_refreshCommand = 
+                                                  new RelayCommand(
+                                                  async () => 
+                                                  { await List(User.UserId, User.PassWord)
+                                                      ; }
+                                              ));
+        
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="navigationService"></param>
+        /// <param name="userService"></param>
+        public LoginPageViewModel(INavigationService navigationService,IUserService userService)
         {
-            _userService = new UserService();
+            _userService = userService;
             _navigationService = navigationService;
             User = new User();
             AcceptedMissionCollection = new ObservableCollection<Mission>();
             PublishedMissionCollection = new ObservableCollection<Mission>();
         }
+        
+        /// <summary>
+        /// 刷新
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         private async Task List(string userid, string password)
         {
             
