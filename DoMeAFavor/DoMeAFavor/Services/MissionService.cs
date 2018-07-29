@@ -100,8 +100,8 @@ namespace DoMeAFavor.Services
                 var latestCreatedMissionJson =
                     await client.GetStringAsync(MissionServiceEndpoint+"?missionname=" +
                                                 mission.MissionName);
-                var latestCreatedMission = JsonConvert.DeserializeObject<Mission>(latestCreatedMissionJson);
-                mission.MissionId = latestCreatedMission.MissionId;
+                var latestCreatedMission = JsonConvert.DeserializeObject<Mission[]>(latestCreatedMissionJson);
+                mission.MissionId = latestCreatedMission.Last().MissionId;
 
                 var usermission = new UserMission
                 {

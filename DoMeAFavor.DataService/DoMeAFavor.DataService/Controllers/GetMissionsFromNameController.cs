@@ -31,14 +31,12 @@ namespace DoMeAFavor.DataService.Controllers
                 return BadRequest(ModelState);
             }
 
-            var mission = await _context.Missions.SingleOrDefaultAsync(m => m.MissionName == missionname);
+            var missions = from a in _context.Missions where a.MissionName == missionname select a;
+            //var mission = await _context.Missions.SingleOrDefaultAsync(m => m.MissionName == missionname);
 
-            if (mission == null)
-            {
-                return NotFound();
-            }
+            
 
-            return Ok(mission);
+            return Ok(missions);
         }
 
         
