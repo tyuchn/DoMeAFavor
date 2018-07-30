@@ -93,7 +93,6 @@
                     Margin="40,40,0,0"
                     RequestedTheme="Light"
                     Visibility="Visible"
-                    
                     Command="{Binding SignupCommand}"
                     >
 

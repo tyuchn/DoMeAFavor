@@ -1,4 +1,7 @@
 ﻿
+using Windows.ApplicationModel.Core;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -24,6 +27,10 @@ namespace DoMeAFavor
             InitializeComponent();
             HomeFrame.Navigate(typeof(MissionHallPage));
             Current = this;
+            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            var appTitleBar = ApplicationView.GetForCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
+            appTitleBar.ButtonBackgroundColor = Colors.Transparent;
         }
        
         private void NavigationView_OnSelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)

@@ -16,7 +16,8 @@ namespace DoMeAFavor.DataService
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>().UseKestrel(options => options.Listen(IPAddress.Any,13059))
+                .UseStartup<Startup>()
+                .UseKestrel(options => options.Listen(IPAddress.Any,13059))
                 .Build();
     }
 }
