@@ -31,7 +31,9 @@ namespace DoMeAFavor
 
         private async void ExitButton_Click(object sender, RoutedEventArgs e)
         {
+            GlobalClass.k = 0;
             await new MessageDialog("退出成功").ShowAsync();
+            var viewModel = (LoginPageViewModel)DataContext;
             Frame.Navigate(typeof(LoginPage));
         }
 

@@ -92,7 +92,7 @@ namespace DoMeAFavor.ViewModels
                     //TODO when login fail
                     if(CaptchaBox==CaptchaText)
                     {
-                        /*if (await _userService.LoginAsync(User.UserId, User.PassWord) == null)
+                        if (await _userService.LoginAsync(User.UserId, User.PassWord) == null)
                         {
                             await new MessageDialog("学号或密码错误，请重新输入！").ShowAsync();
 
@@ -101,14 +101,10 @@ namespace DoMeAFavor.ViewModels
                             (await _userService.LoginAsync(User.UserId, User.PassWord) != null)
                         {
                                 await new MessageDialog("登录成功！").ShowAsync();
+                            GlobalClass.k = 1;
                             _navigationService.Navigate(typeof(MyPage));
                                 await List(User.UserId,User.PassWord);
-                        }*/
-
-                        await _userService.LoginAsync(User.UserId, User.PassWord);
-                        await new MessageDialog("登录成功！").ShowAsync();
-                        _navigationService.Navigate(typeof(MyPage));
-                        await List(User.UserId, User.PassWord);
+                        }
 
                     }
                     else

@@ -4,6 +4,7 @@ using Windows.UI.Xaml.Controls;
 
 using Windows.UI.Xaml.Input;
 using DoMeAFavor.Services;
+using DoMeAFavor.ViewModels;
 
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
@@ -24,25 +25,35 @@ namespace DoMeAFavor
             HomeFrame.Navigate(typeof(MissionHallPage));
             Current = this;
         }
-
+       
         private void NavigationView_OnSelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
             NavigationViewItem item =
                 args.SelectedItem as NavigationViewItem;
-
+            var viewModel = (HallPageViewModel)DataContext;
             HomeFrame.Navigate(typeof(MissionHallPage));
             switch (item.Tag)
             {
                 case "MyPage":
-                   // if(UserState==1)
-                    HomeFrame.Navigate(typeof(MyPage));
-                    break;
+                    {
+                        if (GlobalClass.k!=0)
+                        {
+                            HomeFrame.Navigate(typeof(MyPage));
+                            break;
+                        }
+                        else
+                        {
+                            HomeFrame.Navigate(typeof(LoginPage));
+                            break;
+                        }
+                    }
+                   
                 case "MissionHall":
 
                     HomeFrame.Navigate(typeof(MissionHallPage));
                     break;
                 case "NoLoginMyPage":
-                    HomeFrame.Navigate(typeof(LoginPage));
+                    //HomeFrame.Navigate(typeof(LoginPage));
                     break;
                 case "MyMoney":
                     HomeFrame.Navigate(typeof(MyMoneyPage));
