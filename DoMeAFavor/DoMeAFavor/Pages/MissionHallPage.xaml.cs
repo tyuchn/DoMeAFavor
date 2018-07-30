@@ -108,7 +108,8 @@ namespace DoMeAFavor
         {
             var viewModel = (HallPageViewModel) DataContext;
             viewModel.ListCommand.Execute(null);
-            MissionNameTextBox.Text = "sd";
+            //TODO 清空添加任务的textbox
+            MissionNameTextBox.Text = "";
             MessageTextBox.Text = "";
             PointsTextBox.Text = "";
         }
