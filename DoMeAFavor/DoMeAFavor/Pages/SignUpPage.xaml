@@ -7,7 +7,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Loaded="SignUpPage_OnLoaded">
 
     <Grid>
         <StackPanel Margin="20,0,0,0"
@@ -30,7 +31,7 @@
                 <TextBox Margin="50,20,0,0"
                          Width="450"
                          PlaceholderText="请输入学号"
-                       
+                         Name="UserIdTextBox"
                          Text="{Binding User.UserId,Mode=TwoWay}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -41,7 +42,7 @@
                              Width="450"
                              PasswordChar="*"
                              PlaceholderText="请设置密码小于16位"
-                            
+                             Name="PasswordTextBox"
                              Password="{Binding User.PassWord,Mode=TwoWay}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -52,7 +53,7 @@
                              Width="450"
                              PlaceholderText="请再次输入您的密码"
                              PasswordChar="*"
-                            
+                             Name="ConfirmPasswordTextBox"
                              Password="{Binding SurePassword,Mode=TwoWay}"
                              />
             </StackPanel>
@@ -63,7 +64,7 @@
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请输入真实姓名"
-                       
+                         Name="RealNameTextBox"
                          Text="{Binding User.RealName,Mode=TwoWay}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -73,7 +74,7 @@
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请输入真实手机号"
-                         
+                         Name="PhoneNumberTextBox"
                          Text="{Binding User.PhoneNumber,Mode=TwoWay}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -83,7 +84,8 @@
                            />
                 <TextBox Margin="40,20,0,0"
                          Width="450"
-                         PlaceholderText="请设置您的DoMeAFovor昵称" 
+                         PlaceholderText="请设置您的DoMeAFovor昵称"
+                         Name="UserNameTextBox"
                          Text="{Binding User.UserName,Mode=TwoWay}"/>
             </StackPanel>
            

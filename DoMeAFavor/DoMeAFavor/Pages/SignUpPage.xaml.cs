@@ -1,4 +1,5 @@
 ﻿
+using Windows.UI.Xaml;
 using DoMeAFavor.ViewModels;
 using Windows.UI.Xaml.Controls;
 
@@ -18,5 +19,17 @@ namespace DoMeAFavor
             DataContext = ViewModelLocator.Instance.SignupPageViewModel;
         }
 
+       
+
+        private void SignUpPage_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            //每次重新加载界面，textbox里的内容清除
+            UserIdTextBox.Text = "";
+            PasswordTextBox.Password = "";
+            ConfirmPasswordTextBox.Password = "";
+            RealNameTextBox.Text = "";
+            PhoneNumberTextBox.Text = "";
+            UserNameTextBox.Text = "";
+        }
     }
 }

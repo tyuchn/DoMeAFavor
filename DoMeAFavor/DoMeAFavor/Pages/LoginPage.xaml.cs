@@ -45,6 +45,7 @@ namespace DoMeAFavor
         {
           
             Frame.Navigate(typeof(SignUpPage), null, new DrillInNavigationTransitionInfo());
+            
         }
         /// <summary>
         /// 生成随机验证码
