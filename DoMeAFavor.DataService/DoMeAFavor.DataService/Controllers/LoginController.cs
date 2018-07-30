@@ -33,7 +33,7 @@ namespace DoMeAFavor.DataService.Controllers
 
             if (user == null)
             {
-                return NotFound();
+                return NotFound();//会报错
             }
 
             return Ok(user);
