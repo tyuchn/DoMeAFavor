@@ -42,14 +42,14 @@ namespace DoMeAFavor
             var viewModel = (HallPageViewModel)DataContext;
              var i = viewModel.MissionCollection.Count;
             int j;
-            suggestions.Clear();
+            suggestions1.Clear();
             for(j= 0; j< i; j++)   
             { 
                 if(viewModel.MissionCollection[j].MissionName.Contains(sender.Text))
-            suggestions.Add(viewModel.MissionCollection[j]);
+            suggestions1.Add(viewModel.MissionCollection[j].MissionName);
             }
            
-            sender.ItemsSource = suggestions1;
+            sender.ItemsSource= suggestions1;
         }
        
         private  async void SearchText_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
@@ -65,7 +65,13 @@ namespace DoMeAFavor
         private  void SearchText_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
         {
             var viewModel = (HallPageViewModel)DataContext;
-            viewModel.SelectedMission = (Mission)args.SelectedItem;
+            int a;
+            for (a = 0;a < viewModel.MissionCollection.Count;a++)
+            {
+                if (viewModel.MissionCollection[a].MissionName == args.SelectedItem)
+                    viewModel.SelectedMission = viewModel.MissionCollection[a];
+            }
+            
         }
         /// <summary>
         /// 点击任务后触发事假
