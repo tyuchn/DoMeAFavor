@@ -76,9 +76,9 @@ namespace DoMeAFavor.Services
                 
                 var json = await client.GetStringAsync(PBUMServiceEndpoint + "missionname=" + mission.MissionName);
                 var usermisson = JsonConvert.DeserializeObject<UserMission[]>(json);
-                usermisson.First().ReceiverId = user.Id;
-                var newjson = JsonConvert.SerializeObject(usermisson.First());
-                await client.PutAsync(UMServiceEndpoint + "/" + usermisson.First().MissionId,                   
+                usermisson.Last().ReceiverId = user.Id;
+                var newjson = JsonConvert.SerializeObject(usermisson.Last());
+                await client.PutAsync(UMServiceEndpoint + "/" + usermisson.Last().MissionId,                   
                     new StringContent(newjson, Encoding.UTF8, "application/json"));
                 
             }
