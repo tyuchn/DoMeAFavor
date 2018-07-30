@@ -1,5 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 using Windows.Web.AtomPub;
 using DoMeAFavor.Models;
 using DoMeAFavor.Services;
@@ -164,8 +166,16 @@ namespace DoMeAFavor.ViewModels
             _acceptCommand ?? (_acceptCommand = 
                 new RelayCommand(async () =>
                 {
-                    await _missionService.AcceptAsync(SelectedMission, SelectedUser);
-                    await List();
+                    //如果没有登录，则不允许进行接收任务操作
+                    if (SelectedUser == null)
+                    {
+                        await new MessageDialog("您尚未登录，请先登录").ShowAsync();
+                    }
+                    else
+                    {
+                        await _missionService.AcceptAsync(SelectedMission, SelectedUser);
+                        await List();
+                    }
 
                 }));
         /// <summary>
@@ -186,8 +196,17 @@ namespace DoMeAFavor.ViewModels
             _addCommand ?? (_addCommand =
                 new RelayCommand(async () =>
                 {
-                    await _missionService.AddAsync(ToAddMission,SelectedUser);
-                    await List();
+                    //如果没有登录，则不允许进行添加任务操作
+                    if (SelectedUser == null)
+                    {
+                        await new MessageDialog("您尚未登录，请先登录").ShowAsync();
+                    }
+                    else
+                    {
+                        await _missionService.AddAsync(ToAddMission, SelectedUser);
+                        await List();
+                    }
+
                 }));
 
         /******** 私有方法 ********/

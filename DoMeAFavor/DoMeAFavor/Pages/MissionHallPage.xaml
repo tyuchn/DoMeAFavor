@@ -11,7 +11,7 @@
     xmlns:models="using:DoMeAFavor.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-Loaded="MissionHallPage_OnLoaded"
+    Loaded="MissionHallPage_OnLoaded"
     >
 
     <Page.Resources>
@@ -163,10 +163,13 @@ Loaded="MissionHallPage_OnLoaded"
                             HorizontalAlignment="Stretch">
                     <TextBox
                         PlaceholderText="请输入任务标题"
+                        Name="MissionNameTextBox"
                         Text="{Binding ToAddMission.MissionName ,Mode=TwoWay }"
                         TextWrapping="Wrap"
                         Margin="10,10,0,0" />
-                    <TextBox PlaceholderText="请输入任务内容" Text="{Binding ToAddMission.Message, Mode=TwoWay}"
+                    <TextBox PlaceholderText="请输入任务内容"
+                             Name="MessageTextBox"
+                             Text="{Binding ToAddMission.Message, Mode=TwoWay}"
                              TextWrapping="Wrap"
                              Margin="10,10,0,0" />
                     <CalendarDatePicker PlaceholderText="截止时间" Date="{Binding ToAddMission.Deadline }"
@@ -174,6 +177,7 @@ Loaded="MissionHallPage_OnLoaded"
                                         Width="auto" />
                     <TextBox
                         PlaceholderText="积分"
+                        Name="PointsTextBox"
                         Text="{Binding ToAddMission.Points ,Mode=TwoWay}"
                         TextWrapping="Wrap"
                         Margin="10,10,0,0" />

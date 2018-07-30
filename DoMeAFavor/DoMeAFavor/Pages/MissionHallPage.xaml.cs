@@ -108,6 +108,9 @@ namespace DoMeAFavor
         {
             var viewModel = (HallPageViewModel) DataContext;
             viewModel.ListCommand.Execute(null);
+            MissionNameTextBox.Text = "sd";
+            MessageTextBox.Text = "";
+            PointsTextBox.Text = "";
         }
     }
 }
