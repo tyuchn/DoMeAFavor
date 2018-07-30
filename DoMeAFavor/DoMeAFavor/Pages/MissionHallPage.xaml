@@ -121,7 +121,9 @@
                                 QueryIcon="Find"
                                 QuerySubmitted="SearchText_QuerySubmitted"
                                 SuggestionChosen="SearchText_SuggestionChosen"
-                                Width="450" />
+                                Width="450" >
+                    
+                </AutoSuggestBox>
 
             </StackPanel>
 

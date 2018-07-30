@@ -224,6 +224,9 @@ namespace DoMeAFavor.ViewModels
 
 
             var missions = await _missionService.ListUnacceptedAsync();
+            foreach (var mission in missions) {
+                MissionCollection.Add(mission);
+            }
             foreach (var mission in missions)
                 if (mission.Type == Mission.MissionType.Express)
                     ExpressMissionCollection.Add(mission);
