@@ -874,7 +874,7 @@
                                 <Grid.RenderTransform>
                                     <CompositeTransform x:Name="PaneTransform" />
                                 </Grid.RenderTransform>
-                                <Border Child="{TemplateBinding Pane}" Background="RoyalBlue"/>
+                                <Border Child="{TemplateBinding Pane}" Background="RoyalBlue" />
                                 <Rectangle x:Name="HCPaneBorder"
                                            x:DeferLoadStrategy="Lazy"
                                            Visibility="Collapsed"
@@ -1017,7 +1017,7 @@
 
                                 <Grid x:Name="ButtonHolderGrid" Grid.Row="1">
                                     <Button x:Name="NavigationViewBackButton"
-                                            Foreground="Azure"                                            
+                                            Foreground="Azure"
                                             Style="{StaticResource NavigationBackButtonNormalStyle}"
                                             VerticalAlignment="Top"
                                             IsEnabled="{TemplateBinding IsBackEnabled}" />
@@ -1089,14 +1089,13 @@
                                                 Style="{TemplateBinding PaneToggleButtonStyle}"
                                                 Width="{TemplateBinding CompactPaneLength}"
                                                 MinHeight="44"
-                                                Content="&#xE11A;"
-                                                />
+                                                Content="&#xE11A;" />
                                         </Grid>
 
-                                        <NavigationViewList x:Name="MenuItemsHost" 
-                                                            Grid.Row="5" 
+                                        <NavigationViewList x:Name="MenuItemsHost"
+                                                            Grid.Row="5"
                                                             Margin="0,0,0,20"
-                                                            SelectionMode="Single" 
+                                                            SelectionMode="Single"
                                                             IsItemClickEnabled="True"
                                                             HorizontalAlignment="Stretch"
                                                             ItemsSource="{TemplateBinding MenuItemsSource}"
@@ -1110,7 +1109,16 @@
                                             x:Name="FooterContentBorder"
                                             Grid.Row="6"
                                             Child="{TemplateBinding PaneFooter}" />
-                                        <NavigationViewItem x:Name="SettingsNavPaneItem" Grid.Row="7" Icon="Setting"  />
+                                        <NavigationViewItem Style="{StaticResource  POsss}"
+                                                            x:Name="SettingsNavPaneItem"
+                                                            Grid.Row="7">
+
+                                            <NavigationViewItem.Icon>
+                                                <SymbolIcon Symbol="Setting" Foreground="Azure" />
+                                            </NavigationViewItem.Icon>
+
+                                        </NavigationViewItem>
+
                                     </Grid>
                                 </SplitView.Pane>
 
@@ -1171,8 +1179,8 @@
                                                     Value="{ThemeResource NavigationViewItemBackgroundPointerOver}" />
                                             <Setter Target="RevealBorder.BorderBrush"
                                                     Value="{ThemeResource NavigationViewItemBorderBrushPointerOver}" />
-                                            <Setter Target="ContentPresenter.Foreground"                                                    
-                                                    Value="{ThemeResource NavigationViewItemForegroundPointerOver}" />
+                                            <Setter Target="ContentPresenter.Foreground"
+                                                    Value="Azure" />
                                         </VisualState.Setters>
                                     </VisualState>
 
@@ -1184,18 +1192,18 @@
                                             <Setter Target="RevealBorder.BorderBrush"
                                                     Value="{ThemeResource NavigationViewItemBorderBrushPressed}" />
                                             <Setter Target="ContentPresenter.Foreground"
-                                                    Value="{ThemeResource NavigationViewItemForegroundPressed}" />
+                                                    Value="Azure" />
                                         </VisualState.Setters>
                                     </VisualState>
 
                                     <VisualState x:Name="Selected">
                                         <VisualState.Setters>
                                             <Setter Target="LayoutRoot.Background"
-                                                    Value="{ThemeResource NavigationViewItemBackgroundSelected}" />
+                                                    Value="CornflowerBlue" />
                                             <Setter Target="RevealBorder.BorderBrush"
                                                     Value="{ThemeResource NavigationViewItemBorderBrushSelected}" />
                                             <Setter Target="ContentPresenter.Foreground"
-                                                    Value="{ThemeResource NavigationViewItemForegroundSelected}" />
+                                                    Value="Azure" />
                                         </VisualState.Setters>
                                     </VisualState>
 
@@ -1207,7 +1215,7 @@
                                             <Setter Target="RevealBorder.BorderBrush"
                                                     Value="{ThemeResource NavigationViewItemBorderBrushSelectedPointerOver}" />
                                             <Setter Target="ContentPresenter.Foreground"
-                                                    Value="{ThemeResource NavigationViewItemForegroundSelectedPointerOver}" />
+                                                    Value="Azure" />
                                         </VisualState.Setters>
                                     </VisualState>
 
@@ -1274,7 +1282,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Viewbox x:Name="IconBox"
-                                         
+
                                          Child="{TemplateBinding Icon}"
                                          Margin="14,10" />
 
@@ -1318,24 +1326,48 @@
             <NavigationView.MenuItems>
 
                 <NavigationViewItem Style="{StaticResource POsss}"
-                                    Icon="contact"
+
                                     Content="账户"
-                                    Tag="NoLoginMyPage" />
+                                    Tag="NoLoginMyPage">
 
-                <NavigationViewItem Icon="home"
-                                    Style="{StaticResource POsss}"
-                                    Content="我的主页"
-                                    Tag="MyPage" />
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Contact" Foreground="Azure" />
+                    </NavigationViewItem.Icon>
 
-                <NavigationViewItem Icon="phone"
-                                    Style="{StaticResource POsss}"
-                                    Content="任务大厅"
-                                    Tag="MissionHall" />
+                </NavigationViewItem>
 
-                <NavigationViewItem Icon="add"
-                                    Style="{StaticResource POsss}"
-                                    Content="积分通道"
-                                    Tag="MyMoney" />
+                <NavigationViewItem
+                    Style="{StaticResource POsss}"
+                    Content="我的主页"
+                    Tag="MyPage">
+
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Home" Foreground="Azure" />
+                    </NavigationViewItem.Icon>
+
+                </NavigationViewItem>
+
+                <NavigationViewItem
+                    Style="{StaticResource POsss}"
+                    Content="任务大厅"
+                    Tag="MissionHall">
+
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Phone" Foreground="Azure" />
+                    </NavigationViewItem.Icon>
+
+                </NavigationViewItem>
+
+                <NavigationViewItem
+                    Style="{StaticResource POsss}"
+                    Content="积分通道"
+                    Tag="MyMoney">
+
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Add" Foreground="Azure" />
+                    </NavigationViewItem.Icon>
+
+                </NavigationViewItem>
 
             </NavigationView.MenuItems>
 
