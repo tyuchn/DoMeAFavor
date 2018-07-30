@@ -6,6 +6,8 @@ using DoMeAFavor.ViewModels;
 using System.Collections.ObjectModel;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Navigation;
+using DoMeAFavor.Services;
+using System.Threading.Tasks;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -20,7 +22,8 @@ namespace DoMeAFavor
         {
             InitializeComponent();
             DataContext = ViewModelLocator.Instance.HallPageViewModel;
-            suggestions = new ObservableCollection<string>();
+            suggestions = new ObservableCollection<Mission>();
+            suggestions1 = new ObservableCollection<string>();
             DispatcherTimer time = new DispatcherTimer();
             time.Interval = new TimeSpan(0, 0,3);
             time.Tick += Time_Tick;
@@ -28,34 +31,41 @@ namespace DoMeAFavor
 
         }
 
-        
-
-        private ObservableCollection<String> suggestions;
+        /// <summary>
+        /// 搜索服务
+        /// </summary>
+        private ObservableCollection<Mission> suggestions;
+        private ObservableCollection<string> suggestions1;
 
         private void SearchText_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            var i = 0;
-            string[] a = { "超市快递","食堂外卖","超市外卖","五舍外卖","数学课代课" } ;
+            var viewModel = (HallPageViewModel)DataContext;
+             var i = viewModel.MissionCollection.Count;
+            int j;
             suggestions.Clear();
-            for(i= 0; i < 5; i++)   
+            for(j= 0; j< i; j++)   
             { 
-                if(a[i].Contains(sender.Text))
-            suggestions.Add(a[i]);
+                if(viewModel.MissionCollection[j].MissionName.Contains(sender.Text))
+            suggestions.Add(viewModel.MissionCollection[j]);
             }
-            sender.ItemsSource = suggestions;
+           
+            sender.ItemsSource = suggestions1;
+        }
+       
+        private  async void SearchText_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+            var viewModel = (HallPageViewModel)DataContext;
+            if (args.ChosenSuggestion != null)
+            {
+                await MissionDetailContent.ShowAsync();
+            }
+            
         }
 
-        private void SearchText_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        private  void SearchText_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
         {
-           /* if (args.ChosenSuggestion != null)
-                SearchBlock.Text = args.ChosenSuggestion.ToString();
-            else
-                SearchBlock.Text = sender.Text;*/
-        }
-
-        private async void SearchText_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
-        {
-            await new MessageDialog("暂无任务").ShowAsync();
+            var viewModel = (HallPageViewModel)DataContext;
+            viewModel.SelectedMission = (Mission)args.SelectedItem;
         }
         /// <summary>
         /// 点击任务后触发事假
@@ -91,7 +101,11 @@ namespace DoMeAFavor
             }
         }
 
-        
+        /// <summary>
+        /// 图片滑动方式，顺序
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
              private void Time_Tick(object sender, object e)
         {
             int i = MissionHallFlip.SelectedIndex;
