@@ -33,6 +33,7 @@ namespace DoMeAFavor
         {
             GlobalClass.k = 0;
             await new MessageDialog("退出成功").ShowAsync();
+            var viewModel = (LoginPageViewModel)DataContext;
             Frame.Navigate(typeof(LoginPage));
         }
 

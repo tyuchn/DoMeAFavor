@@ -167,7 +167,7 @@ namespace DoMeAFavor.ViewModels
                 new RelayCommand(async () =>
                 {
                     //如果没有登录，则不允许进行接收任务操作
-                    if (SelectedUser == null)
+                    if ((SelectedUser == null)||(GlobalClass.k==0))
                     {
                         await new MessageDialog("您尚未登录，请先登录").ShowAsync();
                     }
@@ -197,7 +197,7 @@ namespace DoMeAFavor.ViewModels
                 new RelayCommand(async () =>
                 {
                     //如果没有登录，则不允许进行添加任务操作
-                    if (SelectedUser == null)
+                    if ((SelectedUser == null) || (GlobalClass.k == 0))
                     {
                         await new MessageDialog("您尚未登录，请先登录").ShowAsync();
                     }
