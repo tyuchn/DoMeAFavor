@@ -238,7 +238,8 @@
                     <CalendarDatePicker PlaceholderText="截止时间" 
                                         Date="{Binding ToAddMission.Deadline }"
                                         Margin="10,10,0,0"
-                                        Width="auto" />
+                                        Width="auto" 
+                                        Name="DeadlineDate"/>
 
                     <TextBox
                         PlaceholderText="积分"
