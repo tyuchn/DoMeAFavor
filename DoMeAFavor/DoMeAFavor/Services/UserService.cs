@@ -137,6 +137,7 @@ namespace DoMeAFavor.Services
         {
             using (var client = new HttpClient())
             {
+                user.Points += 10;
                 var json = JsonConvert.SerializeObject(user);
                 await client.PostAsync(ServiceEndpoint,
                     new StringContent(json, Encoding.UTF8, "application/json"));

@@ -30,7 +30,7 @@ namespace DoMeAFavor.UnitTest.Services
             var missionService = new MissionService();
             var mission = new Mission
             {
-                MissionName = "测试"
+                MissionName = "高数代课"
                 
             };
             var user = new User

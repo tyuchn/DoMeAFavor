@@ -26,6 +26,8 @@ namespace DoMeAFavor.Services
             "http://172.20.10.5:13059/api/UserMissions";
         private const string PBUMServiceEndpoint =
             "http://172.20.10.5:13059/api/PublishedUserMissions?";
+        private const string UserServiceEndpoint =
+            "http://172.20.10.5:13059/api/Users";
 
         private const string MissionServiceEndpoint = "http://172.20.10.5:13059/api/GetMissionsFromName";
         private const string UnacceptedServiceEndpoint = "http://172.20.10.5:13059/api/UnacceptedMissions";
@@ -80,7 +82,13 @@ namespace DoMeAFavor.Services
                 var newjson = JsonConvert.SerializeObject(usermissons.Last());
                 await client.PutAsync(UMServiceEndpoint + "/" + usermissons.Last().MissionId,                   
                     new StringContent(newjson, Encoding.UTF8, "application/json"));
-                
+
+                /*user.Points += mission.Points;
+                var userjson = JsonConvert.SerializeObject(user);
+                await client.PutAsync(UserServiceEndpoint + "/" + user.Id,
+                    new StringContent(userjson, Encoding.UTF8,
+                        "application/json"));*/
+
             }
         }
 
@@ -113,6 +121,12 @@ namespace DoMeAFavor.Services
 
                 await client.PostAsync(UMServiceEndpoint,
                     new StringContent(umjson, Encoding.UTF8, "application/json"));
+
+                user.Points -= mission.Points;
+                var userjson = JsonConvert.SerializeObject(user);
+                await client.PutAsync(UserServiceEndpoint + "/" + user.Id,
+                    new StringContent(userjson, Encoding.UTF8,
+                        "application/json"));
 
 
             }
