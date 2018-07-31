@@ -47,10 +47,10 @@ namespace DoMeAFavor.UnitTest.Services
         public async Task TestAcceptMissionAsync()
         {
             var missionService = new MissionService();
-            var mission = new Mission{MissionName = "测试"};
+            var mission = new Mission{MissionName = "高数代课"};
             var acceptuser = new User
             {
-                Id = 18
+                Id = 1
 
             };
 

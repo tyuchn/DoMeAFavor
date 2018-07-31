@@ -20,7 +20,7 @@ namespace DoMeAFavor.Services
         /// 添加用户。
         /// </summary>
         /// <returns></returns>
-        Task AddAsync(User user);
+        Task<bool> AddAsync(User user);
         /// <summary>
         /// 登陆
         /// </summary>

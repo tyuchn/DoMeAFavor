@@ -133,14 +133,23 @@ namespace DoMeAFavor.Services
         /// <summary>
         ///     添加用户。
         /// </summary>
-        public async Task AddAsync(User user)
+        public async Task<bool> AddAsync(User user)
         {
             using (var client = new HttpClient())
             {
-                user.Points += 10;
+                var allusersjson = await client.GetStringAsync(ServiceEndpoint);
+                var allusers = JsonConvert.DeserializeObject<User[]>(allusersjson);
+                foreach (var auser in allusers)
+                {
+                    if (auser.UserId == user.UserId)
+                    {
+                        return false;
+                    }
+                }
                 var json = JsonConvert.SerializeObject(user);
                 await client.PostAsync(ServiceEndpoint,
                     new StringContent(json, Encoding.UTF8, "application/json"));
+                return true;
             }
         }
 
