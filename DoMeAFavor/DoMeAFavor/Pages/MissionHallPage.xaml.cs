@@ -28,7 +28,7 @@ namespace DoMeAFavor
             time.Interval = new TimeSpan(0, 0,3);
             time.Tick += Time_Tick;
             time.Start();
-
+            
         }
 
         /// <summary>
@@ -87,7 +87,9 @@ namespace DoMeAFavor
 
         private async void AddButton_Click_1(object sender, RoutedEventArgs e)
         {
+            DeadlineDate.Date = DateTime.Now;
             await AddMissionContent.ShowAsync();
+            await new MessageDialog(DeadlineDate.Date.ToString()).ShowAsync();
         }
         
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
