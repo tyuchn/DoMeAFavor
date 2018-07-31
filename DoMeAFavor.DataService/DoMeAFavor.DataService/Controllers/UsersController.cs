@@ -89,18 +89,14 @@ namespace DoMeAFavor.DataService.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var existuser = await _context.Users.SingleOrDefaultAsync(m => m.Username == user.Username);
-            if (existuser == null)
-            {
+
+            
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
 
                 return CreatedAtAction("GetUser", new { id = user.Id }, user);
-            }
-            else
-            {
-                return BadRequest(); //如果用户已存在返回什么
-            }
+            
+            
         }
 
         // DELETE: api/Users/5
