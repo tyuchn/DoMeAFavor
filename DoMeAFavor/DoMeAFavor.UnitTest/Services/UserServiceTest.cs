@@ -15,7 +15,7 @@ namespace DoMeAFavor.UnitTest.Services
             var userService = new UserService();
 
             var  users = (await userService.ListAsync()).ToList();
-            Assert.AreEqual(17, users.Count);
+            Assert.AreEqual(2, users.Count);
             //Assert.AreEqual("food", users[0].UserName);
             //Assert.AreEqual("mac", users[1].PassWord);
         }
@@ -23,22 +23,22 @@ namespace DoMeAFavor.UnitTest.Services
         public async Task TestLoginAsync()
         {
             var userService = new UserService();
-            var user = await userService.LoginAsync("20151111", "000000");
-            Assert.AreEqual("1504",user.Class);
+            var user = await userService.LoginAsync("20150000", "000000");
+            Assert.AreEqual("20150000",user.UserId);
         }
         [TestMethod]
         public async Task TestACMAsync()
         {
             var userService = new UserService();
-            var missions = await userService.GetAcceptedMissionsAsync("20151111", "000000");
-            Assert.AreEqual(5, missions.First().MissionId);
+            var missions = await userService.GetAcceptedMissionsAsync("20150000", "000000");
+            Assert.AreEqual(1085, missions.First().MissionId);
         }
         [TestMethod]
         public async Task TestPBMAsync()
         {
             var userService = new UserService();
             var missions = await userService.GetPublishedMissionsAsync("20150000", "000000");
-            Assert.AreEqual(8, missions.Last().MissionId);
+            Assert.AreEqual(1085, missions.Last().MissionId);
         }
         [TestMethod]
         public async Task TestUpdateAsync()
@@ -47,15 +47,15 @@ namespace DoMeAFavor.UnitTest.Services
             var users = (await userService.ListAsync()).ToList();
             var firstUser = users[0];
 
-             Assert.AreEqual("20158888", firstUser.UserId);
+             Assert.AreEqual("20150000", firstUser.UserId);
 
-             firstUser.UserId = "20157777";
+             firstUser.RealName = "111";
              await userService.UpdateAsync(firstUser);
 
              users = (await userService.ListAsync()).ToList();
              firstUser = users[0];
 
-             Assert.AreEqual("20157777", firstUser.UserId);
+             Assert.AreEqual("111", firstUser.UserId);
         }
 
         [TestMethod]
@@ -70,7 +70,7 @@ namespace DoMeAFavor.UnitTest.Services
             await userService.AddAsync(newUser);
             var users = (await userService.ListAsync()).ToList();
 
-            Assert.AreEqual(18, users.Count);
+            Assert.AreEqual(3, users.Count);
             //Assert.AreEqual("express", missions[0].MissionName);
             //Assert.AreEqual("lunch", missions[1].MissionName);
         }
@@ -80,10 +80,10 @@ namespace DoMeAFavor.UnitTest.Services
         {
             var userService = new UserService();
             var users = (await userService.ListAsync()).ToList();
-            var secondUser = users[1];
+            var secondUser = users[2];
             await userService.DeleteAsync(secondUser);
             var newUsers = (await userService.ListAsync()).ToList();
-            Assert.AreEqual(17, newUsers.Count);
+            Assert.AreEqual(2, newUsers.Count);
         }
     }
 }

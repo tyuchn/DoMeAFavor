@@ -214,6 +214,7 @@
             <ContentDialog
                 Title="请输入你的任务"
                 PrimaryButtonText="Confirm"
+                PrimaryButtonClick="AddMissionContent_PrimaryButtonClick"
                 PrimaryButtonCommand="{Binding AddCommand}"
                 CloseButtonText="Cancel"
                 DefaultButton="Close"
@@ -236,11 +237,10 @@
                              Margin="10,10,0,0" />
 
                     <CalendarDatePicker PlaceholderText="截止时间" 
-                                        Date="{Binding ToAddMission.Deadline }"
+                                      DataContext="{Binding }"
                                         Margin="10,10,0,0"
                                         Width="auto" 
                                         Name="DeadlineDate"/>
-
                     <TextBox
                         PlaceholderText="积分"
                         Name="PointsTextBox"

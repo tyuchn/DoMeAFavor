@@ -196,7 +196,7 @@ namespace DoMeAFavor.ViewModels
             _addCommand ?? (_addCommand =
                 new RelayCommand(async () =>
                 {
-                    ToAddMission.Deadline = DateTime.Now;
+                    //ToAddMission.Deadline = DateTime.Now;
                     //如果没有登录，则不允许进行添加任务操作
                     if ((SelectedUser == null) || (GlobalClass.k == 0))
                     {

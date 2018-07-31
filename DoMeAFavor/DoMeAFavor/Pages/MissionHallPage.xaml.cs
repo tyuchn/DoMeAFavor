@@ -87,9 +87,11 @@ namespace DoMeAFavor
 
         private async void AddButton_Click_1(object sender, RoutedEventArgs e)
         {
-            DeadlineDate.Date = DateTime.Now;
+           
+            DeadlineDate.Date= DateTime.Now;
+            //DeadlineTime.Time= DateTime.Now.TimeOfDay;
             await AddMissionContent.ShowAsync();
-            await new MessageDialog(DeadlineDate.Date.ToString()).ShowAsync();
+          
         }
         
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -134,6 +136,12 @@ namespace DoMeAFavor
             MissionNameTextBox.Text = "";
             MessageTextBox.Text = "";
             PointsTextBox.Text = "";
+        }
+
+        private void AddMissionContent_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            var ViewModel = (HallPageViewModel)DataContext;
+            ViewModel.ToAddMission.Deadline = Convert.ToDateTime(DeadlineDate.Date.ToString());
         }
     }
 }

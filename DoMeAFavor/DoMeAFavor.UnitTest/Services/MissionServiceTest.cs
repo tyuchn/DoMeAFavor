@@ -18,7 +18,7 @@ namespace DoMeAFavor.UnitTest.Services
             var missionService = new MissionService();
 
             var missions = (await missionService.ListAsync()).ToList();
-            Assert.AreEqual(8, missions.Count);
+            Assert.AreEqual(26, missions.Count);
             //Assert.AreEqual("food", missions[0].MissionName);
             //Assert.AreEqual("mac", missions[1].Message);
         }
@@ -47,7 +47,7 @@ namespace DoMeAFavor.UnitTest.Services
         public async Task TestAcceptMissionAsync()
         {
             var missionService = new MissionService();
-            var mission = new Mission{MissionName = "高数代课"};
+            var mission = new Mission{MissionName = "1231"};
             var acceptuser = new User
             {
                 Id = 1
@@ -63,10 +63,10 @@ namespace DoMeAFavor.UnitTest.Services
         {
             var missionService = new MissionService();
             var missions = (await missionService.ListAsync()).ToList();
-            var secondMission = missions[1];
+            var secondMission = missions[25];
             await missionService.DeleteAsync(secondMission);
             var newMissions = (await missionService.ListAsync()).ToList();
-            Assert.AreEqual(8, newMissions.Count);
+            Assert.AreEqual(25, newMissions.Count);
         }
     }
 }
