@@ -196,17 +196,22 @@ namespace DoMeAFavor.ViewModels
             _addCommand ?? (_addCommand =
                 new RelayCommand(async () =>
                 {
-                    //ToAddMission.Deadline = DateTime.Now;
+                   
                     //如果没有登录，则不允许进行添加任务操作
+                    
                     if ((SelectedUser == null) || (GlobalClass.k == 0))
                     {
                         await new MessageDialog("您尚未登录，请先登录").ShowAsync();
                     }
                     else
                     {
-                        
+                        if (SelectedUser.Points < ToAddMission.Points)
+                            await new MessageDialog("您的积分不足，请接受任务获取积分").ShowAsync();
+                        else
+                        { 
                         await _missionService.AddAsync(ToAddMission, SelectedUser);
                         await List();
+                        }
                     }
 
                 }));
