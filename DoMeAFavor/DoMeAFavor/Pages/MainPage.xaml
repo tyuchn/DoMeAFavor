@@ -1325,17 +1325,6 @@
 
             <NavigationView.MenuItems>
 
-                <NavigationViewItem Style="{StaticResource POsss}"
-
-                                    Content="账户"
-                                    Tag="NoLoginMyPage">
-
-                    <NavigationViewItem.Icon>
-                        <SymbolIcon Symbol="Contact" Foreground="Azure" />
-                    </NavigationViewItem.Icon>
-
-                </NavigationViewItem>
-
                 <NavigationViewItem
                     Style="{StaticResource POsss}"
                     Content="我的主页"
