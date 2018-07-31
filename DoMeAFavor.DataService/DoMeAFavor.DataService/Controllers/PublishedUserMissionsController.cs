@@ -30,7 +30,7 @@ namespace DoMeAFavor.DataService.Controllers
             var userMission = from a in _context.Missions
                 from b in _context.UserMissions
                 from c in _context.Users
-                where a.MissionId == b.MissionId && b.UserId == c.Id && a.MissionName == missionname && c.UserId == username
+                where a.MissionId == b.MissionId && b.UserId == c.Id && a.MissionName == missionname && c.UserId == username && b.ReceiverId == 0
                 select b;
 
             return Ok(userMission);
