@@ -31,10 +31,10 @@ namespace DoMeAFavor.DataService.Controllers
 
             var user = await _context.Users.SingleOrDefaultAsync(m => m.UserId == userid && m.Password == password);
 
-            if (user == null)
+            /*if (user == null)
             {
                 return NotFound();//会报错
-            }
+            }*/
 
             return Ok(user);
         }
