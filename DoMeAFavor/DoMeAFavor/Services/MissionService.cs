@@ -83,11 +83,11 @@ namespace DoMeAFavor.Services
                 await client.PutAsync(UMServiceEndpoint + "/" + usermissons.Last().MissionId,                   
                     new StringContent(newjson, Encoding.UTF8, "application/json"));
 
-                /*user.Points += mission.Points;
+                user.Points += mission.Points;
                 var userjson = JsonConvert.SerializeObject(user);
                 await client.PutAsync(UserServiceEndpoint + "/" + user.Id,
                     new StringContent(userjson, Encoding.UTF8,
-                        "application/json"));*/
+                        "application/json"));
 
             }
         }
