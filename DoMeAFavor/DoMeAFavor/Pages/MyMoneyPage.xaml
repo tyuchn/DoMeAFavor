@@ -17,13 +17,13 @@
             <RichTextBlock Width="800" HorizontalAlignment="Left"
                            >
                 <Paragraph Margin="50,0,0,0" FontSize="25">
-                    首先：DoMeAFaour全体开发者 感谢您对我们的支持
+                    首先：DoMeAFavor全体开发者 感谢您对我们的支持
                 </Paragraph>
                 <Paragraph Margin="0,0,0,0" FontSize="25">
                     使用方法：
                 </Paragraph>
                 <Paragraph Margin="50,0,0,0" FontSize="25">
-                    请先点击我的主页，若您有自己的DoMeAFaour账号，请登录；若没有请点击注册进行注册账号。
+                    请先点击我的主页，若您有自己的DoMeAFavor账号，请登录；若没有请点击注册进行注册账号。
                 </Paragraph>
                 <Paragraph Margin="50,0,0,0" FontSize="25">
                     登录后可以到任务大厅进行发布任务或者接受任务，希望您使用愉快。
