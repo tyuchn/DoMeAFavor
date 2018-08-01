@@ -45,8 +45,9 @@
             <CommandBar Background="Transparent"
                         OverflowButtonVisibility="Collapsed"
                         DefaultLabelPosition="Right"
-                        HorizontalAlignment="Right"
-                        Margin="40,30,350,0">
+                        HorizontalAlignment="Center"
+                        Margin="50,50,0,0"
+                        >
 
                 <AppBarButton Label="保存"
                               Icon="Save"
@@ -62,9 +63,9 @@
             </CommandBar>
 
             <ContentDialog
-                Title="Save your change?"
-                PrimaryButtonText="Save"
-                CloseButtonText="Cancel"
+                Title="是否保存您的更改？"
+                PrimaryButtonText="保存"
+                CloseButtonText="取消"
                 DefaultButton="Close"
                 PrimaryButtonCommand="{Binding UpdateCommand}"
                 x:Name="SaveContentButton" />
@@ -81,87 +82,94 @@
                             Padding="30">
 
                     <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Center">
+                                HorizontalAlignment="Center"
+                                Margin="0,10,0,0">
 
-                        <TextBlock Text="昵称"
-                                   Margin="0,5,0,0"
-                                   Height="30" />
+                        <SymbolIcon Symbol="Emoji"/>
+
+                        <TextBlock Text="昵称"                                  
+                                   Margin="15,5,0,0"
+                                   Height="30" FontWeight="Bold" FontFamily="YouYuan" FontSize="20" />
 
                         <TextBox Height="30"
                                  Width="300"
-                                 Margin="49,0,0,0"
+                                 Margin="50,0,0,0"
                                  HorizontalAlignment="Left"
                                  Text="{Binding User.UserName,Mode=TwoWay}" />
 
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Center">
+                                HorizontalAlignment="Center"
+                                Margin="0,10,0,0">
+
+                        <SymbolIcon Symbol="Permissions"/>
 
                         <TextBlock Text="学号"
-                                   Margin="50,0,0,0"
-                                   Height="30" />
+                                   Margin="15,5,0,0"
+                                   Height="30" FontFamily="YouYuan" FontSize="20" FontWeight="Bold" />
 
                         <TextBox Height="30"
-                                 Width="430"
-                                 Margin="49,0,0,0"
+                                 Width="300"
+                                 Margin="50,0,0,0"
+                                 IsReadOnly="True"
                                  HorizontalAlignment="Left"
                                  Text="{Binding User.UserId,Mode=TwoWay}" />
 
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,10,0,0">
+
+                        <SymbolIcon Symbol="OtherUser"/>
 
                         <TextBlock Text="姓名"
-                                   Margin="50,0,0,10"
-                                   Height="30" />
+                                   Margin="15,5,0,0"
+                                   Height="30" FontSize="20" FontWeight="Bold" FontFamily="YouYuan" />
 
                         <TextBox Height="30"
-                                 Width="430"
-                                 Margin="49,0,0,0"
+                                 Width="300"
+                                 Margin="50,0,0,0"
                                  HorizontalAlignment="Left"
                                  Text="{Binding User.RealName,Mode=TwoWay}" />
 
                     </StackPanel>
 
-                    <StackPanel  Orientation="Horizontal">
+                    <StackPanel  Orientation="Horizontal"
+                                 HorizontalAlignment="Center"
+                                 Margin="0,10,0,0">
+
+                        <SymbolIcon Symbol="Phone"/>
 
                         <TextBlock Text="手机号"
-                                   Margin="50,0,0,0"
-                                   Height="30" />
+                                   Margin="15,5,0,0"
+                                   Height="30" FontSize="20" FontWeight="Bold" FontFamily="YouYuan" />
 
                         <TextBox Height="30"
-                                 Width="430"
-                                 Margin="50,0,0,0"
+                                 Width="300"
+                                 Margin="29,0,0,0"
                                  HorizontalAlignment="Left"
                                  Text="{Binding User.PhoneNumber,Mode=TwoWay}" />
 
                     </StackPanel>
 
-                    <StackPanel  Orientation="Horizontal">
+                    <StackPanel  Orientation="Horizontal"
+                                 HorizontalAlignment="Center"
+                                 Margin="0,10,0,0">
 
-                        <TextBlock Text="班级"
-                                   Margin="50,0,0,0"
-                                   Height="30" />
-
-                        <TextBox Height="30"
-                                 Width="430"
-                                 Margin="50,0,0,0"
-                                 HorizontalAlignment="Left"
-                                 Text="{Binding User.Class,Mode=TwoWay}" />
-
-                    </StackPanel>
-
-                    <StackPanel  Orientation="Horizontal">
+                        <SymbolIcon Symbol="OutlineStar"/>
 
                         <TextBlock Text="积分"
-                                   Margin="50,0,0,0"
-                                   Height="30" />
+                                   Margin="15,5,0,0"
+                                   Height="30" FontSize="20" FontWeight="Bold" FontFamily="YouYuan" />
 
                         <TextBox Height="30"
-                                 Width="430"
+                                 Width="300"
                                  Margin="50,0,0,0"
                                  HorizontalAlignment="Left"
+                                 IsReadOnly="True"
+                                 Foreground="OrangeRed"
                                  Text="{Binding User.Points,Mode=TwoWay}" />
 
                     </StackPanel>
