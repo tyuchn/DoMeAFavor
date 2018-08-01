@@ -208,8 +208,9 @@ namespace DoMeAFavor.ViewModels
                         if (SelectedUser.Points < ToAddMission.Points)
                             await new MessageDialog("您的积分不足，请接受任务获取积分").ShowAsync();
                         else
-                        { 
-                        await _missionService.AddAsync(ToAddMission, SelectedUser);
+                        {
+                            GlobalClass.j = 1;
+                            await _missionService.AddAsync(ToAddMission, SelectedUser);
                         await List();
                         }
                     }
