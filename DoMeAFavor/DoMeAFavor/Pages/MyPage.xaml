@@ -96,16 +96,18 @@
                              Width="430"
                              Margin="49,0,0,0"
                              HorizontalAlignment="Left"
+                             IsReadOnly="True"
                              Text="{Binding User.UserId,Mode=TwoWay}" />
 
                     <TextBlock Text="姓名"
-                               Margin="50,0,0,10"
+                               Margin="50,0,0,0"
                                Height="30" />
 
                     <TextBox Height="30"
                              Width="430"
                              Margin="49,0,0,0"
                              HorizontalAlignment="Left"
+                             IsReadOnly="True"
                              Text="{Binding User.RealName,Mode=TwoWay}" />
 
                     <TextBlock Text="手机号"

@@ -90,6 +90,13 @@ namespace DoMeAFavor
            
             DeadlineDate.Date= DateTime.Now;
             //DeadlineTime.Time= DateTime.Now.TimeOfDay;
+           var viewModel = (HallPageViewModel)DataContext;
+            if (GlobalClass.j == 1)
+            {
+                viewModel.ToAddMission.MissionName = null;
+                viewModel.ToAddMission.Message = null;
+                PointsTextBox.Text = "0";     
+            }
             await AddMissionContent.ShowAsync();
           
         }
@@ -132,16 +139,19 @@ namespace DoMeAFavor
         {
             var viewModel = (HallPageViewModel) DataContext;
             viewModel.ListCommand.Execute(null);
-            //TODO 清空添加任务的textbox
-            MissionNameTextBox.Text = "";
-            MessageTextBox.Text = "";
-            PointsTextBox.Text = "";
+           
         }
 
         private void AddMissionContent_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
+           
             var ViewModel = (HallPageViewModel)DataContext;
             ViewModel.ToAddMission.Deadline = Convert.ToDateTime(DeadlineDate.Date.ToString());
+        }
+
+        private void AddMissionContent_CloseButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            GlobalClass.j = 0;
         }
     }
 }

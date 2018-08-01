@@ -217,6 +217,7 @@
                 PrimaryButtonClick="AddMissionContent_PrimaryButtonClick"
                 PrimaryButtonCommand="{Binding AddCommand}"
                 CloseButtonText="Cancel"
+                CloseButtonClick="AddMissionContent_CloseButtonClick"
                 DefaultButton="Close"
                 x:Name="AddMissionContent">
 
