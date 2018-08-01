@@ -1316,14 +1316,13 @@
                         SelectionChanged="NavigationView_OnSelectionChanged"
                         IsBackEnabled="True"
                         IsBackButtonVisible="Auto"
-
                         Style="{StaticResource Nasss}"
                         BackRequested="NavView_BackRequested"
                         ItemInvoked="DoMeAFavor_ItemInvoked"
                         IsTabStop="False"
                         IsSettingsVisible="true">
 
-            <NavigationView.MenuItems>
+            <NavigationView.MenuItems>               
 
                 <NavigationViewItem
                     Style="{StaticResource POsss}"

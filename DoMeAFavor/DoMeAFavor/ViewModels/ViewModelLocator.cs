@@ -30,14 +30,11 @@ namespace DoMeAFavor.ViewModels
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);//设置默认的SimpleIOC
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
             SimpleIoc.Default.Register<IUserService, UserService>();
-            SimpleIoc.Default.Register<IMissionService, MissionService>();
-            //SimpleIoc.Default.Register<IUserMissionService, UserMissionService>();
+            SimpleIoc.Default.Register<IMissionService, MissionService>(); 
 
             SimpleIoc.Default.Register<LoginPageViewModel>();
             SimpleIoc.Default.Register<HallPageViewModel>();
             SimpleIoc.Default.Register<SignupPageViewModel>();
-
-
             SimpleIoc.Default.Register(() => new User());
         }
 
