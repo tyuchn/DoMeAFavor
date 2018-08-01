@@ -11,26 +11,33 @@
 
     <Grid>
         <StackPanel>
-            <TextBlock Text="目前积分"
-                       FontSize="20"
-                       FontStyle="Italic" 
-                       Margin="20,10,0,0"
-                       />
-            <TextBox 
-                     Margin="2,10,0,0"
-                     Width="300"></TextBox>
-            <TextBlock Text="扫码获得积分"
-                       FontSize="20"
-                       FontStyle="Italic" 
-                       />
-            <FlipView Width="Auto" 
-                      Height="200">
-                <Image Source="ms-appx:///Assets/money1.PNG"/>
-                <Image Source="ms-appx:///Assets/money1.PNG"/>
-                <Image Source="ms-appx:///Assets/money1.PNG"/>
-                
-            </FlipView>
-            
+            <TextBlock FontSize="50" Margin="100,50,0,0"> 
+                关于我们
+            </TextBlock>
+            <RichTextBlock Width="800" HorizontalAlignment="Left"
+                           >
+                <Paragraph Margin="50,0,0,0" FontSize="25">
+                    首先：DoMeAFaour全体开发者 感谢您对我们的支持
+                </Paragraph>
+                <Paragraph Margin="0,0,0,0" FontSize="25">
+                    使用方法：
+                </Paragraph>
+                <Paragraph Margin="50,0,0,0" FontSize="25">
+                    请先点击我的主页，若您有自己的DoMeAFaour账号，请登录；若没有请点击注册进行注册账号。
+                </Paragraph>
+                <Paragraph Margin="50,0,0,0" FontSize="25">
+                    登录后可以到任务大厅进行发布任务或者接受任务，希望您使用愉快。
+                </Paragraph>
+            </RichTextBlock>
+            <RichTextBlock Width="800" HorizontalAlignment="Left"
+                           >
+                <Paragraph Margin="0,0,0,0" FontSize="25">
+                    举报方法
+                </Paragraph>
+                <Paragraph Margin="50,0,0,0" FontSize="25">
+                    本软件由UWP做出来，目前是第一版，若有人发布不正当信息请举报 本人指定邮箱840360987@qq.com
+                </Paragraph>
+            </RichTextBlock>
         </StackPanel>
     </Grid>
 </Page>
