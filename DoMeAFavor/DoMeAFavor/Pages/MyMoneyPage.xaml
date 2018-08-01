@@ -30,6 +30,7 @@
                 <Image Source="ms-appx:///Assets/money1.PNG"/>
                 
             </FlipView>
+            
         </StackPanel>
     </Grid>
 </Page>
