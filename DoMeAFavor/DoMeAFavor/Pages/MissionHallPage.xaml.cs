@@ -43,6 +43,7 @@ namespace DoMeAFavor
              var i = viewModel.MissionCollection.Count;
             int j;
             suggestions1.Clear();
+            if(sender.Text!="")
             for(j= 0; j< i; j++)   
             { 
                 if(viewModel.MissionCollection[j].MissionName.Contains(sender.Text))
