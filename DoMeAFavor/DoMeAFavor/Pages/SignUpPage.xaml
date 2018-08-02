@@ -2,7 +2,7 @@
     x:Class="DoMeAFavor.SignUpPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    
+
 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -11,8 +11,10 @@
     Loaded="SignUpPage_OnLoaded">
 
     <Grid>
+
         <StackPanel Margin="20,0,0,0"
                     Width="auto">
+
             <TextBlock Text="欢迎注册DoMeAFavor"
                        Margin="50,20,0,0"
                        FontSize="50"
@@ -25,95 +27,98 @@
                        IsColorFontEnabled="True"
                        FontStyle="Oblique" />
             <StackPanel Orientation="Horizontal">
+
                 <TextBlock Text="学      号"
                            Margin="30,20,0,0"
                            FontSize="25" />
+
                 <TextBox Margin="50,20,0,0"
                          Width="450"
                          PlaceholderText="请输入学号"
                          Name="UserIdTextBox"
                          Text="{Binding User.UserId,Mode=TwoWay}" />
+
             </StackPanel>
+
             <StackPanel Orientation="Horizontal">
+
                 <TextBlock Text="密       码"
                            Margin="30,20,0,0"
                            FontSize="25" />
+
                 <PasswordBox Margin="40,20,0,0"
                              Width="450"
                              PasswordChar="*"
                              PlaceholderText="请设置密码小于16位"
                              Name="PasswordTextBox"
-                             Password="{Binding User.PassWord,Mode=TwoWay}"/>
+                             Password="{Binding User.PassWord,Mode=TwoWay}" />
             </StackPanel>
+
             <StackPanel Orientation="Horizontal">
+
                 <TextBlock Text="确认密码"
                            Margin="30,20,0,0"
                            FontSize="25" />
+
                 <PasswordBox Margin="40,20,0,0"
                              Width="450"
                              PlaceholderText="请再次输入您的密码"
                              PasswordChar="*"
                              Name="ConfirmPasswordTextBox"
-                             Password="{Binding SurePassword,Mode=TwoWay}"
-                             />
+                             Password="{Binding SurePassword,Mode=TwoWay}" />
             </StackPanel>
+
             <StackPanel Orientation="Horizontal">
+
                 <TextBlock Text="姓       名"
                            Margin="30,20,0,0"
                            FontSize="25" />
+
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请输入真实姓名"
                          Name="RealNameTextBox"
-                         Text="{Binding User.RealName,Mode=TwoWay}"/>
+                         Text="{Binding User.RealName,Mode=TwoWay}" />
+
             </StackPanel>
+
             <StackPanel Orientation="Horizontal">
+
                 <TextBlock Text="手  机  号"
                            Margin="30,20,0,0"
                            FontSize="25" />
+
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请输入真实手机号"
                          Name="PhoneNumberTextBox"
-                         Text="{Binding User.PhoneNumber,Mode=TwoWay}"/>
+                         Text="{Binding User.PhoneNumber,Mode=TwoWay}" />
+
             </StackPanel>
+
             <StackPanel Orientation="Horizontal">
+
                 <TextBlock Text="用  户  名"
                            Margin="30,20,0,0"
-                           FontSize="25"
-                           />
+                           FontSize="25" />
+
                 <TextBox Margin="40,20,0,0"
                          Width="450"
                          PlaceholderText="请设置您的DoMeAFovor昵称"
                          Name="UserNameTextBox"
-                         Text="{Binding User.UserName,Mode=TwoWay}"/>
+                         Text="{Binding User.UserName,Mode=TwoWay}" />
+
             </StackPanel>
-           
+
             <Button Content="注册"
                     Margin="40,40,0,0"
                     RequestedTheme="Light"
                     Visibility="Visible"
-                    Command="{Binding SignupCommand}"
-                    >
-
-            </Button>
+                    Command="{Binding SignupCommand}" />
 
         </StackPanel>
 
     </Grid>
+
 </Page>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
