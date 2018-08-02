@@ -327,9 +327,9 @@
                             SelectedValuePath="Item2"
                             Width="200"
                             SelectionChanged="Selector_OnSelectionChanged">
-                            <ComboBoxItem Name="TakeOver">TakeOver</ComboBoxItem>
-                            <ComboBoxItem Name="Delivery">Delivery</ComboBoxItem>
-                            <ComboBoxItem Name="Express">Express</ComboBoxItem>
+                            <ComboBoxItem Name="TakeOver">代课</ComboBoxItem>
+                            <ComboBoxItem Name="Delivery">外卖</ComboBoxItem>
+                            <ComboBoxItem Name="Express">快递</ComboBoxItem>
 
                         </ComboBox>
 
