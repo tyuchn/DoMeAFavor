@@ -108,14 +108,17 @@ namespace DoMeAFavor
             if (TakeOver.IsSelected)
             {            
                 viewModel.ToAddMission.Type = Mission.MissionType.TakeOver;
+                GlobalClass.l = 1;
             }
             else if (Delivery.IsSelected)
             {
                 viewModel.ToAddMission.Type = Mission.MissionType.Delivery;
+                GlobalClass.l = 1;
             }
             else if (Express.IsSelected)
             {
                 viewModel.ToAddMission.Type = Mission.MissionType.Express;
+                GlobalClass.l = 1;
             }
         }
 
@@ -139,6 +142,7 @@ namespace DoMeAFavor
         private void MissionHallPage_OnLoaded(object sender, RoutedEventArgs e)
         {
             var viewModel = (HallPageViewModel) DataContext;
+            GlobalClass.l = 0;
             viewModel.ListCommand.Execute(null);
            
         }
