@@ -12,27 +12,37 @@
 
     <Grid>
 
-        <StackPanel Margin="20,0,0,0"
-                    Width="auto">
+        <StackPanel 
+                    >
+            <StackPanel.Background>
+                <ImageBrush ImageSource="ms-appx:///Assets/SignupPageBG.png"/>
+            </StackPanel.Background>
 
-            <StackPanel Margin="200,100,0,0"
+            <StackPanel Margin="0,200,0,0"
                         Width="400"
                         BorderBrush="CornflowerBlue"
                         >
 
-                <TextBlock Text="请同学按要求注册"
-                       Margin="70,10,0,0"
-                       FontSize="25"
-                       IsColorFontEnabled="True"
+                <TextBlock Text="注  册"
+                           Margin="50,0"
+                           FontSize="25"
+                           HorizontalAlignment="Center"
+                           IsColorFontEnabled="True"
+                           FontFamily="YouYuan"
+                           FontWeight="Bold"
                         />
 
             <StackPanel Orientation="Horizontal">
 
-                <TextBlock Text="学      号"
+                <TextBlock Text="学号"
                            Margin="30,20,0,0"
-                           FontSize="25" />
+                           FontSize="18" 
+                           FontFamily="YouYuan"
+                           FontWeight="Bold" 
+                           Width="100"
+                           HorizontalTextAlignment="Center"/>
 
-                <TextBox Margin="50,20,0,0"
+                <TextBox Margin="30,20,0,0"
                          Width="200"
                          PlaceholderText="请输入学号"
                          Name="UserIdTextBox"
@@ -42,11 +52,15 @@
 
             <StackPanel Orientation="Horizontal">
 
-                <TextBlock Text="密       码"
+                <TextBlock Text="密码"
                            Margin="30,20,0,0"
-                           FontSize="25" />
+                           FontSize="18" 
+                           FontFamily="YouYuan"
+                           FontWeight="Bold" 
+                           Width="100"
+                           HorizontalTextAlignment="Center"/>
 
-                <PasswordBox Margin="40,20,0,0"
+                <PasswordBox Margin="30,20,0,0"
                              Width="200"
                              PasswordChar="*"
                              PlaceholderText="请设置密码小于16位"
@@ -59,9 +73,13 @@
 
                 <TextBlock Text="确认密码"
                            Margin="30,20,0,0"
-                           FontSize="25" />
+                           FontSize="18" 
+                           FontFamily="YouYuan"
+                           FontWeight="Bold" 
+                           Width="100"
+                           HorizontalTextAlignment="Center"/>
 
-                <PasswordBox Margin="40,20,0,0"
+                <PasswordBox Margin="30,20,0,0"
                              Width="200"
                              PlaceholderText="请再次输入您的密码"
                              PasswordChar="*"
@@ -72,11 +90,15 @@
 
             <StackPanel Orientation="Horizontal">
 
-                <TextBlock Text="姓       名"
+                <TextBlock Text="姓名"
                            Margin="30,20,0,0"
-                           FontSize="25" />
+                           FontSize="18" 
+                           FontFamily="YouYuan"
+                           FontWeight="Bold"
+                           Width="100"
+                           HorizontalTextAlignment="Center"/>
 
-                <TextBox Margin="40,20,0,0"
+                <TextBox Margin="30,20,0,0"
                          Width="200"
                          PlaceholderText="请输入真实姓名"
                          Name="RealNameTextBox"
@@ -86,11 +108,15 @@
 
             <StackPanel Orientation="Horizontal">
 
-                <TextBlock Text="手  机  号"
+                <TextBlock Text="手机号"
                            Margin="30,20,0,0"
-                           FontSize="25" />
+                           FontSize="18" 
+                           FontFamily="YouYuan"
+                           FontWeight="Bold"
+                           Width="100"
+                           HorizontalTextAlignment="Center"/>
 
-                <TextBox Margin="40,20,0,0"
+                <TextBox Margin="30,20,0,0"
                          Width="200"
                          PlaceholderText="请输入真实手机号"
                          Name="PhoneNumberTextBox"
@@ -100,13 +126,17 @@
 
             <StackPanel Orientation="Horizontal">
 
-                <TextBlock Text="用  户  名"
+                <TextBlock Text="用户名"
                            Margin="30,20,0,0"
-                           FontSize="25" />
+                           FontSize="18" 
+                           FontFamily="YouYuan"
+                           FontWeight="Bold"
+                           Width="100"
+                           HorizontalTextAlignment="Center"/>
 
-                <TextBox Margin="40,20,0,0"
+                <TextBox Margin="30,20,0,0"
                          Width="200"
-                         PlaceholderText="请设置您的DoMeAFovor昵称"
+                         PlaceholderText="请设置您的昵称"
                          Name="UserNameTextBox"
                          Text="{Binding User.UserName,Mode=TwoWay}" />
 
@@ -114,7 +144,8 @@
 
             <Button Content="注册"
                     HorizontalAlignment="Center"
-                    Margin="0,40,0,0"
+                    Margin="0,20,0,30"
+                    Width="100"
                     RequestedTheme="Light"
                     Visibility="Visible"
                     Command="{Binding SignupCommand}" />
