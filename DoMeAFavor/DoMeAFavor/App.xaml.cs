@@ -13,8 +13,11 @@ namespace DoMeAFavor
 {
     static class GlobalClass
     {
-        public static int k = 0;
-        public static int j = 0;
+        public static int k = 0; //判断是否登录状态
+
+        public static int j = 0; //判断发布任务栏是否清屏
+
+        public static int l = 0;
     }
     /// <summary>
     /// 提供特定于应用程序的行为，以补充默认的应用程序类。

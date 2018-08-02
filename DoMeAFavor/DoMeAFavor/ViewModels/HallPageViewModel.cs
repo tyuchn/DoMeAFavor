@@ -205,14 +205,22 @@ namespace DoMeAFavor.ViewModels
                     }
                     else
                     {
-                        if (SelectedUser.Points < ToAddMission.Points)
-                            await new MessageDialog("您的积分不足，请接受任务获取积分").ShowAsync();
+                        if ((ToAddMission.MissionName != null) && (ToAddMission.Message != null))
+                            if (GlobalClass.l==1)
+                            {
+                                if (SelectedUser.Points < ToAddMission.Points)
+                                    await new MessageDialog("您的积分不足，请接受任务获取积分").ShowAsync();
+                                else
+                                {
+                                    GlobalClass.j = 1;
+                                    await _missionService.AddAsync(ToAddMission, SelectedUser);
+                                    await List();
+                                }
+                            }
+                            else
+                                await new MessageDialog("请选择任务类型").ShowAsync();
                         else
-                        {
-                            GlobalClass.j = 1;
-                            await _missionService.AddAsync(ToAddMission, SelectedUser);
-                        await List();
-                        }
+                            await new MessageDialog("请填写任务名字或信息").ShowAsync();
                     }
 
                 }));
