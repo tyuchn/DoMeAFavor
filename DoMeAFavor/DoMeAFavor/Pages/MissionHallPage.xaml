@@ -111,8 +111,7 @@
 
                 </CommandBar>
 
-                <AutoSuggestBox PlaceholderText="Type a search name"
-
+                <AutoSuggestBox PlaceholderText="输入您要搜索的关键字"
                                 HorizontalAlignment="Right"
                                 Height="35"
                                 TextChanged="SearchText_TextChanged"
@@ -213,10 +212,10 @@
 
             <ContentDialog
                 Title="请输入你的任务"
-                PrimaryButtonText="Confirm"
+                PrimaryButtonText="确定"
                 PrimaryButtonClick="AddMissionContent_PrimaryButtonClick"
                 PrimaryButtonCommand="{Binding AddCommand}"
-                CloseButtonText="Cancel"
+                CloseButtonText="取消"
                 CloseButtonClick="AddMissionContent_CloseButtonClick"
                 DefaultButton="Close"
                 x:Name="AddMissionContent">
@@ -224,51 +223,116 @@
                 <StackPanel VerticalAlignment="Stretch"
                             HorizontalAlignment="Stretch">
 
-                    <TextBox
-                        PlaceholderText="请输入任务标题"
-                        Name="MissionNameTextBox"
-                        Text="{Binding ToAddMission.MissionName ,Mode=TwoWay }"
-                        TextWrapping="Wrap"
-                        Margin="10,10,0,0" />
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,10,0,0">
 
-                    <TextBox PlaceholderText="请输入任务内容"
-                             Name="MessageTextBox"
-                             Text="{Binding ToAddMission.Message, Mode=TwoWay}"
-                             TextWrapping="Wrap"
-                             Margin="10,10,0,0" />
+                        <TextBlock Text="任务标题"                                  
+                                   Margin="0,15,0,0"
+                                   Height="30" 
+                                   FontWeight="Bold"
+                                   FontFamily="YouYuan"
+                                   FontSize="16" 
+                                   />
 
-                    <CalendarDatePicker PlaceholderText="截止时间" 
-                                      DataContext="{Binding }"
-                                        Margin="10,10,0,0"
-                                        Width="auto" 
-                                        Name="DeadlineDate"/>
-                    <TextBox
-                        PlaceholderText="积分"
-                        Name="PointsTextBox"
-                        Text="{Binding ToAddMission.Points ,Mode=TwoWay}"
-                        TextWrapping="Wrap"
-                        Margin="10,10,0,0" />
+                        <TextBox
+                            PlaceholderText="请输入任务标题"
+                            Name="MissionNameTextBox"
+                            Text="{Binding ToAddMission.MissionName ,Mode=TwoWay }"                           
+                            Width="200"
+                            Margin="5,10,0,0" />
 
-                    <ComboBox
-                        PlaceholderText="请选择任务类别"
-                        ItemsSource="{Binding ToAddMission.Type,Mode=TwoWay}"
-                        Margin="10,10,0,0"
-                        DisplayMemberPath="Item1"
-                        SelectedValuePath="Item2"
-                        Header="Select ur Type"
-                        Width="200"
-                        SelectionChanged="Selector_OnSelectionChanged">
+                    </StackPanel>
 
-                        <ComboBoxItem Name="TakeOver">TakeOver</ComboBoxItem>
-                        <ComboBoxItem Name="Delivery">Delivery</ComboBoxItem>
-                        <ComboBoxItem Name="Express">Express</ComboBoxItem>
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,10,0,0">
 
-                    </ComboBox>
+                        <TextBlock Text="任务内容"                                  
+                                   Margin="0,15,0,0"
+                                   Height="30" 
+                                   FontWeight="Bold"
+                                   FontFamily="YouYuan"
+                                   FontSize="16" />
 
+                        <TextBox
+                            PlaceholderText="请输入任务内容"
+                            Name="MessageTextBox"
+                            Text="{Binding ToAddMission.Message ,Mode=TwoWay }"                           
+                            Width="200"
+                            Margin="5,10,0,0" />
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,10,0,0">
+
+                        <TextBlock Text="截止时间"                                  
+                                   Margin="0,15,0,0"
+                                   Height="30" 
+                                   FontWeight="Bold"
+                                   FontFamily="YouYuan"
+                                   FontSize="16" />
+
+                        <CalendarDatePicker
+                            PlaceholderText="截止时间"
+                            Name="DeadlineDate"                                                  
+                            Width="200"
+                            Margin="5,10,0,0" />
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,10,0,0">
+
+                        <TextBlock Text="积    分"                                  
+                                   Margin="0,15,0,0"
+                                   Height="30" 
+                                   FontWeight="Bold"
+                                   FontFamily="YouYuan"
+                                   FontSize="16" />
+
+                        <TextBox
+                            PlaceholderText="请设置任务积分"
+                            Name="PointsTextBox"
+                            Text="{Binding ToAddMission.Points ,Mode=TwoWay }"                           
+                            Width="200"
+                            Margin="5,10,0,0" />
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,10,0,0">
+
+                        <TextBlock Text="任务类别"                                  
+                                   Margin="0,15,0,0"
+                                   Height="30" 
+                                   FontWeight="Bold"
+                                   FontFamily="YouYuan"
+                                   FontSize="16" />
+
+                        <ComboBox
+                            PlaceholderText="请选择任务类别"
+                            ItemsSource="{Binding ToAddMission.Type,Mode=TwoWay}"
+                            Margin="5,10,0,0"
+                            DisplayMemberPath="Item1"
+                            SelectedValuePath="Item2"
+                            Width="200"
+                            SelectionChanged="Selector_OnSelectionChanged">
+                            <ComboBoxItem Name="TakeOver">TakeOver</ComboBoxItem>
+                            <ComboBoxItem Name="Delivery">Delivery</ComboBoxItem>
+                            <ComboBoxItem Name="Express">Express</ComboBoxItem>
+
+                        </ComboBox>
+
+                    </StackPanel>
+                 
                 </StackPanel>
 
             </ContentDialog>
-
 
             <ContentDialog
                 Title="任务详情"
@@ -282,38 +346,54 @@
 
                     <TextBlock Text="任务主题"
                                FontSize="20"
-                               Margin="20,10,0,0" />
+                               Margin="20,10,0,0" 
+                               FontFamily="YouYuan" 
+                               FontWeight="Bold"/>
 
                     <TextBlock
                         Width="auto"
                         HorizontalAlignment="Left"
                         Text="{Binding SelectedMission.MissionName,Mode=OneWay}"
-                        Margin="20,5,0,0" />
+                        Margin="20,5,0,0" 
+                        FontFamily="YouYuan"
+                        FontWeight="Bold"/>
 
                     <TextBlock Text="积分"
                                FontSize="20"
-                               Margin="20,10,0,0" />
+                               Margin="20,10,0,0" 
+                               FontFamily="YouYuan"
+                               FontWeight="Bold"/>
 
                     <TextBlock Margin="20,5,0,0"
-                               Text="{Binding SelectedMission.Points,Mode=OneWay}" />
+                               Text="{Binding SelectedMission.Points,Mode=OneWay}" 
+                               FontFamily="YouYuan"
+                               FontWeight="Bold"/>
 
                     <TextBlock Text="截止时间"
                                FontSize="20"
-                               Margin="20,10,0,0" />
+                               Margin="20,10,0,0"
+                               FontFamily="YouYuan"
+                               FontWeight="Bold"/>
 
                     <TextBlock Width="auto"
                                Margin="20,5,0,0"
-                               Text="{Binding SelectedMission.Deadline,Mode=OneWay}" />
+                               Text="{Binding SelectedMission.Deadline,Mode=OneWay}" 
+                               FontFamily="YouYuan"
+                               FontWeight="Bold"/>
 
                     <TextBlock Text="详细信息"
                                FontSize="20"
-                               Margin="20,10,0,0" />
+                               Margin="20,10,0,0" 
+                               FontFamily="YouYuan"
+                               FontWeight="Bold"/>
 
                     <TextBlock Text="{Binding SelectedMission.Message,Mode=OneWay}"
                                Height="auto"
                                Width="auto"
                                HorizontalAlignment="Left"
-                               Margin="20,5,0,0" />
+                               Margin="20,5,0,0"
+                               FontFamily="YouYuan"
+                               FontWeight="Bold"/>
 
                 </StackPanel>
 

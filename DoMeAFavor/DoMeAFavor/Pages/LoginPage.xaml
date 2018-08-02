@@ -9,126 +9,107 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    
 
     <Grid>
+
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="你还未登录，请登录或注册"
-                       FontSize="20"></TextBlock>
+
+            <TextBlock Text="您还未登录，请登录或注册"
+                       FontSize="20" />
+
             <StackPanel Orientation="Horizontal"
                         Margin="20,10,0,0">
-            <Button Content="登录"
-                    Margin="10,10,0,0"
-                    Command="{Binding ToLoginCommand}"
-                    Click="ToLogin_Click"
-                    FontSize="15"
-                    HorizontalAlignment="Left" />
-            <Button Content="注册"
-                    Margin="50,10,0,0"
 
-                    Click="ToSignUp_Click"
-                    FontSize="15"
-                    HorizontalAlignment="Left" />
+                <Button Content="登录"
+                        Margin="10,10,0,0"
+                        Command="{Binding ToLoginCommand}"
+                        Click="ToLogin_Click"
+                        FontSize="15"
+                        HorizontalAlignment="Left" />
+
+                <Button Content="注册"
+                        Margin="50,10,0,0"
+                        Click="ToSignUp_Click"
+                        FontSize="15"
+                        HorizontalAlignment="Left" />
+
             </StackPanel>
+
         </StackPanel>
 
         <ContentDialog
-            Title="欢迎登录DoMeAFavor"
+            Title="欢迎登录"
             x:Name="LoginContent"
             PrimaryButtonText="登录"
             PrimaryButtonCommand="{Binding LoginCommand}"
-            CloseButtonText="Cancel">
+            CloseButtonText="取消">
 
             <StackPanel>
 
                 <TextBlock
-                    Text="学号" 
+                    Text="学号"
                     FontSize="20"
                     Style="{StaticResource CaptionTextBlockStyle}"
-                    Margin="10,20,0,0" 
+                    Margin="10,20,0,0"
                     HorizontalAlignment="Left"
-                    VerticalAlignment="Top" 
-                    Height="35" Width="301" 
+                    VerticalAlignment="Top"
+                    Height="35" Width="301"
                     RenderTransformOrigin="0.493,0.509" />
+
                 <TextBox
                     PlaceholderText="输入您的学号"
-                    HorizontalAlignment="Left" 
+                    HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Height="40"
                     Margin="10,0,0,0"
                     Width="250"
-                    Text="{Binding User.UserId,Mode=TwoWay}"/>
+                    Text="{Binding User.UserId,Mode=TwoWay}" />
 
                 <TextBlock Text="密码" FontSize="20"
                            Style="{StaticResource CaptionTextBlockStyle}"
-                           Margin="10,10,0,0" 
+                           Margin="10,10,0,0"
                            HorizontalAlignment="Left"
-                           VerticalAlignment="Top" 
+                           VerticalAlignment="Top"
                            Height="35"
                            Width="301"
-                           RenderTransformOrigin="0.493,0.509" 
-                           />
+                           RenderTransformOrigin="0.493,0.509" />
+
                 <PasswordBox Margin="10,0,0,0"
                              Width="250"
                              PlaceholderText="输入您的密码"
                              HorizontalAlignment="Left"
-                             VerticalAlignment="Top" Height="40" 
+                             VerticalAlignment="Top" Height="40"
                              Name="LoginPass"
-                             Password="{Binding User.PassWord,Mode=TwoWay}"/>
+                             Password="{Binding User.PassWord,Mode=TwoWay}" />
+
                 <TextBlock Text="请输入验证码"
-                           Margin="10,10,0,0"></TextBlock>
+                           Margin="10,10,0,0" />
+
                 <StackPanel Orientation="Horizontal">
+
                     <TextBox Name="CaptchaBox"
                              Margin=" 10,0,0,0"
                              Text="{Binding CaptchaBox,Mode=TwoWay}"
-                     
-                             Width="50"></TextBox>
+                             Width="50" />
+
                     <Border Background="#FF1D32CD"
                             Margin="10,0,0,0"
                             Name="Captcha">
+
                         <TextBlock Name="CaptchaText"
-                               Margin=" 15,7,0,0"
-                               Text="{Binding CaptchaText,Mode=TwoWay}"
+                                   Margin=" 15,7,0,0"
+                                   Text="{Binding CaptchaText,Mode=TwoWay}"
                                    FontSize="15"
-                               Width="50"></TextBlock>
+                                   Width="50" />
+
                     </Border>
-                    
+
                 </StackPanel>
+
             </StackPanel>
-            
+
         </ContentDialog>
 
-
     </Grid>
+
 </Page>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
