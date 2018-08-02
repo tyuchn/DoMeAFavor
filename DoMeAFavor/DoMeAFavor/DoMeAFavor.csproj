@@ -151,7 +151,10 @@
     <Content Include="Assets\3.jpg" />
     <Content Include="Assets\4.jpg" />
     <Content Include="Assets\money1.PNG" />
+    <Content Include="Assets\SignupPageBG.png" />
     <Content Include="Assets\Starting.scale-100.png" />
+    <Content Include="Assets\圆角背景.png" />
+    <Content Include="Assets\注册页背景.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
