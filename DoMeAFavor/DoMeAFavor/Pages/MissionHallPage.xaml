@@ -274,13 +274,18 @@
                                    FontWeight="Bold"
                                    FontFamily="YouYuan"
                                    FontSize="16" />
-
-                        <CalendarDatePicker
-                            PlaceholderText="截止时间"
+                        <StackPanel Orientation="Vertical">
+                        <DatePicker
+                            
                             Name="DeadlineDate"                                                  
-                            Width="200"
+                            Width="100"
                             Margin="5,10,0,0" />
-
+                        <TimePicker Name="DeadlineTime"
+                                    Width="100"
+                                   
+                                    Margin="5,10,0,0"
+                            />
+                        </StackPanel>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal"
@@ -322,9 +327,9 @@
                             SelectedValuePath="Item2"
                             Width="200"
                             SelectionChanged="Selector_OnSelectionChanged">
-                            <ComboBoxItem Name="TakeOver">TakeOver</ComboBoxItem>
-                            <ComboBoxItem Name="Delivery">Delivery</ComboBoxItem>
-                            <ComboBoxItem Name="Express">Express</ComboBoxItem>
+                            <ComboBoxItem Name="TakeOver">代课</ComboBoxItem>
+                            <ComboBoxItem Name="Delivery">外卖</ComboBoxItem>
+                            <ComboBoxItem Name="Express">快递</ComboBoxItem>
 
                         </ComboBox>
 
