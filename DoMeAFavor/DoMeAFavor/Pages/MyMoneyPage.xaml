@@ -10,34 +10,261 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel>
-            <TextBlock FontSize="50" Margin="100,50,0,0"> 
-                关于我们
-            </TextBlock>
-            <RichTextBlock Width="800" HorizontalAlignment="Left"
-                           >
-                <Paragraph Margin="50,0,0,0" FontSize="25">
-                    首先：DoMeAFavor全体开发者 感谢您对我们的支持
-                </Paragraph>
-                <Paragraph Margin="0,0,0,0" FontSize="25">
-                    使用方法：
-                </Paragraph>
-                <Paragraph Margin="50,0,0,0" FontSize="25">
-                    请先点击我的主页，若您有自己的DoMeAFavor账号，请登录；若没有请点击注册进行注册账号。
-                </Paragraph>
-                <Paragraph Margin="50,0,0,0" FontSize="25">
-                    登录后可以到任务大厅进行发布任务或者接受任务，希望您使用愉快。
-                </Paragraph>
-            </RichTextBlock>
-            <RichTextBlock Width="800" HorizontalAlignment="Left"
-                           >
-                <Paragraph Margin="0,0,0,0" FontSize="25">
-                    举报方法
-                </Paragraph>
-                <Paragraph Margin="50,0,0,0" FontSize="25">
-                    本软件由UWP做出来，目前是第一版，若有人发布不正当信息请举报 本人指定邮箱840360987@qq.com
-                </Paragraph>
-            </RichTextBlock>
-        </StackPanel>
+        <Grid.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/SettingBG.png"/>
+        </Grid.Background>
+
+        <Pivot Margin="50，100">
+            
+            <PivotItem Header="关于我们">
+                
+                <Grid>
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                        
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    
+
+                    <SymbolIcon Grid.Row="0" 
+                                Grid.Column="1"
+                                Symbol="Send"/>
+
+                    <TextBlock Grid.Row="0" 
+                               Grid.Column="0"
+                               Text="Part 1"
+                               Foreground="CornflowerBlue"
+                               FontSize="30"
+                               Margin="10,20">
+                    </TextBlock>
+
+                    <TextBlock Grid.Row="0" 
+                               Grid.Column="2"
+                               HorizontalAlignment="Left"
+                               Margin="20,30,20,20"
+                               >
+                        Do Me A Favor
+                        软件开发于2018年7月
+                    </TextBlock>
+
+                    <SymbolIcon Grid.Row="1" 
+                                Grid.Column="1"
+                                Symbol="Send"/>
+
+                    <TextBlock Grid.Row="1" 
+                               Grid.Column="0"
+                               Text="Part 2"
+                               Foreground="CornflowerBlue"
+                               FontSize="30"
+                               Margin="10,20">
+                    </TextBlock>
+
+                    <RichTextBlock Grid.Row="1" 
+                                   Grid.Column="2"
+                                   HorizontalAlignment="Left"
+                                   Margin="20,30,20,20"
+                                   Width="400">
+
+                        <Paragraph>
+                            Do Me A Favor
+                            致力于帮助校园内的学生解决一些需求。
+                            让学生的生活更加方便。
+                        </Paragraph>
+
+                    </RichTextBlock>
+
+                    <SymbolIcon Grid.Row="2" 
+                                Grid.Column="1"
+                                Symbol="Send"/>
+
+                    <TextBlock Grid.Row="2" 
+                               Grid.Column="0"
+                               Text="Part 3"
+                               Foreground="CornflowerBlue"
+                               FontSize="30"
+                               Margin="10,20">
+                    </TextBlock>
+
+                    <TextBlock Grid.Row="2" 
+                               Grid.Column="2"
+                               HorizontalAlignment="Left"
+                               Margin="20,30,20,20"
+                               Width="400">
+                        Do Me A Favor
+                        开发团队感谢您的使用。
+                    </TextBlock>
+
+                   
+
+                </Grid>
+
+            </PivotItem>
+
+            <PivotItem Header="使用教程">
+                
+                <Grid>
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <SymbolIcon Grid.Row="0" 
+                                Grid.Column="1"
+                                Symbol="Send"/>
+
+                    <TextBlock Grid.Row="0" 
+                               Grid.Column="0"
+                               Text="Step 1"
+                               Foreground="CornflowerBlue"
+                               FontSize="30"
+                               Margin="10,20">
+                    </TextBlock>
+
+                    <RichTextBlock Grid.Row="0" 
+                                   Grid.Column="2"
+                                   HorizontalAlignment="Left"
+                                   Margin="20,30,20,20"
+                                   Width="400">
+                        
+                        <Paragraph>
+                            用户首先注册，注册时请使用学号注册，注册后方可登录
+                        </Paragraph>
+
+                    </RichTextBlock>
+
+                    <SymbolIcon Grid.Row="1" 
+                                Grid.Column="1"
+                                Symbol="Send"/>
+
+                    <TextBlock Grid.Row="1" 
+                               Grid.Column="0"
+                               Text="Step 2"
+                               Foreground="CornflowerBlue"
+                               FontSize="30"
+                               Margin="10,20">
+                    </TextBlock>
+
+                    <RichTextBlock Grid.Row="1" 
+                                   Grid.Column="2"
+                                   HorizontalAlignment="Left"
+                                   Margin="20,30,20,20"
+                                   Width="400">
+
+                        <Paragraph>
+                            用户登录后可自行修改并保持个人信息
+                        </Paragraph>
+
+                    </RichTextBlock>
+
+                    <SymbolIcon Grid.Row="2" 
+                                Grid.Column="1"
+                                Symbol="Send"/>
+
+                    <TextBlock Grid.Row="2" 
+                               Grid.Column="0"
+                               Text="Step 3"
+                               Foreground="CornflowerBlue"
+                               FontSize="30"
+                               Margin="10,20">
+                    </TextBlock>
+
+                    <RichTextBlock Grid.Row="2" 
+                                   Grid.Column="2"
+                                   HorizontalAlignment="Left"
+                                   Margin="20,30,20,20"
+                                   Width="400">
+
+                        <Paragraph>
+                            在任务大厅页面用户可看到以发布的任务，也可以在接受任务时搜索自己喜欢的任务，并根据自身情况接受任务
+                        </Paragraph>
+
+                    </RichTextBlock>
+
+                    <SymbolIcon Grid.Row="3" 
+                                Grid.Column="1"
+                                Symbol="Send"/>
+
+                    <TextBlock Grid.Row="3" 
+                               Grid.Column="0"
+                               Text="Step 4"
+                               Foreground="CornflowerBlue"
+                               FontSize="30"
+                               Margin="10,20">
+                    </TextBlock>
+
+                    <RichTextBlock Grid.Row="3" 
+                                   Grid.Column="2"
+                                   HorizontalAlignment="Left"
+                                   Margin="20,30,20,20"
+                                   Width="400">
+
+                        <Paragraph>
+                            当然也可以按自身需求发布相应的任务
+                        </Paragraph>
+
+                    </RichTextBlock>
+
+                    <SymbolIcon Grid.Row="4" 
+                                Grid.Column="1"
+                                Symbol="Send"/>
+
+                    <TextBlock Grid.Row="4" 
+                               Grid.Column="0"
+                               Text="Step 5"
+                               Foreground="CornflowerBlue"
+                               FontSize="30"
+                               Margin="10,20">
+                    </TextBlock>
+
+                    <RichTextBlock Grid.Row="4" 
+                                   Grid.Column="2"
+                                   HorizontalAlignment="Left"
+                                   Margin="20,30,20,20"
+                                   Width="400">
+
+                        <Paragraph >
+                            需要注意的是用户每一次发布任务需要支付相应的积分，当用户积分不足时，无法发布任务
+                            因此用户需要接受他人发布的任务，获取积分
+                            剩余积分可在我的主页进行查看
+                        </Paragraph>
+
+                    </RichTextBlock>
+
+                </Grid>
+
+            </PivotItem>
+
+        </Pivot>
+        
+        
+
+        
     </Grid>
 </Page>

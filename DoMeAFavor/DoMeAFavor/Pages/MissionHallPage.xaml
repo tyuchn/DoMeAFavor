@@ -62,8 +62,7 @@
 
             <FlipView Width="Auto"
                       Height="200"
-                      Name="MissionHallFlip"
-                      >
+                      Name="MissionHallFlip">
 
                 <Image Source="ms-appx:///Assets/1.jpg" Stretch="UniformToFill" />
                 <Image Source="ms-appx:///Assets/2.jpg" Stretch="UniformToFill" />
@@ -221,7 +220,8 @@
                 x:Name="AddMissionContent">
 
                 <StackPanel VerticalAlignment="Stretch"
-                            HorizontalAlignment="Stretch">
+                            HorizontalAlignment="Stretch"
+                            Width="400">
 
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Center"
@@ -239,14 +239,15 @@
                             PlaceholderText="请输入任务标题"
                             Name="MissionNameTextBox"
                             Text="{Binding ToAddMission.MissionName ,Mode=TwoWay }"                           
-                            Width="200"
+                            Width="300"
                             Margin="5,10,0,0" />
 
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Center"
-                                Margin="0,10,0,0">
+                                Margin="0,10,0,0"
+                                >
 
                         <TextBlock Text="任务内容"                                  
                                    Margin="0,15,15,0"
@@ -259,8 +260,9 @@
                             PlaceholderText="请输入任务内容"
                             Name="MessageTextBox"
                             Text="{Binding ToAddMission.Message ,Mode=TwoWay }"                           
-                            Width="200"
-                            Margin="5,10,0,0" />
+                            Width="300"
+                            Margin="5,10,0,0"
+                            />
 
                     </StackPanel>
 
@@ -269,21 +271,25 @@
                                 Margin="0,10,0,0">
 
                         <TextBlock Text="截止时间"                                  
-                                   Margin="0,15,15,0"
+                                   Margin="0,0,15,0"
                                    Height="30" 
                                    FontWeight="Bold"
                                    FontFamily="YouYuan"
                                    FontSize="16" />
-                        <StackPanel Orientation="Vertical">
-                        <DatePicker
-                            
+
+                        <StackPanel Orientation="Vertical"
+                                    Width="300"
+                                    Margin="5,10,0,0">
+
+                        <DatePicker                           
                             Name="DeadlineDate"                                                  
-                            Width="100"
-                            Margin="5,10,0,0" />
+                            Width="300"
+                             />
+
                         <TimePicker Name="DeadlineTime"
-                                    Width="100"
-                                   
-                                    Margin="5,10,0,0"
+                                    HorizontalAlignment="Center" 
+                                    Width="300"
+                                    Margin="0，5,0,0"
                             />
                         </StackPanel>
                     </StackPanel>
@@ -303,7 +309,7 @@
                             PlaceholderText="请设置任务积分"
                             Name="PointsTextBox"
                             Text="{Binding ToAddMission.Points ,Mode=TwoWay }"                           
-                            Width="200"
+                            Width="300"
                             Margin="5,10,0,0" />
 
                     </StackPanel>
@@ -325,7 +331,7 @@
                             Margin="5,10,0,0"
                             DisplayMemberPath="Item1"
                             SelectedValuePath="Item2"
-                            Width="200"
+                            Width="300"
                             SelectionChanged="Selector_OnSelectionChanged">
                             <ComboBoxItem Name="TakeOver">代课</ComboBoxItem>
                             <ComboBoxItem Name="Delivery">外卖</ComboBoxItem>
