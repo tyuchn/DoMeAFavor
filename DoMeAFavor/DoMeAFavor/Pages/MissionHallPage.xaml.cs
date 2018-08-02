@@ -89,7 +89,8 @@ namespace DoMeAFavor
         {
            
             DeadlineDate.Date= DateTime.Now;
-            //DeadlineTime.Time= DateTime.Now.TimeOfDay;
+            DeadlineTime.Time= DateTime.Now.TimeOfDay;
+            sul = DeadlineTime.Time;
            var viewModel = (HallPageViewModel)DataContext;
             if (GlobalClass.j == 1)
             {
@@ -141,12 +142,17 @@ namespace DoMeAFavor
             viewModel.ListCommand.Execute(null);
            
         }
-
-        private void AddMissionContent_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        /// <summary>
+        /// 截止时间
+        /// </summary>
+        private string deadline;
+        private TimeSpan sul;
+        private  void AddMissionContent_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
            
             var ViewModel = (HallPageViewModel)DataContext;
-            ViewModel.ToAddMission.Deadline = Convert.ToDateTime(DeadlineDate.Date.ToString());
+            deadline = DeadlineDate.Date.Add(DeadlineTime.Time-sul).ToString();
+            ViewModel.ToAddMission.Deadline = Convert.ToDateTime(deadline);
         }
 
         private void AddMissionContent_CloseButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)

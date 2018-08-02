@@ -274,13 +274,18 @@
                                    FontWeight="Bold"
                                    FontFamily="YouYuan"
                                    FontSize="16" />
-
-                        <CalendarDatePicker
-                            PlaceholderText="截止时间"
+                        <StackPanel Orientation="Vertical">
+                        <DatePicker
+                            
                             Name="DeadlineDate"                                                  
-                            Width="200"
+                            Width="100"
                             Margin="5,10,0,0" />
-
+                        <TimePicker Name="DeadlineTime"
+                                    Width="100"
+                                   
+                                    Margin="5,10,0,0"
+                            />
+                        </StackPanel>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal"
