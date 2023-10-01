@@ -142,7 +142,7 @@
       <Version>1.2.1</Version>
     </PackageReference>
     <PackageReference Include="MvvmLightLibs">
-      <Version>5.4.1</Version>
+      <Version>5.4.1.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
